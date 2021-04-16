@@ -1,0 +1,4 @@
+Lunch|Dinner|Breakfast
+Must eat times
+S.*
+SNACK TIME!
