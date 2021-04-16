@@ -1,0 +1,6 @@
+Breakfast
+Not Dinner
+Lunch
+Not Dinner
+Dinner
+Supper
