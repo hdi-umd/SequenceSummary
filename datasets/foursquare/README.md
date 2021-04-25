@@ -19,3 +19,9 @@ The > `tokyo.txt` dataset is analyzed in  `TKY Checkins.ipynb`
 
 1. `ny_dict_final.txt` contains the venue category aggregation rules for `nyc.txt`
 2. `tky_dict_final.txt` contains the venue category aggregation rules for `tokyo.txt`
+
+## The processed dataset
+
+1. `saggr_fr_nyc.txt` contains aggregated categories for `nyc.txt` data using rules mentioned in `ny_dict_final.txt`
+2. `saggr_fr_tky.txt` contains aggregated categories for `tokyo.txt` data using rules mentioned in `tky_dict_final.txt`
+
