@@ -1,0 +1,394 @@
+Restaurant
+Restaurant
+Japanese Restaurant
+Restaurant
+French Restaurant
+Restaurant
+Chinese Restaurant
+Restaurant
+Korean Restaurant
+Restaurant
+Asian Restaurant
+Restaurant
+Italian Restaurant
+Restaurant
+Indian Restaurant
+Restaurant
+Sushi Restaurant
+Restaurant
+Dumpling Restaurant
+Restaurant
+Thai Restaurant
+Restaurant
+Seafood Restaurant
+Restaurant
+American Restaurant
+Restaurant
+Eastern European Restaurant
+Restaurant
+Caribbean Restaurant
+Restaurant
+Spanish Restaurant
+Restaurant
+Vegetarian / Vegan Restaurant
+Restaurant
+German Restaurant
+Restaurant
+Vietnamese Restaurant
+Restaurant
+Swiss Restaurant
+Restaurant
+Dim Sum Restaurant
+Restaurant
+Tapas Restaurant
+Restaurant
+Mexican Restaurant
+Restaurant
+Turkish Restaurant
+Restaurant
+Mediterranean Restaurant
+Restaurant
+Latin American Restaurant
+Restaurant
+Brazilian Restaurant
+Restaurant
+Ethiopian Restaurant
+Restaurant
+Middle Eastern Restaurant
+Restaurant
+Peruvian Restaurant
+Restaurant
+Moroccan Restaurant
+Restaurant
+Cuban Restaurant
+Restaurant
+Portuguese Restaurant
+Restaurant
+Scandinavian Restaurant
+Restaurant
+African Restaurant
+Restaurant
+Malaysian Restaurant
+Restaurant
+Southern / Soul Food Restaurant
+Restaurant
+Argentinian Restaurant
+Restaurant
+Cajun / Creole Restaurant
+Restaurant
+South American Restaurant
+Restaurant
+Arepa Restaurant
+Restaurant
+Gluten-free Restaurant
+Restaurant
+Afghan Restaurant
+Restaurant
+Falafel Restaurant
+Restaurant
+Australian Restaurant
+Restaurant
+Filipino Restaurant
+Restaurant
+Arepa Restaurant
+Restaurant
+Diner
+Restaurant
+Steakhouse
+Restaurant
+Greek Restaurant
+Restaurant
+Molecular Gastronomy Restaurant
+Restaurant
+Store
+Store
+Convenience Store
+Store
+Furniture / Home Store
+Store
+Candy Store
+Store
+Toy / Game Store
+Store
+Electronics Store
+Store
+Department Store
+Store
+Arts & Crafts Store
+Store
+Bookstore
+Store
+Clothing Store
+Store
+Drugstore / Pharmacy
+Store
+Camera Store
+Store
+Music Store
+Store
+Hardware Store
+Store
+Paper / Office Supplies Store
+Store
+Video Game Store
+Store
+Pet Store
+Store
+Thrift / Vintage Store
+Store
+Jewelry Store
+Store
+Video Store
+Store
+Cosmetics Shop
+Shop
+Flower Shop
+Shop
+Miscellaneous Shop
+Shop
+Smoke Shop
+Shop
+Automotive Shop
+Shop
+Mobile Phone Shop
+Shop
+Shop & Service
+Shop
+Hobby Shop
+Shop
+Gift Shop
+Shop
+Bike Shop
+Shop
+Record Shop
+Shop
+Sporting Goods Shop
+Shop
+Antique Shop
+Shop
+Board Shop
+Shop
+Motorcycle Shop
+Shop
+Bridal Shop
+Shop
+Fast Food Restaurant
+Fast Food
+Coffee Shop
+Fast Food
+Donut Shop
+Fast Food
+Dessert Shop
+Fast Food
+Food & Drink Shop
+Fast Food
+Ice Cream Shop
+Fast Food
+Bagel Shop
+Fast Food
+Cupcake Shop
+Fast Food
+Bakery
+Fast Food
+Fish & Chips Shop
+Fast Food
+Breakfast Spot
+Fast Food
+Burrito Place
+Fast Food
+Taco Place
+Fast Food
+Salad Place
+Fast Food
+Pizza Place
+Fast Food
+Soup Place
+Fast Food
+Sandwich Place
+Fast Food
+Snack Place
+Fast Food
+Mac & Cheese Joint
+Fast Food
+Fried Chicken Joint
+Fast Food
+BBQ Joint
+Fast Food
+Burger Joint
+Fast Food
+Hot Dog Joint
+Fast Food
+Wings Joint
+Fast Food
+Deli / Bodega
+Fast Food
+Gaming Cafe
+Cafe
+Internet Cafe
+Cafe
+Café
+Cafe
+Salon / Barbershop
+Salon
+Tanning Salon
+Salon
+Nail Salon
+Salon
+Spa / Massage
+Salon
+Fraternity House
+Fraternity
+Sorority House
+Fraternity
+General College & University
+General College & University
+University
+General College & University
+Community College
+General College & University
+College & University
+General College & University
+College Stadium
+General College & University
+College Theater
+General College & University
+College Academic Building
+General College & University
+Student Center
+General College & University
+Music School
+Speciality Schools
+Law School
+Speciality Schools
+Trade School
+Speciality Schools
+Medical School
+Speciality Schools
+School
+Schools
+Nursery School
+Schools
+Elementary School
+Schools
+Middle School
+Schools
+High School
+Schools
+Distillery
+Alcohol
+Winery
+Alcohol
+Brewery
+Alcohol
+Gastropub
+Alcohol
+Beer Garden
+Alcohol
+Bar
+Alcohol
+History Museum
+Museum
+Museum
+Museum
+Art Museum
+Museum
+Science Museum
+Museum
+Outdoors & Recreation
+Outdoor
+Other Great Outdoors
+Outdoor
+Sculpture Garden
+Outdoor
+Scenic Lookout
+Outdoor
+Campground
+Outdoor
+Garden
+Outdoor
+Shrine
+Spiritual
+Temple
+Spiritual
+Mosque
+Spiritual
+Synagogue
+Spiritual
+Church
+Spiritual
+Spiritual Center
+Spiritual
+Arts & Entertainment
+Arts & Entertainment
+Public Art
+Arts & Entertainment
+Performing Arts Venue
+Arts & Entertainment
+Art Gallery
+Arts & Entertainment
+Music Venue
+Arts & Entertainment
+Concert Hall
+Arts & Entertainment
+Theater
+Arts & Entertainment
+Movie Theater
+Arts & Entertainment
+Comedy Club
+Arts & Entertainment
+Casino
+General Entertainment
+Racetrack
+General Entertainment
+Convention Center
+Event Space
+Event Space
+Event Space
+Travel & Transport
+Travel & Transport
+General Travel
+Travel & Transport
+Travel Lounge
+Travel & Transport
+Taxi
+Travel & Transport
+Airport
+Travel & Transport
+Bus Station
+Travel & Transport
+Light Rail
+Travel & Transport
+Ferry
+Travel & Transport
+Bridge
+Travel & Transport
+Road
+Travel & Transport
+Rest Area
+Travel & Transport
+Train Station
+Railway
+Subway
+Railway
+Nightlife Spot
+Nightlife
+Other Nightlife
+Nightlife
+Plaza
+Mall
+Mall
+Mall
+Planetarium
+Recreation
+Park
+Recreation
+Zoo
+Recreation
+Playground
+Recreation
+Pool Hall
+Indoor Games
+Arcade
+Indoor Games
+Bowling Alley
+Indoor Games
