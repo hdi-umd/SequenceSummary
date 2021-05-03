@@ -1,4 +1,4 @@
-# Foursquare dataset
+# Coronanet dataset
 
 ## The raw dataset
 

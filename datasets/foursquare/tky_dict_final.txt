@@ -276,6 +276,8 @@ Gastropub
 Alcohol
 Beer Garden
 Alcohol
+Bar
+Alcohol
 History Museum
 Museum
 Museum
