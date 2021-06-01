@@ -2,6 +2,9 @@
 
 Given a list of Events splitted by some time or some other attribute value, we can create a list of sequence the following way.
 
+    # Importing point events from an example dataset
+    sequence_braiding = EventStore.importPointEvents(Path_to_csv, 0, "%m/%d/%y", sep=',', local=True)
+
     # Here sequence_braiding is a list of events
     sequence_braiding_split=EventStore.splitSequences(sequence_braiding, "week")
     seq_list=[]
