@@ -9,3 +9,12 @@ Given a list of Events splitted by some time or some other attribute value, we c
         seq_list.append(Sequence(seqs))
     # create a dictionary mapping attribute values to unicode    
     Sequence.create_attr_dict(seq_list)
+
+    # Convert the attribute values to a VMSP readable string
+    raw_seq="\n".join( seqs.convertToVMSPReadable('Meal') for seqs in seq_list)
+    # Initiate spmf
+    spmf = Spmf("VMSP", spmf_bin_location_dir="./test_files/", input_direct=raw_seq,
+             input_type="text", output_filename="output.txt", arguments=[0.5])
+    spmf.run()
+    print(spmf.to_pandas_dataframe(pickle=True))
+    
