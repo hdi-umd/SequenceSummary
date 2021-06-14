@@ -1,4 +1,4 @@
-from .EventRepresentation import IntervalEvent
+from EventRepresentation import IntervalEvent
 import pandas as pd
 import requests
 import os

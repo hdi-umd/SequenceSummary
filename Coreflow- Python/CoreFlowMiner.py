@@ -1,6 +1,6 @@
-from .Sequence import Sequence
-from .TreeNode import TreeNode
-from .OccurrencesMeanRankingFunction import OccurrencesMeanRankingFunction
+from Sequence import Sequence
+from TreeNode import TreeNode
+from OccurrencesMeanRankingFunction import OccurrencesMeanRankingFunction
 
 class CoreFlowMiner:
     rf=OccurrencesMeanRankingFunction()
