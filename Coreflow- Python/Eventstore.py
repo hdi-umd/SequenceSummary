@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
-from .helper import get_dataframe, get_time_to_sort_by, insert_event_into_dict
-from .EventRepresentation import PointEvent, IntervalEvent
-from .Sequence import Sequence
+from helper import get_dataframe, get_time_to_sort_by, insert_event_into_dict
+from EventRepresentation import PointEvent, IntervalEvent
+from Sequence import Sequence
 class EventStore:
     #should be moved to EventStore
     
