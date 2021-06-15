@@ -1,25 +1,26 @@
 #collection of events sharing similar property 
 
 from itertools import count
-class Sequence:
+from Event import Event
+class Sequence():
     _ids = count(0)
     
-    attrdict={}
-    reverseatttrdict={}
-    def __init__(self, events, sid=None):
+
+    def __init__(self,  eventlist, eventstore,sid=None):
         # sequence id
         if sid is None:
             self.sid = next(self._ids)
         else:
             self.sid = sid
         
-        self.events = events
+        self.events = eventlist
+        self.eventstore=eventstore
         self.volume=1
         self.seqAttributes={}
     def getEventPosition(self, attr, hash_val):
         for count,event in enumerate(self.events):
             #if event.getAttrVal(attr)==hash_val:
-            if Sequence.attrdict[attr][event.getAttrVal(attr)]==hash_val:
+            if self.eventstore.attrdict[attr][event.getAttrVal(attr)]==hash_val:
                 return count
         return -1
     
@@ -33,13 +34,9 @@ class Sequence:
         self.volume += 1 
     
     
-    def getUniqueValues(self, attr):
-        l=list(set(event.getAttrVal(attr) for event in self.events))
-        return l
-    
     def getUniqueValueHashes(self, attr):
         l=list(set(event.getAttrVal(attr) for event in self.events))
-        uniquelist=[Sequence.attrdict[attr][elem] for elem in l]
+        uniquelist=[self.eventstore.attrdict[attr][elem] for elem in l]
         return uniquelist
     
     #Not sure this will always result in same index, will change if 
@@ -49,13 +46,13 @@ class Sequence:
     def getHashList(self, attr):
         #l=list(list(event.attributes.keys()).index(attr) for event in self.events)
         l=[event.getAttrVal(attr) for event in self.events]
-        hashlist=[Sequence.attrdict[attr][elem] for elem in l]
+        hashlist=[self.eventstore.attrdict[attr][elem] for elem in l]
         
         return hashlist
     
     def getValueHashes(self, attr):
         l=list(event.getAttrVal(attr) for event in self.events)
-        hashlist=[Sequence.attrdict[attr][elem] for elem in l]
+        hashlist=[self.eventstore.attrdict[attr][elem] for elem in l]
         
         return hashlist
         
@@ -65,12 +62,12 @@ class Sequence:
         l=list(event.getAttrVal(attr) for event in self.events)
         #for count,event in enumerate(self.events):
         #    s+=str(event.getAttrVal(attr))+" "
-        s+="".join(str(Sequence.attrdict[attr][elem]) for elem in l)
+        s+="".join(str(self.eventstore.attrdict[attr][elem]) for elem in l)
         return s
     
     def convertToVMSPReadablenum(self, attr):
         l=list(event.getAttrVal(attr) for event in self.events)
-        s=" -1 ".join(str(Sequence.attrdict[attr][elem]) for elem in l)
+        s=" -1 ".join(str(self.eventstore.attrdict[attr][elem]) for elem in l)
         #s=""
         #for count,event in enumerate(self.events):
         #    s+=str(event.getAttrVal(attr))+" -1 "
@@ -80,7 +77,7 @@ class Sequence:
     
     def convertToVMSPReadable(self, attr):
         l=list(event.getAttrVal(attr) for event in self.events)
-        s=" ".join(Sequence.attrdict[attr][elem] for elem in l)
+        s=" ".join(self.eventstore.attrdict[attr][elem] for elem in l)
         #s=""
         #for count,event in enumerate(self.events):
         #    s+=str(event.getAttrVal(attr))+" -1 "
@@ -91,9 +88,9 @@ class Sequence:
     def getPathID(self):
         return self.sid
     
-    def matchPathAttribute(self, attr):
+    def matchPathAttribute(self, attr, val):
         # should i use eq?!
-        if this.seqAttributes.get(attr)==(val):
+        if self.seqAttributes.get(attr)==(val):
             return True
         else:
             return False
@@ -104,18 +101,20 @@ class Sequence:
          
 
     # equivalent to method signature public static int getVolume(List<Sequence> seqs)    
-    def getSeqVolume(seqlist):
+    def getSeqVolume( seqlist):
         return sum(seq.getVolume() for seq in seqlist)
     
     
     # Method equivalent to public String getEvtAttrValue(String attr, int hash) in DataManager.java
-    def getEvtAttrValue(attr, hashval):
-        return Sequence.reverseatttrdict[attr][hashval]
+    def getEvtAttrValue(self, attr, hashval):
+        return self.eventstore.reverseatttrdict[attr][hashval]
         
     # Method equivalent to public List<String> getEvtAttrValues(String attr) in DataManager.java    
-    def getEvtAttrValues(attr):
-        return list(Sequence.reverseatttrdict[attr].values())
+    def getEvtAttrValues(self, attr):
+        return list(self.eventstore.reverseatttrdict[attr].values())
     
     # Method equivalent to int getEvtAttrValueCount(String attr) in DataManager.java    
-    def getEvtAttrValueCount(attr):
-        return len(Sequence.reverseatttrdict[attr])
+    def getEvtAttrValueCount(self, attr):
+        return len(self.eventstore.reverseatttrdict[attr])
+    
+    

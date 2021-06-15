@@ -1,9 +1,16 @@
 from datetime import datetime, timedelta
 from helper import get_dataframe, get_time_to_sort_by, insert_event_into_dict
-from EventRepresentation import PointEvent, IntervalEvent
+from Event import PointEvent, IntervalEvent
 from Sequence import Sequence
 class EventStore:
+    
+    def __init__(self, eventlist=[]):
+        self.attrdict={}
+        self.reverseatttrdict={}
+        self.events=eventlist
+
     #should be moved to EventStore
+    # hold the list of events, also the dictionaries
     
     # Returns a list of event objects
     # src is a url or directory path, if local is false its url else its path
@@ -11,8 +18,8 @@ class EventStore:
     # The foursquare datasets are all using a differnet encoding that pandas cannot auto identify so for those
     # I thought the simplest thing was just to give this function the df and then use that instead of calling my helper
     # for those cases
-    @staticmethod
-    def importPointEvents(src, timestampColumnIdx, timeFormat, sep='\t', local=False, header=[], df=None):
+    #@staticmethod
+    def importPointEvents(self, src, timestampColumnIdx, timeFormat, sep='\t', local=False, header=[], df=None):
         events = []
         # if the df is not provided
         if df is None:
@@ -30,17 +37,18 @@ class EventStore:
             # use time stamp and attributes map to construct event object
             e = PointEvent(timestamp, attribs)
             events.append(e)
-        sequence=Sequence(events)
-        EventStore.create_attr_dict(sequence)
-        return sequence
+        self.events=events
+        #sequence=Sequence(events)
+        self.create_attr_dict()
+        #return sequence
 
     # Returns a list of event objects
     # src is a url or directory path, if local is false its url else its path
     # The foursquare datasets are all using a differnet encoding that pandas cannot auto identify so for those
     # I thought the simplest thing was just to give this function the df and then use that instead of calling my helper
     # for those cases
-    @staticmethod
-    def importIntervalEvents(src, startTimeColumnIdx, endTimeColumnIdx, timeFormat, sep="\t", local=False, header=[], df=None):
+    #@staticmethod
+    def importIntervalEvents(self, src, startTimeColumnIdx, endTimeColumnIdx, timeFormat, sep="\t", local=False, header=[], df=None):
         events = []
         # if the df is not provided
         if df is None:
@@ -60,17 +68,18 @@ class EventStore:
             # use time stamp and attributes map to construct event object
             e = IntervalEvent(t1, t2, attribs)
             events.append(e)
-        sequence=Sequence(events)
-        EventStore.create_attr_dict(sequence)
-        return sequence
+        self.events=events    
+        #sequence=Sequence(events)
+        self.create_attr_dict()
+        #return sequence
 
     # Import a dataset that has both interval and point events
     # Returns a list of event objects
     # src is a url or directory path, if local is false its url else its path
     # The foursquare datasets are all using a differnet encoding that pandas cannot auto identify so for those
     # I thought the simplest thing was just to give this function the df and then use that instead of calling my helper
-    @staticmethod
-    def importMixedEvents(src, startTimeColumnIdx, endTimeColumnIdx, timeFormat, sep="\t", local=False, header=[], df=None):
+    #@staticmethod
+    def importMixedEvents(self, src, startTimeColumnIdx, endTimeColumnIdx, timeFormat, sep="\t", local=False, header=[], df=None):
         events = []
         # if the df is not provided
         if df is None:
@@ -101,16 +110,17 @@ class EventStore:
             else:
                 e = IntervalEvent(t1, t2, attribs)
             events.append(e)
-        sequence=Sequence(events)
-        EventStore.create_attr_dict(sequence)
-        return sequence
+        self.events=events   
+        #sequence=Sequence(events)
+        self.create_attr_dict()
+        #return sequence
 
-
+    #should take an eventlist as input
     # Group events by attributeName, and order them by timestamp
-    @staticmethod
+    #@staticmethod
     #should return a list of sequences
-    def generateSequence(sequence, attributeName):
-        eventList=sequence.events
+    def generateSequence(self, attributeName):
+        eventList=self.events
         grouped_by = {}
         # Sort the event list
         eventList = sorted(eventList, key=get_time_to_sort_by)
@@ -122,7 +132,11 @@ class EventStore:
             # otherwise store a new list with just that event
             else:
                 grouped_by[value] = [event]
-        return list(grouped_by.values())
+        sequences= list(grouped_by.values())
+        seqlist=[]
+        for seq in sequences:
+            seqlist.append(Sequence(seq, self))
+        return seqlist
     
     # Split a long sequence into shorter ones by timeUnit. For example, a sequence may span several days and we want to 
     # break it down into daily sequences. The argument timeUnit can be one of the following strings: “hour”, “day”, 
@@ -136,6 +150,7 @@ class EventStore:
     def splitSequences(sequenceLists, timeUnit, record=None):
         if not isinstance(sequenceLists, list):
             sequenceLists=[sequenceLists]
+        eventstore=sequenceLists[0].eventstore
         results = []
         resultlist=[]
         timeUnit = timeUnit.lower()
@@ -242,20 +257,24 @@ class EventStore:
                         event.attributes[record]=str(event.attributes[record])+"_"+str(key[0])+str(key[1])
                 results = list(quarters.values())
             resultlist.extend(results)
-        resultlists= [Sequence(x) for x in resultlist]
+        resultlists= [Sequence(x, eventstore) for x in resultlist]
 
         return resultlists
     
+    def getUniqueValues(self, attr):
+        l=list(set(event.getAttrVal(attr) for event in self.events))
+        return l
+    
     #Assuming we are given a list of events and from those events we create 
     #the mapping and reverse mapping dictionary
-    def create_attr_dict(seqList):
-        attr_list=seqList.events[0].attributes.keys()
+    def create_attr_dict(self):
+        attr_list=self.events[0].attributes.keys()
         print(attr_list)
         
         for attr in attr_list:
             a=48
             unique_list=[]
-            unique_list.extend(seqList.getUniqueValues(attr))
+            unique_list.extend(self.getUniqueValues(attr))
             unique_list=list(set(unique_list))
             #unique_list.clear()
             
@@ -265,6 +284,7 @@ class EventStore:
                 unicode_dict[uniques]=chr(a)
                 reverse_dict[chr(a)]=uniques
                 a=a+1
-            Sequence.attrdict[attr]=unicode_dict
-            Sequence.reverseatttrdict[attr]=reverse_dict
-            #unicode_dict.clear()
+            self.attrdict[attr]=unicode_dict
+            self.reverseatttrdict[attr]=reverse_dict
+            #unicode_dict.clear()                    
+   

@@ -1,5 +1,6 @@
 from itertools import count
 import numpy as np
+import json
 class Pattern:
     _pids = count(1)
 
@@ -61,7 +62,7 @@ class Pattern:
         self.keyEvts.append(hashval)
         
     def addToSupportSet(self, seq):
-        print(seq.sid)
+        #print(seq.sid)
         self.sids.append(seq)
         self.support+=seq.getVolume()
         
@@ -121,12 +122,12 @@ class Pattern:
     
     def computePatternStats(self, evtAttr):
         pathsOfStrings=[]
-        print(f' sids {self.sids}')
+        #print(f' sids {self.sids}')
         for path in self.sids:
             pageSequence=path.getHashList(evtAttr)
             pathsOfStrings.append(pageSequence)
         
-        print(f'path of string {pathsOfStrings}')
+        #print(f'path of string {pathsOfStrings}')
         medians=[]
         means=[]
         
@@ -171,12 +172,10 @@ class Pattern:
         
         self.setMedianPathLength(median+medians[-1])
         self.setMeanPathLength(mean+means[-1])
-        print(self.medianPathLength)
-        print(self.meanPathLength)
                                   
     def getMedianPositions(self, allPos, pids):
         median=[]
-        for k in range(0, len(pid)):
+        for k in range(0, len(pids)):
             posInPaths=allPos[k]
             median.append(self.getMedian(posInPaths))
         #return list(self.getMedian(posInPaths) for posInPaths in allPos)
@@ -226,3 +225,4 @@ class Pattern:
     def setSupport(self, sup, total):
         self.support=sup
         self.supPercent= sup*1.0/total
+    
