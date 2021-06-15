@@ -3,12 +3,13 @@ import numpy as np
 import json
 from datetime import datetime, timedelta
 
-class TreeNode:
+class TreeNode():
     NID=count(1)
     nodeHash={}
     
     
     def __init__(self, name="", count=0, value=""):
+        super().__init__()
         self.nid=next(self.NID)
         self.name=name
         self.seqCount=count
@@ -18,11 +19,11 @@ class TreeNode:
         self.pos=[]
         self.meanStep=0
         self.medianStep=0
-        self.zipCompressRatio=0
+        #self.zipCompressRatio=0
         self.incomingBranchUniqueEvts=None
-        self.incomingBranchSimMean=None
-        self.incomingBranchSimMedian=None
-        self.incomingBranchSimVariance=None
+        #self.incomingBranchSimMean=None
+        #self.incomingBranchSimMedian=None
+        #self.incomingBranchSimVariance=None
         
         self.incomingSequences=[]
         self.outgoingSequences=[]
@@ -31,7 +32,7 @@ class TreeNode:
         self.medianRelTimestamp=0
         
         TreeNode.nodeHash[self.nid]=self
-        
+        self.children = []
         
     def getNode(self, node_id):
         return nodeHash[node_id]
@@ -72,7 +73,7 @@ class TreeNode:
         
         if len(self.pos)==0:
             self.meanStep=0
-            self.medianStep=0
+            slf.medianStep=0
         else:
             #WHY WE ARE ADDING 1 to mean and medianStep?
             self.meanStep=d/len(self.pos)
@@ -87,11 +88,11 @@ class TreeNode:
     def getMedianStep(self):
         return self.medianStep
     
-    def getZipCompressRatio(self):
-        return self.zipCompressRatio
+    #def getZipCompressRatio(self):
+    #    return self.zipCompressRatio
     
-    def setZipCompressRatio(self, zipcompressratio):
-        self.zipCompressRatio=zipcompressratio
+    #def setZipCompressRatio(self, zipcompressratio):
+    #    self.zipCompressRatio=zipcompressratio
         
     def getIncomingBranchUniqueEvts(self):
         return self.incomingBranchUniqueEvts
@@ -99,20 +100,20 @@ class TreeNode:
     def setIncomingBranchUniqueEvts(self, incomingbranchuniqueevts):
         self.incomingBranchUniqueEvts=incomingbranchuniqueevts
         
-    def setIncomingBranchSimilarityStats(self, mean, median, variance):
-        self.incomingBranchSimMean=mean
-        self.incomingBranchSimMedian=median
-        self.incomingBranchSimVariance=variance
+    #def setIncomingBranchSimilarityStats(self, mean, median, variance):
+    #    self.incomingBranchSimMean=mean
+    #    self.incomingBranchSimMedian=median
+    #    self.incomingBranchSimVariance=variance
         
     
     def setIncomingSequences(self, incomingbrancseqs, evtattr):
         self.incomingSequences=incomingbrancseqs
         
     def setRelTimeStamps(self, reltimestamps):
-        print(f'Time Stamp {reltimestamps}')
+        #print(f'Time Stamp {reltimestamps}')
         #print(f'Time Stamp {type(reltimestamps[0])}')
         reltimestamps.sort()
-        print(f'Time Stamp {reltimestamps}')
+        #print(f'Time Stamp {reltimestamps}')
         #print(f'Time Stamp {type(reltimestamps[0])}')
         
         d=sum(reltimestamps, timedelta())
@@ -128,11 +129,41 @@ class TreeNode:
             self.meanRelTimestamp=d*1.0/len(reltimestamps)
             self.medianRelTimestamp=np.median(reltimestamps) #(reltimestamps[mid-1]+reltimestamps[mid])/2.0 if len(reltimestamps%2==0) else reltimestamps[mid]
         
-        print(f'Time Stamp {self.meanRelTimestamp}')
-        print(f'Time Stamp {self.meanRelTimestamp}')
+        #print(f'Time Stamp {self.meanRelTimestamp}')
+        #print(f'Time Stamp {self.meanRelTimestamp}')
         
-    def getHash():
+    def getHash(self):
+        
         return self.hash
         
     def setHash(self, value):
         self.hash=value
+        
+        
+        
+    #def json_serialize(self):
+    #    json.dump(self, indent=4, default= TreeNode.json_default_dump)
+    def json_default_dump(self)-> dict:
+        return {
+            "event_attribute": self.hash,
+            "value": self.seqCount,
+            "median_index": self.medianStep,
+            "average_index":self.meanStep,
+
+            "children":[TreeNode.json_serialize_dump(x) for x in self.children]
+            
+        }
+    
+    def json_serialize(self) -> None:
+    
+        json.dump(self,  indent=4, default=TreeNode.json_serialize_dump)
+    
+    @staticmethod
+    def json_serialize_dump(obj):
+    
+        if hasattr(obj, "json_default_dump"):
+            
+            return obj.json_default_dump()
+        return None
+
+    

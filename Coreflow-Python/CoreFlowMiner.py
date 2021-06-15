@@ -1,19 +1,20 @@
 from Sequence import Sequence
 from TreeNode import TreeNode
-from OccurrencesMeanRankingFunction import OccurrencesMeanRankingFunction
+from OccurrencesMeanRankingFunction import OcccurrencesMeanRankingFunction
 
 class CoreFlowMiner:
-    rf=OccurrencesMeanRankingFunction()
+    
+    rf=OcccurrencesMeanRankingFunction()
     # Implement CoreFlow algo which takes a list of sequences, a TreeNode (root), and a bunch of CoreFlow parameters 
 
     def __init__(self):
         self.branchSequences={}
         
     
-    def checkForStop(seqs, minval, checkpoints):
+    def checkForStop(self, seqs, minval, checkpoints):
         pass
     
-    def adjustMin(seqs, minval):
+    def adjustMin(self, seqs, minval):
         if minval<50 :
             return minval
         
@@ -34,19 +35,21 @@ class CoreFlowMiner:
             node.setHash(-1)
             
         else:
-            node.setName(str(Sequence.getEvtAttrValue(attr,exitNodeHash)))
-            node.setValue(Sequence.getEvtAttrValue(attr,exitNodeHash))
+            node.setName(str(seqs[0].getEvtAttrValue(attr,exitNodeHash)))
+            
+            #set attribute value for this sequence
+            node.setValue(seqs[0].getEvtAttrValue(attr,exitNodeHash))
             node.setHash(exitNodeHash)
         
         node.setIncomingSequences(seqs, attr)
         node.setSeqCount(Sequence.getSeqVolume(seqs))
-        
+        print(f'exit node seq count {node.seqCount}')
         lengths=[]
         for s in seqs:
             for i in range(0,s.getVolume()):
                 lengths.append(len(s.events)-1)
         node.setPositions(lengths)
-        parent.append(node)
+        parent.children.append(node)
         
     #needs properimplementation    
     def getNewRootNode(self, numPaths, seqlist):
@@ -59,40 +62,47 @@ class CoreFlowMiner:
         relTimestamps=[]
         incomingBranchSeqs=[]
         
+        print(f'hashval {hashval}')
         for seq in seqs:
             i=seq.getEventPosition(evtAttr, hashval)
-            print(i)
-            if i is None:
+            print(f'Position {i}')
+            if i<0:
                 notContain.append(seq)
+                print(f'not contain {seq.getHashList(evtAttr)}')
             else:
-                if i>1:
-                    incomingSeq= Sequence(seq.events[0:i])
+                if i>=1:
+                    incomingSeq= Sequence(seq.events[0:i], seq.eventstore)
                     self.branchSequences[incomingSeq.getPathID()]= incomingSeq
                     incomingSeq.setVolume(seq.getVolume())
                     incomingBranchSeqs.append(incomingSeq)
-                    
+                    print(f'previous {incomingSeq.getHashList(evtAttr)}')
                     uniqueEvts.extend(incomingSeq.getUniqueValueHashes(evtAttr))
                     
-                if len(seq.events)>i+2:
-                    outgoingSeq= Sequence(seq.events[i+1:len(seq.events)])
+                if len(seq.events)>i+1:
+                    outgoingSeq= Sequence(seq.events[i+1:len(seq.events)], seq.eventstore)
                     self.branchSequences[outgoingSeq.getPathID()]= outgoingSeq
                     
                     outgoingSeq.setVolume(seq.getVolume())
                     trailingSeqSegs.append(outgoingSeq)
+                    print(f'next {outgoingSeq.getHashList(evtAttr)}')
                     
                 for k in range(0, seq.getVolume()):
                     indices.append(i)
                 relTimestamps.append(seq.events[i].timestamp-seq.events[0].timestamp)
-        print(f'Time Stamp {relTimestamps}')
-        print(f'unique {uniqueEvts}')
-        print(f'unique {set(uniqueEvts)}')
-        print(f'unique {len(set(uniqueEvts))}')
+        #print(f'Time Stamp {relTimestamps}')
+        #print(f'unique {uniqueEvts}')
+        #print(f'unique {set(uniqueEvts)}')
+        #print(f'unique {len(set(uniqueEvts))}')
                 
         node.setIncomingBranchUniqueEvts( len(set(uniqueEvts)) )
         node.setSeqCount(Sequence.getSeqVolume(incomingBranchSeqs))
         node.setPositions(indices)
         node.setRelTimeStamps(relTimestamps)
         node.setIncomingSequences(incomingBranchSeqs, evtAttr)
+        print(f'seq count {node.getSeqCount()}')
+        print(f' pos {node.pos}')
+        print(f'Seq len trailing {len(trailingSeqSegs)}')
+        print(f'Seq len not contain {len(notContain)}')
 
             
     def run(self, seqs, evtAttr, parent, minval, maxval, checkpoints, excludedEvts, exitNodeHash ):
@@ -104,31 +114,34 @@ class CoreFlowMiner:
             
             #First integer event
             hashval=checkpoints[0]
-            eVal=Sequence.getEvtAttrValue(evtAttr, hashval)
+            print(f'hashval {hashval}')
+            eVal=seqs[0].getEvtAttrValue(evtAttr, hashval)
+            print(f'eVal {eVal}')
             node.setName(str(eVal)) #NOT sure
             node.setValue(eVal)
             node.setHash(hashval)
             del checkpoints[0]
             self.truncateSequences(seqs, hashval, evtAttr, node, containSegs, notContain)
             
-            parent.append(node)
+            parent.children.append(node)
             
-            self.run(containSegs, evtAttr, [node], minval, maxval, checkpoints, excludedEvts, exitNodeHash)
-            self.run(notContain, evtAttr, [parent], minval, maxval, checkpoints, excludedEvts, exitNodeHash)
+            self.run(containSegs, evtAttr, node, minval, maxval, checkpoints, excludedEvts, exitNodeHash)
+            self.run(notContain, evtAttr, parent, minval, maxval, checkpoints, excludedEvts, exitNodeHash)
             
         else:
-            print(f'minval {minval}')
-            print(f'Seq volume {Sequence.getSeqVolume(seqs)}')
+            #print(f'minval {minval}')
+            #print(f'Seq volume {Sequence.getSeqVolume(seqs)}')
             if Sequence.getSeqVolume(seqs)<minval:
                 self.bundleToExit(seqs, parent, evtAttr, exitNodeHash)
                 return 
             
             else:
                 self.rf.setEvtAttr(evtAttr)
-                print(f'maxval {maxval}')
+                #print(f'maxval {maxval}')
                 self.rf.performRanking(seqs, maxval, excludedEvts)
                 topPattern=self.rf.getTopEventSet()
-                
+                print(f'topPattern {topPattern.keyEvts}')
+        
                 if topPattern is None:
                     print("no patterns found")
                     self.bundleToExit(seqs, parent, evtAttr, exitNodeHash)
@@ -138,7 +151,7 @@ class CoreFlowMiner:
                 
                 node= TreeNode()
                 hashval=topPattern.getEvents()[0]
-                eVal=Sequence.getEvtAttrValue(evtAttr, hashval)
+                eVal=seqs[0].getEvtAttrValue(evtAttr, hashval)
                 node.setName(str(eVal)) #NOT sure
                 node.setValue(eVal)
                 node.setHash(hashval)
@@ -147,9 +160,9 @@ class CoreFlowMiner:
                 node.setSeqCount(Sequence.getSeqVolume(containSegs))
                 
                 if node.getSeqCount()>minval:
-                    parent.append(node)
-                    self.run(containSegs, evtAttr, [node], minval, maxval, checkpoints, excludedEvts, exitNodeHash)
-                    self.run(notContain, evtAttr, [node], minval, maxval, checkpoints, excludedEvts, exitNodeHash)
+                    parent.children.append(node)
+                    self.run(containSegs, evtAttr, node, minval, maxval, checkpoints, excludedEvts, exitNodeHash)
+                    self.run(notContain, evtAttr, node, minval, maxval, checkpoints, excludedEvts, exitNodeHash)
                 
                 else:
                     self.bundleToExit(seqs, parent, evtAttr, exitNodeHash)
