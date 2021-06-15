@@ -1,3 +1,5 @@
+#collection of events sharing similar property 
+
 from itertools import count
 class Sequence:
     _ids = count(0)
