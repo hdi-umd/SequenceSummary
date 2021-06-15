@@ -1,6 +1,5 @@
 from Pattern import Pattern
-
-class OcccurrencesMeanRankingFunction:
+class OccurrencesMeanRankingFunction:
     def __init__(self):
         self.topRankedEvtValues=[]
         self.evtAttr=""
