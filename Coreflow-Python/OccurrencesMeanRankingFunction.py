@@ -68,7 +68,7 @@ class OcccurrencesMeanRankingFunction:
         
         #for patterns in s:
             #print(f'pat before sort {patterns.keyEvts}')
-        s=sorted(s, key= lambda x: x.getSupport())
+        s=sorted(s, key= lambda x: x.getSupport(), reverse=True)
         
         self.topRankedEvtValues=[]
         
