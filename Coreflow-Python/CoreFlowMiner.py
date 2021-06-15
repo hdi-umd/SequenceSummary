@@ -1,15 +1,17 @@
 from Sequence import Sequence
 from TreeNode import TreeNode
 from OccurrencesMeanRankingFunction import OcccurrencesMeanRankingFunction
+from FrequencyMedianRankingFunction import FrequencyMedianRankingFunction
+from helper import get_dataframe, get_time_to_sort_by, insert_event_into_dict
 
 class CoreFlowMiner:
     
-    rf=OcccurrencesMeanRankingFunction()
+    
     # Implement CoreFlow algo which takes a list of sequences, a TreeNode (root), and a bunch of CoreFlow parameters 
 
     def __init__(self):
         self.branchSequences={}
-        
+        self.rf=FrequencyMedianRankingFunction()
     
     def checkForStop(self, seqs, minval, checkpoints):
         pass
@@ -32,7 +34,7 @@ class CoreFlowMiner:
         if exitNodeHash==-1:
             node.setName("Exit")
             node.setValue("Exit")
-            node.setHash(-1)
+            node.setHash(-2)
             
         else:
             node.setName(str(seqs[0].getEvtAttrValue(attr,exitNodeHash)))
@@ -53,7 +55,8 @@ class CoreFlowMiner:
         
     #needs properimplementation    
     def getNewRootNode(self, numPaths, seqlist):
-        return TreeNode("Start of all "+ str(len(seqlist))+" visits", numPaths, "-1")
+        print("Start of all "+ str(len(seqlist))+" visits")
+        return TreeNode("root", numPaths, "-1")
     
     
     def truncateSequences(self, seqs, hashval, evtAttr, node,trailingSeqSegs, notContain):
@@ -62,10 +65,10 @@ class CoreFlowMiner:
         relTimestamps=[]
         incomingBranchSeqs=[]
         
-        print(f'hashval {hashval}')
+        #print(f'hashval {hashval}')
         for seq in seqs:
             i=seq.getEventPosition(evtAttr, hashval)
-            print(f'Position {i}')
+            #print(f'Position {i}')
             if i<0:
                 notContain.append(seq)
                 print(f'not contain {seq.getHashList(evtAttr)}')
@@ -100,7 +103,7 @@ class CoreFlowMiner:
         node.setRelTimeStamps(relTimestamps)
         node.setIncomingSequences(incomingBranchSeqs, evtAttr)
         print(f'seq count {node.getSeqCount()}')
-        print(f' pos {node.pos}')
+        #print(f' pos {node.pos}')
         print(f'Seq len trailing {len(trailingSeqSegs)}')
         print(f'Seq len not contain {len(notContain)}')
 
@@ -114,9 +117,9 @@ class CoreFlowMiner:
             
             #First integer event
             hashval=checkpoints[0]
-            print(f'hashval {hashval}')
+            #print(f'hashval {hashval}')
             eVal=seqs[0].getEvtAttrValue(evtAttr, hashval)
-            print(f'eVal {eVal}')
+            #print(f'eVal {eVal}')
             node.setName(str(eVal)) #NOT sure
             node.setValue(eVal)
             node.setHash(hashval)
