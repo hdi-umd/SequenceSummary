@@ -1,3 +1,4 @@
+#aggregating events that have similar properties if there is a large number of event types.
 import re
 
 # Helper function to run the mappings file as a dictionary
