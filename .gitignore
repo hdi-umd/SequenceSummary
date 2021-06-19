@@ -2,3 +2,5 @@
 *.csv
 Endomodo.lnk/
 .DS_Store
+__pycache__
+*.pyc
