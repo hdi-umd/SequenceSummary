@@ -74,6 +74,7 @@ def main():
 
     x=json.dumps(root, ensure_ascii=False, default=TreeNode.json_serialize_dump, indent=1)
     print(x)
+    
 #main()
 
 def run_spmf(sequence, attr, args=[0.5]):
@@ -119,6 +120,10 @@ if __name__ == "__main__":
     argparser.add_argument("--attr", help="Attribute to run mining on",
                             type=str, required=True)
 
+    argparser.add_argument("--output", help="Path of output file",
+                            type=str, default="")
+
+
 
     args = argparser.parse_args()
     print(args)
@@ -150,6 +155,11 @@ if __name__ == "__main__":
     
     x=json.dumps(root, ensure_ascii=False, default=TreeNode.json_serialize_dump, indent=1)
     print(x)
+    
+    with open(args.output+'outfile.txt', 'a') as the_file:
+        the_file.write(x)
+
+
 
 
     
