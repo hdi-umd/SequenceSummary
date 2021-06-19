@@ -2,6 +2,14 @@
 
 The coreflow implementation contains both spmf and coreflow mining techniques
 
+## Installation
+
+To run smpf we need to install the [smpf-py module] (https://pypi.org/project/spmf/)  
+
+> pip install spmf
+
+We also need the [smpf.jar file] (http://www.philippe-fournier-viger.com/spmf/download-spmfjar.php) and place that in the same directory as coreflow.
+
 ## Input
 
 Input has the folloing paramters
