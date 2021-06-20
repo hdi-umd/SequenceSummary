@@ -156,7 +156,7 @@ if __name__ == "__main__":
     x=json.dumps(root, ensure_ascii=False, default=TreeNode.json_serialize_dump, indent=1)
     print(x)
     
-    with open(args.output+'outfile.txt', 'a') as the_file:
+    with open(args.output+'outfile.json', 'w') as the_file:
         the_file.write(x)
 
 
