@@ -185,4 +185,33 @@ class TreeNode(Node):
             return obj.json_default_dump()
         return None
 
+
+
+class GraphNode(Node):
+    def __init__(self, name="", count=0, value=""):
+        super().__init__(name, count, value)
+        self.before = []
+        self.after = []
+        
+    def json_default_dump(self)-> dict:
+        return {
+            "before": GraphNode.json_serialize_dump(self.before),
+            "event_attribute": self.value,
+            "value": self.seqCount,
+            "after":GraphNode.json_serialize_dump(self.after)
+
+        }
+
+    def json_serialize(self) -> None:
+    
+        json.dump(self,  indent=4, default=TreeNode.json_serialize_dump)
+    
+    @staticmethod
+    def json_serialize_dump(obj):
+    
+        if hasattr(obj, "json_default_dump"):
+            
+            return obj.json_default_dump()
+        return None
+
     

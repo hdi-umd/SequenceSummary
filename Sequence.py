@@ -19,6 +19,7 @@ class Sequence():
         self.eventstore=eventstore
         self.volume=1
         self.seqAttributes={}
+        self.seqIndices=[]
     def getEventPosition(self, attr, hash_val):
         for count,event in enumerate(self.events):
             #if event.getAttrVal(attr)==hash_val:

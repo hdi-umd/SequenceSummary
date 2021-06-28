@@ -1,0 +1,306 @@
+{
+ "before": {
+  "before": {
+   "before": {
+    "before": {
+     "before": {
+      "before": {
+       "before": {
+        "before": {
+         "before": {
+          "before": null,
+          "event_attribute": "Sugar to treat",
+          "value": 1,
+          "after": null
+         },
+         "event_attribute": "Sugar to treat",
+         "value": 2,
+         "after": {
+          "before": null,
+          "event_attribute": "",
+          "value": 1,
+          "after": null
+         }
+        },
+        "event_attribute": "Sugar to treat",
+        "value": 3,
+        "after": {
+         "before": null,
+         "event_attribute": "",
+         "value": 1,
+         "after": null
+        }
+       },
+       "event_attribute": "Sugar to treat",
+       "value": 3,
+       "after": {
+        "before": null,
+        "event_attribute": "",
+        "value": 0,
+        "after": null
+       }
+      },
+      "event_attribute": "Sugar to treat",
+      "value": 4,
+      "after": {
+       "before": null,
+       "event_attribute": "",
+       "value": 1,
+       "after": null
+      }
+     },
+     "event_attribute": "Sugar to treat",
+     "value": 6,
+     "after": {
+      "before": {
+       "before": {
+        "before": null,
+        "event_attribute": "Dinner",
+        "value": 2,
+        "after": null
+       },
+       "event_attribute": "Dinner",
+       "value": 2,
+       "after": {
+        "before": null,
+        "event_attribute": "",
+        "value": 0,
+        "after": null
+       }
+      },
+      "event_attribute": "",
+      "value": 2,
+      "after": {
+       "before": null,
+       "event_attribute": "",
+       "value": 0,
+       "after": null
+      }
+     }
+    },
+    "event_attribute": "Breakfast",
+    "value": 11,
+    "after": {
+     "before": {
+      "before": {
+       "before": {
+        "before": {
+         "before": {
+          "before": {
+           "before": null,
+           "event_attribute": "Sugar to treat",
+           "value": 2,
+           "after": null
+          },
+          "event_attribute": "Sugar to treat",
+          "value": 2,
+          "after": {
+           "before": null,
+           "event_attribute": "",
+           "value": 0,
+           "after": null
+          }
+         },
+         "event_attribute": "Sugar to treat",
+         "value": 2,
+         "after": {
+          "before": null,
+          "event_attribute": "",
+          "value": 0,
+          "after": null
+         }
+        },
+        "event_attribute": "Sugar to treat",
+        "value": 3,
+        "after": {
+         "before": null,
+         "event_attribute": "",
+         "value": 1,
+         "after": null
+        }
+       },
+       "event_attribute": "Breakfast",
+       "value": 4,
+       "after": {
+        "before": null,
+        "event_attribute": "",
+        "value": 1,
+        "after": null
+       }
+      },
+      "event_attribute": "Breakfast",
+      "value": 4,
+      "after": {
+       "before": null,
+       "event_attribute": "",
+       "value": 0,
+       "after": null
+      }
+     },
+     "event_attribute": "",
+     "value": 5,
+     "after": {
+      "before": null,
+      "event_attribute": "",
+      "value": 1,
+      "after": null
+     }
+    }
+   },
+   "event_attribute": "Nothing",
+   "value": 12,
+   "after": {
+    "before": null,
+    "event_attribute": "",
+    "value": 1,
+    "after": null
+   }
+  },
+  "event_attribute": "Sugar to treat",
+  "value": 22,
+  "after": {
+   "before": {
+    "before": {
+     "before": {
+      "before": {
+       "before": {
+        "before": {
+         "before": {
+          "before": {
+           "before": {
+            "before": {
+             "before": {
+              "before": null,
+              "event_attribute": "Lunch",
+              "value": 2,
+              "after": null
+             },
+             "event_attribute": "Nothing",
+             "value": 2,
+             "after": {
+              "before": null,
+              "event_attribute": "",
+              "value": 0,
+              "after": null
+             }
+            },
+            "event_attribute": "Breakfast",
+            "value": 3,
+            "after": {
+             "before": null,
+             "event_attribute": "",
+             "value": 1,
+             "after": null
+            }
+           },
+           "event_attribute": "Sugar to treat",
+           "value": 3,
+           "after": {
+            "before": null,
+            "event_attribute": "",
+            "value": 0,
+            "after": null
+           }
+          },
+          "event_attribute": "Breakfast",
+          "value": 4,
+          "after": {
+           "before": null,
+           "event_attribute": "",
+           "value": 1,
+           "after": null
+          }
+         },
+         "event_attribute": "Sugar to treat",
+         "value": 4,
+         "after": {
+          "before": null,
+          "event_attribute": "",
+          "value": 0,
+          "after": null
+         }
+        },
+        "event_attribute": "Sugar to treat",
+        "value": 5,
+        "after": {
+         "before": null,
+         "event_attribute": "",
+         "value": 1,
+         "after": null
+        }
+       },
+       "event_attribute": "Sugar to treat",
+       "value": 7,
+       "after": {
+        "before": {
+         "before": {
+          "before": null,
+          "event_attribute": "Breakfast",
+          "value": 2,
+          "after": null
+         },
+         "event_attribute": "Lunch",
+         "value": 2,
+         "after": {
+          "before": null,
+          "event_attribute": "",
+          "value": 0,
+          "after": null
+         }
+        },
+        "event_attribute": "",
+        "value": 2,
+        "after": {
+         "before": null,
+         "event_attribute": "",
+         "value": 0,
+         "after": null
+        }
+       }
+      },
+      "event_attribute": "Breakfast",
+      "value": 7,
+      "after": {
+       "before": null,
+       "event_attribute": "",
+       "value": 0,
+       "after": null
+      }
+     },
+     "event_attribute": "Sugar to treat",
+     "value": 8,
+     "after": {
+      "before": null,
+      "event_attribute": "",
+      "value": 1,
+      "after": null
+     }
+    },
+    "event_attribute": "Breakfast",
+    "value": 9,
+    "after": {
+     "before": null,
+     "event_attribute": "",
+     "value": 1,
+     "after": null
+    }
+   },
+   "event_attribute": "",
+   "value": 10,
+   "after": {
+    "before": null,
+    "event_attribute": "",
+    "value": 1,
+    "after": null
+   }
+  }
+ },
+ "event_attribute": "",
+ "value": 22,
+ "after": {
+  "before": null,
+  "event_attribute": "",
+  "value": 0,
+  "after": null
+ }
+}
