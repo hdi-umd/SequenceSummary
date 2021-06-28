@@ -3,7 +3,7 @@ import numpy as np
 import json
 from datetime import datetime, timedelta
 
-class TreeNode():
+class Node():
     NID=count(1)
     nodeHash={}
     
@@ -24,6 +24,7 @@ class TreeNode():
         #self.incomingBranchSimMean=None
         #self.incomingBranchSimMedian=None
         #self.incomingBranchSimVariance=None
+        self.keyevts=[]
         
         self.incomingSequences=[]
         self.outgoingSequences=[]
@@ -143,9 +144,27 @@ class TreeNode():
         
     #def json_serialize(self):
     #    json.dump(self, indent=4, default= TreeNode.json_default_dump)
+
+    def json_default_dump(self)-> dict:
+        pass
+    
+    def json_serialize(self) -> None:
+    
+        pass
+    
+    @staticmethod
+    def json_serialize_dump(obj):
+    
+        pass
+
+class TreeNode(Node):
+    def __init__(self, name="", count=0, value=""):
+        super().__init__(name, count, value)
+        self.children = []
+
     def json_default_dump(self)-> dict:
         return {
-            "event_attribute": self.hash,
+            "event_attribute": self.value,
             "value": self.seqCount,
             "median_index": self.medianStep,
             "average_index":self.meanStep,

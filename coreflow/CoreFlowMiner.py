@@ -13,7 +13,7 @@ class CoreFlowMiner:
 
     def __init__(self):
         self.branchSequences={}
-        self.rf=FrequencyMedianRankingFunction()
+        self.rf=OcccurrencesMeanRankingFunction()
     
     def checkForStop(self, seqs, minval, checkpoints):
         pass
