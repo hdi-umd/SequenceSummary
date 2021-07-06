@@ -2,12 +2,12 @@ import os, sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from Sequence import Sequence
 from TreeNode import TreeNode, GraphNode
-
+from Graph import Rawnode, Links, Graph
 
 
 class SentenTreeMiner:
     
-    def expandSeqTree(self, attr, rootNode,  expandCnt, minSupport, maxSupport):
+    def expandSeqTree(self, attr, rootNode,  expandCnt, minSupport, maxSupport, graph):
         
         #if len(rootSeq.eventlist>0):
         expandCnt-=len(rootNode.keyevts)
@@ -17,7 +17,7 @@ class SentenTreeMiner:
         rootNode.setSeqCount(Sequence.getSeqVolume(rootNode.incomingSequences))
         leafSeqs = []
         
-        
+        graph.nodes.append(Rawnode(rootNode))
         while seqs and expandCnt > 0:
             s = max(seqs,key=lambda x: x.seqCount) 
             print(f'seqCount: {s.seqCount}')
@@ -53,21 +53,30 @@ class SentenTreeMiner:
                     #    s1.pattern.addKeyEvent(x)
                     #    s0.pattern.addKeyEvent(x)
                         
-                    s1.keyevts.append(word) 
+                    s1.keyevts.insert(pos,word) 
                 
                 #print(f'this.pattern s after: {s.keyevts}')
                 #print(f'this.pattern s0 after: {s0.keyevts}')
                 #print(f'this.pattern s1 after: {s1.keyevts}')
         
                     
-            if s1:
+            if s1 and s1.seqCount>= minSupport:
                 expandCnt-=1
                 seqs.append(s1)
+                graph.nodes.append(Rawnode(s1))
+                graph.add(s.nid,s1.nid)
+            
+                #s1.after=s
             s.before=s1
             s.after=s0
             
+            
+            
             if s0 and s0.seqCount>= minSupport:
                 seqs.append(s0)
+                #graph.nodes.append(Rawnode(s0))
+            
+                #graph.add(s.nid,s0.nid)
             print(f'seqCount: {[s.seqCount for s in seqs]}')
             #print(f'before: {s.before}')
             #print(f'after: {s.after}')
@@ -108,10 +117,14 @@ class SentenTreeMiner:
                 
                 
                 #print(f'l index: {l}, r index {r}')
-                print(f'evt Hash: {evtHashes}')
+                #print(f'evt Hash: {evtHashes}')
+                duplicate=[]
                 for j in range (l,r):
                     w=evtHashes[j]
                     #print(w)
+                    if w in duplicate:
+                        continue
+                    duplicate.append(w)
                     if w not in fdist:
                         fdist[w] = s.getVolume()
                     else:
@@ -133,8 +146,8 @@ class SentenTreeMiner:
         #print(f'{word}: word')
         #print(f'{maxc}: count')
                     
-        s0=GraphNode()
-        s1=GraphNode()
+        s0=GraphNode(attr=attr)
+        s1=GraphNode(attr=attr)
         
         #print(f'this.pattern s0 in growseq: {s0.pattern}')
         #print(f'this.pattern s1 in growseq: {s1.pattern}')
