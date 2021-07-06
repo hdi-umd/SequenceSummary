@@ -34,4 +34,4 @@ attr: name of the attr to perform mining on
 
 ## Example
 
-python main.py --file "sequence_braiding_refined.csv" --evttype 1 --startidx 0 --format "%m/%d/%y" --sep "," --local True --spmf True --attr "Meal"
+python main.py --file "sequence_braiding_refined.csv" --evttype 1 --startidx 0 --format "%m/%d/%y" --sep "," --local True --spmf True --attr "Meal" --split "week"

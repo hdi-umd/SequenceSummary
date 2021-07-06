@@ -32,7 +32,7 @@ class CoreFlowMiner:
             return
         
         node=TreeNode()
-        
+        print(f'exit node hash {exitNodeHash}')
         if exitNodeHash==-1:
             node.setName("Exit")
             node.setValue("Exit")
@@ -83,7 +83,7 @@ class CoreFlowMiner:
                     print(f'previous {incomingSeq.getHashList(evtAttr)}')
                     uniqueEvts.extend(incomingSeq.getUniqueValueHashes(evtAttr))
                     
-                if len(seq.events)>i+1:
+                if len(seq.events)>i:
                     outgoingSeq= Sequence(seq.events[i+1:len(seq.events)], seq.eventstore)
                     self.branchSequences[outgoingSeq.getPathID()]= outgoingSeq
                     
@@ -153,7 +153,7 @@ class CoreFlowMiner:
                 if topPattern is None:
                     print("no patterns found")
                     self.bundleToExit(seqs, parent, evtAttr, exitNodeHash)
-                
+                    return
                 containSegs=[]
                 notContain=[]
                 
@@ -166,14 +166,16 @@ class CoreFlowMiner:
                 node.attr=evtAttr
                 node.keyevts=parent.keyevts[:]
                 node.keyevts.append(hashval)
+                print(f'value {eVal}')
 
                 self.truncateSequences(seqs, hashval, evtAttr, node, containSegs, notContain)
                 node.setSeqCount(Sequence.getSeqVolume(containSegs))
-                
+                print(f'seq count {node.getSeqCount()}')
+
                 if node.getSeqCount()>=minval:
                     parent.children.append(node)
                     self.run(containSegs, evtAttr, node, minval, maxval, checkpoints, excludedEvts, exitNodeHash)
-                    self.run(notContain, evtAttr, node, minval, maxval, checkpoints, excludedEvts, exitNodeHash)
+                    self.run(notContain, evtAttr, parent, minval, maxval, checkpoints, excludedEvts, exitNodeHash)
                 
                 else:
                     self.bundleToExit(seqs, parent, evtAttr, exitNodeHash)
