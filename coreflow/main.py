@@ -146,7 +146,8 @@ if __name__ == "__main__":
     seq=Sequence(Es.events, Es)
     if(args.split):
         seq_list=Sequence.splitSequences(seq, args.split)
-
+    else:
+        seq_list=seq
 
     
     if(args.spmf==True):

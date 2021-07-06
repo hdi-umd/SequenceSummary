@@ -3,6 +3,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from EventStore import EventStore
 from Pattern import Pattern
 from SentenTreeMiner import SentenTreeMiner
+from Graph import Graph
 from Sequence import Sequence
 from TreeNode import TreeNode, GraphNode
 import pandas as pd
@@ -35,6 +36,9 @@ if __name__ == "__main__":
     argparser.add_argument("--attr", help="Attribute to run mining on",
                             type=str, required=True)
 
+    argparser.add_argument("--split", help="split the sequences",
+                            type=str, default="")
+
     argparser.add_argument("--output", help="Path of output file",
                             type=str, default="")
 
@@ -54,13 +58,17 @@ if __name__ == "__main__":
 
     #create Sequences from Eventstore
     seq=Sequence(Es.events, Es)
-    seq_list=Sequence.splitSequences(seq, "week")
+    if(args.split):
+        seq_list=Sequence.splitSequences(seq, args.split)
+    else:
+        seq_list=seq
 
     stm= SentenTreeMiner()
     #cfm.truncateSequences(self, seqs, hashval, evtAttr, node,trailingSeqSegs, notContain)
     root=GraphNode()
     root.incomingSequences=seq_list
-    visibleGroups=stm.expandSeqTree("Meal",root,  expandCnt=30, minSupport=1, maxSupport=len(seq_list))
+    graph=Graph()
+    visibleGroups=stm.expandSeqTree(args.attr,root,  expandCnt=30, minSupport=2, maxSupport=len(seq_list),graph=graph)
     
     
     print("\n\n*****SentenTree output******\n\n")
@@ -68,7 +76,13 @@ if __name__ == "__main__":
     x=json.dumps(root, ensure_ascii=False, default=GraphNode.json_serialize_dump, indent=1)
     print(x)
 
+    print("\n\n*****SentenTree Graph output******\n\n")
+    
+    y=json.dumps(graph, ensure_ascii=False, default=Graph.json_serialize_dump, indent=1)
+    print(y)
     with open(args.output+'outfile.json', 'w') as the_file:
         the_file.write(x)
 
+    with open(args.output+'outfile_graph.json', 'w') as the_file2:
+        the_file2.write(y)
 
