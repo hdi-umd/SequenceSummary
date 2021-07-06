@@ -77,7 +77,7 @@ class Node():
         
         if len(self.pos)==0:
             self.meanStep=0
-            slf.medianStep=0
+            self.medianStep=0
         else:
             #WHY WE ARE ADDING 1 to mean and medianStep?
             self.meanStep=d/(len(self.pos))-1
@@ -171,7 +171,7 @@ class TreeNode(Node):
     def json_default_dump(self)-> dict:
         return {
             "event_attribute": self.value,
-            #"Pattern": self.getPatternString(),
+            "Pattern": self.getPatternString(),
             "value": self.seqCount,
             "median_index": self.medianStep,
             "average_index":self.meanStep,
