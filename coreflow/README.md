@@ -32,6 +32,8 @@ spmf : If spmf mining would be performed
 
 attr: name of the attr to perform mining on
 
+split: Whether to split the sequences based on any time span. e.g. week, month or year
+
 ## Example
 
 python main.py --file "sequence_braiding_refined.csv" --evttype 1 --startidx 0 --format "%m/%d/%y" --sep "," --local True --spmf True --attr "Meal" --split "week"
