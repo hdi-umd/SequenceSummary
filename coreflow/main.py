@@ -70,7 +70,8 @@ def main():
 
     cfm= CoreFlowMiner()
     root=cfm.getNewRootNode(Sequence.getSeqVolume(seq_list), seq_list)
-    cfm.run(seq_list, "Meal", root, 5 * Sequence.getSeqVolume(seq_list)/100.0, Sequence.getSeqVolume(seq_list), [], {}, -1)
+    #cfm.run(seq_list, "Meal", root, 5 * Sequence.getSeqVolume(seq_list)/100.0, Sequence.getSeqVolume(seq_list), [], {}, -1)
+    cfm.run(seq_list, "Meal", root, 2, Sequence.getSeqVolume(seq_list), [], {}, -1)
 
     x=json.dumps(root, ensure_ascii=False, default=TreeNode.json_serialize_dump, indent=1)
     print(x)
@@ -120,6 +121,10 @@ if __name__ == "__main__":
     argparser.add_argument("--attr", help="Attribute to run mining on",
                             type=str, required=True)
 
+    argparser.add_argument("--split", help="split the sequences",
+                            type=str, default="")
+
+
     argparser.add_argument("--output", help="Path of output file",
                             type=str, default="")
 
@@ -139,7 +144,9 @@ if __name__ == "__main__":
 
     #create Sequences from Eventstore
     seq=Sequence(Es.events, Es)
-    seq_list=Sequence.splitSequences(seq, "week")
+    if(args.split):
+        seq_list=Sequence.splitSequences(seq, args.split)
+
 
     
     if(args.spmf==True):
@@ -148,8 +155,9 @@ if __name__ == "__main__":
         print("\n\n")
 
     cfm= CoreFlowMiner()
-    root=cfm.getNewRootNode(Sequence.getSeqVolume(seq_list), seq_list)
-    cfm.run(seq_list, args.attr, root, 5 * Sequence.getSeqVolume(seq_list)/100.0, Sequence.getSeqVolume(seq_list), [], {}, -1)
+    root=cfm.getNewRootNode(Sequence.getSeqVolume(seq_list), seq_list, attr=args.attr)
+    #cfm.run(seq_list, args.attr, root, 5 * Sequence.getSeqVolume(seq_list)/100.0, Sequence.getSeqVolume(seq_list), [], {}, -1)
+    cfm.run(seq_list, args.attr, root, 2, Sequence.getSeqVolume(seq_list), [], {}, -1)
     
     print("\n\n*****Coreflow output******\n\n")
     
