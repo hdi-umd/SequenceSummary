@@ -8,7 +8,7 @@ class Node():
     nodeHash={}
     
     
-    def __init__(self, name="", count=0, value=""):
+    def __init__(self, name="", count=0, value="", attr=""):
         super().__init__()
         self.nid=next(self.NID)
         self.name=name
@@ -32,8 +32,11 @@ class Node():
         self.meanRelTimestamp=0
         self.medianRelTimestamp=0
         
+
+        self.attr=attr
+
         TreeNode.nodeHash[self.nid]=self
-        self.children = []
+        
         
     def getNode(self, node_id):
         return nodeHash[node_id]
@@ -77,7 +80,7 @@ class Node():
             slf.medianStep=0
         else:
             #WHY WE ARE ADDING 1 to mean and medianStep?
-            self.meanStep=d/len(self.pos)
+            self.meanStep=d/(len(self.pos))-1
             self.medianStep= np.median(self.pos)+1#((self.pos[mid-1]+self.pos[mid])/2.0)+1 if len(self.pos)%2==0 else self.pos[mid]+1
             
     def getValue(self):
@@ -132,7 +135,10 @@ class Node():
         
         #print(f'Time Stamp {self.meanRelTimestamp}')
         #print(f'Time Stamp {self.meanRelTimestamp}')
-        
+
+    def getPatternString(self):
+        return "-".join(str(self.incomingSequences[0].eventstore.reverseatttrdict[self.attr][hashval]) for hashval in self.keyevts if self.incomingSequences)
+
     def getHash(self):
         
         return self.hash
@@ -158,13 +164,14 @@ class Node():
         pass
 
 class TreeNode(Node):
-    def __init__(self, name="", count=0, value=""):
+    def __init__(self, name="", count=0, value="", attr=""):
         super().__init__(name, count, value)
         self.children = []
 
     def json_default_dump(self)-> dict:
         return {
             "event_attribute": self.value,
+            #"Pattern": self.getPatternString(),
             "value": self.seqCount,
             "median_index": self.medianStep,
             "average_index":self.meanStep,
@@ -188,8 +195,8 @@ class TreeNode(Node):
 
 
 class GraphNode(Node):
-    def __init__(self, name="", count=0, value=""):
-        super().__init__(name, count, value)
+    def __init__(self, name="", count=0, value="", attr=""):
+        super().__init__(name, count, value, attr)
         self.before = []
         self.after = []
         
@@ -197,14 +204,15 @@ class GraphNode(Node):
         return {
             "before": GraphNode.json_serialize_dump(self.before),
             "event_attribute": self.value,
+            "Pattern": self.getPatternString(),
             "value": self.seqCount,
-            "after":GraphNode.json_serialize_dump(self.after)
+            "After": GraphNode.json_serialize_dump(self.after)
 
         }
 
     def json_serialize(self) -> None:
     
-        json.dump(self,  indent=4, default=TreeNode.json_serialize_dump)
+        json.dump(self,  indent=4, default=GraphNode.json_serialize_dump)
     
     @staticmethod
     def json_serialize_dump(obj):
@@ -213,5 +221,7 @@ class GraphNode(Node):
             
             return obj.json_default_dump()
         return None
+
+    
 
     

@@ -13,7 +13,7 @@ class CoreFlowMiner:
 
     def __init__(self):
         self.branchSequences={}
-        self.rf=OcccurrencesMeanRankingFunction()
+        self.rf=FrequencyMedianRankingFunction()
     
     def checkForStop(self, seqs, minval, checkpoints):
         pass
@@ -56,9 +56,9 @@ class CoreFlowMiner:
         parent.children.append(node)
         
     #needs properimplementation    
-    def getNewRootNode(self, numPaths, seqlist):
+    def getNewRootNode(self, numPaths, seqlist, attr):
         print("Start of all "+ str(len(seqlist))+" visits")
-        return TreeNode("root", numPaths, "-1")
+        return TreeNode("root", numPaths, "-1", attr)
     
     
     def truncateSequences(self, seqs, hashval, evtAttr, node,trailingSeqSegs, notContain):
@@ -116,7 +116,7 @@ class CoreFlowMiner:
             notContain=[]
             
             node= TreeNode()
-            
+            node.attr=evtAttr
             #First integer event
             hashval=checkpoints[0]
             #print(f'hashval {hashval}')
@@ -125,6 +125,9 @@ class CoreFlowMiner:
             node.setName(str(eVal)) #NOT sure
             node.setValue(eVal)
             node.setHash(hashval)
+            node.keyevts=parent.keyevts[:]
+        
+            node.keyevts.append(hashval)
             del checkpoints[0]
             self.truncateSequences(seqs, hashval, evtAttr, node, containSegs, notContain)
             
@@ -160,11 +163,14 @@ class CoreFlowMiner:
                 node.setName(str(eVal)) #NOT sure
                 node.setValue(eVal)
                 node.setHash(hashval)
+                node.attr=evtAttr
+                node.keyevts=parent.keyevts[:]
+                node.keyevts.append(hashval)
 
                 self.truncateSequences(seqs, hashval, evtAttr, node, containSegs, notContain)
                 node.setSeqCount(Sequence.getSeqVolume(containSegs))
                 
-                if node.getSeqCount()>minval:
+                if node.getSeqCount()>=minval:
                     parent.children.append(node)
                     self.run(containSegs, evtAttr, node, minval, maxval, checkpoints, excludedEvts, exitNodeHash)
                     self.run(notContain, evtAttr, node, minval, maxval, checkpoints, excludedEvts, exitNodeHash)
