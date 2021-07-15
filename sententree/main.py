@@ -33,6 +33,9 @@ if __name__ == "__main__":
     argparser.add_argument("--local", help="Local availability of file",
                             type=bool, default=True, required=False)
     
+    argparser.add_argument("--grpattr", help="group the sequences based on this attribute",
+                            type=str, default="")
+
     argparser.add_argument("--attr", help="Attribute to run mining on",
                             type=str, required=True)
 
@@ -57,11 +60,19 @@ if __name__ == "__main__":
         Es.importMixedEvents(args.file, args.startidx, args.endidx, args.format, sep=args.sep, local=args.local)
 
     #create Sequences from Eventstore
-    seq=Sequence(Es.events, Es)
+    if(args.grpattr):
+        seq=Es.generateSequence(args.grpattr)
+    else:    
+        seq=Sequence(Es.events, Es)
+
+    
     if(args.split):
         seq_list=Sequence.splitSequences(seq, args.split)
     else:
-        seq_list=seq
+        if not isinstance(seq, list):
+            seq_list=[seq]
+        else:
+            seq_list=seq
 
     stm= SentenTreeMiner()
     #cfm.truncateSequences(self, seqs, hashval, evtAttr, node,trailingSeqSegs, notContain)
