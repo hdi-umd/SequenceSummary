@@ -30,10 +30,12 @@ local: Whether the file is locally available
 
 spmf : If spmf mining would be performed
 
+grpattr: name of the attr to group events on to generate sequences 
+
 attr: name of the attr to perform mining on
 
 split: Whether to split the sequences based on any time span. e.g. week, month or year
 
 ## Example
 
-python main.py --file "sequence_braiding_refined.csv" --evttype 1 --startidx 0 --format "%m/%d/%y" --sep "," --local True --spmf True --attr "Meal" --split "week"
+python main.py --file "../corelow_paper_test.csv" --evttype 1 --startidx 1 --format "%m/%d/%y" --sep "," --local True --grpattr "Category" --attr "Event"

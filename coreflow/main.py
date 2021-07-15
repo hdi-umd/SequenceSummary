@@ -121,6 +121,9 @@ if __name__ == "__main__":
     argparser.add_argument("--attr", help="Attribute to run mining on",
                             type=str, required=True)
 
+    argparser.add_argument("--grpattr", help="group the sequences based on this attribute",
+                            type=str, default="")
+
     argparser.add_argument("--split", help="split the sequences",
                             type=str, default="")
 
@@ -143,18 +146,29 @@ if __name__ == "__main__":
         Es.importMixedEvents(args.file, args.startidx, args.endidx, args.format, sep=args.sep, local=args.local)
 
     #create Sequences from Eventstore
-    seq=Sequence(Es.events, Es)
+
+    if(args.grpattr):
+        seq=Es.generateSequence(args.grpattr)
+    else:    
+        seq=Sequence(Es.events, Es)
+
+    
     if(args.split):
         seq_list=Sequence.splitSequences(seq, args.split)
     else:
-        seq_list=seq
+        if not isinstance(seq, list):
+            seq_list=[seq]
+        else:
+            seq_list=seq
+
 
     
     if(args.spmf==True):
         print("\n\n*****SPMF output******\n\n")
         run_spmf(seq_list, args.attr)
         print("\n\n")
-
+    
+    
     cfm= CoreFlowMiner()
     root=cfm.getNewRootNode(Sequence.getSeqVolume(seq_list), seq_list, attr=args.attr)
     #cfm.run(seq_list, args.attr, root, 5 * Sequence.getSeqVolume(seq_list)/100.0, Sequence.getSeqVolume(seq_list), [], {}, -1)

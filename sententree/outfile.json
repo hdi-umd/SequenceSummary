@@ -2,26 +2,14 @@
  "before": {
   "before": {
    "before": {
-    "before": {
-     "before": null,
-     "event_attribute": "",
-     "Pattern": "",
-     "value": 0,
-     "After": null
-    },
-    "event_attribute": "C",
-    "Pattern": "A-C-C",
-    "value": 2,
-    "After": {
-     "before": null,
-     "event_attribute": "",
-     "Pattern": "",
-     "value": 0,
-     "After": null
-    }
+    "before": null,
+    "event_attribute": "",
+    "Pattern": "",
+    "value": 0,
+    "After": null
    },
-   "event_attribute": "C",
-   "Pattern": "A-C",
+   "event_attribute": "D",
+   "Pattern": "C-D",
    "value": 2,
    "After": {
     "before": null,
@@ -31,8 +19,8 @@
     "After": null
    }
   },
-  "event_attribute": "A",
-  "Pattern": "A",
+  "event_attribute": "C",
+  "Pattern": "C",
   "value": 4,
   "After": {
    "before": {
@@ -43,7 +31,7 @@
     "After": null
    },
    "event_attribute": "",
-   "Pattern": "A",
+   "Pattern": "C",
    "value": 2,
    "After": {
     "before": null,
@@ -60,38 +48,14 @@
  "After": {
   "before": {
    "before": {
-    "before": {
-     "before": {
-      "before": null,
-      "event_attribute": "",
-      "Pattern": "",
-      "value": 0,
-      "After": null
-     },
-     "event_attribute": "G",
-     "Pattern": "C-F-G",
-     "value": 2,
-     "After": {
-      "before": null,
-      "event_attribute": "",
-      "Pattern": "",
-      "value": 0,
-      "After": null
-     }
-    },
-    "event_attribute": "F",
-    "Pattern": "C-F",
-    "value": 2,
-    "After": {
-     "before": null,
-     "event_attribute": "",
-     "Pattern": "",
-     "value": 0,
-     "After": null
-    }
+    "before": null,
+    "event_attribute": "",
+    "Pattern": "",
+    "value": 0,
+    "After": null
    },
-   "event_attribute": "C",
-   "Pattern": "C",
+   "event_attribute": "E",
+   "Pattern": "E",
    "value": 2,
    "After": {
     "before": null,
