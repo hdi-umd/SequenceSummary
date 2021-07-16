@@ -2,14 +2,26 @@
  "before": {
   "before": {
    "before": {
-    "before": null,
-    "event_attribute": "",
-    "Pattern": "",
-    "value": 0,
-    "After": null
+    "before": {
+     "before": null,
+     "event_attribute": "",
+     "Pattern": "",
+     "value": 0,
+     "After": null
+    },
+    "event_attribute": "G",
+    "Pattern": "C-F-G",
+    "value": 2,
+    "After": {
+     "before": null,
+     "event_attribute": "",
+     "Pattern": "",
+     "value": 0,
+     "After": null
+    }
    },
-   "event_attribute": "D",
-   "Pattern": "C-D",
+   "event_attribute": "F",
+   "Pattern": "C-F",
    "value": 2,
    "After": {
     "before": null,
@@ -24,11 +36,23 @@
   "value": 4,
   "After": {
    "before": {
-    "before": null,
-    "event_attribute": "",
-    "Pattern": "",
-    "value": 0,
-    "After": null
+    "before": {
+     "before": null,
+     "event_attribute": "",
+     "Pattern": "",
+     "value": 0,
+     "After": null
+    },
+    "event_attribute": "C",
+    "Pattern": "C-C",
+    "value": 2,
+    "After": {
+     "before": null,
+     "event_attribute": "",
+     "Pattern": "",
+     "value": 0,
+     "After": null
+    }
    },
    "event_attribute": "",
    "Pattern": "C",
