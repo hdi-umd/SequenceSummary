@@ -30,7 +30,7 @@ local: Whether the file is locally available
 
 spmf : If spmf mining would be performed
 
-grpattr: name of the attr to group events on to generate sequences 
+grpattr: name of the attr to group events on to generate sequences
 
 attr: name of the attr to perform mining on
 
