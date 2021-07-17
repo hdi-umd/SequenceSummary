@@ -1,11 +1,11 @@
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from helper import get_dataframe, get_time_to_sort_by, insert_event_into_dict
 from FrequencyMedianRankingFunction import FrequencyMedianRankingFunction
 from OccurrencesMeanRankingFunction import OcccurrencesMeanRankingFunction
 from TreeNode import TreeNode
 from Sequence import Sequence
-import os
-import sys
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
 class CoreFlowMiner:
