@@ -1,8 +1,7 @@
-from Pattern import Pattern
 import os
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
+from Pattern import Pattern
 
 class OcccurrencesMeanRankingFunction:
     def __init__(self):
