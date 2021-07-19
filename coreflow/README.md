@@ -12,7 +12,7 @@ We also need the [smpf.jar file] (http://www.philippe-fournier-viger.com/spmf/do
 
 ## Input
 
-Input has the folloing paramters
+Input has the following paramters
 
 file: The file containing events in table format
 
