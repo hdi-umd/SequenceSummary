@@ -55,7 +55,7 @@ class Graph():
 
     def json_serialize(self) -> None:
 
-        json.dump(self,  indent=4, default=Graph.json_serialize_dump)
+        json.dumps(self,  indent=4, default=Graph.json_serialize_dump)
 
     @staticmethod
     def json_serialize_dump(obj):
@@ -69,4 +69,4 @@ class Graph():
 
     def print_graph(self):
         for node in self.nodes:
-            print(self.nid)
+            print(node.nid)

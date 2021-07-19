@@ -6,14 +6,20 @@ import json
 class Pattern:
     _pids = count(1)
 
-    def __init__(self, events=[]):
+    def __init__(self, events=None):
         # pattern id
         self.id = next(self._pids)
+
+        if events is None:
+            events = []
 
         self.keyEvts = events
 
         self.medianPos = []
         self.meanPos = []
+
+        self.parent = None
+        self.parentSegment = None
 
         self.sids = []
 
@@ -38,7 +44,7 @@ class Pattern:
         print(str(len(self.sids))+" matching paths")
 
     def matchMilestones(self, arr, milestones):
-        ja = arr
+
         idx = -1
         for elems in milestones:
             try:
@@ -99,7 +105,7 @@ class Pattern:
         return "-".join(str(x) for x in list(dict.fromkeys(self.keyEvts)))
 
     def getPositions(self, events, path):
-        sequence = path
+        # sequence = path
         pos = []
         idx = -1
         offset = 0
@@ -134,10 +140,10 @@ class Pattern:
         means = []
 
         # swap the loops for better readability
-        for i, events in enumerate(self.keyEvts):
+        for i, _ in enumerate(self.keyEvts):
             numSteps = []
 
-            for idx, paths in enumerate(pathsOfStrings):
+            for _, paths in enumerate(pathsOfStrings):
                 if(self.matchMilestones(paths, self.keyEvts[0:i+1])):
                     pos = self.getPositions(self.keyEvts[0:i+1], paths)
                     if i == 0:
@@ -181,7 +187,7 @@ class Pattern:
         # return list(self.getMedian(posInPaths) for posInPaths in allPos)
         return median
 
-    def getMeanPositions(self, allPos, pids):
+    def getMeanPositions(self, allPos):
         mean = []
         for k in range(0, len(allPos)):
             mean.append(sum(allPos[k])*1.0/(len(allPos[k])))
@@ -215,12 +221,6 @@ class Pattern:
 
     def getParentSegment(self):
         return self.parentSegment
-
-    def setMeanPathLength(self, d):
-        self.meanPathLength = d
-
-    def getMeanPathLength(self):
-        return self.meanPathLength
 
     def setSupport(self, sup, total):
         self.support = sup

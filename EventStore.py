@@ -1,12 +1,14 @@
-from datetime import datetime, timedelta
+from datetime import datetime
 from Event import PointEvent, IntervalEvent
 from Sequence import Sequence
-from helper import get_dataframe, get_time_to_sort_by, insert_event_into_dict
+from helper import get_dataframe, get_time_to_sort_by
 
 
 class EventStore:
 
-    def __init__(self, eventlist=[]):
+    def __init__(self, eventlist=None):
+        if eventlist is None:
+            eventlist = []
         self.attrdict = {}
         self.reverseatttrdict = {}
         self.events = eventlist
@@ -21,7 +23,7 @@ class EventStore:
     # I thought the simplest thing was just to give this function the df and then use that instead of calling my helper
     # for those cases
     # @staticmethod
-    def importPointEvents(self, src, timestampColumnIdx, timeFormat, sep='\t', local=False, header=[], df=None):
+    def importPointEvents(self, src, timestampColumnIdx, timeFormat, sep='\t', local=False, header=None, df=None):
         events = []
         # if the df is not provided
         if df is None:
@@ -50,7 +52,7 @@ class EventStore:
     # I thought the simplest thing was just to give this function the df and then use that instead of calling my helper
     # for those cases
     # @staticmethod
-    def importIntervalEvents(self, src, startTimeColumnIdx, endTimeColumnIdx, timeFormat, sep="\t", local=False, header=[], df=None):
+    def importIntervalEvents(self, src, startTimeColumnIdx, endTimeColumnIdx, timeFormat, sep="\t", local=False, header=None, df=None):
         events = []
         # if the df is not provided
         if df is None:
@@ -81,7 +83,7 @@ class EventStore:
     # The foursquare datasets are all using a differnet encoding that pandas cannot auto identify so for those
     # I thought the simplest thing was just to give this function the df and then use that instead of calling my helper
     # @staticmethod
-    def importMixedEvents(self, src, startTimeColumnIdx, endTimeColumnIdx, timeFormat, sep="\t", local=False, header=[], df=None):
+    def importMixedEvents(self, src, startTimeColumnIdx, endTimeColumnIdx, timeFormat, sep="\t", local=False, header=None, df=None):
         events = []
         # if the df is not provided
         if df is None:

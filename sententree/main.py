@@ -1,15 +1,13 @@
 import os
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 import argparse
 import json
-from IPython.display import display
-import pandas as pd
-from TreeNode import TreeNode, GraphNode
+from TreeNode import GraphNode
 from Sequence import Sequence
 from Graph import Graph
 from SentenTreeMiner import SentenTreeMiner
-from Pattern import Pattern
 from EventStore import EventStore
 
 

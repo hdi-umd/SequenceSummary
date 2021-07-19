@@ -1,9 +1,9 @@
 # collection of events sharing similar property
 
 from itertools import count
-from Event import Event
-from helper import get_dataframe, get_time_to_sort_by, insert_event_into_dict
-from datetime import datetime, timedelta
+#from Event import Event
+from helper import  get_time_to_sort_by, insert_event_into_dict
+from datetime import datetime
 
 
 class Sequence():
@@ -23,10 +23,10 @@ class Sequence():
         self.seqIndices = []
 
     def getEventPosition(self, attr, hash_val):
-        for count, event in enumerate(self.events):
+        for pos, event in enumerate(self.events):
             # if event.getAttrVal(attr)==hash_val:
             if self.eventstore.attrdict[attr][event.getAttrVal(attr)] == hash_val:
-                return count
+                return pos
         return -1
 
     def setVolume(self, intValue):
@@ -103,7 +103,7 @@ class Sequence():
         self.seqAttributes[attr] = value
 
     # equivalent to method signature public static int getVolume(List<Sequence> seqs)
-
+    @staticmethod
     def getSeqVolume(seqlist):
         return sum(seq.getVolume() for seq in seqlist)
 

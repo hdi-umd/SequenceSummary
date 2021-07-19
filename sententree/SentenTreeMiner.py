@@ -1,10 +1,7 @@
 import numpy as np
-from Graph import Rawnode, Links, Graph
-from TreeNode import TreeNode, GraphNode
+from Graph import Rawnode, Links
+from TreeNode import GraphNode
 from Sequence import Sequence
-import os
-import sys
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
 class SentenTreeMiner:
@@ -104,7 +101,7 @@ class SentenTreeMiner:
 
         return leafSeqs.append(seqs)
 
-    def performRanking_naive(self, fdist, fdist_ind, i, pos,  count, maxSupport, minpos):
+    def performRanking_naive(self, fdist, _fdist_ind, i, _pos, count, maxSupport, _minpos):
         maxw = ""
         maxc = 0
         for w in fdist.keys():
@@ -119,7 +116,7 @@ class SentenTreeMiner:
 
         return False
 
-    def performRanking_meanIndex(self, fdist, fdist_ind, i, pos,  count, maxSupport, minpos):
+    def performRanking_meanIndex(self, fdist, fdist_ind, i, pos, count, maxSupport, minpos):
         maxw = ""
         maxc = 0
 
@@ -167,7 +164,10 @@ class SentenTreeMiner:
 
         return False
 
-    def first_occurrence(self, fdist, evtHashes, l, r, s, fdist_ind={}):
+    def first_occurrence(self, fdist, evtHashes, l, r, s, fdist_ind=None):
+
+        if fdist_ind is None:
+            fdist_ind = {}
         duplicate = []
         for j in range(l, r):
             w = evtHashes[j]
@@ -182,7 +182,11 @@ class SentenTreeMiner:
                 fdist[w] += s.getVolume()
                 fdist_ind[w].append(j)
 
-    def all_occurrence(self, fdist, evtHashes, l, r, s, fdist_ind={}):
+    def all_occurrence(self, fdist, evtHashes, l, r, s, fdist_ind=None):
+
+        if fdist_ind is None:
+            fdist_ind = {}
+
         for j in range(l, r):
             w = evtHashes[j]
             # print(w)
@@ -203,7 +207,7 @@ class SentenTreeMiner:
             fdist = {}
             fdist_ind = {}
 
-            for ind, s in enumerate(seq.incomingSequences):
+            for s in seq.incomingSequences:
 
                 evtHashes = s.getHashList(attr)
                 l = 0 if i == 0 else s.seqIndices[i - 1] + 1
