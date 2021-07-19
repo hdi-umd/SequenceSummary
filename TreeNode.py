@@ -1,18 +1,18 @@
 from itertools import count
 import numpy as np
 import json
-from datetime import datetime, timedelta
+from datetime import  timedelta
 
 
 class Node():
     NID = count(1)
     nodeHash = {}
 
-    def __init__(self, name="", count=0, value="", attr=""):
+    def __init__(self, name="", count_=0, value="", attr=""):
         super().__init__()
         self.nid = next(self.NID)
         self.name = name
-        self.seqCount = count
+        self.seqCount = count_
         # What's the difference between name and value?
         self.value = value
         self.hash = -1
@@ -37,10 +37,10 @@ class Node():
         TreeNode.nodeHash[self.nid] = self
 
     def getNode(self, node_id):
-        return nodeHash[node_id]
+        return self.nodeHash[node_id]
 
     def clearHash(self):
-        nodeHash.clear()
+        self.nodeHash.clear()
 
     def getIncomingSequences(self):
         return self.incomingSequences
@@ -72,7 +72,7 @@ class Node():
         self.pos = l
         self.pos.sort()
         d = sum(self.pos)+len(self.pos)
-        mid = len(self.pos)/2
+        #mid = len(self.pos)/2
 
         if len(self.pos) == 0:
             self.meanStep = 0
@@ -109,7 +109,7 @@ class Node():
     #    self.incomingBranchSimMedian=median
     #    self.incomingBranchSimVariance=variance
 
-    def setIncomingSequences(self, incomingbrancseqs, evtattr):
+    def setIncomingSequences(self, incomingbrancseqs):
         self.incomingSequences = incomingbrancseqs
 
     def setRelTimeStamps(self, reltimestamps):
@@ -121,7 +121,7 @@ class Node():
 
         d = sum(reltimestamps, timedelta())
 
-        mid = len(reltimestamps)/2
+        #mid = len(reltimestamps)/2
 
         if(len(reltimestamps) == 0):
             self.meanRelTimestamp = 0
@@ -163,8 +163,8 @@ class Node():
 
 
 class TreeNode(Node):
-    def __init__(self, name="", count=0, value="", attr=""):
-        super().__init__(name, count, value)
+    def __init__(self, name="", count_val=0, value="", attr=""):
+        super().__init__(name, count_val, value)
         self.children = []
 
     def json_default_dump(self) -> dict:
@@ -181,7 +181,7 @@ class TreeNode(Node):
 
     def json_serialize(self) -> None:
 
-        json.dump(self,  indent=4, default=TreeNode.json_serialize_dump)
+        json.dumps(self,  indent=4, default=TreeNode.json_serialize_dump)
 
     @staticmethod
     def json_serialize_dump(obj):
@@ -193,8 +193,8 @@ class TreeNode(Node):
 
 
 class GraphNode(Node):
-    def __init__(self, name="", count=0, value="", attr=""):
-        super().__init__(name, count, value, attr)
+    def __init__(self, name="", count_val=0, value="", attr=""):
+        super().__init__(name, count_val, value, attr)
         self.before = []
         self.after = []
 
@@ -210,7 +210,7 @@ class GraphNode(Node):
 
     def json_serialize(self) -> None:
 
-        json.dump(self,  indent=4, default=GraphNode.json_serialize_dump)
+        json.dumps(self,  indent=4, default=GraphNode.json_serialize_dump)
 
     @staticmethod
     def json_serialize_dump(obj):

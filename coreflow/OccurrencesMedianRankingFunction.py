@@ -1,7 +1,5 @@
-import os
-import sys
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from Pattern import Pattern
+
 
 class OcccurrencesMeanRankingFunction:
     def __init__(self):
@@ -15,20 +13,20 @@ class OcccurrencesMeanRankingFunction:
     def getTopEventSet(self):
         if not self.topRankedEvtValues:
             return None
-        elif len(self.topRankedEvtValues) == 1:
+        if len(self.topRankedEvtValues) == 1:
             return self.topRankedEvtValues[0]
-        else:
-            # for k in self.topRankedEvtValues:
-            #    print(f'top key {k.keyEvts}')
+    
+        # for k in self.topRankedEvtValues:
+        #    print(f'top key {k.keyEvts}')
 
-            for p in self.topRankedEvtValues:
-                p.computePatternStats(self.evtAttr)
+        for p in self.topRankedEvtValues:
+            p.computePatternStats(self.evtAttr)
 
-            # for k in self.topRankedEvtValues:
-            #    print(f'sorted key {k.keyEvts}')
+        # for k in self.topRankedEvtValues:
+        #    print(f'sorted key {k.keyEvts}')
 
-            self.topRankedEvtValues = sorted(
-                self.topRankedEvtValues, key=lambda x: x.getEventMedianPos()[0])
+        self.topRankedEvtValues = sorted(
+            self.topRankedEvtValues, key=lambda x: x.getEventMedianPos()[0])
 
         return self.topRankedEvtValues[0]
 

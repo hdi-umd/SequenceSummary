@@ -1,15 +1,15 @@
+# rom datetime import datetime, timedelta
 from Event import IntervalEvent
 import pandas as pd
 import requests
 import os
-from datetime import datetime, timedelta
 
 # Helper function to return a data frame
 # Local is boolean, if local then source should be path to the file
 # Otherwise it should be a URL to the the file
 
 
-def get_dataframe(src, local=False, sep="\t", header=[]):
+def get_dataframe(src, local=False, sep="\t", header=None):
     if not local:
         # To force a dropbox link to download change the dl=0 to 1
         if "dropbox" in src:
@@ -22,14 +22,14 @@ def get_dataframe(src, local=False, sep="\t", header=[]):
         csv_file.close()
         # Read the CSV into pandas
         # If header list is empty, the dataset provides header so ignore param
-        if not header:
+        if header is None:
             df = pd.read_csv("data.txt", sep)
         # else use header param for column names
         else:
             df = pd.read_csv("data.txt", sep, names=header)
         # Delete the csv file
         os.remove("data.txt")
-        return df
+        # return df
     # Dataset is local
     else:
         # If header list is empty, the dataset provides header so ignore param
@@ -39,7 +39,7 @@ def get_dataframe(src, local=False, sep="\t", header=[]):
         # else use header param for column names
         else:
             df = pd.read_csv(src, sep, names=header)
-        return df
+    return df
 
 
 # Helper function for generateSequence to use when sorting events to get what time field to sort by
@@ -50,8 +50,7 @@ def get_time_to_sort_by(e):
     if type(e) == IntervalEvent:
         return e.time[0]
     # Otherwise use the timestamp
-    else:
-        return e.timestamp
+    return e.timestamp
 
 
 # Helper to insert an event into a map
@@ -59,5 +58,5 @@ def get_time_to_sort_by(e):
 def insert_event_into_dict(key, dictionary, event):
     if key in dictionary:
         dictionary[key].append(event)
-    else:
-        dictionary[key] = [event]
+
+    dictionary[key] = [event]

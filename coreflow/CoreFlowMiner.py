@@ -1,7 +1,3 @@
-import os
-import sys
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from helper import get_dataframe, get_time_to_sort_by, insert_event_into_dict
 from FrequencyMedianRankingFunction import FrequencyMedianRankingFunction
 from OccurrencesMeanRankingFunction import OcccurrencesMeanRankingFunction
 from TreeNode import TreeNode
@@ -9,6 +5,8 @@ from Sequence import Sequence
 
 
 class CoreFlowMiner:
+
+    """Runs Coreflow mining algo"""
 
     # Implement CoreFlow algo which takes a list of sequences, a TreeNode (root), and a bunch of CoreFlow parameters
 
@@ -46,13 +44,14 @@ class CoreFlowMiner:
             node.setValue(seqs[0].getEvtAttrValue(attr, exitNodeHash))
             node.setHash(exitNodeHash)
 
-        node.setIncomingSequences(seqs, attr)
+        node.setIncomingSequences(seqs)
         node.setSeqCount(Sequence.getSeqVolume(seqs))
         print(f'exit node seq count {node.seqCount}')
         lengths = []
         for s in seqs:
-            for i in range(0, s.getVolume()):
-                lengths.append(len(s.events)-1)
+            lengths.extend([(len(s.events)-1) for i in range(s.getVolume())])
+            # for i in range(s.getVolume()):
+            #    lengths.append(len(s.events)-1)
         node.setPositions(lengths)
         parent.children.append(node)
 
@@ -93,8 +92,10 @@ class CoreFlowMiner:
                     trailingSeqSegs.append(outgoingSeq)
                     print(f'next {outgoingSeq.getHashList(evtAttr)}')
 
-                for k in range(0, seq.getVolume()):
-                    indices.append(i)
+                indices.extend([i for i in range(seq.getVolume())])
+
+                # for k in range(0, seq.getVolume()):
+                #    indices.append(i)
                 relTimestamps.append(
                     seq.events[i].timestamp-seq.events[0].timestamp)
         #print(f'Time Stamp {relTimestamps}')
@@ -106,7 +107,7 @@ class CoreFlowMiner:
         node.setSeqCount(Sequence.getSeqVolume(incomingBranchSeqs))
         node.setPositions(indices)
         node.setRelTimeStamps(relTimestamps)
-        node.setIncomingSequences(incomingBranchSeqs, evtAttr)
+        node.setIncomingSequences(incomingBranchSeqs)
         print(f'seq count {node.getSeqCount()}')
         #print(f' pos {node.pos}')
         print(f'Seq len trailing {len(trailingSeqSegs)}')
