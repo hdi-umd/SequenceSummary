@@ -218,15 +218,13 @@ class SentenTreeMiner:
 
             minpos = max(len(x.events) for x in seq.incomingSequences)
 
-        
             pos_, word_, count_, verdict = self.tb(
                 fdist, fdist_ind, i, pos, count, maxSupport, minpos)
-            
+
             if verdict == True:
                 pos = pos_
                 word = word_
                 count = count_
-
 
         s0 = GraphNode(attr=attr)
         s1 = GraphNode(attr=attr)

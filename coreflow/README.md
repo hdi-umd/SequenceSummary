@@ -4,7 +4,7 @@ The coreflow implementation contains both spmf and coreflow mining techniques
 
 ## Installation
 
-To run smpf we need to install the [smpf-py module] (https://pypi.org/project/spmf/)  
+To run smpf we need to install the [smpf-py module] (https://pypi.org/project/spmf/)
 
 > pip install spmf
 
@@ -16,7 +16,7 @@ Input has the folloing paramters
 
 file: The file containing events in table format
 
-evttpe: If the event is point, interval or mixed
+evttpe: If the event is point, interval or mixed evttpe: Int representation: point- 0, interval- 1, mixed- 2
 
 startidx: Index of the start time column
 
