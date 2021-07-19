@@ -112,9 +112,9 @@ class SentenTreeMiner:
                 maxc = value
 
         if maxc > count:
-            return i, maxw, maxc
+            return i, maxw, maxc, True
 
-        return False
+        return i, maxw, maxc, False
 
     def performRanking_meanIndex(self, fdist, fdist_ind, i, pos, count, maxSupport, minpos):
         maxw = ""
@@ -136,9 +136,9 @@ class SentenTreeMiner:
                 minpos = mean_pos
 
         if maxc > count or (maxc == count and pos < i):
-            return i, maxw, maxc
+            return i, maxw, maxc, True
 
-        return False
+        return i, maxw, maxc, False
 
     def performRanking_medianIndex(self, fdist, fdist_ind, i, pos,  count, maxSupport, minpos):
         maxw = ""
@@ -160,9 +160,9 @@ class SentenTreeMiner:
                 minpos = meadin_pos
 
         if maxc > count or (maxc == count and pos < i):
-            return i, maxw, maxc
+            return i, maxw, maxc, True
 
-        return False
+        return i, maxw, maxc, False
 
     def first_occurrence(self, fdist, evtHashes, l, r, s, fdist_ind=None):
 
@@ -218,9 +218,15 @@ class SentenTreeMiner:
 
             minpos = max(len(x.events) for x in seq.incomingSequences)
 
-            if(self.tb(fdist, fdist_ind, i, pos, count, maxSupport, minpos)):
-                pos, word, count = self.tb(
-                    fdist, fdist_ind, i, pos, count, maxSupport, minpos)
+        
+            pos_, word_, count_, verdict = self.tb(
+                fdist, fdist_ind, i, pos, count, maxSupport, minpos)
+            
+            if verdict == True:
+                pos = pos_
+                word = word_
+                count = count_
+
 
         s0 = GraphNode(attr=attr)
         s1 = GraphNode(attr=attr)
