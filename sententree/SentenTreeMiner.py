@@ -8,7 +8,7 @@ class SentenTreeMiner:
 
     def __init__(self):
 
-        self.rf = self.first_occurrence
+        self.rf = self.number_of_sequence
         self.tb = self.performRanking_medianIndex
 
     def expandSeqTree(self, attr, rootNode,  expandCnt, minSupport, maxSupport, graph):
@@ -164,7 +164,7 @@ class SentenTreeMiner:
 
         return i, maxw, maxc, False
 
-    def first_occurrence(self, fdist, evtHashes, l, r, s, fdist_ind=None):
+    def number_of_sequence(self, fdist, evtHashes, l, r, s, fdist_ind=None):
 
         if fdist_ind is None:
             fdist_ind = {}
