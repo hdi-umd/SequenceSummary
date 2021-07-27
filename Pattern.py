@@ -1,134 +1,112 @@
+"""Implements the Pattern class."""
+
+import json
 from itertools import count
 import numpy as np
-import json
 
 
 class Pattern:
+    """Pattern cass holds common subsequent events occurring across multiple sequences."""
+
     _pids = count(1)
 
     def __init__(self, events=None):
         # pattern id
         self.id = next(self._pids)
-
         if events is None:
             events = []
-
         self.keyEvts = events
-
         self.medianPos = []
         self.meanPos = []
-
         self.parent = None
         self.parentSegment = None
-
         self.sids = []
-
         self.support = 0
         self.supPercent = None
         self.cluster = None
         self.medianPathLength = 0
         self.meanPathLength = 0
-
         self.parnetSegment = None
         self.segSizes = None
 
     def filterPaths(self, paths, evtType):
+        """Check how many Sequences in paths, contain the keyEvents of this pattern object."""
         print("filtering " + str(len(paths))+" paths by " +
               str(len(self.keyEvts))+" checkpoints")
-
         for sequences in paths:
-            if(self.matchMilestones(sequences.getValueHashes(evtType), self.keyEvts) == False):
+            if not Pattern.matchMilestones(sequences.getValueHashes(evtType), self.keyEvts):
                 continue
             self.sids.append(sequences)
-
         print(str(len(self.sids))+" matching paths")
 
-    def matchMilestones(self, arr, milestones):
-
-        idx = -1
-        for elems in milestones:
-            try:
-                idx = arr[idx+1:].index(elems)
-                # print(idx)
-            except ValueError:
-                return False
-        return True
-
     def getMedianSpacing(self):
-        l = [y - x for x, y in zip(self.medianPos, self.medianPos[1:])]
-        if(len(l) <= 1):
+        """Get median spacing between key events."""
+        lst = [y - x for x, y in zip(self.medianPos, self.medianPos[1:])]
+        if len(lst) <= 1:
             return 100
-        l = l.sort()
-        middle = int(len(l)/2)
-        if(len(l) % 2 == 0):
-            return ((l[middle-1]+l[middle])/2.0)
-        else:
-            return l[middle]
-        return np.median(np.asarray(l))
+        lst = lst.sort()
+        #middle = int(len(lst)/2)
+        #if len(lst) % 2 == 0:
+        #    return (lst[middle-1]+lst[middle])/2.0
+        #else:
+        #    return lst[middle]
+        return np.median(np.asarray(lst))
 
-    def addKeyEvent(self, hashval):
-        self.keyEvts.append(hashval)
+    def addKeyEvent(self, hashVal):
+        """Add a new key event."""
+        self.keyEvts.append(hashVal)
 
     def addToSupportSet(self, seq):
-        # print(seq.sid)
+        """Add the sequence seq to the support set of this pattern. In other
+        words, the sequence contains this pattern.
+        """
+
         self.sids.append(seq)
         self.support += seq.getVolume()
 
     def getSequences(self):
+        """Get the id of the sequences that contain this pattern."""
         return self.sids
 
     def setMedianPathLength(self, median):
+        """Assign medianPathLength value."""
         self.medianPathLength = median
 
     def setMeanPathLength(self, mean):
+        """Assign MeanPathLength value."""
         self.meanPathLength = mean
 
     def getMedianPathLength(self):
+        """Returns the medianPathLength"""
         return self.medianPathLength
 
     def getMeanPathLength(self):
+        """Returns the meanPathLength value."""
         return self.meanPathLength
 
     def getEvents(self):
+        """Returns the key events."""
         return self.keyEvts
 
     def getEventMeanPos(self):
+        """Returns the meanPos value."""
         return self.meanPos
 
     def getEventMedianPos(self):
+        """Returns the medianPos value."""
         return self.medianPos
 
     # Do we need to preserve order here??
 
     def getUniqueEventsString(self):
+        """Get all the unique events in pattern (valid?)"""
         # return "-".join(str(x) for x in list(set(self.keyEvts)))
         return "-".join(str(x) for x in list(dict.fromkeys(self.keyEvts)))
 
-    def getPositions(self, events, path):
-        # sequence = path
-        pos = []
-        idx = -1
-        offset = 0
-
-        for elems in events:
-
-            offset += idx+1
-            try:
-                idx = path[offset:].index(elems)
-            except ValueError:
-                continue
-            pos.append(offset+idx)
-        return pos
-
-    def getMedian(self, data):
-        # middle=len(data)/2
-        # if(len(data)%2==0 and len(data)>1):
-        #    return (data[middle-1]+data[middle])/2.0
-        # else:
-        #    return data[middle]
-        return np.median(data)
-
     def computePatternStats(self, evtAttr):
+        """Computes mean and median positions and path lengths of
+        key events for the given attribute
+        """
         pathsOfStrings = []
         #print(f' sids {self.sids}')
         for path in self.sids:
@@ -144,20 +122,20 @@ class Pattern:
             numSteps = []
 
             for _, paths in enumerate(pathsOfStrings):
-                if(self.matchMilestones(paths, self.keyEvts[0:i+1])):
-                    pos = self.getPositions(self.keyEvts[0:i+1], paths)
+                if Pattern.matchMilestones(paths, self.keyEvts[0:i+1]):
+                    pos = Pattern.getPositions(self.keyEvts[0:i+1], paths)
                     if i == 0:
                         # add position value of first element id sequence
                         numSteps.append(pos[i])
                     else:
                         # in other cases add the difference
                         numSteps.append(pos[i]-pos[i-1])
-            sum_steps = sum(numSteps)
+            sumSteps = sum(numSteps)
 
-            median = self.getMedian(numSteps)
+            median = Pattern.getMedian(numSteps)
 
             medians.append(median)
-            means.append(sum_steps*1.0 / len(numSteps))
+            means.append(sumSteps*1.0 / len(numSteps))
 
         # list(accumulate(means))
         means = np.cumsum(np.asarray(means))
@@ -168,48 +146,42 @@ class Pattern:
 
         trailingSteps = [0]*len(self.sids)
         for i, path in enumerate(self.sids):
-            pos = self.getPositions(self.keyEvts, path.getHashList(evtAttr))
+            pos = Pattern.getPositions(self.keyEvts, path.getHashList(evtAttr))
             # the difference between the last event in thesequence and the last key event
             trailingSteps[i] = len(path.events) - pos[-1]-1
 
         trailStepSum = sum(trailingSteps)
-        median = self.getMedian(trailingSteps)
+        median = Pattern.getMedian(trailingSteps)
         mean = trailStepSum/len(trailingSteps)
 
         self.setMedianPathLength(median+medians[-1])
         self.setMeanPathLength(mean+means[-1])
 
-    def getMedianPositions(self, allPos, pids):
-        median = []
-        for k in range(0, len(pids)):
-            posInPaths = allPos[k]
-            median.append(self.getMedian(posInPaths))
-        # return list(self.getMedian(posInPaths) for posInPaths in allPos)
-        return median
 
-    def getMeanPositions(self, allPos):
-        mean = []
-        for k in range(0, len(allPos)):
-            mean.append(sum(allPos[k])*1.0/(len(allPos[k])))
-        return mean
 
     def setMedianPositions(self, median):
+        """Assigne medianPos value."""
         self.medianPos = median
 
     def setMeanPositions(self, mean):
+        """Assigns meanPos value."""
         self.meanPos = mean
 
     def toJson(self):
+        """Create JSon dump."""
         # ,sort_keys=True, indent=4)
         return json.dumps(self, default=lambda o: o.__dict__)
 
     def getSupport(self):
+        """returns support (number of sequences containing pattern)."""
         return self.support
 
     def setCluster(self, cluster):
+        """Assignss the cluster value."""
         self.cluster = cluster
 
     def setParent(self, parent, segment):
+        """Assigns the parent and parentsegment value."""
         self.parent = parent
         self.parentSegment = segment
 
@@ -217,11 +189,76 @@ class Pattern:
     # def getEventBitSet(self)
 
     def getParent(self):
+        """Returns the parent value."""
         return self.parent
 
     def getParentSegment(self):
+        """Returns the parentSegment value."""
         return self.parentSegment
 
     def setSupport(self, sup, total):
+        """Assigns the support and supPercent value."""
         self.support = sup
         self.supPercent = sup*1.0/total
+
+    @staticmethod
+    def matchMilestones(arr, milestones):
+        """Check if all the events mentioned in milestones are present in arr."""
+
+        idx = -1
+        for elems in milestones:
+            try:
+                idx = arr[idx+1:].index(elems)
+                # print(idx)
+            except ValueError:
+                return False
+        return True
+
+    @staticmethod
+    def getPositions(events, path):
+        """Get event positions."""
+
+        # sequence = path
+        pos = []
+        idx = -1
+        offset = 0
+
+        for elems in events:
+
+            offset += idx+1
+            try:
+                idx = path[offset:].index(elems)
+            except ValueError:
+                continue
+            pos.append(offset+idx)
+        return pos
+
+    @staticmethod
+    def getMedian(data):
+        """Returns median of a given list."""
+
+        # middle=len(data)/2
+        # if(len(data)%2==0 and len(data)>1):
+        #    return (data[middle-1]+data[middle])/2.0
+        # else:
+        #    return data[middle]
+        return np.median(data)
+
+    @staticmethod
+    def getMeanPositions(allPos):
+        """Returns a list of mean positions"""
+
+        mean = []
+        for k in range(0, len(allPos)):
+            mean.append(sum(allPos[k])*1.0/(len(allPos[k])))
+        return mean
+
+    @staticmethod
+    def getMedianPositions(allPos, pids):
+        """Returns a list of median positions"""
+        median = []
+        for k, _ in enumerate(pids):
+            posInPaths = allPos[k]
+            median.append(Pattern.getMedian(posInPaths))
+        # return list(self.getMedian(posInPaths) for posInPaths in allPos)
+        return median

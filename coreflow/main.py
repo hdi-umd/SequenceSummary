@@ -25,11 +25,11 @@ def run_spmf(sequence, attr, args_spmf):
                 input_type="text", output_filename="output.txt", arguments=args_spmf)
 
     spmf.run()
-    df = spmf.to_pandas_dataframe(pickle=True)
+    dataFrame = spmf.to_pandas_dataframe(pickle=True)
 
     # more options can be specified also
     with pd.option_context('display.max_rows', 10, 'display.max_columns', None):
-        print(df)
+        print(dataFrame)
 
 
 if __name__ == "__main__":
@@ -111,7 +111,7 @@ if __name__ == "__main__":
     print("\n\n*****Coreflow output******\n\n")
 
     x = json.dumps(root, ensure_ascii=False,
-                   default=TreeNode.json_serialize_dump, indent=1)
+                   default=TreeNode.jsonSerializeDump, indent=1)
     print(x)
 
     with open(args.output+'outfile.json', 'w') as the_file:

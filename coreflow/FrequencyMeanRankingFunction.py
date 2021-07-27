@@ -40,17 +40,17 @@ class FrequencyMeanRankingFunction:
             # get hashlist for each individual sequence
             uniqueHashes = seq.getUniqueValueHashes(self.evtAttr)
             #print(f'evthash {evtHashes}')
-            for hashval in uniqueHashes:
+            for hashVal in uniqueHashes:
 
-                if hashval in excludedEvts:
+                if hashVal in excludedEvts:
                     continue
-                evtValueKey = str(hashval)
+                evtValueKey = str(hashVal)
 
                 # create a pattern for all hash values
                 if evtValueKey not in result.keys():
                     #print(f'evtValueKey {evtValueKey}')
                     p = Pattern([evtValueKey])
-                    # p.addKeyEvent(hashval)
+                    # p.addKeyEvent(hashVal)
                     result[evtValueKey] = p
 
                 result[evtValueKey].addToSupportSet(seq)

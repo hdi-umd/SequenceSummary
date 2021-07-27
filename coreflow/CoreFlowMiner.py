@@ -60,15 +60,15 @@ class CoreFlowMiner:
         print("Start of all " + str(len(seqlist))+" visits")
         return TreeNode("root", numPaths, "-1", attr)
 
-    def truncateSequences(self, seqs, hashval, evtAttr, node, trailingSeqSegs, notContain):
+    def truncateSequences(self, seqs, hashVal, evtAttr, node, trailingSeqSegs, notContain):
         indices = []
         uniqueEvts = []
         relTimestamps = []
         incomingBranchSeqs = []
 
-        #print(f'hashval {hashval}')
+        #print(f'hashVal {hashVal}')
         for seq in seqs:
-            i = seq.getEventPosition(evtAttr, hashval)
+            i = seq.getEventPosition(evtAttr, hashVal)
             #print(f'Position {i}')
             if i < 0:
                 notContain.append(seq)
@@ -121,19 +121,19 @@ class CoreFlowMiner:
             node = TreeNode()
             node.attr = evtAttr
             # First integer event
-            hashval = checkpoints[0]
-            #print(f'hashval {hashval}')
-            eVal = seqs[0].getEvtAttrValue(evtAttr, hashval)
+            hashVal = checkpoints[0]
+            #print(f'hashVal {hashVal}')
+            eVal = seqs[0].getEvtAttrValue(evtAttr, hashVal)
             #print(f'eVal {eVal}')
             node.setName(str(eVal))  # NOT sure
             node.setValue(eVal)
-            node.setHash(hashval)
+            node.setHash(hashVal)
             node.keyevts = parent.keyevts[:]
 
-            node.keyevts.append(hashval)
+            node.keyevts.append(hashVal)
             del checkpoints[0]
             self.truncateSequences(
-                seqs, hashval, evtAttr, node, containSegs, notContain)
+                seqs, hashVal, evtAttr, node, containSegs, notContain)
 
             parent.children.append(node)
 
@@ -164,18 +164,18 @@ class CoreFlowMiner:
                 notContain = []
 
                 node = TreeNode()
-                hashval = topPattern.getEvents()[0]
-                eVal = seqs[0].getEvtAttrValue(evtAttr, hashval)
+                hashVal = topPattern.getEvents()[0]
+                eVal = seqs[0].getEvtAttrValue(evtAttr, hashVal)
                 node.setName(str(eVal))  # NOT sure
                 node.setValue(eVal)
-                node.setHash(hashval)
+                node.setHash(hashVal)
                 node.attr = evtAttr
                 node.keyevts = parent.keyevts[:]
-                node.keyevts.append(hashval)
+                node.keyevts.append(hashVal)
                 print(f'value {eVal}')
 
                 self.truncateSequences(
-                    seqs, hashval, evtAttr, node, containSegs, notContain)
+                    seqs, hashVal, evtAttr, node, containSegs, notContain)
                 node.setSeqCount(Sequence.getSeqVolume(containSegs))
                 print(f'seq count {node.getSeqCount()}')
 

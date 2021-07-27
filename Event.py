@@ -1,26 +1,35 @@
-class Event:
-    def __init__(self, eventtype, attributes):
-        self.type = eventtype
-        self.attributes = attributes
+"""Implements the base class Event and it's derivative classes Point and Interval."""
 
-    # Return Attribute value given attribute name
+
+class Event:
+    """Base Event class, holds the types."""
+
+    def __init__(self, eventtype):
+        self.type = eventtype
+        self.attributes = {}
+
+    def addAttribute(self, attr, value):
+        """Add attributes to the Event object."""
+        self.attributes[attr] = value
+
     def getAttrVal(self, attrName):
+        """Return Attribute value given attribute name."""
         return self.attributes.get(attrName, None)
 
 
-# A class that represents a point event
 class PointEvent(Event):
-    def __init__(self, timestamp, attributes):
-        Event.__init__(self, "point", attributes)
+    """Derivative class for Point events"""
+
+    def __init__(self, timestamp):
+        Event.__init__(self, "point")
         #self.type = "point"
         self.timestamp = timestamp
-        # dictionary: key=attribute value=attribute value
 
 
-# class to represent an interval event
 class IntervalEvent(Event):
-    def __init__(self, t1, t2, attributes):
-        Event.__init__(self, "interval", attributes)
+    """Derivative class for interval events."""
+
+    def __init__(self, t1, t2):
+        Event.__init__(self, "interval")
         #self.type = "interval"
         self.time = [t1, t2]
-        # dictionary: key=attribute value=attribute value

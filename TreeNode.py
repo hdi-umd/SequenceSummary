@@ -1,10 +1,14 @@
-from itertools import count
-import numpy as np
+"""Implements the Node module and derived classes TreeNode and GraphNode"""
+
 import json
-from datetime import  timedelta
+from itertools import count
+from datetime import timedelta
+import numpy as np
 
 
 class Node():
+    """Base Node class holds information of the branching patterns in sequences"""
+
     NID = count(1)
     nodeHash = {}
 
@@ -36,42 +40,53 @@ class Node():
 
         TreeNode.nodeHash[self.nid] = self
 
-    def getNode(self, node_id):
-        return self.nodeHash[node_id]
+    def getNode(self, nodeId):
+        """Returns the node for given node if in nodeHash table."""
+        return self.nodeHash[nodeId]
 
     def clearHash(self):
+        """Clears the nodeHash dictionary"""
         self.nodeHash.clear()
 
     def getIncomingSequences(self):
+        """Returns the list of incoming sequences"""
         return self.incomingSequences
 
     def getSeqCount(self):
+        """returns the sequence count"""
         return self.seqCount
 
     def setSeqCount(self, seqCount):
+        """Assigns the sequence coun"""
         self.seqCount = seqCount
 
     def getName(self):
+        """Returns name of the node"""
         return self.name
 
     def setName(self, name):
+        """Assigns name of the node"""
         self.name = name
 
     def getMeanStep(self):
+        """Returns the value of meanStep"""
         return self.meanStep
 
     # need a better implementation
     def toJSONObject(self):
+        """converts the node to siple JSON object"""
         # ,sort_keys=True, indent=4)
         return json.dumps(self, default=lambda o: o.__dict__)
 
     def toString(self):
+        """Returns name and seqCount for the node"""
         return self.name+": "+self.seqCount
 
-    def setPositions(self, l):
-        self.pos = l
+    def setPositions(self, lst):
+        """set meanStep and medianStep"""
+        self.pos = lst
         self.pos.sort()
-        d = sum(self.pos)+len(self.pos)
+        sumVal = sum(self.pos)+len(self.pos)
         #mid = len(self.pos)/2
 
         if len(self.pos) == 0:
@@ -79,17 +94,20 @@ class Node():
             self.medianStep = 0
         else:
             # WHY WE ARE ADDING 1 to mean and medianStep?
-            self.meanStep = d/(len(self.pos))-1
+            self.meanStep = sumVal/(len(self.pos))-1
             # ((self.pos[mid-1]+self.pos[mid])/2.0)+1 if len(self.pos)%2==0 else self.pos[mid]+1
             self.medianStep = np.median(self.pos)+1
 
     def getValue(self):
+        """Returns value of the node."""
         return self.value
 
     def setValue(self, value):
+        """Assigns value to the node."""
         self.value = value
 
     def getMedianStep(self):
+        """Returns medianStep of the node"""
         return self.medianStep
 
     # def getZipCompressRatio(self):
@@ -99,75 +117,84 @@ class Node():
     #    self.zipCompressRatio=zipcompressratio
 
     def getIncomingBranchUniqueEvts(self):
+        """returns Unique events for the incoming branch"""
         return self.incomingBranchUniqueEvts
 
-    def setIncomingBranchUniqueEvts(self, incomingbranchuniqueevts):
-        self.incomingBranchUniqueEvts = incomingbranchuniqueevts
+    def setIncomingBranchUniqueEvts(self, incomingBranchUniqueEvts):
+        """Assigns value to incomingBranchUniqueEvts"""
+        self.incomingBranchUniqueEvts = incomingBranchUniqueEvts
 
     # def setIncomingBranchSimilarityStats(self, mean, median, variance):
     #    self.incomingBranchSimMean=mean
     #    self.incomingBranchSimMedian=median
     #    self.incomingBranchSimVariance=variance
 
-    def setIncomingSequences(self, incomingbrancseqs):
-        self.incomingSequences = incomingbrancseqs
+    def setIncomingSequences(self, incomingBranchSeqs):
+        """Assigns value to incomingSequences"""
+        self.incomingSequences = incomingBranchSeqs
 
-    def setRelTimeStamps(self, reltimestamps):
+    def setRelTimeStamps(self, relTimeStamps):
+        """Assigns value to  meanRelTimestamp and medianRelTimestamp"""
         #print(f'Time Stamp {reltimestamps}')
         #print(f'Time Stamp {type(reltimestamps[0])}')
-        reltimestamps.sort()
+        relTimeStamps.sort()
         #print(f'Time Stamp {reltimestamps}')
         #print(f'Time Stamp {type(reltimestamps[0])}')
 
-        d = sum(reltimestamps, timedelta())
+        sumVal = sum(relTimeStamps, timedelta())
 
         #mid = len(reltimestamps)/2
 
-        if(len(reltimestamps) == 0):
+        if len(relTimeStamps) == 0:
             self.meanRelTimestamp = 0
             self.medianRelTimestamp = 0
 
         else:
 
-            self.meanRelTimestamp = d*1.0/len(reltimestamps)
-            # (reltimestamps[mid-1]+reltimestamps[mid])/2.0 if len(reltimestamps%2==0) else reltimestamps[mid]
-            self.medianRelTimestamp = np.median(reltimestamps)
+            self.meanRelTimestamp = sumVal*1.0/len(relTimeStamps)
+            # (reltimestamps[mid-1]+reltimestamps[mid])/2.0
+            # if len(reltimestamps%2==0) else reltimestamps[mid]
+            self.medianRelTimestamp = np.median(relTimeStamps)
 
         #print(f'Time Stamp {self.meanRelTimestamp}')
         #print(f'Time Stamp {self.meanRelTimestamp}')
 
     def getPatternString(self):
-        return "-".join(str(self.incomingSequences[0].eventstore.reverseatttrdict[self.attr][hashval]) for hashval in self.keyevts if self.incomingSequences)
+        """Returns the pattern string for this node"""
+        return "-".join(str(
+            self.incomingSequences[0].eventstore.reverseAttrDict[self.attr][hashVal])
+                        for hashVal in self.keyevts if self.incomingSequences)
 
     def getHash(self):
-
+        """Returns hash value for this node."""
         return self.hash
 
     def setHash(self, value):
+        """Assigns hash value for this node"""
         self.hash = value
 
-    # def json_serialize(self):
-    #    json.dump(self, indent=4, default= TreeNode.json_default_dump)
+    # def jsonSerialize(self):
+    #    json.dump(self, indent=4, default= TreeNode.jsonDefaultDump)
 
-    def json_default_dump(self) -> dict:
-        pass
+    def jsonDefaultDump(self) -> dict:
+        """dummy method- implemented in derived class"""
 
-    def json_serialize(self) -> None:
-
-        pass
+    def jsonSerialize(self) -> None:
+        """dummy method- implemented in derived class"""
 
     @staticmethod
-    def json_serialize_dump(obj):
-
-        pass
+    def jsonSerializeDump(obj):
+        """dummy method- implemented in derived class"""
 
 
 class TreeNode(Node):
+    """Class to visualize Coreflow-like Tree data structures"""
+
     def __init__(self, name="", count_val=0, value="", attr=""):
         super().__init__(name, count_val, value)
         self.children = []
 
-    def json_default_dump(self) -> dict:
+    def jsonDefaultDump(self) -> dict:
         return {
             "event_attribute": self.value,
             "Pattern": self.getPatternString(),
@@ -175,47 +202,48 @@ class TreeNode(Node):
             "median_index": self.medianStep,
             "average_index": self.meanStep,
 
-            "children": [TreeNode.json_serialize_dump(x) for x in self.children]
+            "children": [TreeNode.jsonSerializeDump(x) for x in self.children]
 
         }
 
-    def json_serialize(self) -> None:
-
-        json.dumps(self,  indent=4, default=TreeNode.json_serialize_dump)
+    def jsonSerialize(self) -> None:
+        json.dumps(self, indent=4, default=TreeNode.jsonSerializeDump)
 
     @staticmethod
-    def json_serialize_dump(obj):
+    def jsonSerializeDump(obj):
 
-        if hasattr(obj, "json_default_dump"):
+        if hasattr(obj, "jsonDefaultDump"):
 
-            return obj.json_default_dump()
+            return obj.jsonDefaultDump()
         return None
 
 
 class GraphNode(Node):
+
+    """Class to support graphs where multiple branching of nodes are possible"""
+
     def __init__(self, name="", count_val=0, value="", attr=""):
         super().__init__(name, count_val, value, attr)
         self.before = []
         self.after = []
 
-    def json_default_dump(self) -> dict:
+    def jsonDefaultDump(self) -> dict:
         return {
-            "before": GraphNode.json_serialize_dump(self.before),
+            "before": GraphNode.jsonSerializeDump(self.before),
             "event_attribute": self.value,
             "Pattern": self.getPatternString(),
             "value": self.seqCount,
-            "After": GraphNode.json_serialize_dump(self.after)
+            "After": GraphNode.jsonSerializeDump(self.after)
 
         }
 
-    def json_serialize(self) -> None:
-
-        json.dumps(self,  indent=4, default=GraphNode.json_serialize_dump)
+    def jsonSerialize(self) -> None:
+        json.dumps(self, indent=4, default=GraphNode.jsonSerializeDump)
 
     @staticmethod
-    def json_serialize_dump(obj):
+    def jsonSerializeDump(obj):
 
-        if hasattr(obj, "json_default_dump"):
+        if hasattr(obj, "jsonDefaultDump"):
 
-            return obj.json_default_dump()
+            return obj.jsonDefaultDump()
         return None

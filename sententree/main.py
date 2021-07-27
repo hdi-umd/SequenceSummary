@@ -73,7 +73,7 @@ if __name__ == "__main__":
             seq_list = seq
 
     stm = SentenTreeMiner()
-    #cfm.truncateSequences(self, seqs, hashval, evtAttr, node,trailingSeqSegs, notContain)
+    #cfm.truncateSequences(self, seqs, hashVal, evtAttr, node,trailingSeqSegs, notContain)
     root = GraphNode()
     root.incomingSequences = seq_list
     graph = Graph()
@@ -83,13 +83,13 @@ if __name__ == "__main__":
     print("\n\n*****SentenTree output******\n\n")
 
     x = json.dumps(root, ensure_ascii=False,
-                   default=GraphNode.json_serialize_dump, indent=1)
+                   default=GraphNode.jsonSerializeDump, indent=1)
     print(x)
 
     print("\n\n*****SentenTree Graph output******\n\n")
 
     y = json.dumps(graph, ensure_ascii=False,
-                   default=Graph.json_serialize_dump, indent=1)
+                   default=Graph.jsonSerializeDump, indent=1)
     print(y)
     with open(args.output+'outfile.json', 'w') as the_file:
         the_file.write(x)
