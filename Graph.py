@@ -1,7 +1,11 @@
+""" Creates the RawNode, Links and Graph class."""
+
 import json
 
 
-class Rawnode:
+class RawNode:
+    """RawNode contains selected attributes from Node class for json conversion."""
+
     def __init__(self, node):
         self.nid = node.nid
         self.seqCount = node.seqCount
@@ -10,7 +14,8 @@ class Rawnode:
         self.meanStep = node.meanStep
         self.medianStep = node.medianStep
 
-    def json_default_dump(self) -> dict:
+    def jsonDefaultDump(self) -> dict:
+        """creates the Json format output for the class RawNode."""
         return {
             "node id": self.nid,
             "event_attribute": self.value,
@@ -22,13 +27,15 @@ class Rawnode:
 
 
 class Links:
+    """Links class contains information regarding which node is connected to which one"""
 
     def __init__(self, node1, node2, count):
         self.source = node1
         self.target = node2
         self.count = count
 
-    def json_default_dump(self) -> dict:
+    def jsonDefaultDump(self) -> dict:
+        """creates the Json format output for the class Links."""
         return {
             "source": self.source,
             "target": self.target,
@@ -36,7 +43,8 @@ class Links:
         }
 
 
-class Graph():
+class Graph:
+    """Graph class consusts of Links and Nodes."""
 
     def __init__(self):
         self.links = []  # defaultdict(set)
@@ -46,27 +54,29 @@ class Graph():
     #    self.links.append(Links(node1,node2, count))
         # self.links[node2].add(node1)
 
-    def json_default_dump(self) -> dict:
+    def jsonDefaultDump(self) -> dict:
+        """creates the Json format output for the class Graph."""
         return {
             "nodes": self.nodes,
             "links": self.links
 
         }
 
-    def json_serialize(self) -> None:
-
-        json.dumps(self,  indent=4, default=Graph.json_serialize_dump)
+    def jsonSerialize(self) -> None:
+        """Default JSON serializer"""
+        json.dumps(self, indent=4, default=Graph.jsonSerializeDump)
 
     @staticmethod
-    def json_serialize_dump(obj):
+    def jsonSerializeDump(obj):
+        """static method to call jsonDefaultDump on all custom objects"""
+        if hasattr(obj, "jsonDefaultDump"):
 
-        if hasattr(obj, "json_default_dump"):
-
-            return obj.json_default_dump()
+            return obj.jsonDefaultDump()
         if isinstance(obj, set):
             return list(obj)
         return None  # obj.__dict__
 
-    def print_graph(self):
+    def printGraph(self):
+        """Print the node ids."""
         for node in self.nodes:
             print(node.nid)

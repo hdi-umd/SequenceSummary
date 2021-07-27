@@ -1,5 +1,5 @@
 import numpy as np
-from Graph import Rawnode, Links
+from Graph import RawNode, Links
 from TreeNode import GraphNode
 from Sequence import Sequence
 
@@ -22,7 +22,7 @@ class SentenTreeMiner:
         rootNode.attr = attr
         leafSeqs = []
 
-        graph.nodes.append(Rawnode(rootNode))
+        graph.nodes.append(RawNode(rootNode))
         while seqs and expandCnt > 0:
             s = max(seqs, key=lambda x: x.seqCount)
             print(f'seqCount: {s.seqCount}')
@@ -67,7 +67,7 @@ class SentenTreeMiner:
             if s1 and s1.seqCount >= minSupport:
                 expandCnt -= 1
                 seqs.append(s1)
-                graph.nodes.append(Rawnode(s1))
+                graph.nodes.append(RawNode(s1))
                 graph.links.append(Links(s.nid, s1.nid, s1.seqCount))
 
                 # s1.after=s
@@ -76,7 +76,7 @@ class SentenTreeMiner:
 
             if s0 and s0.seqCount >= minSupport:
                 seqs.append(s0)
-                # graph.nodes.append(Rawnode(s0))
+                # graph.nodes.append(RawNode(s0))
 
                 # graph.add(s.nid,s0.nid)
 
