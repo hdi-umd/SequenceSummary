@@ -1,3 +1,5 @@
+"""Implements the SentenTreeMiner according to SentenTree Algo"""
+
 import numpy as np
 from Graph import RawNode, Links
 from TreeNode import GraphNode
@@ -5,17 +7,16 @@ from Sequence import Sequence
 
 
 class SentenTreeMiner:
+    """Runs SentenTree mining algo"""
 
     def __init__(self):
+        self.rankingFunc = SentenTreeMiner.numberOfSequence
+        self.tieBreaker = SentenTreeMiner.performRankingMedianIndex
 
-        self.rf = self.number_of_sequence
-        self.tb = self.performRanking_medianIndex
-
-    def expandSeqTree(self, attr, rootNode,  expandCnt, minSupport, maxSupport, graph):
-
+    def expandSeqTree(self, attr, rootNode, expandCnt, minSupport, maxSupport, graph):
+        """Chooses which branch of the tree to expand next."""
         # if len(rootSeq.eventlist>0):
         expandCnt -= len(rootNode.keyevts)
-
         seqs = []
         seqs.append(rootNode)
         rootNode.setSeqCount(Sequence.getSeqVolume(rootNode.incomingSequences))
@@ -24,242 +25,218 @@ class SentenTreeMiner:
 
         graph.nodes.append(RawNode(rootNode))
         while seqs and expandCnt > 0:
-            s = max(seqs, key=lambda x: x.seqCount)
-            print(f'seqCount: {s.seqCount}')
-            #print(f'this: {s}')
+            currentSeq = max(seqs, key=lambda x: x.seqCount)
+            print(f'seqCount: {currentSeq.seqCount}')
 
-            s0 = s.after
-            s1 = s.before
+            seq0 = currentSeq.after
+            seq1 = currentSeq.before
 
-            #print(f' s : {s}')
-            #print(f' s0 : {s0}')
-            #print(f' s1: {s1}')
+            print(f'this.pattern currentSeq : {currentSeq.keyevts}')
 
-            print(f'this.pattern s : {s.keyevts}')
-            #print(f'this.pattern s0 : {s0.keyevts}')
-            #print(f'this.pattern s1: {s1.keyevts}')
-
-            if not s1 and not s0:
-                word, pos, count, s0, s1 = self.growSeq(
-                    attr, s,  minSupport, maxSupport)
-                print(f'word: {word}, pos: {pos}, count: {count}')
+            if not seq1 and not seq0:
+                word, pos, count, seq0, seq1 = self.growSeq(
+                    attr, currentSeq, minSupport, maxSupport)
+                print(f'event: {word}, pos: {pos}, count: {count}')
 
                 if count < minSupport:
-                    leafSeqs.append(s)
+                    leafSeqs.append(currentSeq)
                 else:
 
-                    s1.setHash(word)
-                    s1.setValue(
-                        s.incomingSequences[0].getEvtAttrValue(attr, word))
-                    s1.keyevts = s.keyevts[:]  # deep copy
-                    s0.keyevts = s.keyevts[:]
-                    # for i,x in enumerate(s.pattern.keyEvts):
-                    #    print(s.pattern.keyEvts)
-                    #    s1.pattern.addKeyEvent(x)
-                    #    s0.pattern.addKeyEvent(x)
+                    seq1.setHash(word)
+                    seq1.setValue(
+                        currentSeq.incomingSequences[0].getEvtAttrValue(attr, word))
+                    seq1.keyevts = currentSeq.keyevts[:]  # deep copy
+                    seq0.keyevts = currentSeq.keyevts[:]
 
-                    s1.keyevts.insert(pos, word)
+                    seq1.keyevts.insert(pos, word)
 
-                #print(f'this.pattern s after: {s.keyevts}')
-                #print(f'this.pattern s0 after: {s0.keyevts}')
-                #print(f'this.pattern s1 after: {s1.keyevts}')
-
-            if s1 and s1.seqCount >= minSupport:
+            if seq1 and seq1.seqCount >= minSupport:
                 expandCnt -= 1
-                seqs.append(s1)
-                graph.nodes.append(RawNode(s1))
-                graph.links.append(Links(s.nid, s1.nid, s1.seqCount))
+                seqs.append(seq1)
+                graph.nodes.append(RawNode(seq1))
+                graph.links.append(
+                    Links(currentSeq.nid, seq1.nid, seq1.seqCount))
 
-                # s1.after=s
-            s.before = s1
-            s.after = s0
+            currentSeq.before = seq1
+            currentSeq.after = seq0
 
-            if s0 and s0.seqCount >= minSupport:
-                seqs.append(s0)
-                # graph.nodes.append(RawNode(s0))
-
-                # graph.add(s.nid,s0.nid)
-
-                # s0.before=s
+            if seq0 and seq0.seqCount >= minSupport:
+                seqs.append(seq0)
             print(f'seqCount: {[s.seqCount for s in seqs]}')
-            #print(f'before: {s.before}')
-            #print(f'after: {s.after}')
-            #print(f'this: {s}')
-            #print(f' s after: {s}')
-            #print(f' s0 after: {s0}')
-            #print(f' s1 after: {s1}')
 
-            del seqs[seqs.index(s)]
-            #print(f'seqCount: {[s.seqCount for s in seqs]}')
-            #print(f'before: {seqs[0].before}')
-            #print(f'after: {seqs[0].after}')
-            #print(f'this: {seqs[0]}')
-
-            #print(f' s : {s}')
-            #print(f' s0 : {s0}')
-            #print(f' s1: {s1}')
+            del seqs[seqs.index(currentSeq)]
 
         return leafSeqs.append(seqs)
 
-    def performRanking_naive(self, fdist, _fdist_ind, i, _pos, count, maxSupport, _minpos):
-        maxw = ""
-        maxc = 0
-        for w in fdist.keys():
-            value = fdist[w]
+    @staticmethod
+    def performRankingNaive(fdist, _fdistInd, i, _pos, count, maxSupport, _minpos):
+        """Naive ranking of events, does not consider index."""
+        maxWord = ""
+        maxCount = 0
+        for word in fdist.keys():
+            value = fdist[word]
 
-            if value < maxSupport and value > maxc:
-                maxw = str(w)
-                maxc = value
+            if maxCount < value <= maxSupport:
+                maxWord = str(word)
+                maxCount = value
 
-        if maxc > count:
-            return i, maxw, maxc, True
+        if maxCount > count:
+            return i, maxWord, maxCount, True
 
-        return i, maxw, maxc, False
+        return i, maxWord, maxCount, False
 
-    def performRanking_meanIndex(self, fdist, fdist_ind, i, pos, count, maxSupport, minpos):
-        maxw = ""
-        maxc = 0
+    @staticmethod
+    def performRankingMeanIndex(fdist, fdistInd, i, pos, count, maxSupport, minPos):
+        """If two events have the same number of Occurrences tie breake
+        based on minimum Mean Index value.
+        """
+        maxWord = ""
+        maxCount = 0
 
-        for w in fdist.keys():
-            value = fdist[w]
+        for word in fdist.keys():
+            value = fdist[word]
 
-            mean_pos = sum(fdist_ind[w]) / len(fdist_ind[w])
+            meanPos = sum(fdistInd[word]) / len(fdistInd[word])
 
-            if value <= maxSupport and value > maxc:
-                maxw = str(w)
-                maxc = value
-                minpos = mean_pos
+            if maxCount < value <= maxSupport:
+                maxWord = str(word)
+                maxCount = value
+                minPos = meanPos
 
-            if value == maxc and mean_pos < minpos:
-                maxw = str(w)
-                maxc = value
-                minpos = mean_pos
+            if value == maxCount and meanPos < minPos:
+                maxWord = str(word)
+                maxCount = value
+                minPos = meanPos
 
-        if maxc > count or (maxc == count and pos < i):
-            return i, maxw, maxc, True
+        if maxCount > count or (maxCount == count and pos < i):
+            return i, maxWord, maxCount, True
 
-        return i, maxw, maxc, False
+        return i, maxWord, maxCount, False
 
-    def performRanking_medianIndex(self, fdist, fdist_ind, i, pos,  count, maxSupport, minpos):
-        maxw = ""
-        maxc = 0
+    @staticmethod
+    def performRankingMedianIndex(fdist, fdistInd, i, pos, count, maxSupport, minPos):
+        """If two events have the same number of Occurrences tie breake
+        based on minimum Mean Index value.
+        """
+        maxWord = ""
+        maxCount = 0
 
-        for w in fdist.keys():
-            value = fdist[w]
+        for word in fdist.keys():
+            value = fdist[word]
 
-            meadin_pos = np.median(fdist_ind[w])
+            meadianPos = np.median(fdistInd[word])
 
-            if value <= maxSupport and value > maxc:
-                maxw = str(w)
-                maxc = value
-                minpos = meadin_pos
+            if maxCount < value <= maxSupport:
+                maxWord = str(word)
+                maxCount = value
+                minPos = meadianPos
 
-            if value == maxc and meadin_pos < minpos:
-                maxw = str(w)
-                maxc = value
-                minpos = meadin_pos
+            if value == maxCount and meadianPos < minPos:
+                maxWord = str(word)
+                maxCount = value
+                minPos = meadianPos
 
-        if maxc > count or (maxc == count and pos < i):
-            return i, maxw, maxc, True
+        if maxCount > count or (maxCount == count and pos < i):
+            return i, maxWord, maxCount, True
 
-        return i, maxw, maxc, False
+        return i, maxWord, maxCount, False
 
-    def number_of_sequence(self, fdist, evtHashes, l, r, s, fdist_ind=None):
+    @staticmethod
+    def numberOfSequence(fdist, evtHashes, startPos, endPos, seq, fdistInd=None):
+        """Choose the event present in maximum number of sequences
+        as the next Pattern event.
+        """
 
-        if fdist_ind is None:
-            fdist_ind = {}
+        if fdistInd is None:
+            fdistInd = {}
         duplicate = []
-        for j in range(l, r):
-            w = evtHashes[j]
-            # print(w)
-            if w in duplicate:
+        for j in range(startPos, endPos):
+            word = evtHashes[j]
+            # print(word)
+            if word in duplicate:
                 continue
-            duplicate.append(w)
-            if w not in fdist:
-                fdist[w] = s.getVolume()
-                fdist_ind[w] = [j]
+            duplicate.append(word)
+            if word not in fdist:
+                fdist[word] = seq.getVolume()
+                fdistInd[word] = [j]
             else:
-                fdist[w] += s.getVolume()
-                fdist_ind[w].append(j)
+                fdist[word] += seq.getVolume()
+                fdistInd[word].append(j)
 
-    def all_occurrence(self, fdist, evtHashes, l, r, s, fdist_ind=None):
+    @staticmethod
+    def allOccurrence(fdist, evtHashes, startPos, endPos, seq, fdistInd=None):
+        """Choose the event present maximum number of time across sequences
+        as the next Pattern event.
+        """
 
-        if fdist_ind is None:
-            fdist_ind = {}
+        if fdistInd is None:
+            fdistInd = {}
 
-        for j in range(l, r):
-            w = evtHashes[j]
-            # print(w)
-            if w not in fdist:
-                fdist[w] = s.getVolume()
-                fdist_ind[w] = [j]
+        for j in range(startPos, endPos):
+            word = evtHashes[j]
+            # print(word)
+            if word not in fdist:
+                fdist[word] = seq.getVolume()
+                fdistInd[word] = [j]
             else:
-                fdist[w] += s.getVolume()
-                fdist_ind[w].append(j)
+                fdist[word] += seq.getVolume()
+                fdistInd[word].append(j)
 
-    def growSeq(self, attr, seq,  minSupport, maxSupport):
-
+    def growSeq(self, attr, seq, minSupport, maxSupport):
+        """Expands the current max Pattern by another event."""
         pos = -1
         word = ""
         count = 0
 
         for i in range(0, len(seq.keyevts)+1):
             fdist = {}
-            fdist_ind = {}
+            fdistInd = {}
 
-            for s in seq.incomingSequences:
+            for elem in seq.incomingSequences:
 
-                evtHashes = s.getHashList(attr)
-                l = 0 if i == 0 else s.seqIndices[i - 1] + 1
-                r = len(evtHashes) if i == len(
-                    seq.keyevts) else s.seqIndices[i]
+                evtHashes = elem.getHashList(attr)
+                startPos = 0 if i == 0 else elem.seqIndices[i - 1] + 1
+                endPos = len(evtHashes) if i == len(
+                    seq.keyevts) else elem.seqIndices[i]
 
-                self.rf(fdist, evtHashes, l, r, s, fdist_ind)
+                self.rankingFunc(fdist, evtHashes, startPos,
+                                 endPos, elem, fdistInd)
 
-            minpos = max(len(x.events) for x in seq.incomingSequences)
+            minPos = max(len(x.events) for x in seq.incomingSequences)
 
-            pos_, word_, count_, verdict = self.tb(
-                fdist, fdist_ind, i, pos, count, maxSupport, minpos)
+            newPos, newWord, newCount, verdict = self.tieBreaker(
+                fdist, fdistInd, i, pos, count, maxSupport, minPos)
 
-            if verdict == True:
-                pos = pos_
-                word = word_
-                count = count_
+            if verdict:
+                pos = newPos
+                word = newWord
+                count = newCount
 
-        s0 = GraphNode(attr=attr)
-        s1 = GraphNode(attr=attr)
+        seq0 = GraphNode(attr=attr)
+        seq1 = GraphNode(attr=attr)
 
-        #print(f'this.pattern s0 in growseq: {s0.pattern}')
-        #print(f'this.pattern s1 in growseq: {s1.pattern}')
-
-        #print(f'minSupport {minSupport} count {count}')
         if count >= minSupport:
             words = seq.keyevts
-            for t in seq.incomingSequences:
-                l = 0 if pos == 0 else t.seqIndices[pos - 1] + 1
-                r = len(t.events) if pos == len(words) else t.seqIndices[pos]
+            for elem in seq.incomingSequences:
+                startPos = 0 if pos == 0 else elem.seqIndices[pos - 1] + 1
+                endPos = len(elem.events) if pos == len(
+                    words) else elem.seqIndices[pos]
                 try:
-                    i = t.getHashList(attr).index(word, l, r)
-                    #print(f'position: {i}')
-                    # i+=l
-
+                    i = elem.getHashList(attr).index(word, startPos, endPos)
                     # sequence index value for the word being inserted. e.g. A-C-G seq indice 1,4,8
-                    t.seqIndices.insert(pos, i)
-                    s1.incomingSequences.append(t)
-                    s1.seqCount += t.getVolume()
+                    elem.seqIndices.insert(pos, i)
+                    seq1.incomingSequences.append(elem)
+                    seq1.seqCount += elem.getVolume()
 
                 except ValueError:
-                    #print(f'Value error')
-                    s0.incomingSequences.append(t)
-                    s0.seqCount += t.getVolume()
+                    seq0.incomingSequences.append(elem)
+                    seq0.seqCount += elem.getVolume()
             # calculate average index
-            pos_arr = [seq.seqIndices[pos] for seq in s1.incomingSequences]
-            #print(f'pos_arr {pos_arr}')
-            s1.setPositions(pos_arr)
-            #print(f'Mean {s1.getMeanStep()} Median {s1.getMedianStep()}')
-            s0.setSeqCount(Sequence.getSeqVolume(s0.incomingSequences))
-            s1.setSeqCount(Sequence.getSeqVolume(s1.incomingSequences))
+            posArr = [seq.seqIndices[pos] for seq in seq1.incomingSequences]
+            seq1.setPositions(posArr)
+            seq0.setSeqCount(Sequence.getSeqVolume(seq0.incomingSequences))
+            seq1.setSeqCount(Sequence.getSeqVolume(seq1.incomingSequences))
 
-            print(f'Not contain: {len(s0.incomingSequences)}')
-            print(f'contain: {len(s1.incomingSequences)}')
-        return word, pos, count, s0, s1
+            print(f'Not contain: {len(seq0.incomingSequences)}')
+            print(f'contain: {len(seq1.incomingSequences)}')
+        return word, pos, count, seq0, seq1

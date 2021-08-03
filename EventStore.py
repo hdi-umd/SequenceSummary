@@ -118,7 +118,8 @@ class EventStore:
             # or t1 and t2 (if interval event)
             # If the endTimeColumnIdx value is NaN ie a float instead of a time
             # string then its a point event
-            if isinstance(data[endTimeColumnIdx], float):
+            #if isinstance(data[endTimeColumnIdx], float):
+            if data[endTimeColumnIdx] is None or isinstance(data[endTimeColumnIdx], float):
                 timeStamp = datetime.strptime(data[startTimeColumnIdx], timeFormat)
                 eventType = "point"
             # Otherwise its an interval event

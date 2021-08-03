@@ -1,28 +1,31 @@
-import os
-import sys
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+"""Implements the main method that calls and executes smpf and
+Coreflow modules.
+"""
 
-from EventStore import EventStore
-from CoreFlowMiner import CoreFlowMiner
-from Sequence import Sequence
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from TreeNode import TreeNode
+from Sequence import Sequence
+from CoreFlowMiner import CoreFlowMiner
+from EventStore import EventStore
 from spmf import Spmf
 import pandas as pd
 import json
 import argparse
 
 
-def run_spmf(sequence, attr, args_spmf):
+def runSPMF(sequence, attr, argsSPMF):
     """This module runs spmf using the py-spmf package."""
 
     # convert input to list format
     if not isinstance(sequence, list):
         sequence = [sequence]
 
-    raw_seq = "\n".join(seqs.convertToVMSPReadable(attr) for seqs in sequence)
+    rawSeq = "\n".join(seqs.convertToVMSPReadable(attr) for seqs in sequence)
 
-    spmf = Spmf("VMSP", spmf_bin_location_dir="./", input_direct=raw_seq,
-                input_type="text", output_filename="output.txt", arguments=args_spmf)
+    spmf = Spmf("VMSP", spmf_bin_location_dir="./", input_direct=rawSeq,
+                input_type="text", output_filename="output.txt", arguments=argsSPMF)
 
     spmf.run()
     dataFrame = spmf.to_pandas_dataframe(pickle=True)
@@ -35,78 +38,91 @@ def run_spmf(sequence, attr, args_spmf):
 if __name__ == "__main__":
     # main()
 
-    argparser = argparse.ArgumentParser()
-    argparser.add_argument("--file", help="File to read from",
+    argParser = argparse.ArgumentParser()
+
+    argParser.add_argument("--file", help="File to read from",
                            type=str, default="sequence_braiding_refined.csv", required=False)
-    argparser.add_argument("--evttype", help="1. Point 2.Interval 3.Mixed event",
+
+    argParser.add_argument("--evttype", help="1. Point 2.Interval 3.Mixed event",
                            type=int, default=1, required=False)
-    argparser.add_argument("--startidx", help="Column Index of starting time",
+
+    argParser.add_argument("--startidx", help="Column Index of starting time",
                            type=int, default=0, required=False)
-    argparser.add_argument("--endidx", help="Column Index of ending time",
+
+    argParser.add_argument("--endidx", help="Column Index of ending time",
                            type=int, default=1, required=False)
-    argparser.add_argument("--format", help="Time format",
+
+    argParser.add_argument("--format", help="Time format",
                            type=str, default="%m/%d/%y", required=False)
 
-    argparser.add_argument("--sep", help="separator of fields",
+    argParser.add_argument("--sep", help="separator of fields",
                            type=str, default=",", required=False)
-    argparser.add_argument("--local", help="Local availability of file",
+
+    argParser.add_argument("--local", help="Local availability of file",
                            type=bool, default=True, required=False)
-    argparser.add_argument("--spmf", help="Run spmf",
+
+    argParser.add_argument("--header", help="name of fields",
+                           nargs='+', default="", required=False)
+
+    argParser.add_argument("--spmf", help="Run spmf",
                            type=bool, default=False)
 
-    argparser.add_argument("--attr", help="Attribute to run mining on",
+    argParser.add_argument("--attr", help="Attribute to run mining on",
                            type=str, required=True)
 
-    argparser.add_argument("--grpattr", help="group the sequences based on this attribute",
+    argParser.add_argument("--grpattr", help="group the sequences based on this attribute",
                            type=str, default="")
 
-    argparser.add_argument("--split", help="split the sequences",
+    argParser.add_argument("--split", help="split the sequences",
                            type=str, default="")
 
-    argparser.add_argument("--output", help="Path of output file",
+    argParser.add_argument("--output", help="Path of output file",
                            type=str, default="")
 
-    args = argparser.parse_args()
+    args = argParser.parse_args()
     print(args)
 
     # Eventstore creates a list of events
-    Es = EventStore()
-    if(args.evttype == 1):
-        Es.importPointEvents(args.file, args.startidx,
-                             args.format, sep=args.sep, local=args.local)
-    elif(args.evttype == 2):
-        Es.importIntervalEvents(
-            args.file, args.startidx, args.endidx, args.format, sep=args.sep, local=args.local)
+    eventStore = EventStore()
+    if args.evttype == 1:
+        eventStore.importPointEvents(args.file, args.startidx,
+                                     args.format, sep=args.sep, local=args.local,
+                                     header=args.header)
+    elif args.evttype == 2:
+        eventStore.importIntervalEvents(
+            args.file, args.startidx, args.endidx, args.format, sep=args.sep,
+            local=args.local, header=args.header)
     else:
-        Es.importMixedEvents(args.file, args.startidx, args.endidx,
-                             args.format, sep=args.sep, local=args.local)
+        eventStore.importMixedEvents(args.file, args.startidx, args.endidx,
+                                     args.format, sep=args.sep, local=args.local,
+                                     header=args.header)
 
     # create Sequences from Eventstore
-
-    if(args.grpattr):
-        seq = Es.generateSequence(args.grpattr)
+    if args.grpattr:
+        seq = eventStore.generateSequence(args.grpattr)
     else:
-        seq = Sequence(Es.events, Es)
+        seq = Sequence(eventStore.events, eventStore)
 
-    if(args.split):
-        seq_list = Sequence.splitSequences(seq, args.split)
+    if args.split:
+        seqList = Sequence.splitSequences(seq, args.split)
     else:
         if not isinstance(seq, list):
-            seq_list = [seq]
+            seqList = [seq]
         else:
-            seq_list = seq
+            seqList = seq
 
-    if(args.spmf == True):
+    if args.spmf:
         print("\n\n*****SPMF output******\n\n")
-        run_spmf(seq_list, args.attr, [0.5])
+        runSPMF(seqList, args.attr, [0.5])
         print("\n\n")
 
     cfm = CoreFlowMiner()
-    root = cfm.getNewRootNode(Sequence.getSeqVolume(
-        seq_list), seq_list, attr=args.attr)
-    #cfm.run(seq_list, args.attr, root, 5 * Sequence.getSeqVolume(seq_list)/100.0, Sequence.getSeqVolume(seq_list), [], {}, -1)
-    cfm.run(seq_list, args.attr, root, 2,
-            Sequence.getSeqVolume(seq_list), [], {}, -1)
+    root = CoreFlowMiner.getNewRootNode(Sequence.getSeqVolume(
+        seqList), seqList, attr=args.attr)
+    #cfm.run(seqList, args.attr, root, 5 * Sequence.getSeqVolume(
+    #       seqList)/100.0, Sequence.getSeqVolume(seqList), [], {}, -1)
+    cfm.run(seqList, args.attr, root, 2,
+            Sequence.getSeqVolume(seqList), [], {}, -1)
 
     print("\n\n*****Coreflow output******\n\n")
 
@@ -114,5 +130,5 @@ if __name__ == "__main__":
                    default=TreeNode.jsonSerializeDump, indent=1)
     print(x)
 
-    with open(args.output+'outfile.json', 'w') as the_file:
+    with open(args.output+'coreflow_result.json', 'w') as the_file:
         the_file.write(x)

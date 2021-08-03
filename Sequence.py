@@ -145,10 +145,12 @@ class Sequence():
 
     # Method equivalent to public List<String> getEvtAttrValues(String attr) in DataManager.java
     def getEvtAttrValues(self, attr):
+        """Given attr name, return all possible values for that attribute"""
         return list(self.eventstore.reverseAttrDict[attr].values())
 
     # Method equivalent to int getEvtAttrValueCount(String attr) in DataManager.java
     def getEvtAttrValueCount(self, attr):
+        """return the number of distinct types present given an attribute"""
         return len(self.eventstore.reverseAttrDict[attr])
 
     #ZINAT- changes
