@@ -17,7 +17,7 @@ class RawNode:
     def jsonDefaultDump(self) -> dict:
         """creates the Json format output for the class RawNode."""
         return {
-            "node id": self.nid,
+            "node_id": self.nid,
             "event_attribute": self.value,
             "Pattern": self.pattern,
             "value": self.seqCount,
@@ -50,10 +50,6 @@ class Graph:
         self.links = []  # defaultdict(set)
         self.nodes = []
 
-    # def add(self, node1, node2, count):
-    #    self.links.append(Links(node1,node2, count))
-        # self.links[node2].add(node1)
-
     def jsonDefaultDump(self) -> dict:
         """creates the Json format output for the class Graph."""
         return {
@@ -78,5 +74,50 @@ class Graph:
 
     def printGraph(self):
         """Print the node ids."""
+        for i, node in enumerate(self.nodes):
+            print(f'node {node.nid}, index {i}')
+        for i, link in enumerate(self.links):
+            print(f'links {link.source} {link.target}, index {i}')
+
+    def collapseNode(self):
+        """Gets rid of extra nrange(lenodes and links"""
+        delNodes = []
+        delLinks = []
+
         for node in self.nodes:
-            print(node.nid)
+            if node.value == -2:
+                # ideally. there should be one source
+                linkArrSrc = [
+                    x for x in self.links if x.target == node.nid]
+                if len(linkArrSrc) == 1:
+                    linkArrSrc = linkArrSrc[0]
+
+                linkArrTrgt = [
+                    x for x in self.links if x.source == node.nid]
+
+                delLinks.append(linkArrSrc)
+
+                for i, _ in enumerate(linkArrTrgt):
+                    self.links.append(
+                        Links(linkArrSrc.source, linkArrTrgt[i].target, linkArrTrgt[i].count))
+                    delLinks.append(linkArrTrgt[i])
+
+                delNodes.append(node)
+
+        #print(f'Node delete {[node. nid for node in delNodes]}')
+        # print(
+        #    f'Link delete {[((link.source, link.target)) for link in delLinks]}')
+
+        # print(self.printGraph())
+
+        delNodeIndices = [self.nodes.index(x) for x in delNodes]
+        delLinkIndices = [self.links.index(x) for x in delLinks]
+
+        #print(f'Node delete {delNodeIndices}')
+        #print(f'Link delete {delLinkIndices}')
+
+        for idx in sorted(delNodeIndices, reverse=True):
+            del self.nodes[idx]
+
+        for idx in sorted(delLinkIndices, reverse=True):
+            del self.links[idx]
