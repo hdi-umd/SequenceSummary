@@ -61,10 +61,16 @@ class SentenTreeMiner:
             currentSeq.after = seq0
 
             if seq0 and seq0.seqCount >= minSupport:
+                graph.nodes.append(RawNode(seq0))
+                graph.nodes[-1].value = -2  # dummy node value
+                graph.links.append(
+                    Links(currentSeq.nid, seq0.nid, seq0.seqCount))
                 seqs.append(seq0)
             print(f'seqCount: {[s.seqCount for s in seqs]}')
 
             del seqs[seqs.index(currentSeq)]
+
+        graph.collapseNode()
 
         return leafSeqs.append(seqs)
 
