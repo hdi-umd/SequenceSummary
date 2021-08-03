@@ -15,7 +15,7 @@ ignore-patterns=
 
 # Python code to execute, usually for sys.path manipulation such as
 # pygtk.require().
-init-hook='import sys; sys.path.append("."); sys.path.insert(0, "./modules")'
+init-hook='import sys; sys.path.append("."); sys.path.append("../coreflow"); sys.path.append(".."); "sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))"; sys.path.insert(0, "./modules")'
 
 # Use multiple processes to speed up Pylint. Specifying 0 will auto-detect the
 # number of processors available to use.
@@ -301,7 +301,7 @@ class-naming-style=PascalCase
 #class-rgx=
 
 # Naming style matching correct constant names.
-const-naming-style=UPPER_CASE
+const-naming-style=camelCase
 
 # Regular expression matching correct constant names. Overrides const-naming-
 # style.

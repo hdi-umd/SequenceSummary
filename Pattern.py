@@ -12,7 +12,7 @@ class Pattern:
 
     def __init__(self, events=None):
         # pattern id
-        self.id = next(self._pids)
+        self.patternID = next(self._pids)
         if events is None:
             events = []
         self.keyEvts = events
@@ -46,9 +46,9 @@ class Pattern:
             return 100
         lst = lst.sort()
         #middle = int(len(lst)/2)
-        #if len(lst) % 2 == 0:
+        # if len(lst) % 2 == 0:
         #    return (lst[middle-1]+lst[middle])/2.0
-        #else:
+        # else:
         #    return lst[middle]
         return np.median(np.asarray(lst))
 
@@ -157,8 +157,6 @@ class Pattern:
         self.setMedianPathLength(median+medians[-1])
         self.setMeanPathLength(mean+means[-1])
 
-
-
     def setMedianPositions(self, median):
         """Assigne medianPos value."""
         self.medianPos = median
@@ -249,7 +247,7 @@ class Pattern:
         """Returns a list of mean positions"""
 
         mean = []
-        for k in range(0, len(allPos)):
+        for k, _ in enumerate(allPos):
             mean.append(sum(allPos[k])*1.0/(len(allPos[k])))
         return mean
 

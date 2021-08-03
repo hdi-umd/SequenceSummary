@@ -9,12 +9,12 @@ import numpy as np
 class Node():
     """Base Node class holds information of the branching patterns in sequences"""
 
-    NID = count(1)
+    nodeCounter = count(1)
     nodeHash = {}
 
     def __init__(self, name="", count_=0, value="", attr=""):
         super().__init__()
-        self.nid = next(self.NID)
+        self.nid = next(self.nodeCounter)
         self.name = name
         self.seqCount = count_
         # What's the difference between name and value?

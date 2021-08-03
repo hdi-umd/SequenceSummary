@@ -1,3 +1,6 @@
+"""Implements the main method that calls and executes SentenTree modules.
+"""
+
 import os
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -14,71 +17,72 @@ from EventStore import EventStore
 if __name__ == "__main__":
     # main()
 
-    argparser = argparse.ArgumentParser()
-    argparser.add_argument("--file", help="File to read from",
-                           type=str, default="../coreflow/sequence_braiding_refined.csv", required=False)
-    argparser.add_argument("--evttype", help="1. Point 2.Interval 3.Mixed event",
+    argParser = argparse.ArgumentParser()
+    argParser.add_argument("--file", help="File to read from",
+                           type=str, default="../coreflow/sequence_braiding_refined.csv",
+                           required=False)
+    argParser.add_argument("--evttype", help="1. Point 2.Interval 3.Mixed event",
                            type=int, default=1, required=False)
-    argparser.add_argument("--startidx", help="Column Index of starting time",
+    argParser.add_argument("--startidx", help="Column Index of starting time",
                            type=int, default=0, required=False)
-    argparser.add_argument("--endidx", help="Column Index of ending time",
+    argParser.add_argument("--endidx", help="Column Index of ending time",
                            type=int, default=1, required=False)
-    argparser.add_argument("--format", help="Time format",
+    argParser.add_argument("--format", help="Time format",
                            type=str, default="%m/%d/%y", required=False)
 
-    argparser.add_argument("--sep", help="separator of fields",
+    argParser.add_argument("--sep", help="separator of fields",
                            type=str, default=",", required=False)
-    argparser.add_argument("--local", help="Local availability of file",
+    argParser.add_argument("--local", help="Local availability of file",
                            type=bool, default=True, required=False)
 
-    argparser.add_argument("--grpattr", help="group the sequences based on this attribute",
+    argParser.add_argument("--grpattr", help="group the sequences based on this attribute",
                            type=str, default="")
 
-    argparser.add_argument("--attr", help="Attribute to run mining on",
+    argParser.add_argument("--attr", help="Attribute to run mining on",
                            type=str, required=True)
 
-    argparser.add_argument("--split", help="split the sequences",
+    argParser.add_argument("--split", help="split the sequences",
                            type=str, default="")
 
-    argparser.add_argument("--output", help="Path of output file",
+    argParser.add_argument("--output", help="Path of output file",
                            type=str, default="")
 
-    args = argparser.parse_args()
+    args = argParser.parse_args()
     print(args)
 
     # Eventstore creates a list of events
-    Es = EventStore()
-    if(args.evttype == 1):
-        Es.importPointEvents(args.file, args.startidx,
-                             args.format, sep=args.sep, local=args.local)
-    elif(args.evttype == 2):
-        Es.importIntervalEvents(
-            args.file, args.startidx, args.endidx, args.format, sep=args.sep, local=args.local)
+    eventStore = EventStore()
+    if args.evttype == 1:
+        eventStore.importPointEvents(args.file, args.startidx,
+                                     args.format, sep=args.sep, local=args.local)
+    elif args.evttype == 2:
+        eventStore.importIntervalEvents(args.file, args.startidx, args.endidx,
+                                        args.format, sep=args.sep, local=args.local)
     else:
-        Es.importMixedEvents(args.file, args.startidx, args.endidx,
-                             args.format, sep=args.sep, local=args.local)
+        eventStore.importMixedEvents(args.file, args.startidx, args.endidx,
+                                     args.format, sep=args.sep, local=args.local)
 
     # create Sequences from Eventstore
-    if(args.grpattr):
-        seq = Es.generateSequence(args.grpattr)
+    if args.grpattr:
+        seq = eventStore.generateSequence(args.grpattr)
     else:
-        seq = Sequence(Es.events, Es)
+        seq = Sequence(eventStore.events, eventStore)
 
-    if(args.split):
-        seq_list = Sequence.splitSequences(seq, args.split)
+    if args.split:
+        seqList = Sequence.splitSequences(seq, args.split)
     else:
         if not isinstance(seq, list):
-            seq_list = [seq]
+            seqList = [seq]
         else:
-            seq_list = seq
+            seqList = seq
 
     stm = SentenTreeMiner()
     #cfm.truncateSequences(self, seqs, hashVal, evtAttr, node,trailingSeqSegs, notContain)
     root = GraphNode()
-    root.incomingSequences = seq_list
+    root.incomingSequences = seqList
     graph = Graph()
     visibleGroups = stm.expandSeqTree(
-        args.attr, root,  expandCnt=30, minSupport=2, maxSupport=len(seq_list), graph=graph)
+        args.attr, root, expandCnt=30, minSupport=2, maxSupport=len(seqList), graph=graph)
 
     print("\n\n*****SentenTree output******\n\n")
 

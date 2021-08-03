@@ -1,6 +1,16 @@
+# IDEs and editors
 *checkpoints
+
+# input files
 *.csv
 Endomodo.lnk/
+
+# System Files
 .DS_Store
+
+#python files
 __pycache__
 *.pyc
+
+# configuration Files
+.pylintrc
