@@ -9,30 +9,9 @@ from TreeNode import TreeNode
 from Sequence import Sequence
 from CoreFlowMiner import CoreFlowMiner
 from EventStore import EventStore
-from spmf import Spmf
 import pandas as pd
 import json
 import argparse
-
-
-def runSPMF(sequence, attr, argsSPMF):
-    """This module runs spmf using the py-spmf package."""
-
-    # convert input to list format
-    if not isinstance(sequence, list):
-        sequence = [sequence]
-
-    rawSeq = "\n".join(seqs.convertToVMSPReadable(attr) for seqs in sequence)
-
-    spmf = Spmf("VMSP", spmf_bin_location_dir="./", input_direct=rawSeq,
-                input_type="text", output_filename="output.txt", arguments=argsSPMF)
-
-    spmf.run()
-    dataFrame = spmf.to_pandas_dataframe(pickle=True)
-
-    # more options can be specified also
-    with pd.option_context('display.max_rows', 10, 'display.max_columns', None):
-        print(dataFrame)
 
 
 if __name__ == "__main__":
@@ -63,9 +42,6 @@ if __name__ == "__main__":
 
     argParser.add_argument("--header", help="name of fields",
                            nargs='+', default="", required=False)
-
-    argParser.add_argument("--spmf", help="Run spmf",
-                           type=bool, default=False)
 
     argParser.add_argument("--attr", help="Attribute to run mining on",
                            type=str, required=True)
@@ -110,11 +86,6 @@ if __name__ == "__main__":
             seqList = [seq]
         else:
             seqList = seq
-
-    if args.spmf:
-        print("\n\n*****SPMF output******\n\n")
-        runSPMF(seqList, args.attr, [0.5])
-        print("\n\n")
 
     cfm = CoreFlowMiner()
     root = CoreFlowMiner.getNewRootNode(Sequence.getSeqVolume(
