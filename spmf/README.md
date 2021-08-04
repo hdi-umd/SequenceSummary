@@ -1,6 +1,24 @@
 # CoreFlow Implementation
 
-The coreflow implementation contains coreflow mining techniques
+The coreflow implementation contains instructions to run spmf mining techniques.
+
+## Installation
+
+To run smpf we need to install the [smpf-py module](https://pypi.org/project/spmf/)
+
+> pip install spmf
+
+We also need the [smpf.jar file](http://www.philippe-fournier-viger.com/spmf/download-spmfjar.php)  
+
+[//]: # (and place that in the same directory as the smpf module. The module location can be acquired using following commands by initiating python in commandline.)
+
+[//]: # (```python)
+[//]: # (import spmf)
+[//]: # (print(spmf.__file__)
+[//]: # (```)
+
+[//]: # (or )
+we should place the `jar` file in the spmf directory.
 
 ## Input
 
@@ -30,4 +48,6 @@ split: Whether to split the sequences based on any time span. e.g. week, month o
 
 ## Example
 
+```shell
 python main.py --file "../corelow_paper_test.csv" --evttype 1 --startidx 1 --format "%m/%d/%y" --sep "," --local True --grpattr "Category" --attr "Event"
+```
