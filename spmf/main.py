@@ -21,7 +21,7 @@ def runSPMF(sequence, attr, argsSPMF):
 
     rawSeq = "\n".join(seqs.convertToVMSPReadable(attr) for seqs in sequence)
 
-    spmf = Spmf("VMSP", input_direct=rawSeq,
+    spmf = Spmf("VMSP", spmf_bin_location_dir="./", input_direct=rawSeq,
                 input_type="text", output_filename="output.txt", arguments=argsSPMF)
 
     spmf.run()
