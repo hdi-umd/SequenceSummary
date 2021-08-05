@@ -1,16 +1,24 @@
-"""Implements FrequencyMedianRankingFunction."""
+"""Implements all RankingFunction."""
 
 from Pattern import Pattern
 
 
-class FrequencyMeanRankingFunction:
-    """Select the event which is present is highest number of sequences
-    with smallest medianPos.
-    """
+class RankingFunction:
+    """ Class to perform ranking and tiebreaker among events. """
 
     def __init__(self):
         self.topRankedEvtValues = []
         self.evtAttr = ""
+        self.rankingFunc = self.numberOfSequence
+        self.tieBreaker = self.performRankingMedianIndex#self.
+
+    def setRankingFunc(self, method1):
+        """Set ranking function."""
+        self.rankingFunc = method1
+
+    def setTieBreaker(self, method1):
+        """Set tie breaker."""
+        self.tieBreaker = method1
 
     def setEvtAttr(self, evtAttr):
         """Assigns the evtAttr value for Ranking Function."""
@@ -28,8 +36,7 @@ class FrequencyMeanRankingFunction:
         for pat in self.topRankedEvtValues:
             pat.computePatternStats(self.evtAttr)
 
-        self.topRankedEvtValues = sorted(
-            self.topRankedEvtValues, key=lambda x: x.getEventMeanPos()[0])
+        self.topRankedEvtValues = self.tieBreaker()
 
         return self.topRankedEvtValues[0]
 
@@ -37,13 +44,12 @@ class FrequencyMeanRankingFunction:
         """Rank the events based on support (can be number of sequences present in/
         number of occurrences)"""
         result = {}
-        uniqueHashes = []
         evtValueKey = ""
 
         for seq in seqs:
             # get hashlist for each individual sequence
-            uniqueHashes = seq.getUniqueValueHashes(self.evtAttr)
-            for hashVal in uniqueHashes:
+            eventHashes = self.rankingFunc(seq)
+            for hashVal in eventHashes:
                 if hashVal in excludedEvts:
                     continue
                 evtValueKey = str(hashVal)
@@ -75,3 +81,26 @@ class FrequencyMeanRankingFunction:
             if patterns.getSupport() < maxval:
                 break
             self.topRankedEvtValues.append(patterns)
+
+
+    def numberOfSequence(self, sequence):
+        """Select the event which is present in highest number of sequences."""
+        return sequence.getUniqueValueHashes(self.evtAttr)
+
+    def allOccurrence(self, sequence):
+        """Select the event which is present maximum number of time across all sequences."""
+        return sequence.getHashList(self.evtAttr)
+
+    def performRankingMedianIndex(self):
+        """Select the event which is present is highest number of sequences
+        with smallest medianPos.
+        """
+        return sorted(
+            self.topRankedEvtValues, key=lambda x: x.getEventMedianPos()[0])
+
+    def performRankingMeanIndex(self):
+        """ Select the event which is present in highest number of sequences
+        with smallest meanPos.
+        """
+        return sorted(
+            self.topRankedEvtValues, key=lambda x: x.getEventMeanPos()[0])

@@ -13,6 +13,14 @@ class SentenTreeMiner:
         self.rankingFunc = SentenTreeMiner.numberOfSequence
         self.tieBreaker = SentenTreeMiner.performRankingMedianIndex
 
+    def setRankingFunc(self, method1):
+            """Set ranking function."""
+            self.rankingFunc = method1
+
+    def setTieBreaker(self, method1):
+        """Set tie breaker."""
+        self.tieBreaker = method1
+
     def expandSeqTree(self, attr, rootNode, expandCnt, minSupport, maxSupport, graph):
         """Chooses which branch of the tree to expand next."""
         # if len(rootSeq.eventlist>0):
