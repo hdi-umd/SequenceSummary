@@ -4,6 +4,7 @@ from FrequencyMedianRankingFunction import FrequencyMedianRankingFunction
 from OccurrencesMeanRankingFunction import OcccurrencesMeanRankingFunction
 from FrequencyMeanRankingFunction import FrequencyMeanRankingFunction
 from OccurrencesMedianRankingFunction import OcccurrencesMedianRankingFunction
+from coreflow.RankingFunction import RankingFunction
 from TreeNode import TreeNode
 from Sequence import Sequence
 
@@ -13,7 +14,9 @@ class CoreFlowMiner:
 
     def __init__(self):
         self.branchSequences = {}
-        self.rankingFunc = FrequencyMedianRankingFunction()
+        self.rankingFunc = RankingFunction() #FrequencyMedianRankingFunction()
+        self.rankingFunc.setRankingFunc(self.rankingFunc.numberOfSequence)
+        self.rankingFunc.setTieBreaker(self.rankingFunc.performRankingMeanIndex)
 
     @staticmethod
     def adjustMin(seqs, minval):
