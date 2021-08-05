@@ -1,9 +1,4 @@
 """"Implements the CoreFlow mining Algorithm based on provided Ranking Function"""
-
-from FrequencyMedianRankingFunction import FrequencyMedianRankingFunction
-from OccurrencesMeanRankingFunction import OcccurrencesMeanRankingFunction
-from FrequencyMeanRankingFunction import FrequencyMeanRankingFunction
-from OccurrencesMedianRankingFunction import OcccurrencesMedianRankingFunction
 from coreflow.RankingFunction import RankingFunction
 from TreeNode import TreeNode
 from Sequence import Sequence
@@ -14,9 +9,9 @@ class CoreFlowMiner:
 
     def __init__(self):
         self.branchSequences = {}
-        self.rankingFunc = RankingFunction() #FrequencyMedianRankingFunction()
-        self.rankingFunc.setRankingFunc(self.rankingFunc.numberOfSequence)
-        self.rankingFunc.setTieBreaker(self.rankingFunc.performRankingMeanIndex)
+        self.ranker = RankingFunction() #FrequencyMedianRankingFunction()
+        self.ranker.setRankingFunc(self.ranker.numberOfSequence)
+        self.ranker.setTieBreaker(self.ranker.performRankingMeanIndex)
 
     @staticmethod
     def adjustMin(seqs, minval):
@@ -158,10 +153,10 @@ class CoreFlowMiner:
                 CoreFlowMiner.bundleToExit(seqs, parent, evtAttr, exitNodeHash)
                 return
 
-            self.rankingFunc.setEvtAttr(evtAttr)
+            self.ranker.setEvtAttr(evtAttr)
             # print(f'maxval {maxval}')
-            self.rankingFunc.performRanking(seqs, maxval, excludedEvts)
-            topPattern = self.rankingFunc.getTopEventSet()
+            self.ranker.performRanking(seqs, maxval, excludedEvts)
+            topPattern = self.ranker.getTopEventSet()
             print(f'topPattern {topPattern.keyEvts}')
 
             if topPattern is None:
