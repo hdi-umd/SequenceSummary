@@ -5,13 +5,12 @@ Coreflow modules.
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from TreeNode import TreeNode
-from Sequence import Sequence
-from CoreFlowMiner import CoreFlowMiner
-from EventStore import EventStore
-import pandas as pd
 import json
 import argparse
+from TreeNode import TreeNode
+from Sequence import Sequence
+from coreflow.CoreFlowMiner import CoreFlowMiner
+from EventStore import EventStore
 
 
 if __name__ == "__main__":

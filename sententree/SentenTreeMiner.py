@@ -1,27 +1,23 @@
 """Implements the SentenTreeMiner according to SentenTree Algo"""
 
-import numpy as np
 from Graph import RawNode, Links
 from TreeNode import GraphNode
 from Sequence import Sequence
+from sententree.RankingFunction import RankingFunction
 
 
 class SentenTreeMiner:
     """Runs SentenTree mining algo"""
 
-    def __init__(self):
-        self.rankingFunc = SentenTreeMiner.numberOfSequence
-        self.tieBreaker = SentenTreeMiner.performRankingMedianIndex
+    def __init__(self, minSup, maxSup):
+        self.minSupport = minSup
+        self.maxSupport = maxSup
+        self.ranker = RankingFunction(maxSup)
+        self.ranker.setRankingFunc(self.ranker.numberOfSequence)
+        self.ranker.setTieBreaker(self.ranker.performRankingMedianIndex)
 
-    def setRankingFunc(self, method1):
-            """Set ranking function."""
-            self.rankingFunc = method1
 
-    def setTieBreaker(self, method1):
-        """Set tie breaker."""
-        self.tieBreaker = method1
-
-    def expandSeqTree(self, attr, rootNode, expandCnt, minSupport, maxSupport, graph):
+    def expandSeqTree(self, attr, rootNode, expandCnt, graph):
         """Chooses which branch of the tree to expand next."""
         # if len(rootSeq.eventlist>0):
         expandCnt -= len(rootNode.keyevts)
@@ -43,10 +39,10 @@ class SentenTreeMiner:
 
             if not seq1 and not seq0:
                 word, pos, count, seq0, seq1 = self.growSeq(
-                    attr, currentSeq, minSupport, maxSupport)
+                    attr, currentSeq)
                 print(f'event: {word}, pos: {pos}, count: {count}')
 
-                if count < minSupport:
+                if count < self.minSupport:
                     leafSeqs.append(currentSeq)
                 else:
 
@@ -58,7 +54,7 @@ class SentenTreeMiner:
 
                     seq1.keyevts.insert(pos, word)
 
-            if seq1 and seq1.seqCount >= minSupport:
+            if seq1 and seq1.seqCount >= self.minSupport:
                 expandCnt -= 1
                 seqs.append(seq1)
                 graph.nodes.append(RawNode(seq1))
@@ -68,7 +64,7 @@ class SentenTreeMiner:
             currentSeq.before = seq1
             currentSeq.after = seq0
 
-            if seq0 and seq0.seqCount >= minSupport:
+            if seq0 and seq0.seqCount >= self.minSupport:
                 graph.nodes.append(RawNode(seq0))
                 graph.nodes[-1].value = -2  # dummy node value
                 graph.links.append(
@@ -82,129 +78,12 @@ class SentenTreeMiner:
 
         return leafSeqs.append(seqs)
 
-    @staticmethod
-    def performRankingNaive(fdist, _fdistInd, i, _pos, count, maxSupport, _minpos):
-        """Naive ranking of events, does not consider index."""
-        maxWord = ""
-        maxCount = 0
-        for word in fdist.keys():
-            value = fdist[word]
-
-            if maxCount < value <= maxSupport:
-                maxWord = str(word)
-                maxCount = value
-
-        if maxCount > count:
-            return i, maxWord, maxCount, True
-
-        return i, maxWord, maxCount, False
-
-    @staticmethod
-    def performRankingMeanIndex(fdist, fdistInd, i, pos, count, maxSupport, minPos):
-        """If two events have the same number of Occurrences tie breake
-        based on minimum Mean Index value.
-        """
-        maxWord = ""
-        maxCount = 0
-
-        for word in fdist.keys():
-            value = fdist[word]
-
-            meanPos = sum(fdistInd[word]) / len(fdistInd[word])
-
-            if maxCount < value <= maxSupport:
-                maxWord = str(word)
-                maxCount = value
-                minPos = meanPos
-
-            if value == maxCount and meanPos < minPos:
-                maxWord = str(word)
-                maxCount = value
-                minPos = meanPos
-
-        if maxCount > count or (maxCount == count and pos < i):
-            return i, maxWord, maxCount, True
-
-        return i, maxWord, maxCount, False
-
-    @staticmethod
-    def performRankingMedianIndex(fdist, fdistInd, i, pos, count, maxSupport, minPos):
-        """If two events have the same number of Occurrences tie breake
-        based on minimum Mean Index value.
-        """
-        maxWord = ""
-        maxCount = 0
-
-        for word in fdist.keys():
-            value = fdist[word]
-
-            meadianPos = np.median(fdistInd[word])
-
-            if maxCount < value <= maxSupport:
-                maxWord = str(word)
-                maxCount = value
-                minPos = meadianPos
-
-            if value == maxCount and meadianPos < minPos:
-                maxWord = str(word)
-                maxCount = value
-                minPos = meadianPos
-
-        if maxCount > count or (maxCount == count and pos < i):
-            return i, maxWord, maxCount, True
-
-        return i, maxWord, maxCount, False
-
-    @staticmethod
-    def numberOfSequence(fdist, evtHashes, startPos, endPos, seq, fdistInd=None):
-        """Choose the event present in maximum number of sequences
-        as the next Pattern event.
-        """
-
-        if fdistInd is None:
-            fdistInd = {}
-        duplicate = []
-        for j in range(startPos, endPos):
-            word = evtHashes[j]
-            # print(word)
-            if word in duplicate:
-                continue
-            duplicate.append(word)
-            if word not in fdist:
-                fdist[word] = seq.getVolume()
-                fdistInd[word] = [j]
-            else:
-                fdist[word] += seq.getVolume()
-                fdistInd[word].append(j)
-
-    @staticmethod
-    def allOccurrence(fdist, evtHashes, startPos, endPos, seq, fdistInd=None):
-        """Choose the event present maximum number of time across sequences
-        as the next Pattern event.
-        """
-
-        if fdistInd is None:
-            fdistInd = {}
-
-        for j in range(startPos, endPos):
-            word = evtHashes[j]
-            # print(word)
-            if word not in fdist:
-                fdist[word] = seq.getVolume()
-                fdistInd[word] = [j]
-            else:
-                fdist[word] += seq.getVolume()
-                fdistInd[word].append(j)
-
-    def growSeq(self, attr, seq, minSupport, maxSupport):
+    def growSeq(self, attr, seq):
         """Expands the current max Pattern by another event."""
-        pos = -1
-        word = ""
-        count = 0
+        self.ranker.initValues()
 
         for i in range(0, len(seq.keyevts)+1):
-            fdist = {}
-            fdistInd = {}
+            self.ranker.clearfdists()
 
             for elem in seq.incomingSequences:
 
@@ -213,32 +92,26 @@ class SentenTreeMiner:
                 endPos = len(evtHashes) if i == len(
                     seq.keyevts) else elem.seqIndices[i]
 
-                self.rankingFunc(fdist, evtHashes, startPos,
-                                 endPos, elem, fdistInd)
+                self.ranker.rankingFunc(evtHashes, startPos,
+                                        endPos, elem)
 
             minPos = max(len(x.events) for x in seq.incomingSequences)
 
-            newPos, newWord, newCount, verdict = self.tieBreaker(
-                fdist, fdistInd, i, pos, count, maxSupport, minPos)
-
-            if verdict:
-                pos = newPos
-                word = newWord
-                count = newCount
+            self.ranker.tieBreaker(i, minPos)
 
         seq0 = GraphNode(attr=attr)
         seq1 = GraphNode(attr=attr)
 
-        if count >= minSupport:
+        if self.ranker.count >= self.minSupport:
             words = seq.keyevts
             for elem in seq.incomingSequences:
-                startPos = 0 if pos == 0 else elem.seqIndices[pos - 1] + 1
-                endPos = len(elem.events) if pos == len(
-                    words) else elem.seqIndices[pos]
+                startPos = 0 if self.ranker.pos == 0 else elem.seqIndices[self.ranker.pos - 1] + 1
+                endPos = len(elem.events) if self.ranker.pos == len(
+                    words) else elem.seqIndices[self.ranker.pos]
                 try:
-                    i = elem.getHashList(attr).index(word, startPos, endPos)
+                    i = elem.getHashList(attr).index(self.ranker.word, startPos, endPos)
                     # sequence index value for the word being inserted. e.g. A-C-G seq indice 1,4,8
-                    elem.seqIndices.insert(pos, i)
+                    elem.seqIndices.insert(self.ranker.pos, i)
                     seq1.incomingSequences.append(elem)
                     seq1.seqCount += elem.getVolume()
 
@@ -246,11 +119,11 @@ class SentenTreeMiner:
                     seq0.incomingSequences.append(elem)
                     seq0.seqCount += elem.getVolume()
             # calculate average index
-            posArr = [seq.seqIndices[pos] for seq in seq1.incomingSequences]
+            posArr = [seq.seqIndices[self.ranker.pos] for seq in seq1.incomingSequences]
             seq1.setPositions(posArr)
             seq0.setSeqCount(Sequence.getSeqVolume(seq0.incomingSequences))
             seq1.setSeqCount(Sequence.getSeqVolume(seq1.incomingSequences))
 
             print(f'Not contain: {len(seq0.incomingSequences)}')
             print(f'contain: {len(seq1.incomingSequences)}')
-        return word, pos, count, seq0, seq1
+        return self.ranker.word, self.ranker.pos, self.ranker.count, seq0, seq1
