@@ -60,7 +60,7 @@ class Pattern:
         """Add the sequence seq to the support set of this pattern. In other
         words, the sequence contains this pattern.
         """
-
+        #print(f'sids {self.sids}')
         self.sids.append(seq)
         self.support += seq.getVolume()
 
@@ -113,7 +113,7 @@ class Pattern:
             pageSequence = path.getHashList(evtAttr)
             pathsOfStrings.append(pageSequence)
 
-        #print(f'path of string {pathsOfStrings}')
+        print(f'path of string {pathsOfStrings}')
         medians = []
         means = []
 
@@ -136,6 +136,9 @@ class Pattern:
 
             medians.append(median)
             means.append(sumSteps*1.0 / len(numSteps))
+        print(f'Key Events {self.keyEvts}')
+
+        
 
         # list(accumulate(means))
         means = np.cumsum(np.asarray(means))
@@ -143,6 +146,8 @@ class Pattern:
 
         self.setMedianPositions(medians)
         self.setMeanPositions(means)
+
+        print(f'mean {means} median {median}')
 
         trailingSteps = [0]*len(self.sids)
         for i, path in enumerate(self.sids):
@@ -217,6 +222,7 @@ class Pattern:
         """Get event positions."""
 
         # sequence = path
+        print(f'Events {path}')
         pos = []
         idx = -1
         offset = 0
@@ -229,6 +235,7 @@ class Pattern:
             except ValueError:
                 continue
             pos.append(offset+idx)
+        print(f'Positions {pos}')
         return pos
 
     @staticmethod
