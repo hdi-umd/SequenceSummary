@@ -29,7 +29,7 @@ class Node():
         # self.incomingBranchSimMedian=None
         # self.incomingBranchSimVariance=None
         self.keyevts = []
-
+        self.sequences = []
         self.incomingSequences = []
         self.outgoingSequences = []
 
@@ -85,6 +85,7 @@ class Node():
     def setPositions(self, lst):
         """set meanStep and medianStep"""
         self.pos = lst
+        print(f'positions {self.pos}')
         self.pos.sort()
         sumVal = sum(self.pos)+len(self.pos)
         #mid = len(self.pos)/2
@@ -96,7 +97,7 @@ class Node():
             # WHY WE ARE ADDING 1 to mean and medianStep?
             self.meanStep = sumVal/(len(self.pos))-1
             # ((self.pos[mid-1]+self.pos[mid])/2.0)+1 if len(self.pos)%2==0 else self.pos[mid]+1
-            self.medianStep = np.median(self.pos)+1
+            self.medianStep = np.median(self.pos)
 
     def getValue(self):
         """Returns value of the node."""

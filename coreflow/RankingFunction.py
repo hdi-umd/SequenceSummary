@@ -38,6 +38,8 @@ class RankingFunction:
 
         self.topRankedEvtValues = self.tieBreaker()
 
+        print(f'top ranked{self.topRankedEvtValues[0]}')
+
         return self.topRankedEvtValues[0]
 
     def performRanking(self, seqs, maxSup, excludedEvts):
@@ -59,7 +61,7 @@ class RankingFunction:
                     pat = Pattern([evtValueKey])
                     result[evtValueKey] = pat
 
-                result[evtValueKey].addToSupportSet(seq)
+                result[evtValueKey].addToSupportSet(seq.sid)
         candidates = []
 
         for itr in result.values():
