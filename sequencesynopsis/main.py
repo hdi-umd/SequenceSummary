@@ -1,16 +1,16 @@
-from SequenceSynopsisMiner import SequenceSynopsisMiner
-from EventStore import EventStore
-from Sequence import Sequence
-from Node import TreeNode
-import argparse
-import json
 """Implements the main method that calls and executes
-Coreflow module.
+SequenceSynopsis module.
 """
 
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+import json
+import argparse
+from EventStore import EventStore
+from Sequence import Sequence
+from SequenceSynopsisMiner import SequenceSynopsisMiner
 
 
 if __name__ == "__main__":
@@ -86,8 +86,8 @@ if __name__ == "__main__":
         else:
             seqList = seq
 
-    syn = SequenceSynopsisMiner()
-    ssm = syn.minDL(seqList, args.attr)
+    syn = SequenceSynopsisMiner(args.attr)
+    ssm = syn.minDL(seqList)
 
     #Cluster.printClustDict(G, "Event")
 

@@ -1,8 +1,5 @@
 """Implements QueueElements class for the Priority Queuein Sequence Synopsis."""
 
-from sequencesynopsis.Cluster import Cluster
-
-
 class QueueElements:
     """Holds the infromation of clusters to merge, description length
     reduction and the optimal cluster value.
@@ -21,7 +18,7 @@ class QueueElements:
         print(f'cStar {self.cStar.printClust(attr)}')
         print(f'clust1 {self.clust1.printClust(attr)}')
         print(f'clust2 {self.clust2.printClust(attr)}')
-        
+
     @staticmethod
     def printPriorityQueue(priorQ, attr):
         """Prints a priority queue list."""
