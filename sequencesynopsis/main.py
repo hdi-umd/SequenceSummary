@@ -1,7 +1,7 @@
 from SequenceSynopsisMiner import SequenceSynopsisMiner
 from EventStore import EventStore
 from Sequence import Sequence
-from TreeNode import TreeNode
+from Node import TreeNode
 import argparse
 import json
 """Implements the main method that calls and executes

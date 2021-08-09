@@ -7,7 +7,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import argparse
 import json
-from TreeNode import GraphNode
+from Node import GraphNode
 from Sequence import Sequence
 from Graph import Graph
 from SentenTreeMiner import SentenTreeMiner
