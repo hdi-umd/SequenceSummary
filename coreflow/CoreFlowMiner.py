@@ -1,6 +1,6 @@
 """"Implements the CoreFlow mining Algorithm based on provided Ranking Function"""
 from coreflow.RankingFunction import RankingFunction
-from TreeNode import TreeNode
+from Node import TreeNode
 from Sequence import Sequence
 from Pattern import Pattern
 

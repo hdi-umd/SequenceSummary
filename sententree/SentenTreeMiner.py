@@ -1,7 +1,7 @@
 """Implements the SentenTreeMiner according to SentenTree Algo"""
 
 from Graph import RawNode, Links
-from TreeNode import GraphNode
+from Node import GraphNode
 from Sequence import Sequence
 from sententree.RankingFunction import RankingFunction
 

@@ -7,7 +7,7 @@ import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import json
 import argparse
-from TreeNode import TreeNode
+from Node import TreeNode
 from Sequence import Sequence
 from coreflow.CoreFlowMiner import CoreFlowMiner
 from EventStore import EventStore
