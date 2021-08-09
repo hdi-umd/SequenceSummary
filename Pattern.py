@@ -45,11 +45,6 @@ class Pattern:
         if len(lst) <= 1:
             return 100
         lst = lst.sort()
-        #middle = int(len(lst)/2)
-        # if len(lst) % 2 == 0:
-        #    return (lst[middle-1]+lst[middle])/2.0
-        # else:
-        #    return lst[middle]
         return np.median(np.asarray(lst))
 
     def addKeyEvent(self, hashVal):
@@ -137,8 +132,6 @@ class Pattern:
             medians.append(median)
             means.append(sumSteps*1.0 / len(numSteps))
         print(f'Key Events {self.keyEvts}')
-
-        
 
         # list(accumulate(means))
         means = np.cumsum(np.asarray(means))

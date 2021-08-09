@@ -77,7 +77,8 @@ class EventStore:
         for row in dataFrame.iterrows():
             data = row[1]
             # create datetime object for the start and end times of the event
-            timestamp1 = datetime.strptime(data[startTimeColumnIdx], timeFormat)
+            timestamp1 = datetime.strptime(
+                data[startTimeColumnIdx], timeFormat)
             timestamp2 = datetime.strptime(data[endTimeColumnIdx], timeFormat)
             # for all attributes other than times, add them to attributes dict
             evt = IntervalEvent(timestamp1, timestamp2)
@@ -118,14 +119,17 @@ class EventStore:
             # or t1 and t2 (if interval event)
             # If the endTimeColumnIdx value is NaN ie a float instead of a time
             # string then its a point event
-            #if isinstance(data[endTimeColumnIdx], float):
+            # if isinstance(data[endTimeColumnIdx], float):
             if data[endTimeColumnIdx] is None or isinstance(data[endTimeColumnIdx], float):
-                timeStamp = datetime.strptime(data[startTimeColumnIdx], timeFormat)
+                timeStamp = datetime.strptime(
+                    data[startTimeColumnIdx], timeFormat)
                 eventType = "point"
             # Otherwise its an interval event
             else:
-                timeStamp1 = datetime.strptime(data[startTimeColumnIdx], timeFormat)
-                timeStamp2 = datetime.strptime(data[endTimeColumnIdx], timeFormat)
+                timeStamp1 = datetime.strptime(
+                    data[startTimeColumnIdx], timeFormat)
+                timeStamp2 = datetime.strptime(
+                    data[endTimeColumnIdx], timeFormat)
                 eventType = "interval"
             # for all attributes other than times, add them to attributes dict
             # list of indices to be ignored
@@ -174,6 +178,10 @@ class EventStore:
          """
         uniqVals = list(set(event.getAttrVal(attr) for event in self.events))
         return uniqVals
+
+    def getEventValue(self, attr, hashlist):
+        """Given a list of hash values, return the original value of event."""
+        return [self.reverseAttrDict[attr][val] for val in hashlist]
 
     def createAttrDict(self):
         """ Assuming we are given a list of events and from those events we create
