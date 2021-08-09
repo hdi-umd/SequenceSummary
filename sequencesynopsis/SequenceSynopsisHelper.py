@@ -63,10 +63,5 @@ def levenshtein(str1, str2):
 
 def calcDist(seqs, pattern):
     """Calculates given distance between sequence and pattern."""
-    # total=0
-    #print(f'val seq {seqs}')
-    #print(f'val pattern {pattern}')
-    #total= sum(levenshtein(val.events, pattern) for val in seqs)
     total = levenshtein(seqs, pattern)
-    #print(f'total {total}')
     return total
