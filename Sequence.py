@@ -14,7 +14,7 @@ class Sequence():
     def __init__(self, eventlist, eventstore, sid=None):
         # sequence id
         if sid is None:
-            self.sid = self #next(self._ids)
+            self.sid = self  # next(self._ids)
         else:
             self.sid = sid
 
@@ -137,6 +137,12 @@ class Sequence():
         """
         return sum(seq.getVolume() for seq in seqlist)
 
+    @staticmethod
+    def getUniqueEvents(seqlist, attr):
+        """Get all possible event types"""
+        # return self.eventstore.reverseAttrDict[attr].values()
+        return list(set(event.getAttrVal(attr) for event in seq for seq in seqlist))
+
     # Method equivalent to public String getEvtAttrValue(String attr, int hash) in DataManager.java
 
     def getEvtAttrValue(self, attr, hashVal):
@@ -146,12 +152,16 @@ class Sequence():
     # Method equivalent to public List<String> getEvtAttrValues(String attr) in DataManager.java
     def getEvtAttrValues(self, attr):
         """Given attr name, return all possible values for that attribute"""
-        return list(self.eventstore.reverseAttrDict[attr].values())
+        return [event.getAttrVal(attr) for event in self.events]
 
     # Method equivalent to int getEvtAttrValueCount(String attr) in DataManager.java
     def getEvtAttrValueCount(self, attr):
         """return the number of distinct types present given an attribute"""
         return len(self.eventstore.reverseAttrDict[attr])
+
+    def getEventsString(self, attr):
+        """Convert the sequence events to a string."""
+        return "\t".join(elem for elem in self.getEvtAttrValues(attr))
 
     #ZINAT- changes
     # SequenceList represents a list of objects of type Sequence.

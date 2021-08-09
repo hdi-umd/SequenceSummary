@@ -1,3 +1,9 @@
+from SequenceSynopsisMiner import SequenceSynopsisMiner
+from EventStore import EventStore
+from Sequence import Sequence
+from TreeNode import TreeNode
+import argparse
+import json
 """Implements the main method that calls and executes
 Coreflow module.
 """
@@ -5,12 +11,6 @@ Coreflow module.
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-import json
-import argparse
-from TreeNode import TreeNode
-from Sequence import Sequence
-from coreflow.CoreFlowMiner import CoreFlowMiner
-from EventStore import EventStore
 
 
 if __name__ == "__main__":
@@ -86,19 +86,14 @@ if __name__ == "__main__":
         else:
             seqList = seq
 
-    cfm = CoreFlowMiner()
-    root = CoreFlowMiner.getNewRootNode(Sequence.getSeqVolume(
-        seqList), seqList, attr=args.attr)
-    #cfm.run(seqList, args.attr, root, 5 * Sequence.getSeqVolume(
-    #       seqList)/100.0, Sequence.getSeqVolume(seqList), [], {}, -1)
-    cfm.run(seqList, args.attr, root, 2,
-            Sequence.getSeqVolume(seqList), [], {}, -1)
+    syn = SequenceSynopsisMiner()
+    ssm = syn.minDL(seqList, args.attr)
 
-    print("\n\n*****Coreflow output******\n\n")
+    #Cluster.printClustDict(G, "Event")
 
-    x = json.dumps(root, ensure_ascii=False,
-                   default=TreeNode.jsonSerializeDump, indent=1)
+    x = json.dumps([elem.jsonDefaultDump(args.attr, eventStore) for elem in ssm],
+                   ensure_ascii=False)
     print(x)
 
-    with open(args.output+'coreflow_result.json', 'w') as the_file:
+    with open('sequence_synopsis_outfile.json', 'w') as the_file:
         the_file.write(x)
