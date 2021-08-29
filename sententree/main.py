@@ -76,13 +76,13 @@ if __name__ == "__main__":
         else:
             seqList = seq
 
-    stm = SentenTreeMiner(minSup=2, maxSup=len(seqList), )
+    stm = SentenTreeMiner(minSup=2, maxSup=len(seqList))
     #cfm.truncateSequences(self, seqs, hashVal, evtAttr, node,trailingSeqSegs, notContain)
     root = GraphNode()
     root.incomingSequences = seqList
     graph = Graph()
     visibleGroups = stm.expandSeqTree(
-        args.attr, root, expandCnt=30, graph=graph)
+        args.attr, root, expandCnt=100, graph=graph)
 
     print("\n\n*****SentenTree output******\n\n")
 

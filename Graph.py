@@ -25,6 +25,17 @@ class RawNode:
             "average_index": self.meanStep
         }
 
+    def printNode(self):
+        """ Prints details for a node."""
+        print(f'node {self.nid}, value {self.value}, Pattern {self.pattern}, meanStep {self.meanStep} seqcount {self.seqCount}')
+
+    @staticmethod
+    def printNodes(nodeList):
+        """Print all nodes in the list."""
+        for node in nodeList:
+            node.printNode()
+
+
 
 class Links:
     """Links class contains information regarding which node is connected to which one"""
@@ -81,26 +92,42 @@ class Graph:
 
     def collapseNode(self):
         """Gets rid of extra nrange(lenodes and links"""
+
+        RawNode.printNodes(self.nodes)
         delNodes = []
         delLinks = []
+        newLinks = []
 
         for node in self.nodes:
             if node.value == -2:
                 # ideally. there should be one source
                 linkArrSrc = [
                     x for x in self.links if x.target == node.nid]
-                if len(linkArrSrc) == 1:
-                    linkArrSrc = linkArrSrc[0]
+                print(f'source1 {[lnk.source for lnk in linkArrSrc]}')
+                print(f'target1 {[lnk.target for lnk in linkArrSrc]}')
+                # if len(linkArrSrc) == 1:
+                #    linkArrSrc = linkArrSrc[0]
 
                 linkArrTrgt = [
                     x for x in self.links if x.source == node.nid]
+                print(f'source2 {[lnk.source for lnk in linkArrTrgt]}')
+                print(f'target2 {[lnk.target for lnk in linkArrTrgt]}')
 
-                delLinks.append(linkArrSrc)
+                if len(linkArrSrc) > 1 and len(linkArrTrgt) > 1:
+                    print(f'len source {len(linkArrSrc)}, len target {len(linkArrTrgt)}')
+                    #continue
+                    #[x.printNode() for x in self.nodes if x.node_id in ]
+                    raise ValueError('multiple source and target')
 
-                for i, _ in enumerate(linkArrTrgt):
-                    self.links.append(
-                        Links(linkArrSrc.source, linkArrTrgt[i].target, linkArrTrgt[i].count))
-                    delLinks.append(linkArrTrgt[i])
+
+                for j, _ in enumerate(linkArrSrc):
+                    for i, _ in enumerate(linkArrTrgt):
+                        newLinks.append(
+                            Links(linkArrSrc[j].source,
+                                  linkArrTrgt[i].target, linkArrTrgt[i].count))
+                        delLinks.append(linkArrTrgt[i])
+                    delLinks.append(linkArrSrc[j])
+
 
                 delNodes.append(node)
 
@@ -115,9 +142,20 @@ class Graph:
 
         #print(f'Node delete {delNodeIndices}')
         #print(f'Link delete {delLinkIndices}')
-
+        print(delLinkIndices)
         for idx in sorted(delNodeIndices, reverse=True):
             del self.nodes[idx]
 
-        for idx in sorted(delLinkIndices, reverse=True):
+        # To sure uniqueness we use list(set) operation here
+        for idx in sorted(list(set(delLinkIndices)), reverse=True):
+            print(f'index {idx}')
             del self.links[idx]
+
+        self.links.extend(newLinks)
+
+    def allignNodes(self):
+        """ Align  nodes according to their position in sequence. """
+        print("nodes sorted")
+        node = sorted(self.nodes, key=lambda x: x.meanStep)
+        RawNode.printNodes(node)
+        

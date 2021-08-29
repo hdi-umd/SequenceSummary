@@ -9,8 +9,8 @@ import json
 import argparse
 from Node import TreeNode
 from Sequence import Sequence
-from coreflow.CoreFlowMiner import CoreFlowMiner
 from EventStore import EventStore
+from coreflow.CoreFlowMiner import CoreFlowMiner
 
 
 if __name__ == "__main__":

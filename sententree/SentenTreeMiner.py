@@ -75,6 +75,7 @@ class SentenTreeMiner:
             del seqs[seqs.index(currentSeq)]
 
         graph.collapseNode()
+        graph.allignNodes()
 
         return leafSeqs.append(seqs)
 
@@ -123,7 +124,10 @@ class SentenTreeMiner:
             seq1.setPositions(posArr)
             seq0.setSeqCount(Sequence.getSeqVolume(seq0.incomingSequences))
             seq1.setSeqCount(Sequence.getSeqVolume(seq1.incomingSequences))
+            seq0.sequences = seq0.incomingSequences
+            seq1.sequences = seq1.incomingSequences
 
             print(f'Not contain: {len(seq0.incomingSequences)}')
             print(f'contain: {len(seq1.incomingSequences)}')
+            
         return self.ranker.word, self.ranker.pos, self.ranker.count, seq0, seq1
