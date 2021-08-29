@@ -1,0 +1,78 @@
+{
+ "event_attribute": "-1",
+ "Pattern": "",
+ "value": 100,
+ "median_index": 0,
+ "average_index": 0,
+ "children": [
+  {
+   "event_attribute": "Arrival",
+   "Pattern": "",
+   "value": 100,
+   "median_index": 1.0,
+   "average_index": 0.0,
+   "children": [
+    {
+     "event_attribute": "Emergency",
+     "Pattern": "",
+     "value": 100,
+     "median_index": 1.0,
+     "average_index": 0.0,
+     "children": [
+      {
+       "event_attribute": "Discharge-Alive",
+       "Pattern": "Arrival-Emergency-Discharge-Alive",
+       "value": 62,
+       "median_index": 1.0,
+       "average_index": 0.0,
+       "children": [
+        {
+         "event_attribute": "Exit",
+         "Pattern": "",
+         "value": 62,
+         "median_index": 0.0,
+         "average_index": -1.0,
+         "children": []
+        }
+       ]
+      },
+      {
+       "event_attribute": "ICU",
+       "Pattern": "Arrival-Emergency-ICU",
+       "value": 38,
+       "median_index": 1.0,
+       "average_index": 0.0,
+       "children": [
+        {
+         "event_attribute": "Die",
+         "Pattern": "Arrival-Emergency-ICU-Die",
+         "value": 36,
+         "median_index": 1.0,
+         "average_index": 0.0,
+         "children": [
+          {
+           "event_attribute": "Exit",
+           "Pattern": "",
+           "value": 36,
+           "median_index": 0.0,
+           "average_index": -1.0,
+           "children": []
+          }
+         ]
+        },
+        {
+         "event_attribute": "Exit",
+         "Pattern": "",
+         "value": 2,
+         "median_index": 0.0,
+         "average_index": -1.0,
+         "children": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

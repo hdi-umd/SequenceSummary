@@ -1,0 +1,52 @@
+{
+ "event_attribute": "-1",
+ "Pattern": "",
+ "value": 1178,
+ "median_index": 0,
+ "average_index": 0,
+ "children": [
+  {
+   "event_attribute": "Emergency",
+   "Pattern": "Emergency",
+   "value": 1178,
+   "median_index": 1.0,
+   "average_index": 0.0,
+   "children": [
+    {
+     "event_attribute": "ICU",
+     "Pattern": "Emergency-ICU",
+     "value": 1178,
+     "median_index": 1.0,
+     "average_index": 0.0,
+     "children": [
+      {
+       "event_attribute": "Exit",
+       "Pattern": "Emergency-ICU-Exit",
+       "value": 1116,
+       "median_index": 1.0,
+       "average_index": 0.0,
+       "children": [
+        {
+         "event_attribute": "Exit",
+         "Pattern": "",
+         "value": 1116,
+         "median_index": 0.0,
+         "average_index": -1.0,
+         "children": []
+        }
+       ]
+      },
+      {
+       "event_attribute": "Exit",
+       "Pattern": "",
+       "value": 62,
+       "median_index": 0.0,
+       "average_index": -1.0,
+       "children": []
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
