@@ -30,6 +30,7 @@ class SequenceSynopsisMiner:
                     continue
                 deltaL, cStar = self.merge(
                     clust1, clust2)
+                print("returned")
                 if deltaL > 0:
                     priorityQueue.append(QueueElements(
                         deltaL, cStar, clust1, clust2))
@@ -80,11 +81,15 @@ class SequenceSynopsisMiner:
             candidateEventsCounter, key=candidateEventsCounter.get, reverse=True)
 
         deltaL = -1
+        print(f'p1 {pair1.pattern.keyEvts}')
+        print(f'p2 {pair2.pattern.keyEvts}')
 
         lcsPosPat1 = Pattern.getPositions(
             pStar.keyEvts, pair1.pattern.keyEvts)
         lcsPosPat2 = Pattern.getPositions(
             pStar.keyEvts, pair2.pattern.keyEvts)
+
+        print(f'candidates {candidateEventsCounter}')
 
         for candidate in candidateEventsCounter:
             indicesKey1 = [i for i, x in enumerate(
@@ -131,5 +136,6 @@ class SequenceSynopsisMiner:
                 print(f'del L  {deltaL}')
                 print(f'pStar {pStar.keyEvts}')
                 del tempPattern.keyEvts[index]
-
-            return deltaL, Cluster(pStar, pair1.seqList+pair2.seqList)
+                clust = Cluster(pStar, pair1.seqList+pair2.seqList)
+            print(f'return del_L {deltaL} cluster {clust.pattern.keyEvts} {clust.seqList}')
+            return deltaL, clust
