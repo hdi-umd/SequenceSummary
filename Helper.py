@@ -6,6 +6,7 @@ import requests
 from Event import IntervalEvent
 
 
+
 def getDataframe(src, local=False, sep="\t", header=None):
     """Helper function to return a data frame
     Local is boolean, if local then source should be path to the file
@@ -57,12 +58,13 @@ def getTimeToSortBy(evt):
     return evt.timestamp
 
 
-def insertEventIntoDict(key, dictionary, event):
-    """Helper to insert an event into a map. Params are key=unique id for that
-    time, map of key to event list, event object
-    """
 
+
+def insertEventIntoDict(key, dictionary, event):
+    """Helper to insert an event into a map Params are key=unique id for that time,
+    map of key to event list, event object
+    """
     if key in dictionary:
         dictionary[key].append(event)
-
-    dictionary[key] = [event]
+    else:
+        dictionary[key] = [event]
