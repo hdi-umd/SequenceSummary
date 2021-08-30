@@ -1,4 +1,3 @@
-"""implements ranking sunctions and tie breakers."""
 import numpy as np
 class RankingFunction:
     """ Class to perform ranking and tiebreaker among events."""
@@ -12,7 +11,7 @@ class RankingFunction:
         self.maxSupport = maxSup
         self.rankingFunc = self.numberOfSequence
         self.tieBreaker = self.performRankingMedianIndex#self.
-
+        
     def setRankingFunc(self, method1):
         """Set ranking function."""
         self.rankingFunc = method1
@@ -136,43 +135,3 @@ class RankingFunction:
             else:
                 self.fdist[word] += seq.getVolume()
                 self.fdistInd[word].append(j)
-
-    def performRanking_medianIndex(self, fdist, fdist_ind, i, pos,  count,  minpos):
-        maxw=""
-        maxc=0
-        
-        for w in fdist.keys():
-            value= fdist[w]
-            
-            meadin_pos =  np.median(fdist_ind[w])
-                
-            if value <= self.maxSupport and value > maxc:
-                maxw= str(w)
-                maxc= value
-                minpos=meadin_pos
-
-            if value == maxc and meadin_pos<minpos:
-                maxw= str(w)
-                maxc= value
-                minpos=meadin_pos
-        
-        if maxc > count or ( maxc==count and pos<i):
-            print(f'\n\n index {i} maxw {maxw} maxc {maxc} \n\n')
-            return i, maxw, maxc
-           
-        return False
-
-    def first_occurrence(self, fdist,evtHashes, l, r, s, fdist_ind={}):
-        duplicate=[]
-        for j in range (l,r):
-            w=evtHashes[j]
-            #print(w)
-            if w in duplicate:
-                continue
-            duplicate.append(w)
-            if w not in fdist:
-                fdist[w] = s.getVolume()
-                fdist_ind[w]=[j]
-            else:
-                fdist[w]+= s.getVolume()
-                fdist_ind[w].append(j)

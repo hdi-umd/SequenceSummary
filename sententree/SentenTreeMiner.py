@@ -9,13 +9,13 @@ from sententree.RankingFunction import RankingFunction
 class SentenTreeMiner:
     """Runs SentenTree mining algo"""
 
-    def __init__(self, minSup, maxSup):
+    def __init__ (self , minSup, maxSup):
         self.minSupport = minSup
         self.maxSupport = maxSup
+        
         self.ranker = RankingFunction(maxSup)
         self.ranker.setRankingFunc(self.ranker.numberOfSequence)
         self.ranker.setTieBreaker(self.ranker.performRankingMedianIndex)
-
 
     def expandSeqTree(self, attr, rootNode, expandCnt, graph):
         """Chooses which branch of the tree to expand next."""
@@ -65,20 +65,23 @@ class SentenTreeMiner:
             currentSeq.after = seq0
 
             if seq0 and seq0.seqCount >= self.minSupport:
+                seqs.append(seq0)
                 graph.nodes.append(RawNode(seq0))
                 graph.nodes[-1].value = -2  # dummy node value
                 graph.links.append(
                     Links(currentSeq.nid, seq0.nid, seq0.seqCount))
-                seqs.append(seq0)
+
             print(f'seqCount: {[s.seqCount for s in seqs]}')
 
             del seqs[seqs.index(currentSeq)]
 
-        graph.collapseNode()
-        graph.allignNodes()
+        #graph.collapseNode()
+        #graph.allignNodes()
 
         return leafSeqs.append(seqs)
 
+    
+    
     def growSeq(self, attr, seq):
         """Expands the current max Pattern by another event."""
         self.ranker.initValues()
@@ -129,5 +132,5 @@ class SentenTreeMiner:
 
             print(f'Not contain: {len(seq0.incomingSequences)}')
             print(f'contain: {len(seq1.incomingSequences)}')
-            
-        return self.ranker.word, self.ranker.pos, self.ranker.count, seq0, seq1
+
+        return self.ranker.word, self.ranker.pos, self.ranker.count, seq0, seq1 
