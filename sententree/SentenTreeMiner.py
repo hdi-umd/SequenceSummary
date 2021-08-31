@@ -9,10 +9,10 @@ from sententree.RankingFunction import RankingFunction
 class SentenTreeMiner:
     """Runs SentenTree mining algo"""
 
-    def __init__ (self , minSup, maxSup):
+    def __init__(self, minSup, maxSup):
         self.minSupport = minSup
         self.maxSupport = maxSup
-        
+
         self.ranker = RankingFunction(maxSup)
         self.ranker.setRankingFunc(self.ranker.numberOfSequence)
         self.ranker.setTieBreaker(self.ranker.performRankingMedianIndex)
@@ -26,6 +26,7 @@ class SentenTreeMiner:
         rootNode.setSeqCount(Sequence.getSeqVolume(rootNode.incomingSequences))
         rootNode.attr = attr
         leafSeqs = []
+        prevPos = 0
 
         graph.nodes.append(RawNode(rootNode))
         while seqs and expandCnt > 0:
@@ -57,31 +58,35 @@ class SentenTreeMiner:
             if seq1 and seq1.seqCount >= self.minSupport:
                 expandCnt -= 1
                 seqs.append(seq1)
-                graph.nodes.append(RawNode(seq1))
                 graph.links.append(
                     Links(currentSeq.nid, seq1.nid, seq1.seqCount))
-
-            currentSeq.before = seq1
-            currentSeq.after = seq0
+                if pos >= prevPos:
+                    currentSeq.after.append(seq1)
+                else:
+                    currentSeq.before.append(seq1)
+                seq1.parent = currentSeq
+                prevPos = pos
+                graph.nodes.append(RawNode(seq1, pos))
 
             if seq0 and seq0.seqCount >= self.minSupport:
                 seqs.append(seq0)
-                graph.nodes.append(RawNode(seq0))
+                graph.nodes.append(RawNode(seq0, pos))
                 graph.nodes[-1].value = -2  # dummy node value
+                currentSeq.after.append(seq0)
+                seq0.parent = currentSeq
                 graph.links.append(
                     Links(currentSeq.nid, seq0.nid, seq0.seqCount))
 
             print(f'seqCount: {[s.seqCount for s in seqs]}')
 
             del seqs[seqs.index(currentSeq)]
+            print(f'Prev pos {prevPos}')
 
-        #graph.collapseNode()
+        graph.collapseNode()
         #graph.allignNodes()
 
         return leafSeqs.append(seqs)
 
-    
-    
     def growSeq(self, attr, seq):
         """Expands the current max Pattern by another event."""
         self.ranker.initValues()
@@ -113,7 +118,8 @@ class SentenTreeMiner:
                 endPos = len(elem.events) if self.ranker.pos == len(
                     words) else elem.seqIndices[self.ranker.pos]
                 try:
-                    i = elem.getHashList(attr).index(self.ranker.word, startPos, endPos)
+                    i = elem.getHashList(attr).index(
+                        self.ranker.word, startPos, endPos)
                     # sequence index value for the word being inserted. e.g. A-C-G seq indice 1,4,8
                     elem.seqIndices.insert(self.ranker.pos, i)
                     seq1.incomingSequences.append(elem)
@@ -123,7 +129,8 @@ class SentenTreeMiner:
                     seq0.incomingSequences.append(elem)
                     seq0.seqCount += elem.getVolume()
             # calculate average index
-            posArr = [seq.seqIndices[self.ranker.pos] for seq in seq1.incomingSequences]
+            posArr = [seq.seqIndices[self.ranker.pos]
+                      for seq in seq1.incomingSequences]
             seq1.setPositions(posArr)
             seq0.setSeqCount(Sequence.getSeqVolume(seq0.incomingSequences))
             seq1.setSeqCount(Sequence.getSeqVolume(seq1.incomingSequences))
@@ -133,4 +140,4 @@ class SentenTreeMiner:
             print(f'Not contain: {len(seq0.incomingSequences)}')
             print(f'contain: {len(seq1.incomingSequences)}')
 
-        return self.ranker.word, self.ranker.pos, self.ranker.count, seq0, seq1 
+        return self.ranker.word, self.ranker.pos, self.ranker.count, seq0, seq1

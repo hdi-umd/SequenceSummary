@@ -1,103 +1,61 @@
 {
- "before": {
-  "before": {
-   "before": {
-    "before": {
-     "before": null,
-     "event_attribute": "",
-     "Pattern": "",
-     "value": 0,
-     "After": null
-    },
-    "event_attribute": "G",
-    "Pattern": "C-F-G",
-    "value": 2,
-    "After": {
-     "before": null,
-     "event_attribute": "",
-     "Pattern": "",
-     "value": 0,
-     "After": null
-    }
-   },
-   "event_attribute": "F",
-   "Pattern": "C-F",
-   "value": 2,
-   "After": {
-    "before": null,
-    "event_attribute": "",
-    "Pattern": "",
-    "value": 0,
-    "After": null
-   }
-  },
-  "event_attribute": "C",
-  "Pattern": "C",
-  "value": 4,
-  "After": {
-   "before": {
-    "before": {
-     "before": null,
-     "event_attribute": "",
-     "Pattern": "",
-     "value": 0,
-     "After": null
-    },
-    "event_attribute": "C",
-    "Pattern": "C-C",
-    "value": 2,
-    "After": {
-     "before": null,
-     "event_attribute": "",
-     "Pattern": "",
-     "value": 0,
-     "After": null
-    }
-   },
-   "event_attribute": "",
-   "Pattern": "C",
-   "value": 2,
-   "After": {
-    "before": null,
-    "event_attribute": "",
-    "Pattern": "",
-    "value": 0,
-    "After": null
-   }
-  }
- },
+ "before": [],
  "event_attribute": "",
  "Pattern": "",
  "value": 6,
- "After": {
-  "before": {
-   "before": {
-    "before": null,
-    "event_attribute": "",
-    "Pattern": "",
-    "value": 0,
-    "After": null
-   },
-   "event_attribute": "E",
-   "Pattern": "E",
-   "value": 2,
-   "After": {
-    "before": null,
-    "event_attribute": "",
-    "Pattern": "",
-    "value": 0,
-    "After": null
-   }
+ "After": [
+  {
+   "before": [],
+   "event_attribute": "C",
+   "Pattern": "C",
+   "value": 4,
+   "After": [
+    {
+     "before": [],
+     "event_attribute": "F",
+     "Pattern": "C-F",
+     "value": 2,
+     "After": [
+      {
+       "before": [],
+       "event_attribute": "G",
+       "Pattern": "C-F-G",
+       "value": 2,
+       "After": []
+      }
+     ]
+    },
+    {
+     "before": [
+      {
+       "before": [],
+       "event_attribute": "C",
+       "Pattern": "C-C",
+       "value": 2,
+       "After": []
+      }
+     ],
+     "event_attribute": "",
+     "Pattern": "C",
+     "value": 2,
+     "After": []
+    }
+   ]
   },
-  "event_attribute": "",
-  "Pattern": "",
-  "value": 2,
-  "After": {
-   "before": null,
+  {
+   "before": [
+    {
+     "before": [],
+     "event_attribute": "E",
+     "Pattern": "E",
+     "value": 2,
+     "After": []
+    }
+   ],
    "event_attribute": "",
    "Pattern": "",
-   "value": 0,
-   "After": null
+   "value": 2,
+   "After": []
   }
- }
+ ]
 }

@@ -9,7 +9,7 @@ import argparse
 import json
 from Node import GraphNode
 from Sequence import Sequence
-from Graph import Graph
+from Graph import Graph, RawNode
 from SentenTreeMiner import SentenTreeMiner
 from EventStore import EventStore
 
@@ -76,7 +76,7 @@ if __name__ == "__main__":
         else:
             seqList = seq
 
-    stm = SentenTreeMiner(minSup=2, maxSup=len(seqList))
+    stm = SentenTreeMiner(minSup=0.2*len(seqList), maxSup=len(seqList))
     #cfm.truncateSequences(self, seqs, hashVal, evtAttr, node,trailingSeqSegs, notContain)
     root = GraphNode()
     root.incomingSequences = seqList
@@ -85,6 +85,12 @@ if __name__ == "__main__":
         args.attr, root, expandCnt=100, graph=graph)
 
     print("\n\n*****SentenTree output******\n\n")
+
+    x = json.dumps(root, ensure_ascii=False,
+                   default=RawNode.jsonSerializeDump, indent=1)
+    print(x)
+
+    print("\n\n*****SentenTree output GraphNode******\n\n")
 
     x = json.dumps(root, ensure_ascii=False,
                    default=GraphNode.jsonSerializeDump, indent=1)
