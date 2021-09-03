@@ -47,7 +47,7 @@ class RawNode:
     def printNode(self):
         """ Prints details for a node."""
         print(f'node {self.nid}, value {self.value}, Pattern {self.pattern}, \
-        meanStep {self.meanStep} seqcount {self.seqCount}')
+        meanStep {self.meanStep} seqcount {self.seqCount} pos {self.position}')
 
     @staticmethod
     def printNodes(nodeList):
@@ -167,7 +167,7 @@ class Graph:
 
     def allignNodes(self):
         """ Align  nodes according to their position in sequence. """
-        rootNode = self.nodes[0]
+        """ rootNode = self.nodes[0]
         for node in self.nodes:
             successor = self.findSuccessor(rootNode, node)
             print(f'nodes {[node.nid]} successor {successor}')
@@ -176,10 +176,10 @@ class Graph:
                           node.nid and x.target == successor.nid]
 
             if not linkExists:
-                self.links.append(Links(node.nid, successor.nid, 0))
+                self.links.append(Links(node.nid, successor.nid, 0)) """
 
         print("nodes sorted")
-        node = sorted(self.nodes, key=lambda x: x.meanStep)
+        node = sorted(self.nodes, key=lambda x: x.position)
         RawNode.printNodes(node)
 
     def jsonDefaultDump(self) -> dict:

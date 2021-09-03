@@ -83,7 +83,7 @@ class SentenTreeMiner:
             print(f'Prev pos {prevPos}')
 
         graph.collapseNode()
-        #graph.allignNodes()
+        graph.allignNodes()
 
         return leafSeqs.append(seqs)
 
