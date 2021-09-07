@@ -1,6 +1,6 @@
 """Implements the SentenTreeMiner according to SentenTree Algo"""
 
-from Graph import RawNode, Links
+from Graph import RawNode, Links, Graph
 from Node import GraphNode
 from Sequence import Sequence
 from sententree.RankingFunction import RankingFunction
@@ -17,7 +17,7 @@ class SentenTreeMiner:
         self.ranker.setRankingFunc(self.ranker.numberOfSequence)
         self.ranker.setTieBreaker(self.ranker.performRankingMedianIndex)
 
-    def expandSeqTree(self, attr, rootNode, expandCnt, graph):
+    def expandSeqTree(self, attr, rootNode, expandCnt, graphs):
         """Chooses which branch of the tree to expand next."""
         # if len(rootSeq.eventlist>0):
         expandCnt -= len(rootNode.keyevts)
@@ -28,24 +28,31 @@ class SentenTreeMiner:
         leafSeqs = []
         prevPos = 0
 
-        graph.nodes.append(RawNode(rootNode))
+        rootNode.graph.nodes.append(RawNode(rootNode))
+        graphs.append(rootNode.graph)
         while seqs and expandCnt > 0:
             currentSeq = max(seqs, key=lambda x: x.seqCount)
-            print(f'seqCount: {currentSeq.seqCount}')
+            #print(f'seqCount: {currentSeq.seqCount}')
+            graph = currentSeq.graph
+            
 
             seq0 = currentSeq.after
             seq1 = currentSeq.before
 
-            print(f'this.pattern currentSeq : {currentSeq.keyevts}')
+            #print(f'this.pattern currentSeq : {currentSeq.keyevts}')
 
             if not seq1 and not seq0:
                 word, pos, count, seq0, seq1 = self.growSeq(
                     attr, currentSeq)
-                print(f'event: {word}, pos: {pos}, count: {count}')
+                #print(f'event: {word}, pos: {pos}, count: {count}')
 
                 if count < self.minSupport:
                     leafSeqs.append(currentSeq)
                 else:
+                    if not graph:
+                        graph = Graph()
+                        graphs.append(graph)
+                        #print(f'\n\n LEN {len(graphs)}\n\n')
 
                     seq1.setHash(word)
                     seq1.setValue(
@@ -55,11 +62,14 @@ class SentenTreeMiner:
 
                     seq1.keyevts.insert(pos, word)
 
+                    seq0.graph = currentSeq.graph
+                    seq1.graph = graph
+
             if seq1 and seq1.seqCount >= self.minSupport:
                 expandCnt -= 1
                 seqs.append(seq1)
-                graph.links.append(
-                    Links(currentSeq.nid, seq1.nid, seq1.seqCount))
+                # graph.links.append(
+                #     Links(currentSeq.nid, seq1.nid, seq1.seqCount))
                 if pos >= prevPos:
                     currentSeq.after.append(seq1)
                 else:
@@ -74,18 +84,23 @@ class SentenTreeMiner:
                 graph.nodes[-1].value = -2  # dummy node value
                 currentSeq.after.append(seq0)
                 seq0.parent = currentSeq
-                graph.links.append(
-                    Links(currentSeq.nid, seq0.nid, seq0.seqCount))
+                # graph.links.append(
+                #     Links(currentSeq.nid, seq0.nid, seq0.seqCount))
 
-            print(f'seqCount: {[s.seqCount for s in seqs]}')
+            #print(f'seqCount: {[s.seqCount for s in seqs]}')
 
             del seqs[seqs.index(currentSeq)]
-            print(f'Prev pos {prevPos}')
+            #print(f'Prev pos {prevPos}')
 
-        graph.collapseNode()
-        graph.allignNodes()
 
-        return leafSeqs.append(seqs)
+        for graph in graphs:
+            graph.collapseNode()
+            graph.allignNodes()
+        leafSeqs.extend(seqs)
+        self.updateNodesEdges(graphs, leafSeqs)
+        graph.createLinks()
+        print(f'len {len(graphs)}')
+        return graphs
 
     def growSeq(self, attr, seq):
         """Expands the current max Pattern by another event."""
@@ -137,7 +152,25 @@ class SentenTreeMiner:
             seq0.sequences = seq0.incomingSequences
             seq1.sequences = seq1.incomingSequences
 
-            print(f'Not contain: {len(seq0.incomingSequences)}')
-            print(f'contain: {len(seq1.incomingSequences)}')
+            #print(f'Not contain: {len(seq0.incomingSequences)}')
+            #print(f'contain: {len(seq1.incomingSequences)}')
 
         return self.ranker.word, self.ranker.pos, self.ranker.count, seq0, seq1
+
+    def updateNodesEdges(self, graphs, leafSeqs):
+
+        for seq in leafSeqs:
+            linkadj = seq.graph.linkAdj
+
+            if seq.graph in graphs:
+                keyEvts = seq.keyevts
+
+                print(f'keyEvts {keyEvts}')
+                for first, second in zip(seq.keyevts, seq.keyevts[1:]):
+                    if first not in linkadj:
+                        linkadj[first] = {}
+                    if second in linkadj[first]:
+                        linkadj[first][second] += seq.seqCount
+                    else:
+                        linkadj[first][second] = seq.seqCount
+            print(linkadj)

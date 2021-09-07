@@ -4,6 +4,7 @@ import json
 from itertools import count
 from datetime import timedelta
 import numpy as np
+from Graph import Graph
 
 
 class Node():
@@ -231,6 +232,7 @@ class GraphNode(Node):
         super().__init__(name, count_val, value, attr)
         self.before = []
         self.after = []
+        self.graph = None
         self.parent = None
 
     def jsonDefaultDump(self) -> dict:

@@ -24,6 +24,11 @@ class Sequence():
         self.seqAttributes = {}
         self.seqIndices = []
 
+    def getSeqLen(self):
+        """"Length of the eventList for this sequence."""
+        print(f'event Length {self.events}')
+        return len(self.events)
+
     def getEventPosition(self, attr, hashVal):
         """Returns the position of first event where the value of attr matches the
         given hash value.
