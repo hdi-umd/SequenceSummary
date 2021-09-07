@@ -3,7 +3,7 @@
 from collections import Counter
 from bisect import bisect
 from sequencesynopsis.Cluster import Cluster
-from sequencesynopsis.SequenceSynopsisHelper import lcs, calcDist
+from sequencesynopsis.SequenceSynopsisHelper import lcs, calcDist, calcAverage
 from sequencesynopsis.QueueElements import QueueElements
 from Pattern import Pattern
 
@@ -17,7 +17,7 @@ class SequenceSynopsisMiner:
     def minDL(self, seqs):
         """Merges sequences based on minimum Description Length."""
         # Initialization Phase
-        clustDict = [Cluster(Pattern(seq.getHashList(self.attr)), [seq])
+        clustDict = [Cluster(Pattern(seq.getHashList(self.attr)), [seq], list(range(0, seq.getSeqLen())))
                      for seq in seqs]
         print("Initial clusts")
         Cluster.printClustDict(clustDict, self.attr)
@@ -88,8 +88,12 @@ class SequenceSynopsisMiner:
             pStar.keyEvts, pair1.pattern.keyEvts)
         lcsPosPat2 = Pattern.getPositions(
             pStar.keyEvts, pair2.pattern.keyEvts)
+        averagePos = calcAverage(lcsPosPat1, lcsPosPat2)
+        print(f'Average Pos {averagePos}')
 
         print(f'candidates {candidateEventsCounter}')
+        clust = Cluster(pStar, pair1.seqList+pair2.seqList, averagePos)
+        selectedIndex = -1
 
         for candidate in candidateEventsCounter:
             indicesKey1 = [i for i, x in enumerate(
@@ -114,28 +118,58 @@ class SequenceSynopsisMiner:
                 candidatePos.append(index)
 
             candidatePos = list(set(candidatePos))
+            print(f'candidatepos {candidatePos}')
 
             for index in candidatePos:
 
                 tempPattern.keyEvts.insert(index, candidate)
+                print(f'index {index}')
                 deltaLPrime = len(pair1.pattern.keyEvts) + len(pair2.pattern.keyEvts) - \
                     len(tempPattern.keyEvts)+lambdaVal
+                #print(f'del L Prime  {deltaLPrime}')
                 deltaLPrime += sum(alpha*calcDist(v1.getHashList(self.attr),
                                                   pair1.pattern.keyEvts) for v1 in pair1.seqList)
+                #print(f'del L Prime  {deltaLPrime}')
                 deltaLPrime += sum(alpha*calcDist(v2.getHashList(self.attr),
                                                   pair2.pattern.keyEvts) for v2 in pair2.seqList)
+                #print(f'del L Prime  {deltaLPrime}')
                 deltaLPrime -= sum(alpha*calcDist(v.getHashList(self.attr),
                                                   tempPattern.keyEvts)
                                    for v in pair1.seqList+pair2.seqList)
 
+                #print(f'del L  {deltaL}')
+                #print(f'del L Prime  {deltaLPrime}')
+
                 if deltaLPrime < 0 or deltaLPrime < deltaL:
-                    break
+                    del tempPattern.keyEvts[index]
+                    continue
 
                 deltaL = deltaLPrime
                 pStar = tempPattern
+                
                 print(f'del L  {deltaL}')
                 print(f'pStar {pStar.keyEvts}')
+                selectedIndex = index
                 del tempPattern.keyEvts[index]
-                clust = Cluster(pStar, pair1.seqList+pair2.seqList)
-            print(f'return del_L {deltaL} cluster {clust.pattern.keyEvts} {clust.seqList}')
-            return deltaL, clust
+                clust = Cluster(pStar, pair1.seqList+pair2.seqList, averagePos)
+            if selectedIndex != -1:
+                if selectedIndex == 0:
+                    averagePos.insert(0, max(averagePos[1]-1, 0))
+                if selectedIndex == len(averagePos):
+                    averagePos.append(averagePos[-1]+1)
+                else:
+                    averagePos.insert(selectedIndex, 
+                    (averagePos[selectedIndex-1]+averagePos[selectedIndex])/2.0)
+
+                # startInd = 0 if selectedIndex == 0 else averagePos[selectedIndex-1]
+                # endInd = -1 if len(averagePos) <= selectedIndex else averagePos[selectedIndex+1]
+
+                # average = 0
+                
+                # for sequences in clust.seqList:
+                #     sequences.index()
+
+            if deltaLPrime < 0 or deltaLPrime < deltaL:
+                break
+        print(f'return del_L {deltaL} cluster {clust.pattern.keyEvts} {clust.seqList}')
+        return deltaL, clust
