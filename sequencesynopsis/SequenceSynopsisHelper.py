@@ -65,3 +65,8 @@ def calcDist(seqs, pattern):
     """Calculates given distance between sequence and pattern."""
     total = levenshtein(seqs, pattern)
     return total
+
+def calcAverage(posList1, posList2):
+    """Calculates average position of an event"""
+    return [(p1+p2)/2.0 for p1, p2 in zip(posList1, posList2)]
+    
