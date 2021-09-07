@@ -1,0 +1,16 @@
+Pattern_ID,Event,Average_Index
+P0,C,0
+P0,L,1
+P0,F,2
+P0,G,3
+P0,H,4
+P1,I,0
+P1,K,1
+P1,A,2
+P1,E,3
+P2,D,1.0
+P2,B,1.5
+P2,B,2.0
+P3,A,0.5
+P3,C,2.0
+P3,C,2.75

@@ -1,10 +1,11 @@
 """ Creates the RawNode, Links and Graph class."""
 
 import json
-
+from itertools import count
 
 class RawNode:
     """RawNode contains selected attributes from Node class for json conversion."""
+    _ids = count(0)
 
     def __init__(self, node, pos = -1):
         self.nid = node.nid
@@ -17,6 +18,8 @@ class RawNode:
         self.after = node.after
         self.parent = node.parent
         self.position = pos
+        self.rightLinks = []
+        self.leftLinks = []
 
     @staticmethod
     def createGraph(nodeVal):
@@ -47,7 +50,7 @@ class RawNode:
     def printNode(self):
         """ Prints details for a node."""
         print(f'node {self.nid}, value {self.value}, Pattern {self.pattern}, \
-        meanStep {self.meanStep} seqcount {self.seqCount}')
+        meanStep {self.meanStep} seqcount {self.seqCount} pos {self.position}')
 
     @staticmethod
     def printNodes(nodeList):
@@ -79,6 +82,7 @@ class Graph:
     def __init__(self):
         self.links = []  # defaultdict(set)
         self.nodes = []
+        self.linkAdj = {}
 
 
     def collapseNode(self):
@@ -167,7 +171,7 @@ class Graph:
 
     def allignNodes(self):
         """ Align  nodes according to their position in sequence. """
-        rootNode = self.nodes[0]
+        """ rootNode = self.nodes[0]
         for node in self.nodes:
             successor = self.findSuccessor(rootNode, node)
             print(f'nodes {[node.nid]} successor {successor}')
@@ -176,10 +180,10 @@ class Graph:
                           node.nid and x.target == successor.nid]
 
             if not linkExists:
-                self.links.append(Links(node.nid, successor.nid, 0))
+                self.links.append(Links(node.nid, successor.nid, 0)) """
 
         print("nodes sorted")
-        node = sorted(self.nodes, key=lambda x: x.meanStep)
+        node = sorted(self.nodes, key=lambda x: x.position)
         RawNode.printNodes(node)
 
     def jsonDefaultDump(self) -> dict:
@@ -210,3 +214,20 @@ class Graph:
             print(f'node {node.nid}, index {i}')
         for i, link in enumerate(self.links):
             print(f'links {link.source} {link.target}, index {i}')
+
+    def createLinks(self):
+        """ Create links between nodes."""
+        for i, conn in enumerate(self.linkAdj):
+            leftNode = self.nodes[i]
+            print(f'LeftNode {leftNode.value}')
+            print(f'conn {conn}')
+            for j, right in enumerate(conn):
+                print(f'Connection {conn[j]}')
+                rightNode = self.nodes[j]
+                print(f'RightNode {rightNode.value}')
+                link = Links(leftNode.nid, rightNode.nid, conn[j])
+                self.links.append(link)
+                leftNode.rightLinks.append(link)
+                rightNode.leftLinks.append(link)
+        self.printGraph()
+
