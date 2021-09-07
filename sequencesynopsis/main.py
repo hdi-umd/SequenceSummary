@@ -93,7 +93,7 @@ if __name__ == "__main__":
 
     with open('sequence_synopsis_outfile.csv', 'w') as the_file:
         writer = csv.writer(the_file)
-        writer.writerow(["Pattern_ID, Event, Average_Index"])
+        writer.writerow(["Pattern_ID", "Event", "Average_Index"])
         for index, elem in enumerate(ssm):
             print(f'elemvalue {elem.index}')
             keyEvents = eventStore.getEventValue(args.attr, elem.pattern.keyEvts)
