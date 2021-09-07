@@ -8,6 +8,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import json
 import argparse
+import csv
 from EventStore import EventStore
 from Sequence import Sequence
 from SequenceSynopsisMiner import SequenceSynopsisMiner
@@ -88,6 +89,21 @@ if __name__ == "__main__":
 
     syn = SequenceSynopsisMiner(args.attr)
     ssm = syn.minDL(seqList)
+    print(ssm)
+
+    with open('sequence_synopsis_outfile.csv', 'w') as the_file:
+        writer = csv.writer(the_file)
+        writer.writerow(["Pattern_ID", "Event", "Average_Index"])
+        for index, elem in enumerate(ssm):
+            print(f'elemvalue {elem.index}')
+            keyEvents = eventStore.getEventValue(args.attr, elem.pattern.keyEvts)
+            print(f'key {keyEvents}')
+            for ind, pos in enumerate(keyEvents):
+                print(f'pos {pos} ind {ind}')
+                writer.writerow(["P"+str(index), pos, elem.index[ind]])
+
+
+
 
     #Cluster.printClustDict(G, "Event")
 
