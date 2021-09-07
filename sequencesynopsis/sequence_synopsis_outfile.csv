@@ -1,59 +1,16 @@
 "Pattern_ID, Event, Average_Index"
-P0,Sugar to treat,0
-P1,Dinner,1.0
-P1,Sugar to treat,2.0
-P1,Lunch,4.0
-P1,Sugar to treat,5.0
-P1,Sugar to treat,5.5
-P1,Sugar to treat,6.0
-P1,Lunch,7.0
-P1,Sugar to treat,9.0
-P1,Dinner,10.0
-P1,Sugar to treat,12.0
-P1,Breakfast,13.5
-P1,Sugar to treat,15.0
-P1,Dinner,16.5
-P1,Lunch,18.0
-P1,Breakfast,19.0
-P1,Lunch,20.5
-P1,Breakfast,21.0
-P1,Dinner,21.5
-P2,Dinner,0.0
-P2,Lunch,1.5
-P2,Breakfast,2.5
-P2,Dinner,3.5
-P2,Lunch,5.0
-P2,Breakfast,6.0
-P2,Lunch,7.0
-P2,Breakfast,8.0
-P2,Dinner,9.0
-P2,Breakfast,9.75
-P2,Dinner,10.5
-P2,Lunch,12.0
-P3,Breakfast,7.0
-P3,Sugar to treat,1.5
-P3,Lunch,7.5
-P3,Sugar to treat,2.5
-P3,Sugar to treat,2.0
-P3,Sugar to treat,3.5
-P3,Sugar to treat,4.5
-P3,Sugar to treat,5.5
-P3,Breakfast,6.5
-P4,Lunch,0.5
-P4,Breakfast,1.5
-P4,Dinner,4.0
-P4,Nothing,5.5
-P4,Lunch,6.5
-P4,Sugar to treat,8.0
-P4,Lunch,10.0
-P4,Breakfast,11.0
-P5,Exercise snack,0.0
-P5,Lunch,1.0
-P5,Sugar to treat,2.0
-P5,Breakfast,2.625
-P5,Dinner,3.25
-P5,Sugar to treat,4.5
-P5,Lunch,5.5
-P5,Breakfast,6.5
-P5,Sugar to treat,8.0
-P5,Breakfast,9.0
+P0,C,0
+P0,L,1
+P0,F,2
+P0,G,3
+P0,H,4
+P1,I,0
+P1,K,1
+P1,A,2
+P1,E,3
+P2,D,1.0
+P2,B,1.5
+P2,B,2.0
+P3,A,0.5
+P3,C,2.0
+P3,C,2.75

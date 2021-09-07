@@ -154,7 +154,7 @@ class SequenceSynopsisMiner:
                 clust = Cluster(pStar, pair1.seqList+pair2.seqList, averagePos)
             if selectedIndex != -1:
                 if selectedIndex == 0:
-                    averagePos.insert(0, max(averagePos[1]-1, 0))
+                    averagePos.insert(0, 0)
                 if selectedIndex == len(averagePos):
                     averagePos.append(averagePos[-1]+1)
                 else:

@@ -76,13 +76,17 @@ if __name__ == "__main__":
         else:
             seqList = seq
 
+    print(eventStore.reverseAttrDict[args.attr])
+
     stm = SentenTreeMiner(minSup=0.2*len(seqList), maxSup=len(seqList))
     #cfm.truncateSequences(self, seqs, hashVal, evtAttr, node,trailingSeqSegs, notContain)
     root = GraphNode()
     root.incomingSequences = seqList
-    graph = Graph()
-    visibleGroups = stm.expandSeqTree(
-        args.attr, root, expandCnt=100, graph=graph)
+    root.graph = Graph()
+    graphList = []
+    #visibleGroups = 
+    stm.expandSeqTree(
+        args.attr, root, expandCnt=100, graphs=graphList)
 
     print("\n\n*****SentenTree output******\n\n")
 
@@ -95,14 +99,15 @@ if __name__ == "__main__":
     x = json.dumps(root, ensure_ascii=False,
                    default=GraphNode.jsonSerializeDump, indent=1)
     print(x)
+    print(f'LEN {len(graphList)}')
 
     print("\n\n*****SentenTree Graph output******\n\n")
+    for graph in graphList:
+        y = json.dumps(graph, ensure_ascii=False,
+                       default=Graph.jsonSerializeDump, indent=1)
+        #print(y)
+        with open(args.output+'outfile_graph.json', 'w') as the_file2:
+            the_file2.write(y)
 
-    y = json.dumps(graph, ensure_ascii=False,
-                   default=Graph.jsonSerializeDump, indent=1)
-    print(y)
     with open(args.output+'outfile.json', 'w') as the_file:
         the_file.write(x)
-
-    with open(args.output+'outfile_graph.json', 'w') as the_file2:
-        the_file2.write(y)
