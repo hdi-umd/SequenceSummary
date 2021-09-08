@@ -15,7 +15,7 @@ class SentenTreeMiner:
 
         self.ranker = RankingFunction(maxSup)
         self.ranker.setRankingFunc(self.ranker.numberOfSequence)
-        self.ranker.setTieBreaker(self.ranker.performRankingMedianIndex)
+        self.ranker.setTieBreaker(self.ranker.performRankingNaive)
 
     def expandSeqTree(self, attr, rootNode, expandCnt, graphs):
         """Chooses which branch of the tree to expand next."""
@@ -25,16 +25,15 @@ class SentenTreeMiner:
         seqs.append(rootNode)
         rootNode.setSeqCount(Sequence.getSeqVolume(rootNode.incomingSequences))
         rootNode.attr = attr
+        #rootNode.parent.append(rootNode.nid)
         leafSeqs = []
-        prevPos = 0
 
-        rootNode.graph.nodes.append(RawNode(rootNode))
+        #rootNode.graph.nodes.append(RawNode(rootNode))
         graphs.append(rootNode.graph)
         while seqs and expandCnt > 0:
             currentSeq = max(seqs, key=lambda x: x.seqCount)
             #print(f'seqCount: {currentSeq.seqCount}')
             graph = currentSeq.graph
-            
 
             seq0 = currentSeq.after
             seq1 = currentSeq.before
@@ -46,7 +45,7 @@ class SentenTreeMiner:
                     attr, currentSeq)
                 #print(f'event: {word}, pos: {pos}, count: {count}')
 
-                if count < self.minSupport:
+                if count <= self.minSupport:
                     leafSeqs.append(currentSeq)
                 else:
                     if not graph:
@@ -62,28 +61,30 @@ class SentenTreeMiner:
 
                     seq1.keyevts.insert(pos, word)
 
+                    seq1.parent = currentSeq.parent[:]
+                    seq1.parent.insert(pos, seq1.nid)
+
+                    seq0.parent = currentSeq.parent[:]
+                    #seq0.parent.append(seq0.nid)
+
                     seq0.graph = currentSeq.graph
                     seq1.graph = graph
 
+            currentSeq.before = seq1
+            currentSeq.after = seq0
+            
             if seq1 and seq1.seqCount >= self.minSupport:
                 expandCnt -= 1
                 seqs.append(seq1)
-                # graph.links.append(
-                #     Links(currentSeq.nid, seq1.nid, seq1.seqCount))
-                if pos >= prevPos:
-                    currentSeq.after.append(seq1)
-                else:
-                    currentSeq.before.append(seq1)
-                seq1.parent = currentSeq
-                prevPos = pos
-                graph.nodes.append(RawNode(seq1, pos))
+                
+                graph.nodes.append(RawNode(seq1))
 
             if seq0 and seq0.seqCount >= self.minSupport:
                 seqs.append(seq0)
-                graph.nodes.append(RawNode(seq0, pos))
-                graph.nodes[-1].value = -2  # dummy node value
-                currentSeq.after.append(seq0)
-                seq0.parent = currentSeq
+                #graph.nodes.append(RawNode(seq0, pos))
+                #graph.nodes[-1].value = -2  # dummy node value
+                
+                
                 # graph.links.append(
                 #     Links(currentSeq.nid, seq0.nid, seq0.seqCount))
 
@@ -93,9 +94,9 @@ class SentenTreeMiner:
             #print(f'Prev pos {prevPos}')
 
 
-        for graph in graphs:
-            graph.collapseNode()
-            graph.allignNodes()
+        #for graph in graphs:
+        #    graph.collapseNode()
+        #    graph.allignNodes()
         leafSeqs.extend(seqs)
         self.updateNodesEdges(graphs, leafSeqs)
         graph.createLinks()
@@ -164,9 +165,12 @@ class SentenTreeMiner:
 
             if seq.graph in graphs:
                 keyEvts = seq.keyevts
+                parents = seq.parent
 
                 print(f'keyEvts {keyEvts}')
-                for first, second in zip(seq.keyevts, seq.keyevts[1:]):
+                print(f'Parents {parents}')
+                for first, second in zip(seq.parent, seq.parent[1:]):
+                    print(f'seqcount {seq.seqCount}')
                     if first not in linkadj:
                         linkadj[first] = {}
                     if second in linkadj[first]:

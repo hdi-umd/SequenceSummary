@@ -10,7 +10,7 @@ class RankingFunction:
         self.count = 0
         self.maxSupport = maxSup
         self.rankingFunc = self.numberOfSequence
-        self.tieBreaker = self.performRankingMedianIndex#self.
+        self.tieBreaker = self.performRankingNaive#self.
         
     def setRankingFunc(self, method1):
         """Set ranking function."""
