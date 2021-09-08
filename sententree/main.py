@@ -76,8 +76,12 @@ if __name__ == "__main__":
         else:
             seqList = seq
 
+    rawSeq = "\n".join(seqs.getEventsString(args.attr) for seqs in seqList)
+    #print(rawSeq)
+
     print(eventStore.reverseAttrDict[args.attr])
 
+    #stm = SentenTreeMiner(minSup=0.2*len(seqList), maxSup=len(seqList))
     stm = SentenTreeMiner(minSup=0.2*len(seqList), maxSup=len(seqList))
     #cfm.truncateSequences(self, seqs, hashVal, evtAttr, node,trailingSeqSegs, notContain)
     root = GraphNode()
@@ -105,7 +109,7 @@ if __name__ == "__main__":
     for graph in graphList:
         y = json.dumps(graph, ensure_ascii=False,
                        default=Graph.jsonSerializeDump, indent=1)
-        #print(y)
+        print(y)
         with open(args.output+'outfile_graph.json', 'w') as the_file2:
             the_file2.write(y)
 
