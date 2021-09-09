@@ -106,8 +106,9 @@ class SentenTreeMiner:
         #    graph.allignNodes()
         leafSeqs.extend(seqs)
         self.updateNodesEdges(graphs, leafSeqs)
-        graph.createLinks()
-        graph.bundle()
+        for graph in graphs:
+            graph.createLinks()
+            graph.bundle()
         newGraph = Graph.assembleGraphs(graphs)
         #print(f'len {len(graphs)}')
         return newGraph
