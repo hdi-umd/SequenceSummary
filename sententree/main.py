@@ -96,14 +96,14 @@ if __name__ == "__main__":
 
     x = json.dumps(root, ensure_ascii=False,
                    default=RawNode.jsonSerializeDump, indent=1)
-    print(x)
+    #print(x)
 
     print("\n\n*****SentenTree output GraphNode******\n\n")
 
     x = json.dumps(root, ensure_ascii=False,
                    default=GraphNode.jsonSerializeDump, indent=1)
-    print(x)
-    print(f'LEN {len(graphList)}')
+    #print(x)
+    #print(f'LEN {len(graphList)}')
 
     print("\n\n*****SentenTree Graph output******\n\n")
     for graph in graphList:
