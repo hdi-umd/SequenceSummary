@@ -35,10 +35,10 @@ class SentenTreeMiner:
         seqs.append(rootNode)
         rootNode.setSeqCount(Sequence.getSeqVolume(rootNode.incomingSequences))
         rootNode.attr = self.attr
-        # rootNode.parent.append(rootNode.nid)
+        rootNode.parent.append(rootNode.nid)
         leafSeqs = []
 
-        # rootNode.graph.nodes.append(RawNode(rootNode))
+        rootNode.graph.nodes.append(RawNode(rootNode))
         graphs.append(rootNode.graph)
         while seqs and expandCnt > 0:
             currentSeq = max(seqs, key=lambda x: x.seqCount)
@@ -67,17 +67,27 @@ class SentenTreeMiner:
                         currentSeq.incomingSequences[0].getEvtAttrValue(self.attr, word))
                     seq1.keyevts = currentSeq.keyevts[:]  # deep copy
                     seq0.keyevts = currentSeq.keyevts[:]
-
                     seq1.keyevts.insert(pos, word)
 
+                    seq0.parent = currentSeq.parent[:]
                     seq1.parent = currentSeq.parent[:]
                     seq1.parent.insert(pos, seq1.nid)
-
-                    seq0.parent = currentSeq.parent[:]
                     # seq0.parent.append(seq0.nid)
 
                     seq0.graph = currentSeq.graph
                     seq1.graph = graph
+
+                    linkadj = seq1.graph.linkAdj
+
+                    if len(seq1.parent) > 1:
+                        if seq1.parent[pos-1] not in linkadj:
+                            linkadj[seq1.parent[pos-1]] = {}
+                        if seq1.parent[pos] in linkadj[seq1.parent[pos-1]]:
+                            linkadj[seq1.parent[pos-1]
+                                    ][seq1.parent[pos]] += seq1.seqCount
+                        else:
+                            linkadj[seq1.parent[pos-1]
+                                    ][seq1.parent[pos]] = seq1.seqCount
 
             currentSeq.before = seq1
             currentSeq.after = seq0
@@ -105,8 +115,9 @@ class SentenTreeMiner:
         #    graph.collapseNode()
         #    graph.allignNodes()
         leafSeqs.extend(seqs)
-        self.updateNodesEdges(graphs, leafSeqs)
+        #self.updateNodesEdges(graphs, leafSeqs)
         for graph in graphs:
+            # print(graph.linkadj)
             graph.createLinks()
             graph.bundle()
         newGraph = Graph.assembleGraphs(graphs)
@@ -175,10 +186,7 @@ class SentenTreeMiner:
             linkadj = seq.graph.linkAdj
 
             if seq.graph in graphs:
-                keyEvts = seq.keyevts
                 parents = seq.parent
-
-                print(f'keyEvts {keyEvts}')
                 print(f'Parents {parents}')
                 for first, second in zip(seq.parent, seq.parent[1:]):
                     print(f'seqcount {seq.seqCount}')

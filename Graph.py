@@ -24,7 +24,7 @@ class RawNode:
     def jsonDefaultDump(self) -> dict:
         """creates the Json format output for the class RawNode."""
         return {
-            "node_id": self.nid,
+            "id": self.nid,
             "event_attribute": self.value,
             "Pattern": self.pattern,
             "value": self.seqCount,
