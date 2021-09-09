@@ -4,14 +4,12 @@
 import os
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
-import argparse
-import json
-from Node import GraphNode
-from Sequence import Sequence
-from Graph import Graph, RawNode
-from SentenTreeMiner import SentenTreeMiner
 from EventStore import EventStore
+from SentenTreeMiner import SentenTreeMiner
+from Graph import Graph
+from Sequence import Sequence
+import json
+import argparse
 
 
 if __name__ == "__main__":
@@ -76,38 +74,37 @@ if __name__ == "__main__":
         else:
             seqList = seq
 
+    rawSeq = "\n".join(seqs.getEventsString(args.attr) for seqs in seqList)
+    # print(rawSeq)
+
     print(eventStore.reverseAttrDict[args.attr])
 
-    stm = SentenTreeMiner(minSup=0.2*len(seqList), maxSup=len(seqList))
+    #stm = SentenTreeMiner(minSup=0.2*len(seqList), maxSup=len(seqList))
+    stm = SentenTreeMiner(args.attr, minSup=0.2 *
+                          len(seqList), maxSup=len(seqList))
+    graph = stm.runSentenTreeMiner(seqList)
     #cfm.truncateSequences(self, seqs, hashVal, evtAttr, node,trailingSeqSegs, notContain)
-    root = GraphNode()
-    root.incomingSequences = seqList
-    root.graph = Graph()
-    graphList = []
-    #visibleGroups = 
-    stm.expandSeqTree(
-        args.attr, root, expandCnt=100, graphs=graphList)
 
-    print("\n\n*****SentenTree output******\n\n")
+    # print("\n\n*****SentenTree output******\n\n")
 
-    x = json.dumps(root, ensure_ascii=False,
-                   default=RawNode.jsonSerializeDump, indent=1)
-    print(x)
+    # x = json.dumps(root, ensure_ascii=False,
+    #                default=RawNode.jsonSerializeDump, indent=1)
+    # # print(x)
 
-    print("\n\n*****SentenTree output GraphNode******\n\n")
+    # print("\n\n*****SentenTree output GraphNode******\n\n")
 
-    x = json.dumps(root, ensure_ascii=False,
-                   default=GraphNode.jsonSerializeDump, indent=1)
-    print(x)
-    print(f'LEN {len(graphList)}')
+    # x = json.dumps(root, ensure_ascii=False,
+    #                default=GraphNode.jsonSerializeDump, indent=1)
+    # print(x)
+    #print(f'LEN {len(graphList)}')
 
     print("\n\n*****SentenTree Graph output******\n\n")
-    for graph in graphList:
-        y = json.dumps(graph, ensure_ascii=False,
-                       default=Graph.jsonSerializeDump, indent=1)
-        #print(y)
-        with open(args.output+'outfile_graph.json', 'w') as the_file2:
-            the_file2.write(y)
 
-    with open(args.output+'outfile.json', 'w') as the_file:
-        the_file.write(x)
+    y = json.dumps(graph, ensure_ascii=False,
+                   default=Graph.jsonSerializeDump, indent=1)
+    print(y)
+    with open(args.output+'outfile_graph.json', 'w') as the_file2:
+        the_file2.write(y)
+
+    # with open(args.output+'outfile.json', 'w') as the_file:
+    #     the_file.write(x)
