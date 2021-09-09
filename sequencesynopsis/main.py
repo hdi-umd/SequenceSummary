@@ -1,4 +1,4 @@
-"""Implements the main method that calls and executes
+""" Implements the main method that calls and executes
 SequenceSynopsis module.
 """
 

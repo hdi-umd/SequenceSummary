@@ -230,18 +230,18 @@ class GraphNode(Node):
 
     def __init__(self, name="", count_val=0, value="", attr=""):
         super().__init__(name, count_val, value, attr)
-        self.before = []
-        self.after = []
+        self.before = None
+        self.after = None
         self.graph = None
-        self.parent = None
+        self.parent = []
 
     def jsonDefaultDump(self) -> dict:
         return {
-            "before": [GraphNode.jsonSerializeDump(x) for x in self.before],
+            "before": GraphNode.jsonSerializeDump(self.before),
             "event_attribute": self.value,
             "Pattern": self.getPatternString(),
             "value": self.seqCount,
-            "After": [GraphNode.jsonSerializeDump(x) for x in self.after]
+            "After": GraphNode.jsonSerializeDump(self.after)
 
         }
 
