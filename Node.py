@@ -165,7 +165,7 @@ class Node():
         """Returns the pattern string for this node"""
         return "-".join(str(
             self.incomingSequences[0].eventstore.reverseAttrDict[self.attr][hashVal])
-            for hashVal in self.keyevts if self.incomingSequences)
+                        for hashVal in self.keyevts if self.incomingSequences)
 
     def getHash(self):
         """Returns hash value for this node."""
@@ -177,7 +177,8 @@ class Node():
 
     def printNode(self):
         """ Prints details for a node."""
-        print(f'node {self.nid}, value {self.value}, Pattern {self.getPatternString()},meanStep {self.meanStep} seqcount {self.seqCount}')
+        print(f'node {self.nid}, value {self.value}, Pattern {self.getPatternString()}, \
+              meanStep {self.meanStep} seqcount {self.seqCount}')
 
     # def jsonSerialize(self):
     #    json.dump(self, indent=4, default= TreeNode.jsonDefaultDump)
