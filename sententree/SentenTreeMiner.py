@@ -15,7 +15,7 @@ class SentenTreeMiner:
 
         self.ranker = RankingFunction(maxSup)
         self.ranker.setRankingFunc(self.ranker.numberOfSequence)
-        self.ranker.setTieBreaker(self.ranker.performRankingNaive)
+        self.ranker.setTieBreaker(self.ranker.performRankingMedianIndex)
 
     def expandSeqTree(self, attr, rootNode, expandCnt, graphs):
         """Chooses which branch of the tree to expand next."""
@@ -32,7 +32,7 @@ class SentenTreeMiner:
         graphs.append(rootNode.graph)
         while seqs and expandCnt > 0:
             currentSeq = max(seqs, key=lambda x: x.seqCount)
-            #print(f'seqCount: {currentSeq.seqCount}')
+            print(f'seqCount: {currentSeq.seqCount}')
             graph = currentSeq.graph
 
             seq0 = currentSeq.after
@@ -100,6 +100,7 @@ class SentenTreeMiner:
         leafSeqs.extend(seqs)
         self.updateNodesEdges(graphs, leafSeqs)
         graph.createLinks()
+        graph.bundle()
         print(f'len {len(graphs)}')
         return graphs
 
