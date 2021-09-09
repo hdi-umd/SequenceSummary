@@ -18,8 +18,8 @@ class RawNode:
             self.meanStep = node.meanStep
             self.medianStep = node.medianStep
             self.parent = node.parent
-            self.rightLinks = []
-            self.leftLinks = []
+        self.rightLinks = []
+        self.leftLinks = []
 
     def jsonDefaultDump(self) -> dict:
         """creates the Json format output for the class RawNode."""
@@ -44,7 +44,7 @@ class RawNode:
     def printNode(self):
         """ Prints details for a node."""
         print(f'node {self.nid}, value {self.value}, Pattern {self.pattern}, \
-        meanStep {self.meanStep} seqcount {self.seqCount} pos {self.position}')
+        meanStep {self.meanStep} seqcount {self.seqCount}')
 
     @staticmethod
     def printNodes(nodeList):
@@ -229,7 +229,7 @@ class Graph:
         for val in uniqueValue:
             subGroup = []
             checkMultiple = [node for node in nodes if node.nid == val]
-            if(len(checkMultiple) > 1):
+            if len(checkMultiple) > 1:
                 for index, node in checkMultiple:
                     linkExists = []  # Check if link exists within same items of a group
                     for rightNode in checkMultiple[index+1]:

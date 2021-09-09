@@ -4,7 +4,7 @@ from Graph import RawNode, Graph
 from Node import GraphNode
 from Sequence import Sequence
 from sententree.RankingFunction import RankingFunction
-
+import numpy as np
 
 class SentenTreeMiner:
     """Runs SentenTree mining algo"""
@@ -116,6 +116,21 @@ class SentenTreeMiner:
         #    graph.allignNodes()
         leafSeqs.extend(seqs)
         #self.updateNodesEdges(graphs, leafSeqs)
+        for seq in leafSeqs:
+            print(seq.graph.linkAdj)
+            exitNode = RawNode()
+            exitNode.nid = seq.graph.nodes[-1].nid+1
+            exitNode.value = -2
+            exitNode.seqCount = seq.seqCount
+            exitNode.pattern = ""
+            lenArr = [len(x.events) for x in seq.incomingSequences]
+            exitNode.meanStep = sum(lenArr)/len(lenArr)
+            exitNode.medianStep = np.median(lenArr)
+            seq.graph.nodes.append(exitNode)
+            if seq.nid not in linkadj:
+                seq.graph.linkAdj[seq.nid] = {}
+                seq.graph.linkAdj[seq.nid][exitNode.nid] = seq.seqCount
+
         for graph in graphs:
             # print(graph.linkadj)
             graph.createLinks()
