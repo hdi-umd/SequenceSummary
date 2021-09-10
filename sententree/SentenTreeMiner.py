@@ -115,6 +115,9 @@ class SentenTreeMiner:
         #    graph.collapseNode()
         #    graph.allignNodes()
         leafSeqs.extend(seqs)
+        print(f'lrn {len(leafSeqs)}')
+        print(f'lrn graph {len(graphs)}')
+        
         #self.updateNodesEdges(graphs, leafSeqs)
         for seq in leafSeqs:
             print(seq.graph.linkAdj)
@@ -195,8 +198,9 @@ class SentenTreeMiner:
         return self.ranker.word, self.ranker.pos, self.ranker.count, seq0, seq1
 
     @staticmethod
-    def updateNodesEdges(graphs, leafSeqs):
+    def updateNodesEdges(graphs, leafSeqs, countArr):
         """Assign edge weights, update which node is connected to which."""
+        i = 0
         for seq in leafSeqs:
             linkadj = seq.graph.linkAdj
 
@@ -208,7 +212,7 @@ class SentenTreeMiner:
                     if first not in linkadj:
                         linkadj[first] = {}
                     if second in linkadj[first]:
-                        linkadj[first][second] += seq.seqCount
+                        linkadj[first][second] += countArr[i]
                     else:
-                        linkadj[first][second] = seq.seqCount
+                        linkadj[first][second] = countArr[i]
             print(linkadj)

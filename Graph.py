@@ -44,7 +44,8 @@ class RawNode:
     def printNode(self):
         """ Prints details for a node."""
         print(f'node {self.nid}, value {self.value}, Pattern {self.pattern}, \
-        meanStep {self.meanStep} seqcount {self.seqCount}')
+        meanStep {self.meanStep} seqcount {self.seqCount}, right {[x.source.nid for x in self.rightLinks]}, \
+        left {[x.target.nid for x in self.leftLinks]}')
 
     @staticmethod
     def printNodes(nodeList):
@@ -55,6 +56,7 @@ class RawNode:
     @staticmethod
     def merge(nodeList):
         """Merge all the nodes in nodeList into a single node."""
+        print(f'Nodes {nodeList}')
         node = RawNode()
         node.nid = min(x.nid for x in nodeList)
         node.value = nodeList[0].value
@@ -140,6 +142,7 @@ class Graph:
 
     def bundle(self):
         """Bundle nodes."""
+        RawNode.printNodes(self.nodes)
         delNodeIndices = []
         uniqueValue = list(set([x.value for x in self.nodes]))
         print(uniqueValue)
@@ -149,25 +152,32 @@ class Graph:
         for node in self.nodes:
             if len(node.rightLinks) > 1 or len(node.leftLinks) > 1:
                 bundleList.append(node)
+        print(f'bundle {[b.nid for b in bundleList]}')
         print(f'Heer {len(bundleList)}')
         while bundleList:
             currentBundle = max(bundleList, key=lambda x: x.nid)
+            print(f'nid {currentBundle.nid}')
             if currentBundle.nid in merged:
                 continue
             groups = []
             if len(currentBundle.leftLinks) > 1:
                 lNodes = [left.source for left in currentBundle.leftLinks]
-                groups = groups.extend(
-                    self.groupMergeableNodes(lNodes, uniqueValue))
-
+                if lNodes:
+                    groups.extend(
+                        self.groupMergeableNodes(lNodes, uniqueValue))
+                    print(f'left links exist {groups}')
             if len(currentBundle.rightLinks) > 1:
                 rNodes = [right.target for right in currentBundle.rightLinks]
-                groups = groups.extend(
-                    self.groupMergeableNodes(rNodes, uniqueValue))
+                if rNodes:
+                    groups.extend(
+                        self.groupMergeableNodes(rNodes, uniqueValue))
+                    print(f'right links exist {groups}')
 
             if groups:
+                print(f'groups {groups}')
                 for grp in groups:
                     delNodeIndices.append(self.nodes.index(n) for n in grp)
+                    print(f'groyp {len(grp)}')
                     newNode = self.mergeNodes(grp, merged)
                     if len(newNode.rightLinks) > 1 or len(newNode.leftLinks) > 1:
                         bundleList.append(newNode)
@@ -179,6 +189,7 @@ class Graph:
 
     def mergeNodes(self, nodes, isMerged):
         """ Merge the links into a single node"""
+        print(f'Nodesss {nodes}')
         newNode = RawNode.merge(nodes)
         newNode.nid = self.nodes[-1].nid+1
         self.nodes.append(newNode)
@@ -225,6 +236,7 @@ class Graph:
 
     def groupMergeableNodes(self, nodes, uniqueValue):
         """Group nodes and merge."""
+        
         subGroups = []
         for val in uniqueValue:
             subGroup = []
@@ -240,7 +252,8 @@ class Graph:
                             break
                     if not linkExists:  # This node has no connection to own sub group
                         subGroup.append(node)
-            subGroups.append(subGroup)
+            if subGroup:
+                subGroups.append(subGroup)
         return subGroups
 
     @staticmethod
