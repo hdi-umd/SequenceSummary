@@ -123,6 +123,38 @@ class Graph:
         for i, link in enumerate(self.links):
             print(f'links {link.source} {link.target}, index {i}')
 
+    def detectCycles(self):
+        """Detect if two incoming nodes has same ancestor."""
+
+        for node in self.nodes:
+            if len(node.leftLinks) > 1:
+                rightNodes = [lnk.source for lnk in node.leftLinks]
+                print({x.nid for x in rightNodes})
+                print({x.seqCount for x in rightNodes})
+                print({len(rightNodes)})
+                parentList = []
+                for candidate in rightNodes:
+                    parentList.append([elem.nid for elem in candidate.parent])
+                print(parentList)
+                for i, first in enumerate(parentList):
+                    print(f' frst {first}')
+                    for j, second in enumerate(parentList[i+1:]):
+                        print(f' scnd {second}')
+                        common = list(set(first) & set(second))
+                        print(f'cmnal{common}')
+                        try:
+                            del common[common.index(1)]
+                        except ValueError:
+                            pass
+                        if common:
+                            print(f'seqCpunt i {rightNodes[i].seqCount}')
+                            print(f'seqCpunt j {rightNodes[i+1+j].seqCount}')
+                            
+                            if rightNodes[i].seqCount > rightNodes[i+1+j].seqCount:
+                                node.leftLinks[i].count -= node.leftLinks[i+1+j].count
+                            else:
+                                node.leftLinks[i+1+j].count -= node.leftLinks[i].count
+
     def createLinks(self):
         """ Create links between nodes."""
         print([x.value for x in self.nodes])
