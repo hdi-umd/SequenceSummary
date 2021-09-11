@@ -6,6 +6,7 @@ from Sequence import Sequence
 from sententree.RankingFunction import RankingFunction
 import numpy as np
 
+
 class SentenTreeMiner:
     """Runs SentenTree mining algo"""
 
@@ -35,14 +36,14 @@ class SentenTreeMiner:
         seqs.append(rootNode)
         rootNode.setSeqCount(Sequence.getSeqVolume(rootNode.incomingSequences))
         rootNode.attr = self.attr
-        rootNode.parent.append(rootNode.nid)
+        # rootNode.parent.append(rootNode)
         leafSeqs = []
 
         rootNode.graph.nodes.append(RawNode(rootNode))
         graphs.append(rootNode.graph)
         while seqs and expandCnt > 0:
             currentSeq = max(seqs, key=lambda x: x.seqCount)
-            print(f'seqCount: {currentSeq.seqCount}')
+            #print(f'seqCount: {currentSeq.seqCount}')
             graph = currentSeq.graph
 
             seq0 = currentSeq.after
@@ -53,8 +54,9 @@ class SentenTreeMiner:
             if not seq1 and not seq0:
                 word, pos, count, seq0, seq1 = self.growSeq(currentSeq)
                 #print(f'event: {word}, pos: {pos}, count: {count}')
-
+                print(f'nid {seq1.nid}')
                 if count <= self.minSupport:
+                    currentSeq.parent.insert(0, rootNode)
                     leafSeqs.append(currentSeq)
                 else:
                     if not graph:
@@ -71,23 +73,23 @@ class SentenTreeMiner:
 
                     seq0.parent = currentSeq.parent[:]
                     seq1.parent = currentSeq.parent[:]
-                    seq1.parent.insert(pos, seq1.nid)
+                    seq1.parent.insert(pos, seq1)
                     # seq0.parent.append(seq0.nid)
 
                     seq0.graph = currentSeq.graph
                     seq1.graph = graph
 
-                    linkadj = seq1.graph.linkAdj
+                    # linkadj = seq1.graph.linkAdj
 
-                    if len(seq1.parent) > 1:
-                        if seq1.parent[pos-1] not in linkadj:
-                            linkadj[seq1.parent[pos-1]] = {}
-                        if seq1.parent[pos] in linkadj[seq1.parent[pos-1]]:
-                            linkadj[seq1.parent[pos-1]
-                                    ][seq1.parent[pos]] += seq1.seqCount
-                        else:
-                            linkadj[seq1.parent[pos-1]
-                                    ][seq1.parent[pos]] = seq1.seqCount
+                    # if len(seq1.parent) > 1:
+                    #     if seq1.parent[pos-1] not in linkadj:
+                    #         linkadj[seq1.parent[pos-1]] = {}
+                    #     if seq1.parent[pos] in linkadj[seq1.parent[pos-1]]:
+                    #         linkadj[seq1.parent[pos-1]
+                    #                 ][seq1.parent[pos]] += seq1.seqCount
+                    #     else:
+                    #         linkadj[seq1.parent[pos-1]
+                    #                 ][seq1.parent[pos]] = seq1.seqCount
 
             currentSeq.before = seq1
             currentSeq.after = seq0
@@ -117,27 +119,27 @@ class SentenTreeMiner:
         leafSeqs.extend(seqs)
         print(f'lrn {len(leafSeqs)}')
         print(f'lrn graph {len(graphs)}')
-        
-        #self.updateNodesEdges(graphs, leafSeqs)
+
         for seq in leafSeqs:
-            print(seq.graph.linkAdj)
-            exitNode = RawNode()
-            exitNode.nid = seq.graph.nodes[-1].nid+1
+            exitNode = GraphNode()
             exitNode.value = -2
             exitNode.seqCount = seq.seqCount
-            exitNode.pattern = ""
             lenArr = [len(x.events) for x in seq.incomingSequences]
             exitNode.meanStep = sum(lenArr)/len(lenArr)
             exitNode.medianStep = np.median(lenArr)
-            seq.graph.nodes.append(exitNode)
-            if seq.nid not in linkadj:
-                seq.graph.linkAdj[seq.nid] = {}
-                seq.graph.linkAdj[seq.nid][exitNode.nid] = seq.seqCount
-
+            exitNode.before = seq
+            seq.after = exitNode
+            seq.parent.append(exitNode)
+            seq.graph.nodes.append(RawNode(exitNode))
+            # if seq.nid not in linkadj:
+            #     seq.graph.linkAdj[seq.nid] = {}
+            #     seq.graph.linkAdj[seq.nid][exitNode.nid] = seq.seqCount
+        self.updateNodesEdges(graphs, leafSeqs)
         for graph in graphs:
             # print(graph.linkadj)
             graph.createLinks()
-            graph.bundle()
+            graph.detectCycles()
+            #graph.bundle()
         newGraph = Graph.assembleGraphs(graphs)
         #print(f'len {len(graphs)}')
         return newGraph
@@ -168,6 +170,7 @@ class SentenTreeMiner:
 
         if self.ranker.count >= self.minSupport:
             words = seq.keyevts
+            seqIds =[]
             for elem in seq.incomingSequences:
                 startPos = 0 if self.ranker.pos == 0 else elem.seqIndices[self.ranker.pos - 1] + 1
                 endPos = len(elem.events) if self.ranker.pos == len(
@@ -179,13 +182,15 @@ class SentenTreeMiner:
                     elem.seqIndices.insert(self.ranker.pos, i)
                     seq1.incomingSequences.append(elem)
                     seq1.seqCount += elem.getVolume()
-
+                    seqIds.append(elem._id)
+                    
                 except ValueError:
                     seq0.incomingSequences.append(elem)
                     seq0.seqCount += elem.getVolume()
             # calculate average index
             posArr = [seq.seqIndices[self.ranker.pos]
                       for seq in seq1.incomingSequences]
+            print(f'Sequence id {seqIds}')
             seq1.setPositions(posArr)
             seq0.setSeqCount(Sequence.getSeqVolume(seq0.incomingSequences))
             seq1.setSeqCount(Sequence.getSeqVolume(seq1.incomingSequences))
@@ -198,7 +203,7 @@ class SentenTreeMiner:
         return self.ranker.word, self.ranker.pos, self.ranker.count, seq0, seq1
 
     @staticmethod
-    def updateNodesEdges(graphs, leafSeqs, countArr):
+    def updateNodesEdges(graphs, leafSeqs):
         """Assign edge weights, update which node is connected to which."""
         i = 0
         for seq in leafSeqs:
@@ -209,10 +214,10 @@ class SentenTreeMiner:
                 print(f'Parents {parents}')
                 for first, second in zip(seq.parent, seq.parent[1:]):
                     print(f'seqcount {seq.seqCount}')
-                    if first not in linkadj:
-                        linkadj[first] = {}
-                    if second in linkadj[first]:
-                        linkadj[first][second] += countArr[i]
+                    if first.nid not in linkadj:
+                        linkadj[first.nid] = {}
+                    if second in linkadj[first.nid]:
+                        linkadj[first.nid][second.nid] += min(first.seqCount, second.seqCount)
                     else:
-                        linkadj[first][second] = countArr[i]
+                        linkadj[first.nid][second.nid] = min(first.seqCount, second.seqCount)
             print(linkadj)

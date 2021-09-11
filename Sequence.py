@@ -14,10 +14,10 @@ class Sequence():
     def __init__(self, eventlist, eventstore, sid=None):
         # sequence id
         if sid is None:
-            self.sid = self  # next(self._ids)
+            self._id = next(self._ids)
         else:
-            self.sid = sid
-
+            self._id = sid
+        self.sid = self
         self.events = eventlist
         self.eventstore = eventstore
         self.volume = 1
