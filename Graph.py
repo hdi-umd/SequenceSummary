@@ -129,27 +129,14 @@ class Graph:
         for node in self.nodes:
             if len(node.leftLinks) > 1:
                 rightNodes = [lnk.source for lnk in node.leftLinks]
-                print({x.nid for x in rightNodes})
-                print({x.seqCount for x in rightNodes})
-                print({len(rightNodes)})
                 parentList = []
                 for candidate in rightNodes:
                     parentList.append([elem.nid for elem in candidate.parent])
-                print(parentList)
+
                 for i, first in enumerate(parentList):
-                    print(f' frst {first}')
                     for j, second in enumerate(parentList[i+1:]):
-                        print(f' scnd {second}')
                         common = list(set(first) & set(second))
-                        print(f'cmnal{common}')
-                        try:
-                            del common[common.index(1)]
-                        except ValueError:
-                            pass
-                        if common:
-                            print(f'seqCpunt i {rightNodes[i].seqCount}')
-                            print(f'seqCpunt j {rightNodes[i+1+j].seqCount}')
-                            
+                        if len(common) > 1 or common[0] != 1:
                             if rightNodes[i].seqCount > rightNodes[i+1+j].seqCount:
                                 node.leftLinks[i].count -= node.leftLinks[i+1+j].count
                             else:
@@ -160,17 +147,13 @@ class Graph:
         print([x.value for x in self.nodes])
         for _, conn in enumerate(self.linkAdj):
             leftNode = [x for x in self.nodes if x.nid == conn][0]
-            print(f'LeftNode {leftNode.value}')
-            print(f'links {self.linkAdj[conn]}')
             for _, right in enumerate(self.linkAdj[conn]):
-                print(f'Connection {self.linkAdj[conn][right]}')
                 rightNode = [x for x in self.nodes if x.nid == right][0]
-                print(f'RightNode {rightNode.value}')
                 link = Links(leftNode, rightNode, self.linkAdj[conn][right])
                 self.links.append(link)
                 leftNode.rightLinks.append(link)
                 rightNode.leftLinks.append(link)
-        # self.printGraph()
+
 
     def bundle(self):
         """Bundle nodes."""
