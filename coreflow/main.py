@@ -86,13 +86,12 @@ if __name__ == "__main__":
         else:
             seqList = seq
 
-    cfm = CoreFlowMiner()
-    root = CoreFlowMiner.getNewRootNode(Sequence.getSeqVolume(
-        seqList), seqList, attr=args.attr)
+    cfm = CoreFlowMiner(args.attr, minSup=0.2 *
+                        len(seqList), maxSup=len(seqList))
+    
     #cfm.run(seqList, args.attr, root, 5 * Sequence.getSeqVolume(
     #       seqList)/100.0, Sequence.getSeqVolume(seqList), [], {}, -1)
-    cfm.run(seqList, args.attr, root, 2,
-            Sequence.getSeqVolume(seqList), [], {}, -1)
+    root = cfm.runCoreFlowMiner(seqList)
 
     print("\n\n*****Coreflow output******\n\n")
 

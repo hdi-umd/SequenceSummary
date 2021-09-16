@@ -18,16 +18,10 @@ class Pattern:
         self.keyEvts = events
         self.medianPos = []
         self.meanPos = []
-        self.parent = None
-        self.parentSegment = None
         self.sids = []
         self.support = 0
-        self.supPercent = None
-        self.cluster = None
         self.medianPathLength = 0
         self.meanPathLength = 0
-        self.parnetSegment = None
-        self.segSizes = None
 
     def filterPaths(self, paths, evtType):
         """Check how many Sequences in paths, contain the keyEvents of this pattern object."""
@@ -108,7 +102,7 @@ class Pattern:
             pageSequence = path.getHashList(evtAttr)
             pathsOfStrings.append(pageSequence)
 
-        print(f'path of string {pathsOfStrings}')
+        #print(f'path of string {pathsOfStrings}')
         medians = []
         means = []
 
@@ -131,7 +125,7 @@ class Pattern:
 
             medians.append(median)
             means.append(sumSteps*1.0 / len(numSteps))
-        print(f'Key Events {self.keyEvts}')
+        #print(f'Key Events {self.keyEvts}')
 
         # list(accumulate(means))
         means = np.cumsum(np.asarray(means))
@@ -140,7 +134,7 @@ class Pattern:
         self.setMedianPositions(medians)
         self.setMeanPositions(means)
 
-        print(f'mean {means} median {median}')
+        #print(f'mean {means} median {median}')
 
         trailingSteps = [0]*len(self.sids)
         for i, path in enumerate(self.sids):
@@ -172,30 +166,9 @@ class Pattern:
         """returns support (number of sequences containing pattern)."""
         return self.support
 
-    def setCluster(self, cluster):
-        """Assignss the cluster value."""
-        self.cluster = cluster
-
-    def setParent(self, parent, segment):
-        """Assigns the parent and parentsegment value."""
-        self.parent = parent
-        self.parentSegment = segment
-
-    # How to implement this with BitArray?
-    # def getEventBitSet(self)
-
-    def getParent(self):
-        """Returns the parent value."""
-        return self.parent
-
-    def getParentSegment(self):
-        """Returns the parentSegment value."""
-        return self.parentSegment
-
-    def setSupport(self, sup, total):
+    def setSupport(self, sup):
         """Assigns the support and supPercent value."""
         self.support = sup
-        self.supPercent = sup*1.0/total
 
     @staticmethod
     def matchMilestones(arr, milestones):

@@ -14,10 +14,11 @@ class Sequence():
     def __init__(self, eventlist, eventstore, sid=None):
         # sequence id
         if sid is None:
-            self._id = next(self._ids)
+            self.sid = self  # next(self._ids)
         else:
-            self._id = sid
-        self.sid = self
+            self.sid = sid
+
+        self._id = next(self._ids)
         self.events = eventlist
         self.eventstore = eventstore
         self.volume = 1
@@ -26,7 +27,7 @@ class Sequence():
 
     def getSeqLen(self):
         """"Length of the eventList for this sequence."""
-        print(f'event Length {self.events}')
+        print(f'event Length {len(self.events)}')
         return len(self.events)
 
     def getEventPosition(self, attr, hashVal):
@@ -152,7 +153,7 @@ class Sequence():
 
     def getEvtAttrValue(self, attr, hashVal):
         """Given hashVal, return original value for the specified attr"""
-        return self.eventstore.reverseAttrDict[attr][hashVal]
+        return self.eventstore.getEvtAttrValue(attr, hashVal)
 
     # Method equivalent to public List<String> getEvtAttrValues(String attr) in DataManager.java
     def getEvtAttrValues(self, attr):
@@ -162,11 +163,11 @@ class Sequence():
     # Method equivalent to int getEvtAttrValueCount(String attr) in DataManager.java
     def getEvtAttrValueCount(self, attr):
         """return the number of distinct types present given an attribute"""
-        return len(self.eventstore.reverseAttrDict[attr])
+        return self.eventstore.getEvtAttrValueCount(attr)
 
     def getEventsString(self, attr):
         """Convert the sequence events to a string."""
-        return "\t".join(elem for elem in self.getEvtAttrValues(attr))
+        return " ".join(elem for elem in self.getEvtAttrValues(attr))
 
     #ZINAT- changes
     # SequenceList represents a list of objects of type Sequence.

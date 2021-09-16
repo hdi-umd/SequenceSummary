@@ -2,9 +2,8 @@
 
 import json
 from itertools import count
-from datetime import timedelta
 import numpy as np
-from Graph import Graph
+from Graph import Graph, Links, RawNode
 
 
 class Node():
@@ -13,10 +12,8 @@ class Node():
     nodeCounter = count(1)
     nodeHash = {}
 
-    def __init__(self, name="", count_=0, value="", attr=""):
-        super().__init__()
+    def __init__(self, count_=0, value="", attr=""):
         self.nid = next(self.nodeCounter)
-        self.name = name
         self.seqCount = count_
         # What's the difference between name and value?
         self.value = value
@@ -24,18 +21,11 @@ class Node():
         self.pos = []
         self.meanStep = 0
         self.medianStep = 0
-        # self.zipCompressRatio=0
         self.incomingBranchUniqueEvts = None
-        # self.incomingBranchSimMean=None
-        # self.incomingBranchSimMedian=None
-        # self.incomingBranchSimVariance=None
         self.keyevts = []
         self.sequences = []
         self.incomingSequences = []
         self.outgoingSequences = []
-
-        self.meanRelTimestamp = 0
-        self.medianRelTimestamp = 0
 
         self.attr = attr
 
@@ -135,31 +125,6 @@ class Node():
         """Assigns value to incomingSequences"""
         self.incomingSequences = incomingBranchSeqs
 
-    def setRelTimeStamps(self, relTimeStamps):
-        """Assigns value to  meanRelTimestamp and medianRelTimestamp"""
-        #print(f'Time Stamp {reltimestamps}')
-        #print(f'Time Stamp {type(reltimestamps[0])}')
-        relTimeStamps.sort()
-        #print(f'Time Stamp {reltimestamps}')
-        #print(f'Time Stamp {type(reltimestamps[0])}')
-
-        sumVal = sum(relTimeStamps, timedelta())
-
-        #mid = len(reltimestamps)/2
-
-        if len(relTimeStamps) == 0:
-            self.meanRelTimestamp = 0
-            self.medianRelTimestamp = 0
-
-        else:
-
-            self.meanRelTimestamp = sumVal*1.0/len(relTimeStamps)
-            # (reltimestamps[mid-1]+reltimestamps[mid])/2.0
-            # if len(reltimestamps%2==0) else reltimestamps[mid]
-            self.medianRelTimestamp = np.median(relTimeStamps)
-
-        #print(f'Time Stamp {self.meanRelTimestamp}')
-        #print(f'Time Stamp {self.meanRelTimestamp}')
 
     def getPatternString(self):
         """Returns the pattern string for this node"""
@@ -229,8 +194,8 @@ class GraphNode(Node):
 
     """Class to support graphs where multiple branching of nodes are possible"""
 
-    def __init__(self, name="", count_val=0, value="", attr=""):
-        super().__init__(name, count_val, value, attr)
+    def __init__(self, count_val=0, value="", attr=""):
+        super().__init__(count_val, value, attr)
         self.before = None
         self.after = None
         self.graph = None
