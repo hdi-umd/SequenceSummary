@@ -44,13 +44,12 @@ class RankingFunction:
 
         return self.topRankedEvtValues[0]
 
-    def performRanking2(self, seqs):
+    def performRanking(self, seqs):
         """Rank the events based on support (can be number of sequences present in/
         number of occurrences)"""
         result = Counter()
         patternDict = {}
-        evtValueKey = ""
-
+        
         for seq in seqs:
             # get hashlist for each individual sequence
             eventHashes = self.rankingFunc(seq)
@@ -78,47 +77,7 @@ class RankingFunction:
             self.topRankedEvtValues = [elem for elem in patternDict.values() for cand in candidate if elem.keyEvts == cand]
             print(f'top values {self.topRankedEvtValues}')
 
-        # self.topRankedEvtValues =
 
-    def performRanking(self, seqs):
-        """Rank the events based on support (can be number of sequences present in/
-        number of occurrences)"""
-        result = {}
-        evtValueKey = ""
-
-        for seq in seqs:
-            # get hashlist for each individual sequence
-            eventHashes = self.rankingFunc(seq)
-            for hashVal in eventHashes:
-                evtValueKey = str(hashVal)
-
-                # create a pattern for all hash values
-                if evtValueKey not in result.keys():
-                    pat = Pattern([evtValueKey])
-                    result[evtValueKey] = pat
-
-                result[evtValueKey].addToSupportSet(seq.sid)
-        candidates = []
-
-        for itr in result.values():
-            if itr.getSupport() > self.maxSupport:
-                continue
-            candidates.append(itr)
-
-        if not candidates:
-            return
-
-        candidates = sorted(
-            candidates, key=lambda x: x.getSupport(), reverse=True)
-
-        self.topRankedEvtValues = []
-
-        maxval = candidates[0].getSupport()
-
-        for patterns in candidates:
-            if patterns.getSupport() < maxval:
-                break
-            self.topRankedEvtValues.append(patterns)
 
     def numberOfSequence(self, sequence):
         """Select the event which is present in highest number of sequences."""
