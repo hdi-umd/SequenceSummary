@@ -37,7 +37,7 @@ class CoreFlowMiner:
         #self.ranker.setEvtAttr(self.attr)
         # print(f'maxval {maxval}')
         #self.ranker.performRanking2(seqs)
-        self.ranker.performRanking2(seqs)
+        self.ranker.performRanking(seqs)
         topPattern = self.ranker.getTopEventSet()
         print(f'topPattern {topPattern.keyEvts}')
 
