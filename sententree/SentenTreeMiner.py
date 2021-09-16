@@ -49,7 +49,6 @@ class SentenTreeMiner:
             seq0 = currentSeq.after
             seq1 = currentSeq.before
 
-
             if not seq1 and not seq0:
                 word, pos, count, seq0, seq1 = self.growSeq(currentSeq)
 
@@ -108,7 +107,7 @@ class SentenTreeMiner:
         for graph in graphs:
             graph.createLinks()
             graph.detectCycles()
-            #graph.bundle()
+            # graph.bundle()
         newGraph = Graph.assembleGraphs(graphs)
 
         return newGraph
@@ -139,7 +138,7 @@ class SentenTreeMiner:
 
         if self.ranker.count >= self.minSupport:
             words = seq.keyevts
-            seqIds =[]
+            seqIds = []
             for elem in seq.incomingSequences:
                 startPos = 0 if self.ranker.pos == 0 else elem.seqIndices[self.ranker.pos - 1] + 1
                 endPos = len(elem.events) if self.ranker.pos == len(
@@ -152,7 +151,7 @@ class SentenTreeMiner:
                     seq1.incomingSequences.append(elem)
                     seq1.seqCount += elem.getVolume()
                     seqIds.append(elem._id)
-                    
+
                 except ValueError:
                     seq0.incomingSequences.append(elem)
                     seq0.seqCount += elem.getVolume()
@@ -183,7 +182,9 @@ class SentenTreeMiner:
                     if first.nid not in linkadj:
                         linkadj[first.nid] = {}
                     if second in linkadj[first.nid]:
-                        linkadj[first.nid][second.nid] += min(first.seqCount, second.seqCount)
+                        linkadj[first.nid][second.nid] += min(
+                            first.seqCount, second.seqCount)
                     else:
-                        linkadj[first.nid][second.nid] = min(first.seqCount, second.seqCount)
+                        linkadj[first.nid][second.nid] = min(
+                            first.seqCount, second.seqCount)
             print(linkadj)

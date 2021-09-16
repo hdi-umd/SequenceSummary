@@ -183,6 +183,16 @@ class EventStore:
         """Given a list of hash values, return the original value of event."""
         return [self.reverseAttrDict[attr][val] for val in hashlist]
 
+        # Method equivalent to int getEvtAttrValueCount(String attr) in DataManager.java
+    def getEvtAttrValueCount(self, attr):
+        """return the number of distinct types present given an attribute"""
+        return len(self.reverseAttrDict[attr])
+
+        # Method equivalent to public String getEvtAttrValue(String attr, int hash) in DataManager.java
+    def getEvtAttrValue(self, attr, hashVal):
+        """Given hashVal, return original value for the specified attr"""
+        return self.reverseAttrDict[attr][hashVal]
+
     def createAttrDict(self):
         """ Assuming we are given a list of events and from those events we create
         the mapping and reverse mapping dictionary.
