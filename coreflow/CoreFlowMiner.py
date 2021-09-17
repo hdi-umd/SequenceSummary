@@ -2,7 +2,7 @@
 from coreflow.RankingFunction import RankingFunction
 from Node import TreeNode
 from Sequence import Sequence
-from Pattern import Pattern
+
 
 class CoreFlowMiner:
     """Runs Coreflow mining algo"""
@@ -13,15 +13,16 @@ class CoreFlowMiner:
         self.maxSupport = maxSup
 
         self.branchSequences = {}
-        self.ranker = RankingFunction(self.attr, maxSup) #FrequencyMedianRankingFunction()
+        # FrequencyMedianRankingFunction()
+        self.ranker = RankingFunction(self.attr, maxSup)
         self.ranker.setRankingFunc(self.ranker.numberOfSequence)
         self.ranker.setTieBreaker(self.ranker.performRankingMeanIndex)
 
     def runCoreFlowMiner(self, sequences):
         """Creates a Root Node to start mining."""
         print("Start of all " + str(len(sequences))+" visits")
-        root = TreeNode("root", Sequence.getSeqVolume(
-            sequences), "Start", self.attr)
+        root = TreeNode(self.attr, Sequence.getSeqVolume(
+            sequences), "Start")
         self.run(sequences, root, exitNodeHash=-1)
         return root
 
@@ -34,9 +35,9 @@ class CoreFlowMiner:
             self.bundleToExit(seqs, parent, exitNodeHash)
             return
 
-        #self.ranker.setEvtAttr(self.attr)
+        # self.ranker.setEvtAttr(self.attr)
         # print(f'maxval {maxval}')
-        #self.ranker.performRanking2(seqs)
+        # self.ranker.performRanking2(seqs)
         self.ranker.performRanking(seqs)
         topPattern = self.ranker.getTopEventSet()
         print(f'topPattern {topPattern.keyEvts}')
@@ -48,7 +49,7 @@ class CoreFlowMiner:
         containSegs = []
         notContain = []
 
-        node = TreeNode()
+        node = TreeNode(attr=self.attr)
         hashVal = topPattern.keyEvts[0]
         eVal = seqs[0].getEvtAttrValue(self.attr, hashVal)
         node.setValue(eVal)
@@ -57,21 +58,24 @@ class CoreFlowMiner:
         node.keyevts = parent.keyevts[:]
         node.keyevts.append(hashVal)
         node.sequences = topPattern.sids
-        node.setPositions([Pattern.getPositions(node.keyevts, seq.getHashList(self.attr))[-1]
-                           for seq in node.sequences])
-        #node.setPositions([pox[-1]-pox[-2] for pox in (Pattern.getPositions(node.keyevts, seq.getHashList(evtAttr)) for seq in node.sequences) if len(pox) > 1])
+        # node.setPositions([Pattern.getPositions(node.keyevts, seq.getHashList(self.attr))[-1]
+        #                   for seq in node.sequences])
+        node.calcPositions()
+        # node.setPositions([pox[-1]-pox[-2]
+        # for pox in (Pattern.getPositions(node.keyevts, seq.getHashList(evtAttr))
+        # for seq in node.sequences) if len(pox) > 1])
 
         #print(f'node seqs{node.sequences}')
         #print(f'value {eVal}')
 
         self.truncateSequences(
             seqs, hashVal, node, containSegs, notContain)
-        #node.setSeqCount(Sequence.getSeqVolume(containSegs))
+        # node.setSeqCount(Sequence.getSeqVolume(containSegs))
         print(f'mean Step {node.meanStep}')
         print(f'seq count {node.getSeqCount()}')
         print([seq.getSeqLen()for seq in containSegs])
         print([seq.sid.getSeqLen()for seq in containSegs])
-        print([seq.sid.getEventsString(self.attr)for seq in containSegs])
+        print([seq.sid.getEventsString(self.attr)for seq in node.sequences])
         #print(f'seq count {node.getSeqCount()}')
 
         if node.getSeqCount() >= self.minSupport:
@@ -92,40 +96,6 @@ class CoreFlowMiner:
 
         return minval
 
-    def bundleToExit(self, seqs, parent, exitNodeHash):
-        """Creates Exit Node as Pattern can not be exended."""
-        print(seqs)
-        print(parent)
-        if len(seqs) == 0:
-            return
-
-        node = TreeNode()
-        print(f'exit node hash {exitNodeHash}')
-        if exitNodeHash == -1:
-            node.setValue("Exit")
-            node.setHash(-2)
-
-        else:
-            # set attribute value for this sequence
-            node.setValue(seqs[0].getEvtAttrValue(self.attr, exitNodeHash))
-            node.setHash(exitNodeHash)
-
-        node.setIncomingSequences(seqs)
-        node.setSeqCount(Sequence.getSeqVolume(seqs))
-        print([seq.getSeqLen()for seq in seqs])
-        print([seq.sid.getEventsString(self.attr)for seq in seqs])
-        print(f'exit node seq count {node.seqCount}')
-        lengths = []
-        for elem in seqs:
-            lengths.extend([len(elem.sid.events)]
-                           *(elem.sid.getVolume()))
-            # for i in range(s.getVolume()):
-            #    lengths.append(len(s.events)-1)
-        print(f' len {lengths}')
-        node.setPositions(lengths)
-        print(f'mean Step {node.meanStep}')
-        parent.children.append(node)
-
     def truncateSequences(self, seqs, hashVal, node, trailingSeqSegs, notContain):
         """Truncate the sequences based on where current top ranked event is found.
         For example, if current Sequence is ADBC and the top ranked event is D, then
@@ -134,7 +104,7 @@ class CoreFlowMiner:
         indices = []
         uniqueEvts = []
         incomingBranchSeqs = []
-        
+
         for seq in seqs:
             ind = seq.getEventPosition(self.attr, hashVal)
             if ind < 0:
@@ -142,7 +112,8 @@ class CoreFlowMiner:
                 print(f'not contain {seq.getHashList(self.attr)}')
             else:
                 if ind >= 0:
-                    incomingSeq = Sequence(seq.events[0:ind], seq.eventstore, seq.sid)
+                    incomingSeq = Sequence(
+                        seq.events[0:ind], seq.eventstore, seq.sid)
                     self.branchSequences[incomingSeq.getPathID()] = incomingSeq
                     incomingSeq.setVolume(seq.getVolume())
                     incomingBranchSeqs.append(incomingSeq)
@@ -174,10 +145,48 @@ class CoreFlowMiner:
 
         node.setIncomingBranchUniqueEvts(len(set(uniqueEvts)))
         node.setSeqCount(Sequence.getSeqVolume(incomingBranchSeqs))
-        #node.setPositions(indices)
+        # node.setPositions(indices)
         node.setIncomingSequences(incomingBranchSeqs)
         #print(f'seq count {node.getSeqCount()}')
         #print(f'Seq len trailing {len(trailingSeqSegs)}')
         #print(f'Seq len not contain {len(notContain)}')
         #print(f'Seq incoming {node.incomingSequences}')
 
+    def bundleToExit(self, seqs, parent, exitNodeHash):
+        """Creates Exit Node as Pattern can not be exended."""
+        print(seqs)
+        print(parent)
+        if len(seqs) == 0:
+            return
+
+        node = TreeNode(attr=self.attr)
+        node.attr = self.attr
+        node.sequences.extend([seq.sid for seq in seqs])
+        print(f'node sequences {node.sequences}')
+        print(f'exit node hash {exitNodeHash}')
+        if exitNodeHash == -1:
+            node.setValue("Exit")
+            node.setHash(-2)
+
+        else:
+            # set attribute value for this sequence
+            node.setValue(seqs[0].getEvtAttrValue(self.attr, exitNodeHash))
+            node.setHash(exitNodeHash)
+
+        node.setIncomingSequences(seqs)
+        node.setSeqCount(Sequence.getSeqVolume(seqs))
+        node.keyevts = parent.keyevts[:]
+        print([seq.getSeqLen()for seq in seqs])
+        print([seq.sid.getEventsString(self.attr)for seq in seqs])
+        print(f'exit node seq count {node.seqCount}')
+
+        lengths = []
+        for elem in seqs:
+            lengths.extend([len(elem.sid.events)]
+                           * (elem.sid.getVolume()))
+            # for i in range(s.getVolume()):
+            #    lengths.append(len(s.events)-1)
+        print(f' len {lengths}')
+        node.calcPositions(isExit=1)
+        print(f'mean Step {node.meanStep}')
+        parent.children.append(node)

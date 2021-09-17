@@ -20,7 +20,7 @@ class SentenTreeMiner:
 
     def runSentenTreeMiner(self, sequences):
         """Run the sentenTreeMiner algorithm in the given sequences."""
-        root = GraphNode()
+        root = GraphNode(self.attr)
         root.incomingSequences = sequences
         root.graph = Graph()
         graph = self.expandSeqTree(root, expandCnt=100)
@@ -92,7 +92,7 @@ class SentenTreeMiner:
         leafSeqs.extend(seqs)
 
         for seq in leafSeqs:
-            exitNode = GraphNode()
+            exitNode = GraphNode(self.attr)
             exitNode.value = -2
             exitNode.seqCount = seq.seqCount
             lenArr = [len(x.events) for x in seq.incomingSequences]

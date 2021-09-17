@@ -188,7 +188,7 @@ class EventStore:
         """return the number of distinct types present given an attribute"""
         return len(self.reverseAttrDict[attr])
 
-        # Method equivalent to public String getEvtAttrValue(String attr, int hash) in DataManager.java
+    # Method equivalent to public String getEvtAttrValue(String attr, int hash) in DataManager.java
     def getEvtAttrValue(self, attr, hashVal):
         """Given hashVal, return original value for the specified attr"""
         return self.reverseAttrDict[attr][hashVal]

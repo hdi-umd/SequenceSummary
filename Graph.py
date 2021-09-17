@@ -251,7 +251,7 @@ class Graph:
 
     def groupMergeableNodes(self, nodes, uniqueValue):
         """Group nodes and merge."""
-        
+
         subGroups = []
         for val in uniqueValue:
             subGroup = []
