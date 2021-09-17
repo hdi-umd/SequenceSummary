@@ -50,17 +50,27 @@ class CoreFlowMiner:
         notContain = []
 
         node = TreeNode(attr=self.attr)
+        node.parent = parent.parent[:]
+        node.parent.append(parent)
         hashVal = topPattern.keyEvts[0]
         eVal = seqs[0].getEvtAttrValue(self.attr, hashVal)
         node.setValue(eVal)
         node.setHash(hashVal)
-        node.attr = self.attr
+        #node.attr = self.attr
         node.keyevts = parent.keyevts[:]
         node.keyevts.append(hashVal)
         node.sequences = topPattern.sids
+        topPattern.computePatternStats(self.attr)
+        if node.parent:
+            print(node.parent[-1])
+            print(topPattern.meanPos)
+            node.meanStep = node.parent[-1].meanStep + topPattern.meanPos[-1]
+            node.medianPos = node.parent[-1].medianStep + topPattern.medianPos[-1]
         # node.setPositions([Pattern.getPositions(node.keyevts, seq.getHashList(self.attr))[-1]
         #                   for seq in node.sequences])
-        node.calcPositions()
+        node.calcPositions3()
+        #node.calcPositions()
+        #node.calcPositionsAlternate()
         # node.setPositions([pox[-1]-pox[-2]
         # for pox in (Pattern.getPositions(node.keyevts, seq.getHashList(evtAttr))
         # for seq in node.sequences) if len(pox) > 1])
@@ -134,15 +144,7 @@ class CoreFlowMiner:
 
                 print(f'type {seq.events[ind].type}')
 
-                # REAL TIME STAMPS- NEEDS FIX
-                # if seq.events[ind].type == "point":
-
-                #    relTimestamps.append(
-                #        seq.events[ind].timestamp-seq.events[0].timestamp)
-                # else:
-                #    relTimestamps.append(
-                #        seq.events[ind].time[0]-seq.events[0].time[0])
-
+    
         node.setIncomingBranchUniqueEvts(len(set(uniqueEvts)))
         node.setSeqCount(Sequence.getSeqVolume(incomingBranchSeqs))
         # node.setPositions(indices)
@@ -160,7 +162,9 @@ class CoreFlowMiner:
             return
 
         node = TreeNode(attr=self.attr)
-        node.attr = self.attr
+        node.parent = parent.parent[:]
+        node.parent.append(parent)
+        #node.attr = self.attr
         node.sequences.extend([seq.sid for seq in seqs])
         print(f'node sequences {node.sequences}')
         print(f'exit node hash {exitNodeHash}')
@@ -187,6 +191,7 @@ class CoreFlowMiner:
             # for i in range(s.getVolume()):
             #    lengths.append(len(s.events)-1)
         print(f' len {lengths}')
-        node.calcPositions(isExit=1)
+        node.calcPositionsExitNode(isExit=1)
+        #node.calcPositions(isExit=1)
         print(f'mean Step {node.meanStep}')
         parent.children.append(node)
