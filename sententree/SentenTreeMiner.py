@@ -70,9 +70,13 @@ class SentenTreeMiner:
 
                     seq0.parent = currentSeq.parent[:]
                     seq1.parent = currentSeq.parent[:]
+                    seq1.calcPositionsGenericNode()
                     seq1.parent.insert(pos, seq1)
                     # seq0.parent.append(seq0.nid)
 
+                    
+                    seq0.meanStep = currentSeq.meanStep
+                    seq0.medianStep = currentSeq.medianStep
                     seq0.graph = currentSeq.graph
                     seq1.graph = graph
 
@@ -87,6 +91,7 @@ class SentenTreeMiner:
             if seq0 and seq0.seqCount >= self.minSupport:
                 seqs.append(seq0)
 
+
             del seqs[seqs.index(currentSeq)]
 
         leafSeqs.extend(seqs)
@@ -95,12 +100,16 @@ class SentenTreeMiner:
             exitNode = GraphNode(self.attr)
             exitNode.value = -2
             exitNode.seqCount = seq.seqCount
-            lenArr = [len(x.events) for x in seq.incomingSequences]
-            exitNode.meanStep = sum(lenArr)/len(lenArr)
-            exitNode.medianStep = np.median(lenArr)
+            exitNode.sequences = seq.sequences
+            exitNode.keyevts = seq.keyevts[:]
+            exitNode.parent = seq.parent
+            exitNode.calcPositionsExitNode()
             exitNode.before = seq
             seq.after = exitNode
+            #exitNode.parent.append(seq)
             seq.parent.append(exitNode)
+            
+            
             seq.graph.nodes.append(RawNode(exitNode))
 
         self.updateNodesEdges(graphs, leafSeqs)
@@ -164,7 +173,7 @@ class SentenTreeMiner:
             seq1.setSeqCount(Sequence.getSeqVolume(seq1.incomingSequences))
             seq0.sequences = seq0.incomingSequences
             seq1.sequences = seq1.incomingSequences
-
+            
             #print(f'Not contain: {len(seq0.incomingSequences)}')
             #print(f'contain: {len(seq1.incomingSequences)}')
 
