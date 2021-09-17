@@ -88,7 +88,7 @@ if __name__ == "__main__":
 
     cfm = CoreFlowMiner(args.attr, minSup=0.2 *
                         len(seqList), maxSup=len(seqList))
-    
+
     #cfm.run(seqList, args.attr, root, 5 * Sequence.getSeqVolume(
     #       seqList)/100.0, Sequence.getSeqVolume(seqList), [], {}, -1)
     root = cfm.runCoreFlowMiner(seqList)

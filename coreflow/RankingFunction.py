@@ -49,7 +49,7 @@ class RankingFunction:
         number of occurrences)"""
         result = Counter()
         patternDict = {}
-        
+
         for seq in seqs:
             # get hashlist for each individual sequence
             eventHashes = self.rankingFunc(seq)
@@ -74,10 +74,9 @@ class RankingFunction:
                 break
             candidate = [
                 val[0] for val in result.most_common() if val[1] == maxVal]
-            self.topRankedEvtValues = [elem for elem in patternDict.values() for cand in candidate if elem.keyEvts == cand]
+            self.topRankedEvtValues = [elem for elem in patternDict.values()
+                                       for cand in candidate if elem.keyEvts == cand]
             print(f'top values {self.topRankedEvtValues}')
-
-
 
     def numberOfSequence(self, sequence):
         """Select the event which is present in highest number of sequences."""

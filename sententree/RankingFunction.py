@@ -82,7 +82,7 @@ class RankingFunction:
         maxWord = ""
         maxCount = 0
 
-        for word in self.fdist.keys():
+        for word in self.fdist:
             value = self.fdist[word]
 
             meadianPos = np.median(self.fdistInd[word])

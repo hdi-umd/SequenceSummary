@@ -2,8 +2,10 @@
 
 import json
 from itertools import count
-import numpy as np
+from Pattern import Pattern
+from itertools import accumulate
 from Graph import Graph, Links, RawNode
+import numpy as np
 
 
 class Node():
@@ -12,20 +14,24 @@ class Node():
     nodeCounter = count(1)
     nodeHash = {}
 
-    def __init__(self, count_=0, value="", attr=""):
-        self.nid = next(self.nodeCounter)
-        self.seqCount = count_
-        # What's the difference between name and value?
-        self.value = value
-        self.hash = -1
-        self.pos = []
+    def __init__(self, attr="", count_=0, value=""):
+        self.nid = next(self.nodeCounter)  # identifier
+        self.seqCount = count_  # number of sequences belonging to this node
+        self.value = value  # value of the node
+        self.hash = -1  # hash Value of the node
+        self.pos = []  # positions
         self.meanStep = 0
         self.medianStep = 0
+        self.medianPos = []
+        self.meanPos = []
+        self.medianPathLength = 0
+        self.meanPathLength = 0
         self.incomingBranchUniqueEvts = None
         self.keyevts = []
         self.sequences = []
         self.incomingSequences = []
         self.outgoingSequences = []
+        self.parent = []
 
         self.attr = attr
 
@@ -51,14 +57,6 @@ class Node():
         """Assigns the sequence coun"""
         self.seqCount = seqCount
 
-    def getName(self):
-        """Returns name of the node"""
-        return self.name
-
-    def setName(self, name):
-        """Assigns name of the node"""
-        self.name = name
-
     def getMeanStep(self):
         """Returns the value of meanStep"""
         return self.meanStep
@@ -71,7 +69,7 @@ class Node():
 
     def toString(self):
         """Returns name and seqCount for the node"""
-        return self.name+": "+self.seqCount
+        return self.value+": "+self.seqCount
 
     def setPositions(self, lst):
         """set meanStep and medianStep"""
@@ -125,12 +123,11 @@ class Node():
         """Assigns value to incomingSequences"""
         self.incomingSequences = incomingBranchSeqs
 
-
     def getPatternString(self):
         """Returns the pattern string for this node"""
         return "-".join(str(
             self.incomingSequences[0].eventstore.reverseAttrDict[self.attr][hashVal])
-                        for hashVal in self.keyevts if self.incomingSequences)
+            for hashVal in self.keyevts if self.incomingSequences)
 
     def getHash(self):
         """Returns hash value for this node."""
@@ -148,6 +145,9 @@ class Node():
     # def jsonSerialize(self):
     #    json.dump(self, indent=4, default= TreeNode.jsonDefaultDump)
 
+    def calcPositions(self, isExit=0):
+        """dummy method- implemented in derived class"""
+
     def jsonDefaultDump(self) -> dict:
         """dummy method- implemented in derived class"""
 
@@ -162,8 +162,8 @@ class Node():
 class TreeNode(Node):
     """Class to visualize Coreflow-like Tree data structures"""
 
-    def __init__(self, name="", count_val=0, value="", attr=""):
-        super().__init__(name, count_val, value)
+    def __init__(self, attr="", count_val=0, value=""):
+        super().__init__(attr, count_val, value)
         self.children = []
 
     def jsonDefaultDump(self) -> dict:
@@ -189,17 +189,91 @@ class TreeNode(Node):
             return obj.jsonDefaultDump()
         return None
 
+    def calcPositions(self, isExit=0):
+        """Computes mean and median positions and path lengths of
+        key events for the given attribute
+        """
+
+        #print(f'path of string {pathsOfStrings}')
+        medians = []
+        means = []
+
+        # swap the loops for better readability
+        for i, _ in enumerate(self.keyevts):
+            print(f'key events {self.keyevts}')
+            numSteps = []
+
+            for _, elem in enumerate(self.sequences):
+                print(f'attr {self.attr}')
+                paths = elem.getHashList(self.attr)
+                print(f'sequences {paths}')
+                if Pattern.matchMilestones(paths, self.keyevts[0:i+1]):
+                    pos = Pattern.getPositions(self.keyevts[0:i+1], paths)
+                    if i == 0:
+                        # add position value of first element id sequence
+                        numSteps.append(pos[i])
+                    else:
+                        # in other cases add the difference
+                        numSteps.append(pos[i]-pos[i-1])
+            print(f'numSteps {numSteps}')
+            sumSteps = sum(numSteps)
+
+            median = Pattern.getMedian(numSteps)
+
+            medians.append(median)
+            means.append(sumSteps*1.0 / len(numSteps))
+        #print(f'Key Events {self.keyEvts}')
+
+        # list(accumulate(means))
+        # for _, elem in enumerate(self.sequences):
+        #     paths = elem.getHashList(evtAttr)
+        #     print(Pattern.getPositions(self.keyevts, paths))
+
+        means = list(accumulate(means))
+        medians = list(accumulate(medians))
+        print(f'means {means}')
+        print(f'medians {medians}')
+
+        self.medianPos = medians
+        self.meanPos = means
+        #print(f'mean {means} median {median}')
+        if isExit:
+            trailingSteps = [0]*len(self.sequences)
+            for i, path in enumerate(self.sequences):
+                pos = Pattern.getPositions(
+                    self.keyevts, path.getHashList(self.attr))
+                # the difference between the last event in thesequence and the last key event
+                trailingSteps[i] = len(path.events) - pos[-1]-1
+
+            trailStepSum = sum(trailingSteps)
+
+            if trailingSteps:
+                mean = trailStepSum/len(trailingSteps)
+                median = Pattern.getMedian(trailingSteps)
+            else:
+                mean = 0
+                median = 0
+            # self.meanPathLength = median+medians[-1]
+            # self.medianPathLength = mean+means[-1]
+            #self.meanStep = mean + means[-1]
+            #self.medianStep = median + medians[-1]
+            means.append(mean + means[-1])
+            medians.append(median + medians[-1])
+            print(f'trailing means{means}')
+            print(f'trailing medians{medians}')
+        self.meanStep = means[-1]
+        self.medianStep = medians[-1]
+
 
 class GraphNode(Node):
 
     """Class to support graphs where multiple branching of nodes are possible"""
 
-    def __init__(self, count_val=0, value="", attr=""):
-        super().__init__(count_val, value, attr)
+    def __init__(self, attr="", count_val=0, value=""):
+        super().__init__(attr, count_val, value)
         self.before = None
         self.after = None
         self.graph = None
-        self.parent = []
 
     def jsonDefaultDump(self) -> dict:
         return {
