@@ -68,7 +68,7 @@ class CoreFlowMiner:
             node.medianPos = node.parent[-1].medianStep + topPattern.medianPos[-1]
         # node.setPositions([Pattern.getPositions(node.keyevts, seq.getHashList(self.attr))[-1]
         #                   for seq in node.sequences])
-        node.calcPositions3()
+        node.calcPositionsGenericNode()
         #node.calcPositions()
         #node.calcPositionsAlternate()
         # node.setPositions([pox[-1]-pox[-2]
@@ -191,7 +191,7 @@ class CoreFlowMiner:
             # for i in range(s.getVolume()):
             #    lengths.append(len(s.events)-1)
         print(f' len {lengths}')
-        node.calcPositionsExitNode(isExit=1)
+        node.calcPositionsExitNode()
         #node.calcPositions(isExit=1)
         print(f'mean Step {node.meanStep}')
         parent.children.append(node)
