@@ -189,7 +189,7 @@ class TreeNode(Node):
             return obj.jsonDefaultDump()
         return None
 
-    def calcPositions3(self, isExit=0):
+    def calcPositionsGenericNode(self):
         """Computes cumulative mean and median positions and path lengths of
         key events for the given attribute.
         """
@@ -240,7 +240,7 @@ class TreeNode(Node):
         self.medianStep = medians[-1]+self.parent[-1].medianStep
 
 
-    def calcPositionsExitNode(self, isExit=0):
+    def calcPositionsExitNode(self):
         """Computes cumulative mean and median positions and path lengths of
         key events for the given attribute.
         """
