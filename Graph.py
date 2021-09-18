@@ -9,7 +9,7 @@ class RawNode:
     """RawNode contains selected attributes from Node class for json conversion."""
     _ids = count(0)
 
-    def __init__(self, node=None):
+    def __init__(self, node=None, pos=0):
         if node:
             self.nid = node.nid
             self.seqCount = node.seqCount
@@ -18,6 +18,8 @@ class RawNode:
             self.meanStep = node.meanStep
             self.medianStep = node.medianStep
             self.parent = node.parent
+            self.sequences = node.sequences
+            self.pos = pos
         self.rightLinks = []
         self.leftLinks = []
 
@@ -71,17 +73,19 @@ class RawNode:
 class Links:
     """Links class contains information regarding which node is connected to which one"""
 
-    def __init__(self, node1, node2, cnt):
+    def __init__(self, node1, node2, cnt, avgIdx=0):
         self.source = node1
         self.target = node2
         self.count = cnt
+        self.avgIndex = avgIdx
 
     def jsonDefaultDump(self) -> dict:
         """creates the Json format output for the class Links."""
         return {
             "source": self.source.nid,
             "target": self.target.nid,
-            "count": self.count
+            "count": self.count,
+            "average_index": self.avgIndex
         }
 
 
@@ -105,6 +109,13 @@ class Graph:
     def jsonSerialize(self) -> None:
         """Default JSON serializer"""
         json.dumps(self, indent=4, default=Graph.jsonSerializeDump)
+    
+    def calcAverageIdx(self):
+        """Calculate average Index for links."""
+        self.links = sorted(self.links, key=lambda x: (x.source.nid, x.target.nid, x.count))
+        for link in self.links:
+            pass
+        
 
     @staticmethod
     def jsonSerializeDump(obj):

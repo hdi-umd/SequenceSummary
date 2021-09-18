@@ -5,12 +5,13 @@ Coreflow module.
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-import json
-import argparse
-from Node import TreeNode
-from Sequence import Sequence
-from EventStore import EventStore
+from Graph import Graph
 from coreflow.CoreFlowMiner import CoreFlowMiner
+from EventStore import EventStore
+from Sequence import Sequence
+from Node import TreeNode
+import argparse
+import json
 
 
 if __name__ == "__main__":
@@ -89,9 +90,9 @@ if __name__ == "__main__":
     cfm = CoreFlowMiner(args.attr, minSup=0.2 *
                         len(seqList), maxSup=len(seqList))
 
-    #cfm.run(seqList, args.attr, root, 5 * Sequence.getSeqVolume(
+    # cfm.run(seqList, args.attr, root, 5 * Sequence.getSeqVolume(
     #       seqList)/100.0, Sequence.getSeqVolume(seqList), [], {}, -1)
-    root = cfm.runCoreFlowMiner(seqList)
+    root, graph = cfm.runCoreFlowMiner(seqList)
 
     print("\n\n*****Coreflow output******\n\n")
 
@@ -101,3 +102,9 @@ if __name__ == "__main__":
 
     with open(args.output+'coreflow_result.json', 'w') as the_file:
         the_file.write(x)
+
+    y = json.dumps(graph, ensure_ascii=False,
+                   default=Graph.jsonSerializeDump, indent=1)
+    print(y)
+    with open(args.output+'coreflow_graph.json', 'w') as the_file2:
+        the_file2.write(y)

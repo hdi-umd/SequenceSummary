@@ -2,6 +2,7 @@
 from coreflow.RankingFunction import RankingFunction
 from Node import TreeNode
 from Sequence import Sequence
+from Graph import Graph, RawNode, Links
 
 
 class CoreFlowMiner:
@@ -23,16 +24,19 @@ class CoreFlowMiner:
         print("Start of all " + str(len(sequences))+" visits")
         root = TreeNode(self.attr, Sequence.getSeqVolume(
             sequences), "Start")
-        self.run(sequences, root, exitNodeHash=-1)
-        return root
+        graph = Graph()
+        root.graph = graph
+        graph.nodes.append(RawNode(root))
+        self.run(sequences, root, graph, exitNodeHash=-1)
+        return root, graph
 
-    def run(self, seqs, parent, exitNodeHash):
+    def run(self, seqs, parent, graph, exitNodeHash):
         """Implement CoreFlow algo which takes a list of sequences, a TreeNode (root),
         the attribute to perform mining on, checkpoints from where to start mining,
         list of events to exclude and other CoreFlow parameters.
         """
         if Sequence.getSeqVolume(seqs) < self.minSupport:
-            self.bundleToExit(seqs, parent, exitNodeHash)
+            self.bundleToExit(seqs, parent, graph, exitNodeHash)
             return
 
         # self.ranker.setEvtAttr(self.attr)
@@ -44,7 +48,7 @@ class CoreFlowMiner:
 
         if topPattern is None:
             print("no patterns found")
-            self.bundleToExit(seqs, parent, exitNodeHash)
+            self.bundleToExit(seqs, parent, graph, exitNodeHash)
             return
         containSegs = []
         notContain = []
@@ -61,23 +65,23 @@ class CoreFlowMiner:
         node.keyevts.append(hashVal)
         node.sequences = topPattern.sids
         topPattern.computePatternStats(self.attr)
-        if node.parent:
-            print(node.parent[-1])
-            print(topPattern.meanPos)
-            node.meanStep = node.parent[-1].meanStep + topPattern.meanPos[-1]
-            node.medianPos = node.parent[-1].medianStep + topPattern.medianPos[-1]
+        # if node.parent:
+        #     print(node.parent[-1])
+        #     print(topPattern.meanPos)
+        #     node.meanStep = node.parent[-1].meanStep + topPattern.meanPos[-1]
+        #     node.medianPos = node.parent[-1].medianStep + topPattern.medianPos[-1]
         # node.setPositions([Pattern.getPositions(node.keyevts, seq.getHashList(self.attr))[-1]
         #                   for seq in node.sequences])
         node.calcPositionsGenericNode()
-        #node.calcPositions()
-        #node.calcPositionsAlternate()
+        # node.calcPositions()
+        # node.calcPositionsAlternate()
         # node.setPositions([pox[-1]-pox[-2]
         # for pox in (Pattern.getPositions(node.keyevts, seq.getHashList(evtAttr))
         # for seq in node.sequences) if len(pox) > 1])
 
         #print(f'node seqs{node.sequences}')
         #print(f'value {eVal}')
-
+        
         self.truncateSequences(
             seqs, hashVal, node, containSegs, notContain)
         # node.setSeqCount(Sequence.getSeqVolume(containSegs))
@@ -89,12 +93,15 @@ class CoreFlowMiner:
         #print(f'seq count {node.getSeqCount()}')
 
         if node.getSeqCount() >= self.minSupport:
+            graph.nodes.append(RawNode(node))
             parent.children.append(node)
-            self.run(containSegs, node, exitNodeHash)
-            self.run(notContain, parent, exitNodeHash)
+            graph.links.append(
+                Links(parent, node, node.seqCount, node.meanStep))
+            self.run(containSegs, node, graph, exitNodeHash)
+            self.run(notContain, parent, graph, exitNodeHash)
 
         else:
-            self.bundleToExit(seqs, parent, exitNodeHash)
+            self.bundleToExit(seqs, parent, graph, exitNodeHash)
 
     def adjustMin(self, seqs):
         """Adjusts minimum support value."""
@@ -144,7 +151,6 @@ class CoreFlowMiner:
 
                 print(f'type {seq.events[ind].type}')
 
-    
         node.setIncomingBranchUniqueEvts(len(set(uniqueEvts)))
         node.setSeqCount(Sequence.getSeqVolume(incomingBranchSeqs))
         # node.setPositions(indices)
@@ -154,7 +160,7 @@ class CoreFlowMiner:
         #print(f'Seq len not contain {len(notContain)}')
         #print(f'Seq incoming {node.incomingSequences}')
 
-    def bundleToExit(self, seqs, parent, exitNodeHash):
+    def bundleToExit(self, seqs, parent, graph, exitNodeHash):
         """Creates Exit Node as Pattern can not be exended."""
         print(seqs)
         print(parent)
@@ -184,14 +190,17 @@ class CoreFlowMiner:
         print([seq.sid.getEventsString(self.attr)for seq in seqs])
         print(f'exit node seq count {node.seqCount}')
 
-        lengths = []
-        for elem in seqs:
-            lengths.extend([len(elem.sid.events)]
-                           * (elem.sid.getVolume()))
-            # for i in range(s.getVolume()):
-            #    lengths.append(len(s.events)-1)
-        print(f' len {lengths}')
+        # lengths = []
+        # for elem in seqs:
+        #     lengths.extend([len(elem.sid.events)]
+        #                    (elem.sid.getVolume()))
+        # for i in range(s.getVolume()):
+        #    lengths.append(len(s.events)-1)
+        # print(f' len {lengths}')
         node.calcPositionsExitNode()
-        #node.calcPositions(isExit=1)
+        # node.calcPositions(isExit=1)
+        graph.nodes.append(RawNode(node))
         print(f'mean Step {node.meanStep}')
         parent.children.append(node)
+        graph.links.append(
+            Links(parent, node, node.seqCount, node.meanStep))
