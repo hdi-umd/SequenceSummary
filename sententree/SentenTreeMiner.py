@@ -1,4 +1,4 @@
-"""Implements the SentenTreeMiner according to SentenTree Algo"""
+"""Implements the SentenTreeMiner according to SentenTree Algo."""
 
 from Graph import RawNode, Graph
 from Node import GraphNode
@@ -70,7 +70,7 @@ class SentenTreeMiner:
 
                     seq0.parent = currentSeq.parent[:]
                     seq1.parent = currentSeq.parent[:]
-                    seq1.calcPositionsGenericNode()
+                    #seq1.calcPositionsGenericNode()
                     seq1.parent.insert(pos, seq1)
                     # seq0.parent.append(seq0.nid)
 
@@ -86,7 +86,7 @@ class SentenTreeMiner:
             if seq1 and seq1.seqCount >= self.minSupport:
                 expandCnt -= 1
                 seqs.append(seq1)
-                graph.nodes.append(RawNode(seq1))
+                graph.nodes.append(RawNode(seq1, pos))
 
             if seq0 and seq0.seqCount >= self.minSupport:
                 seqs.append(seq0)
@@ -103,14 +103,17 @@ class SentenTreeMiner:
             exitNode.sequences = seq.sequences
             exitNode.keyevts = seq.keyevts[:]
             exitNode.parent = seq.parent
-            exitNode.calcPositionsExitNode()
+            #exitNode.calcPositionsExitNode()
             exitNode.before = seq
             seq.after = exitNode
+            lenArr = [len(x.events) for x in seq.incomingSequences]
+            exitNode.meanStep = sum(lenArr)/len(lenArr)
+            exitNode.medianStep = np.median(lenArr)
             #exitNode.parent.append(seq)
             seq.parent.append(exitNode)
             
             
-            seq.graph.nodes.append(RawNode(exitNode))
+            seq.graph.nodes.append(RawNode(exitNode, -1))
 
         self.updateNodesEdges(graphs, leafSeqs)
         for graph in graphs:

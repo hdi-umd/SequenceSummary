@@ -34,7 +34,7 @@ class Node():
         self.parent = []
 
         self.attr = attr
-
+        self.graph = None
         TreeNode.nodeHash[self.nid] = self
 
     def getNode(self, nodeId):
@@ -358,7 +358,7 @@ class GraphNode(Node):
         super().__init__(attr, count_val, value)
         self.before = None
         self.after = None
-        self.graph = None
+        
 
     def jsonDefaultDump(self) -> dict:
         return {
