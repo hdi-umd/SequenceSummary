@@ -244,6 +244,7 @@ class TreeNode(Node):
 
         self.meanStep = means[-1]+self.parent[-1].meanStep
         self.medianStep = medians[-1]+self.parent[-1].medianStep
+        return means[-1]
 
     def calcPositionsExitNode(self):
         """Computes cumulative mean and median positions and path lengths of
@@ -275,7 +276,7 @@ class TreeNode(Node):
         print(f'trailing medians{median}')
         self.meanStep = self.parent[-1].meanStep + mean
         self.medianStep = self.parent[-1].medianStep + median
-
+        return mean
     def calcPositions(self, isExit=0):
         """Computes cumulative mean and median positions and path lengths of
         key events for the given attribute.

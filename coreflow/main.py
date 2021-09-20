@@ -96,6 +96,9 @@ if __name__ == "__main__":
 
     print("\n\n*****Coreflow output******\n\n")
 
+    if not os.path.isdir(args.output):
+        os.mkdir(args.output)
+
     x = json.dumps(root, ensure_ascii=False,
                    default=TreeNode.jsonSerializeDump, indent=1)
     print(x)
@@ -106,5 +109,7 @@ if __name__ == "__main__":
     y = json.dumps(graph, ensure_ascii=False,
                    default=Graph.jsonSerializeDump, indent=1)
     print(y)
+
+
     with open(args.output+'coreflow_graph.json', 'w') as the_file2:
         the_file2.write(y)

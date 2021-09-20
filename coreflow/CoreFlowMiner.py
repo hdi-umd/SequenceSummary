@@ -72,7 +72,7 @@ class CoreFlowMiner:
         #     node.medianPos = node.parent[-1].medianStep + topPattern.medianPos[-1]
         # node.setPositions([Pattern.getPositions(node.keyevts, seq.getHashList(self.attr))[-1]
         #                   for seq in node.sequences])
-        node.calcPositionsGenericNode()
+        linkLength = node.calcPositionsGenericNode()
         # node.calcPositions()
         # node.calcPositionsAlternate()
         # node.setPositions([pox[-1]-pox[-2]
@@ -81,7 +81,7 @@ class CoreFlowMiner:
 
         #print(f'node seqs{node.sequences}')
         #print(f'value {eVal}')
-        
+
         self.truncateSequences(
             seqs, hashVal, node, containSegs, notContain)
         # node.setSeqCount(Sequence.getSeqVolume(containSegs))
@@ -96,7 +96,7 @@ class CoreFlowMiner:
             graph.nodes.append(RawNode(node))
             parent.children.append(node)
             graph.links.append(
-                Links(parent, node, node.seqCount, node.meanStep))
+                Links(parent, node, node.seqCount, linkLength))
             self.run(containSegs, node, graph, exitNodeHash)
             self.run(notContain, parent, graph, exitNodeHash)
 
@@ -197,10 +197,10 @@ class CoreFlowMiner:
         # for i in range(s.getVolume()):
         #    lengths.append(len(s.events)-1)
         # print(f' len {lengths}')
-        node.calcPositionsExitNode()
+        linkLength = node.calcPositionsExitNode()
         # node.calcPositions(isExit=1)
         graph.nodes.append(RawNode(node))
         print(f'mean Step {node.meanStep}')
         parent.children.append(node)
         graph.links.append(
-            Links(parent, node, node.seqCount, node.meanStep))
+            Links(parent, node, node.seqCount, node.meanStep, linkLength))

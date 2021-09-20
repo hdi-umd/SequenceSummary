@@ -76,11 +76,11 @@ class RawNode:
 class Links:
     """Links class contains information regarding which node is connected to which one"""
 
-    def __init__(self, node1, node2, cnt, avgIdx=0, medianIdx=0):
+    def __init__(self, node1, node2, cnt, LinkLen=0, medianIdx=0):
         self.source = node1
         self.target = node2
         self.count = cnt
-        self.avgIndex = avgIdx
+        self.length = LinkLen
         self.medianIndex = medianIdx
 
     def jsonDefaultDump(self) -> dict:
@@ -89,8 +89,7 @@ class Links:
             "source": self.source.nid,
             "target": self.target.nid,
             "count": self.count,
-            "average_index": self.avgIndex,
-            "median_index": self.medianIndex
+            "length": self.length
         }
 
 
