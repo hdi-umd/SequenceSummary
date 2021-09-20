@@ -3,6 +3,7 @@
 import json
 
 from itertools import count, chain, groupby
+from Pattern import Pattern
 
 
 class RawNode:
@@ -14,12 +15,14 @@ class RawNode:
             self.nid = node.nid
             self.seqCount = node.seqCount
             self.value = node.value
+            self.keyevts = node.keyevts
             self.pattern = node.getPatternString()
             self.meanStep = node.meanStep
             self.medianStep = node.medianStep
             self.parent = node.parent
             self.sequences = node.sequences
             self.pos = pos
+            self.attr = node.attr
         self.rightLinks = []
         self.leftLinks = []
 
@@ -73,11 +76,12 @@ class RawNode:
 class Links:
     """Links class contains information regarding which node is connected to which one"""
 
-    def __init__(self, node1, node2, cnt, avgIdx=0):
+    def __init__(self, node1, node2, cnt, avgIdx=0, medianIdx=0):
         self.source = node1
         self.target = node2
         self.count = cnt
         self.avgIndex = avgIdx
+        self.medianIndex = medianIdx
 
     def jsonDefaultDump(self) -> dict:
         """creates the Json format output for the class Links."""
@@ -85,7 +89,8 @@ class Links:
             "source": self.source.nid,
             "target": self.target.nid,
             "count": self.count,
-            "average_index": self.avgIndex
+            "average_index": self.avgIndex,
+            "median_index": self.medianIndex
         }
 
 
@@ -96,7 +101,6 @@ class Graph:
         self.links = []  # defaultdict(set)
         self.nodes = []
         self.linkAdj = {}
-
 
     def jsonDefaultDump(self) -> dict:
         """creates the Json format output for the class Graph."""
@@ -109,13 +113,62 @@ class Graph:
     def jsonSerialize(self) -> None:
         """Default JSON serializer"""
         json.dumps(self, indent=4, default=Graph.jsonSerializeDump)
-    
+
     def calcAverageIdx(self):
         """Calculate average Index for links."""
-        self.links = sorted(self.links, key=lambda x: (x.source.nid, x.target.nid, x.count))
+        self.links = sorted(self.links, key=lambda x: (
+            x.source.nid, x.target.nid, x.count))
         for link in self.links:
-            pass
-        
+            #print(f'path of string {pathsOfStrings}')
+            medians = []
+            means = []
+            srcNode = link.source
+            targetNode = link.target
+            seqs = []
+            for seq in targetNode.sequences:
+                if seq in srcNode.sequences:
+                    seqs.append(seq)
+            if srcNode.nid == 1:
+                link.avgIndex = targetNode.meanStep
+                link.medianIndex = targetNode.medianStep
+                continue
+
+            # swap the loops for better readability
+            for i, _ in enumerate(targetNode.keyevts[:targetNode.pos]):
+
+                numSteps = []
+
+                for _, elem in enumerate(seqs):
+                    paths = elem.getHashList(targetNode.attr)
+                    if Pattern.matchMilestones(paths, targetNode.keyevts[0:i+1]):
+                        pos = Pattern.getPositions(
+                            targetNode.keyevts[0:i+1], paths)
+                        if i == 0:
+                            # add position value of first element id sequence
+                            numSteps.append(pos[i])
+                        else:
+                            # in other cases add the difference
+                            numSteps.append(pos[i]-pos[i-1])
+                print(f'numSteps {numSteps}')
+                sumSteps = sum(numSteps)
+
+                median = Pattern.getMedian(numSteps)
+
+                medians.append(median)
+                means.append(sumSteps*1.0 / len(numSteps))
+
+            print(f'means {means}')
+            print(f'medians {medians}')
+
+            #print(f'mean {means} median {median}')
+            if not means:
+                means.append(0)
+            if not medians:
+                medians.append(0)
+            link.avgIndex = means[-1] + srcNode.meanStep
+            link.medianIndex = medians[-1] + srcNode.medianStep
+            print(
+                f'src {srcNode.nid}, target {targetNode.nid}, median {link.medianIndex}')
 
     @staticmethod
     def jsonSerializeDump(obj):
@@ -151,7 +204,8 @@ class Graph:
                             if rightNodes[i].seqCount > rightNodes[i+1+j].seqCount:
                                 node.leftLinks[i].count -= node.leftLinks[i+1+j].count
                             else:
-                                node.leftLinks[i+1+j].count -= node.leftLinks[i].count
+                                node.leftLinks[i+1 +
+                                               j].count -= node.leftLinks[i].count
 
     def createLinks(self):
         """ Create links between nodes."""
@@ -164,7 +218,6 @@ class Graph:
                 self.links.append(link)
                 leftNode.rightLinks.append(link)
                 rightNode.leftLinks.append(link)
-
 
     def bundle(self):
         """Bundle nodes."""
