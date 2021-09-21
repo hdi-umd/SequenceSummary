@@ -126,8 +126,8 @@ class Node():
     def getPatternString(self):
         """Returns the pattern string for this node"""
         return "-".join(str(
-            self.incomingSequences[0].eventstore.reverseAttrDict[self.attr][hashVal])
-            for hashVal in self.keyevts if self.incomingSequences)
+            self.sequences[0].eventstore.reverseAttrDict[self.attr][hashVal])
+                        for hashVal in self.keyevts if self.sequences)
 
     def getHash(self):
         """Returns hash value for this node."""
@@ -277,6 +277,7 @@ class TreeNode(Node):
         self.meanStep = self.parent[-1].meanStep + mean
         self.medianStep = self.parent[-1].medianStep + median
         return mean
+
     def calcPositions(self, isExit=0):
         """Computes cumulative mean and median positions and path lengths of
         key events for the given attribute.
@@ -359,7 +360,6 @@ class GraphNode(Node):
         super().__init__(attr, count_val, value)
         self.before = None
         self.after = None
-        
 
     def jsonDefaultDump(self) -> dict:
         return {
@@ -381,91 +381,3 @@ class GraphNode(Node):
 
             return obj.jsonDefaultDump()
         return None
-
-    def calcPositionsGenericNode(self):
-        """Computes cumulative mean and median positions and path lengths of
-        key events for the given attribute.
-        """
-
-        #print(f'path of string {pathsOfStrings}')
-        medians = []
-        means = []
-
-        # swap the loops for better readability
-        for i, _ in enumerate(self.keyevts):
-            print(f'key events {self.keyevts}')
-            numSteps = []
-
-            for _, elem in enumerate(self.sequences):
-                paths = elem.getHashList(self.attr)
-                if Pattern.matchMilestones(paths, self.keyevts[0:i+1]):
-                    pos = Pattern.getPositions(self.keyevts[0:i+1], paths)
-                    if i == 0:
-                        # add position value of first element id sequence
-                        numSteps.append(pos[i])
-                    else:
-                        # in other cases add the difference
-                        numSteps.append(pos[i]-pos[i-1])
-            print(f'numSteps {numSteps}')
-            sumSteps = sum(numSteps)
-
-            median = Pattern.getMedian(numSteps)
-
-            medians.append(median)
-            means.append(sumSteps*1.0 / len(numSteps))
-        #print(f'Key Events {self.keyEvts}')
-
-        # list(accumulate(means))
-        # for _, elem in enumerate(self.sequences):
-        #     paths = elem.getHashList(evtAttr)
-        #     print(Pattern.getPositions(self.keyevts, paths))
-
-        # means = list(accumulate(means))
-        # medians = list(accumulate(medians))
-        print(f'means {means}')
-        print(f'medians {medians}')
-
-        self.medianPos = medians
-        self.meanPos = means
-        #print(f'mean {means} median {median}')
-        if self.parent and means:
-            self.meanStep = means[-1]+self.parent[-1].meanStep
-            self.medianStep = medians[-1]+self.parent[-1].medianStep
-        elif self.parent:
-            self.meanStep = self.parent[-1].meanStep
-            self.medianStep = self.parent[-1].medianStep
-        else:
-            self.medianPos = 0
-            self.meanPos = 0
-
-    def calcPositionsExitNode(self):
-        """Computes cumulative mean and median positions and path lengths of
-        key events for the given attribute.
-        """
-        trailingSteps = [0]*len(self.sequences)
-        for i, path in enumerate(self.sequences):
-            pos = Pattern.getPositions(
-                self.keyevts, path.getHashList(self.attr))
-            # the difference between the last event in thesequence and the last key event
-            trailingSteps[i] = len(path.events) - pos[-1]-1
-
-        print(f'trailing {trailingSteps}')
-
-        trailStepSum = sum(trailingSteps)
-
-        if trailingSteps:
-            mean = trailStepSum/len(trailingSteps)
-            median = Pattern.getMedian(trailingSteps)
-        else:
-            mean = 0
-            median = 0
-        # self.meanPathLength = median+medians[-1]
-        # self.medianPathLength = mean+means[-1]
-        #self.meanStep = mean + means[-1]
-        #self.medianStep = median + medians[-1]
-        print(f'parent mean {self.parent[-1].meanStep}')
-        print(f'trailing means{mean}')
-        print(f'trailing medians{median}')
-        self.meanStep = self.parent[-1].meanStep + mean
-        self.medianStep = self.parent[-1].medianStep + median
-

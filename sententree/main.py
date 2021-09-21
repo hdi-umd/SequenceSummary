@@ -98,6 +98,9 @@ if __name__ == "__main__":
     # print(x)
     #print(f'LEN {len(graphList)}')
 
+    if not os.path.isdir(args.output):
+        os.mkdir(args.output)
+
     print("\n\n*****SentenTree Graph output******\n\n")
 
     y = json.dumps(graph, ensure_ascii=False,

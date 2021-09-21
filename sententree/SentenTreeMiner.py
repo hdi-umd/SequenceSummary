@@ -21,7 +21,7 @@ class SentenTreeMiner:
     def runSentenTreeMiner(self, sequences):
         """Run the sentenTreeMiner algorithm in the given sequences."""
         root = GraphNode(self.attr)
-        root.incomingSequences = sequences
+        root.sequences = sequences
         root.graph = Graph()
         graph = self.expandSeqTree(root, expandCnt=100)
         return graph
@@ -34,7 +34,7 @@ class SentenTreeMiner:
         expandCnt -= len(rootNode.keyevts)
         seqs = []
         seqs.append(rootNode)
-        rootNode.setSeqCount(Sequence.getSeqVolume(rootNode.incomingSequences))
+        rootNode.setSeqCount(Sequence.getSeqVolume(rootNode.sequences))
         rootNode.attr = self.attr
 
         leafSeqs = []
@@ -51,7 +51,7 @@ class SentenTreeMiner:
 
             if not seq1 and not seq0:
                 word, pos, count, seq0, seq1 = self.growSeq(currentSeq)
-
+                print(f'key event {word} inserted at {pos} with count {count}')
                 #print(f'nid {seq1.nid}')
                 if count <= self.minSupport:
                     currentSeq.parent.insert(0, rootNode)
@@ -63,7 +63,7 @@ class SentenTreeMiner:
 
                     seq1.setHash(word)
                     seq1.setValue(
-                        currentSeq.incomingSequences[0].getEvtAttrValue(self.attr, word))
+                        currentSeq.sequences[0].getEvtAttrValue(self.attr, word))
                     seq0.keyevts = currentSeq.keyevts[:]
                     seq1.keyevts = currentSeq.keyevts[:]  # deep copy
                     seq1.keyevts.insert(pos, word)
@@ -96,15 +96,16 @@ class SentenTreeMiner:
 
         for seq in leafSeqs:
             exitNode = GraphNode(self.attr)
-            exitNode.value = -2
+            exitNode.value = "Exit"
             exitNode.seqCount = seq.seqCount
             exitNode.sequences = seq.sequences
             exitNode.keyevts = seq.keyevts[:]
-            exitNode.parent = seq.parent
+            exitNode.parent = seq.parent[:]
+            exitNode.parent.append(seq)
             # exitNode.calcPositionsExitNode()
             exitNode.before = seq
             seq.after = exitNode
-            lenArr = [len(x.events) for x in seq.incomingSequences]
+            lenArr = [len(x.events) for x in seq.sequences]
             exitNode.meanStep = sum(lenArr)/len(lenArr)
             exitNode.medianStep = np.median(lenArr)
             # exitNode.parent.append(seq)
@@ -116,7 +117,8 @@ class SentenTreeMiner:
         for graph in graphs:
             graph.createLinks()
             graph.detectCycles()
-            graph.calcAverageIdx()
+            graph.calcPositionsNode()
+            graph.calcLengthsLink()
             # graph.bundle()
         newGraph = Graph.assembleGraphs(graphs)
 
@@ -129,7 +131,7 @@ class SentenTreeMiner:
         for i in range(0, len(seq.keyevts)+1):
             self.ranker.clearfdists()
 
-            for elem in seq.incomingSequences:
+            for elem in seq.sequences:
 
                 evtHashes = elem.getHashList(self.attr)
                 startPos = 0 if i == 0 else elem.seqIndices[i - 1] + 1
@@ -139,7 +141,7 @@ class SentenTreeMiner:
                 self.ranker.rankingFunc(evtHashes, startPos,
                                         endPos, elem)
 
-            minPos = max(len(x.events) for x in seq.incomingSequences)
+            minPos = max(len(x.events) for x in seq.sequences)
 
             self.ranker.tieBreaker(i, minPos)
 
@@ -149,7 +151,7 @@ class SentenTreeMiner:
         if self.ranker.count >= self.minSupport:
             words = seq.keyevts
             seqIds = []
-            for elem in seq.incomingSequences:
+            for elem in seq.sequences:
                 startPos = 0 if self.ranker.pos == 0 else elem.seqIndices[self.ranker.pos - 1] + 1
                 endPos = len(elem.events) if self.ranker.pos == len(
                     words) else elem.seqIndices[self.ranker.pos]
@@ -158,25 +160,23 @@ class SentenTreeMiner:
                         self.ranker.word, startPos, endPos)
                     # sequence index value for the word being inserted. e.g. A-C-G seq indice 1,4,8
                     elem.seqIndices.insert(self.ranker.pos, i)
-                    seq1.incomingSequences.append(elem)
+                    seq1.sequences.append(elem)
                     seq1.seqCount += elem.getVolume()
                     seqIds.append(elem._id)
 
                 except ValueError:
-                    seq0.incomingSequences.append(elem)
+                    seq0.sequences.append(elem)
                     seq0.seqCount += elem.getVolume()
             # calculate average index
             posArr = [seq.seqIndices[self.ranker.pos]
-                      for seq in seq1.incomingSequences]
+                      for seq in seq1.sequences]
             print(f'Sequence id {seqIds}')
             seq1.setPositions(posArr)
-            seq0.setSeqCount(Sequence.getSeqVolume(seq0.incomingSequences))
-            seq1.setSeqCount(Sequence.getSeqVolume(seq1.incomingSequences))
-            seq0.sequences = seq0.incomingSequences
-            seq1.sequences = seq1.incomingSequences
-
-            #print(f'Not contain: {len(seq0.incomingSequences)}')
-            #print(f'contain: {len(seq1.incomingSequences)}')
+            seq0.setSeqCount(Sequence.getSeqVolume(seq0.sequences))
+            seq1.setSeqCount(Sequence.getSeqVolume(seq1.sequences))
+            
+            #print(f'Not contain: {len(seq0.sequences)}')
+            #print(f'contain: {len(seq1.sequences)}')
 
         return self.ranker.word, self.ranker.pos, self.ranker.count, seq0, seq1
 

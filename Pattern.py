@@ -188,7 +188,7 @@ class Pattern:
         """Get event positions."""
 
         # sequence = path
-        print(f'Events {path}')
+        #print(f'Events {path}')
         pos = []
         idx = -1
         offset = 0
@@ -201,7 +201,7 @@ class Pattern:
             except ValueError:
                 continue
             pos.append(offset+idx)
-        print(f'Positions {pos}')
+        #print(f'Positions {pos}')
         return pos
 
     @staticmethod
