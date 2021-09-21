@@ -36,6 +36,7 @@ class SentenTreeMiner:
         seqs.append(rootNode)
         rootNode.setSeqCount(Sequence.getSeqVolume(rootNode.sequences))
         rootNode.attr = self.attr
+        rootNode.parent.append(rootNode)
 
         leafSeqs = []
 
@@ -54,7 +55,7 @@ class SentenTreeMiner:
                 print(f'key event {word} inserted at {pos} with count {count}')
                 #print(f'nid {seq1.nid}')
                 if count <= self.minSupport:
-                    currentSeq.parent.insert(0, rootNode)
+                    #currentSeq.parent.insert(0, rootNode)
                     leafSeqs.append(currentSeq)
                 else:
                     if not graph:
@@ -71,7 +72,7 @@ class SentenTreeMiner:
                     seq0.parent = currentSeq.parent[:]
                     seq1.parent = currentSeq.parent[:]
                     # seq1.calcPositionsGenericNode()
-                    seq1.parent.insert(pos, seq1)
+                    seq1.parent.insert(pos+1, seq1)
                     # seq0.parent.append(seq0.nid)
 
                     seq0.meanStep = currentSeq.meanStep
@@ -101,7 +102,7 @@ class SentenTreeMiner:
             exitNode.sequences = seq.sequences
             exitNode.keyevts = seq.keyevts[:]
             exitNode.parent = seq.parent[:]
-            exitNode.parent.append(seq)
+            #exitNode.parent.append(seq)
             # exitNode.calcPositionsExitNode()
             exitNode.before = seq
             seq.after = exitNode
