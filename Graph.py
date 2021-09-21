@@ -10,19 +10,24 @@ class RawNode:
     """RawNode contains selected attributes from Node class for json conversion."""
     _ids = count(0)
 
-    def __init__(self, node=None, pos=0):
+    def __init__(self, node=None, pos=0, isCoreflow=0):
         if node:
             self.nid = node.nid
             self.seqCount = node.seqCount
             self.value = node.value
             self.keyevts = node.keyevts
             self.pattern = node.getPatternString()
-            self.meanStep = node.meanStep
-            self.medianStep = node.medianStep
             self.parent = node.parent
             self.sequences = node.sequences
             self.pos = pos
             self.attr = node.attr
+            if isCoreflow:
+                self.meanStep = node.meanStep
+                self.medianStep = node.medianStep
+            else:
+                self.meanStep = 0
+                self.medianStep = 0
+
         self.rightLinks = []
         self.leftLinks = []
 
@@ -72,7 +77,7 @@ class RawNode:
             nodes.medianStep for nodes in nodeList)/len(nodeList)
         return node
 
-    def calcPositionsGenericNode(self):
+    def calcPositionsGenericNode(self, Nodes):
         """Computes cumulative mean and median positions and path lengths of
         key events for the given attribute.
         """
@@ -132,17 +137,20 @@ class RawNode:
             if not medians:
                 medians.append(0)
             if len(self.parent) > 1:
-                print(f'parent {self.parent[self.pos-1].meanStep}')
+                print(f'parent {self.parent[self.pos].meanStep}')
+                parentNid = self.parent[self.pos].nid
+                rawParent = [x for x in Nodes if x.nid == parentNid][0]
                 # As root is also in parent
-                self.meanStep = means[-1]+self.parent[self.pos-1].meanStep
+                print(f'Raw parent mean {rawParent.meanStep}')
+                self.meanStep = means[-1]+rawParent.meanStep
                 self.medianStep = medians[-1] + \
-                    self.parent[self.pos-1].medianStep
+                    rawParent.medianStep
             else:
                 self.meanStep = means[-1]
                 self.medianStep = medians[-1]
         print(f' mean step {self.meanStep}')
 
-    def calcPositionsExitNode(self):
+    def calcPositionsExitNode(self, Nodes):
         """Computes cumulative mean and median positions and path lengths of
         key events for the given attribute.
         """
@@ -167,11 +175,15 @@ class RawNode:
         # self.medianPathLength = mean+means[-1]
         #self.meanStep = mean + means[-1]
         #self.medianStep = median + medians[-1]
+        print(f'{[x.nid for x in self.parent]}')
         print(f'parent mean {self.parent[-1].meanStep}')
+        parentNid = self.parent[-1].nid
+        rawParent = [x for x in Nodes if x.nid == parentNid][0]
+        print(f'Raw parent mean {rawParent.meanStep}')
         print(f'trailing means{mean}')
         print(f'trailing medians{median}')
-        self.meanStep = self.parent[-1].meanStep + mean
-        self.medianStep = self.parent[-1].medianStep + median
+        self.meanStep = rawParent.meanStep + mean
+        self.medianStep = rawParent.medianStep + median
         return mean
 
 
@@ -275,9 +287,9 @@ class Graph:
         """Calculate mean and median node positions."""
         for node in self.nodes:
             if node.value == "Exit":
-                node.calcPositionsExitNode()
+                node.calcPositionsExitNode(self.nodes)
             else:
-                node.calcPositionsGenericNode()
+                node.calcPositionsGenericNode(self.nodes)
 
     def calcLengthsLink(self):
         """Calculate average length for links."""

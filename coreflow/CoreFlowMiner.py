@@ -93,7 +93,7 @@ class CoreFlowMiner:
         #print(f'seq count {node.getSeqCount()}')
 
         if node.getSeqCount() >= self.minSupport:
-            graph.nodes.append(RawNode(node))
+            graph.nodes.append(RawNode(node, isCoreflow=True))
             parent.children.append(node)
             graph.links.append(
                 Links(parent, node, node.seqCount, linkLength))
@@ -199,7 +199,7 @@ class CoreFlowMiner:
         # print(f' len {lengths}')
         linkLength = node.calcPositionsExitNode()
         # node.calcPositions(isExit=1)
-        graph.nodes.append(RawNode(node))
+        graph.nodes.append(RawNode(node, isCoreflow=True))
         print(f'mean Step {node.meanStep}')
         parent.children.append(node)
         graph.links.append(
