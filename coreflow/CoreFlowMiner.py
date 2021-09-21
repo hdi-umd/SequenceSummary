@@ -203,4 +203,4 @@ class CoreFlowMiner:
         print(f'mean Step {node.meanStep}')
         parent.children.append(node)
         graph.links.append(
-            Links(parent, node, node.seqCount, node.meanStep, linkLength))
+            Links(parent, node, node.seqCount, linkLength))

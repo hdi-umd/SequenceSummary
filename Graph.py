@@ -72,16 +72,117 @@ class RawNode:
             nodes.medianStep for nodes in nodeList)/len(nodeList)
         return node
 
+    def calcPositionsGenericNode(self):
+        """Computes cumulative mean and median positions and path lengths of
+        key events for the given attribute.
+        """
+
+        #print(f'path of string {pathsOfStrings}')
+        print(f'key evemts {self.pattern}')
+        print(f'parent {len(self.parent)}')
+        medians = []
+        means = []
+        print(f'seq len{len(self.sequences)}')
+        print(f'pos {self.pos}')
+        print(f'val {self.value}')
+        # swap the loops for better readability
+        for i, _ in enumerate(self.keyevts[:self.pos+1]):
+            #print(f'key events {self.keyevts[:self.pos]}')
+            print(i)
+            numSteps = []
+
+            for _, elem in enumerate(self.sequences):
+                paths = elem.getHashList(self.attr)
+                if Pattern.matchMilestones(paths, self.keyevts[0:i+1]):
+                    pos = Pattern.getPositions(self.keyevts[0:i+1], paths)
+                    if i == 0:
+                        # add position value of first element id sequence
+                        numSteps.append(pos[i])
+                    else:
+                        # in other cases add the difference
+                        numSteps.append(pos[i]-pos[i-1])
+            print(f'numSteps {numSteps}')
+            sumSteps = sum(numSteps)
+            print(f'sumSteps {sumSteps}')
+            median = Pattern.getMedian(numSteps)
+
+            medians.append(median)
+            means.append(sumSteps*1.0 / len(numSteps))
+        #print(f'Key Events {self.keyEvts}')
+
+        # list(accumulate(means))
+        # for _, elem in enumerate(self.sequences):
+        #     paths = elem.getHashList(evtAttr)
+        #     print(Pattern.getPositions(self.keyevts, paths))
+
+        # means = list(accumulate(means))
+        # medians = list(accumulate(medians))
+        print(f'means {means}')
+        print(f'medians {medians}')
+        print(f'{[x.meanStep for x in self.parent]}')
+
+        #print(f'mean {means} median {median}')
+
+        if not means and not self.parent:
+            self.meanStep = 0
+            self.medianStep = 0
+        else:
+            if not means:
+                means.append(0)
+            if not medians:
+                medians.append(0)
+            if len(self.parent) > 1:
+                print(f'parent {self.parent[self.pos-1].meanStep}')
+                # As root is also in parent
+                self.meanStep = means[-1]+self.parent[self.pos-1].meanStep
+                self.medianStep = medians[-1] + \
+                    self.parent[self.pos-1].medianStep
+            else:
+                self.meanStep = means[-1]
+                self.medianStep = medians[-1]
+        print(f' mean step {self.meanStep}')
+
+    def calcPositionsExitNode(self):
+        """Computes cumulative mean and median positions and path lengths of
+        key events for the given attribute.
+        """
+        trailingSteps = [0]*len(self.sequences)
+        for i, path in enumerate(self.sequences):
+            pos = Pattern.getPositions(
+                self.keyevts, path.getHashList(self.attr))
+            # the difference between the last event in thesequence and the last key event
+            trailingSteps[i] = len(path.events) - pos[-1]-1
+
+        print(f'trailing {trailingSteps}')
+
+        trailStepSum = sum(trailingSteps)
+
+        if trailingSteps:
+            mean = trailStepSum/len(trailingSteps)
+            median = Pattern.getMedian(trailingSteps)
+        else:
+            mean = 0
+            median = 0
+        # self.meanPathLength = median+medians[-1]
+        # self.medianPathLength = mean+means[-1]
+        #self.meanStep = mean + means[-1]
+        #self.medianStep = median + medians[-1]
+        print(f'parent mean {self.parent[-1].meanStep}')
+        print(f'trailing means{mean}')
+        print(f'trailing medians{median}')
+        self.meanStep = self.parent[-1].meanStep + mean
+        self.medianStep = self.parent[-1].medianStep + median
+        return mean
+
 
 class Links:
     """Links class contains information regarding which node is connected to which one"""
 
-    def __init__(self, node1, node2, cnt, LinkLen=0, medianIdx=0):
+    def __init__(self, node1, node2, cnt, LinkLen=0):
         self.source = node1
         self.target = node2
         self.count = cnt
         self.length = LinkLen
-        self.medianIndex = medianIdx
 
     def jsonDefaultDump(self) -> dict:
         """creates the Json format output for the class Links."""
@@ -91,6 +192,63 @@ class Links:
             "count": self.count,
             "length": self.length
         }
+
+    def calcLinkLength(self):
+
+        means = []
+        srcNode = self.source
+        targetNode = self.target
+        seqs = []
+        for seq in targetNode.sequences:
+            if seq in srcNode.sequences:
+                seqs.append(seq)
+        print(
+            f'src {srcNode.nid}, target {targetNode.nid}')
+
+        if targetNode.value == "Exit":
+            trailingSteps = [0]*len(seqs)
+            for i, path in enumerate(seqs):
+                pos = Pattern.getPositions(
+                    targetNode.keyevts, path.getHashList(targetNode.attr))
+                # the difference between the last event in thesequence and the last key event
+                trailingSteps[i] = len(path.events) - pos[-1]-1
+
+            print(f'trailing {trailingSteps}')
+
+            trailStepSum = sum(trailingSteps)
+
+            if trailingSteps:
+                mean = trailStepSum/len(trailingSteps)
+            else:
+                mean = 0
+
+            self.length = mean
+
+        else:
+            for i, _ in enumerate(targetNode.keyevts[:targetNode.pos+1]):
+                # print(targetNode.keyevts[i])
+                numSteps = []
+                # print(seqs)
+                for _, elem in enumerate(seqs):
+                    paths = elem.getHashList(targetNode.attr)
+                    #print(f'paths {paths}')
+                    if Pattern.matchMilestones(paths, targetNode.keyevts[0:i+1]):
+                        pos = Pattern.getPositions(
+                            targetNode.keyevts[0:i+1], paths)
+                        if i == 0:
+                            # add position value of first element id sequence
+                            numSteps.append(pos[i])
+                        else:
+                            # in other cases add the difference
+                            numSteps.append(pos[i]-pos[i-1])
+                print(f'numSteps {numSteps}')
+                sumSteps = sum(numSteps)
+
+                means.append(sumSteps*1.0 / len(numSteps))
+            print(f'means {means}')
+            self.length = means[-1]
+        print(
+            f'src {srcNode.nid}, target {targetNode.nid}, length {self.length}')
 
 
 class Graph:
@@ -113,61 +271,21 @@ class Graph:
         """Default JSON serializer"""
         json.dumps(self, indent=4, default=Graph.jsonSerializeDump)
 
-    def calcAverageIdx(self):
-        """Calculate average Index for links."""
+    def calcPositionsNode(self):
+        """Calculate mean and median node positions."""
+        for node in self.nodes:
+            if node.value == "Exit":
+                node.calcPositionsExitNode()
+            else:
+                node.calcPositionsGenericNode()
+
+    def calcLengthsLink(self):
+        """Calculate average length for links."""
         self.links = sorted(self.links, key=lambda x: (
             x.source.nid, x.target.nid, x.count))
         for link in self.links:
             #print(f'path of string {pathsOfStrings}')
-            medians = []
-            means = []
-            srcNode = link.source
-            targetNode = link.target
-            seqs = []
-            for seq in targetNode.sequences:
-                if seq in srcNode.sequences:
-                    seqs.append(seq)
-            if srcNode.nid == 1:
-                link.avgIndex = targetNode.meanStep
-                link.medianIndex = targetNode.medianStep
-                continue
-
-            # swap the loops for better readability
-            for i, _ in enumerate(targetNode.keyevts[:targetNode.pos]):
-
-                numSteps = []
-
-                for _, elem in enumerate(seqs):
-                    paths = elem.getHashList(targetNode.attr)
-                    if Pattern.matchMilestones(paths, targetNode.keyevts[0:i+1]):
-                        pos = Pattern.getPositions(
-                            targetNode.keyevts[0:i+1], paths)
-                        if i == 0:
-                            # add position value of first element id sequence
-                            numSteps.append(pos[i])
-                        else:
-                            # in other cases add the difference
-                            numSteps.append(pos[i]-pos[i-1])
-                print(f'numSteps {numSteps}')
-                sumSteps = sum(numSteps)
-
-                median = Pattern.getMedian(numSteps)
-
-                medians.append(median)
-                means.append(sumSteps*1.0 / len(numSteps))
-
-            print(f'means {means}')
-            print(f'medians {medians}')
-
-            #print(f'mean {means} median {median}')
-            if not means:
-                means.append(0)
-            if not medians:
-                medians.append(0)
-            link.avgIndex = means[-1] + srcNode.meanStep
-            link.medianIndex = medians[-1] + srcNode.medianStep
-            print(
-                f'src {srcNode.nid}, target {targetNode.nid}, median {link.medianIndex}')
+            link.calcLinkLength()
 
     @staticmethod
     def jsonSerializeDump(obj):
