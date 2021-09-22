@@ -25,11 +25,12 @@ class RawNode:
                 self.meanStep = node.meanStep
                 self.medianStep = node.medianStep
             else:
-                self.meanStep = 0
-                self.medianStep = 0
+                self.meanStep = -1
+                self.medianStep = -1
 
         self.rightLinks = []
         self.leftLinks = []
+        self.predecessor = []
 
     def jsonDefaultDump(self) -> dict:
         """creates the Json format output for the class RawNode."""
@@ -77,7 +78,43 @@ class RawNode:
             nodes.medianStep for nodes in nodeList)/len(nodeList)
         return node
 
-    def calcPositionsGenericNode(self, Nodes):
+    def calcPositions(self):
+        """Computes cumulative mean and median positions and path lengths of
+        key events for the given attribute.
+        """
+
+        #print(f'path of string {pathsOfStrings}')
+        medians = []
+        means = []
+
+        for i, _ in enumerate(self.keyevts[:self.pos+1]):
+            #print(f'key events {self.keyevts[:self.pos]}')
+            numSteps = []
+
+            for _, elem in enumerate(self.sequences):
+                paths = elem.getHashList(self.attr)
+                if Pattern.matchMilestones(paths, self.keyevts[0:i+1]):
+                    pos = Pattern.getPositions(self.keyevts[0:i+1], paths)
+                    if i == 0:
+                        # add position value of first element id sequence
+                        numSteps.append(pos[i])
+                    else:
+                        # in other cases add the difference
+                        numSteps.append(pos[i]-pos[i-1])
+            print(f'numSteps {numSteps}')
+            sumSteps = sum(numSteps)
+            print(f'sumSteps {sumSteps}')
+            median = Pattern.getMedian(numSteps)
+
+            medians.append(median)
+            means.append(sumSteps*1.0 / len(numSteps))
+
+        print(f'means {means}')
+        print(f'medians {medians}')
+
+        return means[-1], medians[-1]
+
+    def calcPositionsGenericNode(self, nodeList):
         """Computes cumulative mean and median positions and path lengths of
         key events for the given attribute.
         """
@@ -91,6 +128,11 @@ class RawNode:
         print(f'pos {self.pos}')
         print(f'val {self.value}')
         # swap the loops for better readability
+        if self.nid == 1:
+            self.meanStep = 0
+            self.medianStep = 0
+            return
+
         for i, _ in enumerate(self.keyevts[:self.pos+1]):
             #print(f'key events {self.keyevts[:self.pos]}')
             print(i)
@@ -139,7 +181,7 @@ class RawNode:
             if len(self.parent) > 1:
                 print(f'parent {self.parent[self.pos].meanStep}')
                 parentNid = self.parent[self.pos].nid
-                rawParent = [x for x in Nodes if x.nid == parentNid][0]
+                rawParent = [x for x in nodeList if x.nid == parentNid][0]
                 # As root is also in parent
                 print(f'Raw parent mean {rawParent.meanStep}')
                 self.meanStep = means[-1]+rawParent.meanStep
@@ -150,7 +192,7 @@ class RawNode:
                 self.medianStep = medians[-1]
         print(f' mean step {self.meanStep}')
 
-    def calcPositionsExitNode(self, Nodes):
+    def calcPositionsExitNode(self, nodeList):
         """Computes cumulative mean and median positions and path lengths of
         key events for the given attribute.
         """
@@ -178,7 +220,7 @@ class RawNode:
         print(f'{[x.nid for x in self.parent]}')
         print(f'parent mean {self.parent[-1].meanStep}')
         parentNid = self.parent[-1].nid
-        rawParent = [x for x in Nodes if x.nid == parentNid][0]
+        rawParent = [x for x in nodeList if x.nid == parentNid][0]
         print(f'Raw parent mean {rawParent.meanStep}')
         print(f'trailing means{mean}')
         print(f'trailing medians{median}')
@@ -206,7 +248,7 @@ class Links:
         }
 
     def calcLinkLength(self):
-
+        """Calculate link lengths for all links in graph."""
         means = []
         srcNode = self.source
         targetNode = self.target
@@ -290,6 +332,28 @@ class Graph:
                 node.calcPositionsExitNode(self.nodes)
             else:
                 node.calcPositionsGenericNode(self.nodes)
+
+    def setMaxNodePred(self, node):
+        """Recursively get max predecessor."""
+        candPred = [x.source for x in node.leftLinks]
+        for cand in candPred:
+            if cand.meanStep < 0:
+                self.setMaxNodePred(cand)
+        candPred = sorted(candPred, key=lambda x: x.meanStep, reverse=True)
+        mean, median = node.calcPositions()
+        node.meanStep = candPred[0].meanStep + mean
+        node.medianStep = candPred[0].medianStep + median
+
+    def calcPositionsNodeMaxPredecessor(self):
+        """Calculate mean and median node positions based on max predecessor."""
+        startNode = [x for x in self.nodes if x.nid == 1][0]
+        startNode.meanStep = 0
+        startNode.medianStep = 0
+        for node in self.nodes:
+            if node.value == "Exit":
+                node.calcPositionsExitNode(self.nodes)
+            elif node.meanStep < 0:
+                self.setMaxNodePred(node)
 
     def calcLengthsLink(self):
         """Calculate average length for links."""
