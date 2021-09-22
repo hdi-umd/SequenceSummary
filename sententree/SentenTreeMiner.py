@@ -102,7 +102,7 @@ class SentenTreeMiner:
             exitNode.sequences = seq.sequences
             exitNode.keyevts = seq.keyevts[:]
             exitNode.parent = seq.parent[:]
-            #exitNode.parent.append(seq)
+            # exitNode.parent.append(seq)
             # exitNode.calcPositionsExitNode()
             exitNode.before = seq
             seq.after = exitNode
@@ -118,6 +118,9 @@ class SentenTreeMiner:
         for graph in graphs:
             graph.createLinks()
             graph.detectCycles()
+            # uses max predecessor
+            #graph.calcPositionsNodeMaxPredecessor()
+            # uses first node
             graph.calcPositionsNode()
             graph.calcLengthsLink()
             # graph.bundle()
@@ -175,7 +178,7 @@ class SentenTreeMiner:
             seq1.setPositions(posArr)
             seq0.setSeqCount(Sequence.getSeqVolume(seq0.sequences))
             seq1.setSeqCount(Sequence.getSeqVolume(seq1.sequences))
-            
+
             #print(f'Not contain: {len(seq0.sequences)}')
             #print(f'contain: {len(seq1.sequences)}')
 
