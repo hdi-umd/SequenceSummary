@@ -84,6 +84,10 @@ class RawNode:
         """
 
         #print(f'path of string {pathsOfStrings}')
+        if not self.keyevts or self.nid == 1:
+            # rootNode
+            return 0, 0
+
         medians = []
         means = []
 
@@ -120,76 +124,20 @@ class RawNode:
         """
 
         #print(f'path of string {pathsOfStrings}')
-        print(f'key evemts {self.pattern}')
-        print(f'parent {len(self.parent)}')
-        medians = []
-        means = []
-        print(f'seq len{len(self.sequences)}')
-        print(f'pos {self.pos}')
-        print(f'val {self.value}')
-        # swap the loops for better readability
-        if self.nid == 1:
-            self.meanStep = 0
-            self.medianStep = 0
-            return
+        mean, median = self.calcPositions()
 
-        for i, _ in enumerate(self.keyevts[:self.pos+1]):
-            #print(f'key events {self.keyevts[:self.pos]}')
-            print(i)
-            numSteps = []
-
-            for _, elem in enumerate(self.sequences):
-                paths = elem.getHashList(self.attr)
-                if Pattern.matchMilestones(paths, self.keyevts[0:i+1]):
-                    pos = Pattern.getPositions(self.keyevts[0:i+1], paths)
-                    if i == 0:
-                        # add position value of first element id sequence
-                        numSteps.append(pos[i])
-                    else:
-                        # in other cases add the difference
-                        numSteps.append(pos[i]-pos[i-1])
-            print(f'numSteps {numSteps}')
-            sumSteps = sum(numSteps)
-            print(f'sumSteps {sumSteps}')
-            median = Pattern.getMedian(numSteps)
-
-            medians.append(median)
-            means.append(sumSteps*1.0 / len(numSteps))
-        #print(f'Key Events {self.keyEvts}')
-
-        # list(accumulate(means))
-        # for _, elem in enumerate(self.sequences):
-        #     paths = elem.getHashList(evtAttr)
-        #     print(Pattern.getPositions(self.keyevts, paths))
-
-        # means = list(accumulate(means))
-        # medians = list(accumulate(medians))
-        print(f'means {means}')
-        print(f'medians {medians}')
-        print(f'{[x.meanStep for x in self.parent]}')
-
-        #print(f'mean {means} median {median}')
-
-        if not means and not self.parent:
-            self.meanStep = 0
-            self.medianStep = 0
+        if len(self.parent) > 1:
+            print(f'parent {self.parent[self.pos].meanStep}')
+            parentNid = self.parent[self.pos].nid
+            rawParent = [x for x in nodeList if x.nid == parentNid][0]
+            # As root is also in parent
+            print(f'Raw parent mean {rawParent.meanStep}')
+            self.meanStep = mean + rawParent.meanStep
+            self.medianStep = median + \
+                rawParent.medianStep
         else:
-            if not means:
-                means.append(0)
-            if not medians:
-                medians.append(0)
-            if len(self.parent) > 1:
-                print(f'parent {self.parent[self.pos].meanStep}')
-                parentNid = self.parent[self.pos].nid
-                rawParent = [x for x in nodeList if x.nid == parentNid][0]
-                # As root is also in parent
-                print(f'Raw parent mean {rawParent.meanStep}')
-                self.meanStep = means[-1]+rawParent.meanStep
-                self.medianStep = medians[-1] + \
-                    rawParent.medianStep
-            else:
-                self.meanStep = means[-1]
-                self.medianStep = medians[-1]
+            self.meanStep = mean
+            self.medianStep = median
         print(f' mean step {self.meanStep}')
 
     def calcPositionsExitNode(self, nodeList):

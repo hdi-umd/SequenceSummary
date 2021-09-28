@@ -146,7 +146,7 @@ class SequenceSynopsisMiner:
 
                 deltaL = deltaLPrime
                 pStar = tempPattern
-                
+
                 print(f'del L  {deltaL}')
                 print(f'pStar {pStar.keyEvts}')
                 selectedIndex = index
@@ -165,7 +165,7 @@ class SequenceSynopsisMiner:
                 # endInd = -1 if len(averagePos) <= selectedIndex else averagePos[selectedIndex+1]
 
                 # average = 0
-                
+
                 # for sequences in clust.seqList:
                 #     sequences.index()
 
