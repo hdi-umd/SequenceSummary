@@ -1,0 +1,16 @@
+python main.py --file "../datasets/emergency_department/AAAsample_ed2.txt" --evttype 1 --startidx 2 --format "%Y-%m-%d %H:%M:%S" --sep "\t" --local True --header "record_id" "event_category" "Start_time" "end_time" "event_attributes" --grpattr "record_id" --attr "event_category" --output "../datasets/emergency_department/result_AAAsample_ed2/"
+
+python main.py --file "../datasets/emergence department/study_died.txt" --evttype 1 --startidx 2 --format "%Y-%m-%d %H:%M:%S.%f" --sep "\t" --local True --header "record_id" "event_category" "Start_time" "end_time" "event_attributes" --grpattr "record_id" --attr "event_category" --output "../datasets/emergence department/result_study_died"
+
+python main.py --file "../datasets/emergence department/study_lived.txt" --evttype 1 --startidx 2 --format "%Y-%m-%d %H:%M:%S.%f" --sep "\t" --local True --header "record_id" "event_category" "Start_time" "end_time" "event_attributes" --grpattr "record_id" --attr "event_category" --output "../datasets/emergence department/result_study_lived"
+
+python main.py --file "../datasets/Chicago_Bulls/CHICAGO-SeasonD2O.txt" --evttype 3 --startidx 2 --endidx 3 --format "%H:%M:%S.%f" --sep "\t" --local True --header "record_id" "event_category" "Start_time" "end_time" "event_attributes" --grpattr "record_id" --attr "event_category" --output "../datasets/Chicago_Bulls/CHICAGO-SeasonD2O"
+
+python main.py --file "../datasets/Chicago_Bulls/CHICAGO-SeasonD2O.txt" --evttype 3 --startidx 2 --endidx 3 --format "%H:%M:%S.%f" --sep "\t" --local True --header "record_id" "event_category" "Start_time" "end_time" "event_attributes" --grpattr "record_id" --attr "event_category" --output "../datasets/Chicago_Bulls/CHICAGO-SeasonD2O"
+
+python main.py --file "../datasets/sequence_braiding/sequence_braiding_refined_edited.csv" --evttype 1 --startidx 0 --format "%m/%d/%y" --sep "," --local True --split "week" --attr "Meal" --output "../datasets/"
+
+python main.py --file "../datasets/sequence_braiding/sequence_braiding_refined.csv" --evttype 1 --startidx 0 --format "%m/%d/%y" --sep "," --local True --split "week" --attr "Meal" --output "../datasets/"
+
+
+
