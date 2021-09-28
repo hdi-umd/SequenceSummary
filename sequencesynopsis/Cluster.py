@@ -3,7 +3,7 @@
 class Cluster:
     """Holds the information of a Pattern <List of Sequence> cluster."""
 
-    def __init__(self, pat, seq, ind = None):
+    def __init__(self, pat, seq, ind=None):
         if ind is None:
             ind = []
         self.pattern = pat
@@ -16,7 +16,6 @@ class Cluster:
         print(f'positions {self.index}')
         for val in self.seqList:
             print(f'Sequences {val.getHashList(attr)}')
-        
 
     # def writeToCSV(self, filename):
     #     with open(filename, 'w') as the_file:

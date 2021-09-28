@@ -4,7 +4,6 @@ import json
 from itertools import count
 from Pattern import Pattern
 from itertools import accumulate
-from Graph import Graph, Links, RawNode
 import numpy as np
 
 

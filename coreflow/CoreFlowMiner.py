@@ -44,7 +44,7 @@ class CoreFlowMiner:
         # self.ranker.performRanking2(seqs)
         self.ranker.performRanking(seqs)
         topPattern = self.ranker.getTopEventSet()
-        print(f'topPattern {topPattern.keyEvts}')
+        #print(f'topPattern {topPattern.keyEvts}')
 
         if topPattern is None:
             print("no patterns found")

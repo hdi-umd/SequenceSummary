@@ -1,3 +1,4 @@
+"""Implements ranking methods for coreflow."""
 import numpy as np
 class RankingFunction:
     """ Class to perform ranking and tiebreaker among events."""
@@ -11,7 +12,7 @@ class RankingFunction:
         self.maxSupport = maxSup
         self.rankingFunc = self.numberOfSequence
         self.tieBreaker = self.performRankingMedianIndex#self.
-        
+
     def setRankingFunc(self, method1):
         """Set ranking function."""
         self.rankingFunc = method1
