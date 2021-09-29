@@ -134,7 +134,7 @@ class Pattern:
         self.setMedianPositions(medians)
         self.setMeanPositions(means)
 
-        print(f'mean {means} median {medians}')
+        #print(f'mean {means} median {medians}')
 
         trailingSteps = [0]*len(self.sids)
         for i, path in enumerate(self.sids):

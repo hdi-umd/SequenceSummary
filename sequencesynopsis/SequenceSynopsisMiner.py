@@ -19,8 +19,8 @@ class SequenceSynopsisMiner:
         # Initialization Phase
         clustDict = [Cluster(Pattern(seq.getHashList(self.attr)), [seq], list(range(0, seq.getSeqLen())))
                      for seq in seqs]
-        print("Initial clusts")
-        Cluster.printClustDict(clustDict, self.attr)
+        #print("Initial clusts")
+        #Cluster.printClustDict(clustDict, self.attr)
 
         priorityQueue = []
 
@@ -30,16 +30,17 @@ class SequenceSynopsisMiner:
                     continue
                 deltaL, cStar = self.merge(
                     clust1, clust2)
-                print("returned")
+                #print(f'returned {deltaL}, {cStar}')
                 if deltaL > 0:
                     priorityQueue.append(QueueElements(
                         deltaL, cStar, clust1, clust2))
 
+        QueueElements.printPriorityQueue(priorityQueue, self.attr)
         while priorityQueue:
             priorityQueue = sorted(
                 priorityQueue, key=lambda x: x.deltaL, reverse=True)  # sort on deltaL
 
-            print(f'to Merge ')
+            #print(f'to Merge ')
             toMerge = priorityQueue[0]
             toMerge.printElement(self.attr)
             cNew = toMerge.cStar
@@ -68,10 +69,11 @@ class SequenceSynopsisMiner:
                 if deltaL > 0:
                     priorityQueue.append(
                         QueueElements(deltaL, cStar, clus, cNew))
+            QueueElements.printPriorityQueue(priorityQueue, self.attr)
 
         return clustDict
 
-    def merge(self, pair1, pair2, alpha=1, lambdaVal=0):
+    def merge(self, pair1, pair2, alpha=0.9, lambdaVal=0.1):
         """Merge two seqLists and calculate the description length reduction"""
         pStar = Pattern(lcs(pair1.pattern.keyEvts, pair2.pattern.keyEvts))
         candidateEvents = list(((Counter(pair1.pattern.keyEvts)-Counter(pStar.keyEvts)) |
@@ -81,17 +83,17 @@ class SequenceSynopsisMiner:
             candidateEventsCounter, key=candidateEventsCounter.get, reverse=True)
 
         deltaL = -1
-        print(f'p1 {pair1.pattern.keyEvts}')
-        print(f'p2 {pair2.pattern.keyEvts}')
+        #print(f'p1 {pair1.pattern.keyEvts}')
+        #print(f'p2 {pair2.pattern.keyEvts}')
 
         lcsPosPat1 = Pattern.getPositions(
             pStar.keyEvts, pair1.pattern.keyEvts)
         lcsPosPat2 = Pattern.getPositions(
             pStar.keyEvts, pair2.pattern.keyEvts)
         averagePos = calcAverage(lcsPosPat1, lcsPosPat2)
-        print(f'Average Pos {averagePos}')
+        #print(f'Average Pos {averagePos}')
 
-        print(f'candidates {candidateEventsCounter}')
+        #print(f'candidates {candidateEventsCounter}')
         clust = Cluster(pStar, pair1.seqList+pair2.seqList, averagePos)
         selectedIndex = -1
 
@@ -118,12 +120,12 @@ class SequenceSynopsisMiner:
                 candidatePos.append(index)
 
             candidatePos = list(set(candidatePos))
-            print(f'candidatepos {candidatePos}')
+            #print(f'candidatepos {candidatePos}')
 
             for index in candidatePos:
 
                 tempPattern.keyEvts.insert(index, candidate)
-                print(f'index {index}')
+                #print(f'index {index}')
                 deltaLPrime = len(pair1.pattern.keyEvts) + len(pair2.pattern.keyEvts) - \
                     len(tempPattern.keyEvts)+lambdaVal
                 #print(f'del L Prime  {deltaLPrime}')
@@ -147,8 +149,8 @@ class SequenceSynopsisMiner:
                 deltaL = deltaLPrime
                 pStar = tempPattern
 
-                print(f'del L  {deltaL}')
-                print(f'pStar {pStar.keyEvts}')
+                #print(f'del L  {deltaL}')
+                #print(f'pStar {pStar.keyEvts}')
                 selectedIndex = index
                 del tempPattern.keyEvts[index]
                 clust = Cluster(pStar, pair1.seqList+pair2.seqList, averagePos)
@@ -171,5 +173,5 @@ class SequenceSynopsisMiner:
 
             if deltaLPrime < 0 or deltaLPrime < deltaL:
                 break
-        print(f'return del_L {deltaL} cluster {clust.pattern.keyEvts} {clust.seqList}')
+        #print(f'return del_L {deltaL} cluster {clust.pattern.keyEvts} {clust.seqList}')
         return deltaL, clust

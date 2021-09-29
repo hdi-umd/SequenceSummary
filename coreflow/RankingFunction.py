@@ -59,7 +59,7 @@ class RankingFunction:
                     patternDict[hashVal] = Pattern(hashVal)
                 patternDict[hashVal].addToSupportSet(seq.sid)
 
-        print(f'result {result}')
+        #print(f'result {result}')
 
         # Get most common tuples
         self.topRankedEvtValues = []
@@ -67,7 +67,7 @@ class RankingFunction:
         maxVal = 0
         if result:
             for val in result.most_common():
-                print(f' common {val}')
+                #print(f' common {val}')
                 if val[1] > self.maxSupport:
                     continue
                 maxVal = val[1]  # find highest elem value

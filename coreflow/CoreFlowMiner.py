@@ -85,11 +85,11 @@ class CoreFlowMiner:
         self.truncateSequences(
             seqs, hashVal, node, containSegs, notContain)
         # node.setSeqCount(Sequence.getSeqVolume(containSegs))
-        print(f'mean Step {node.meanStep}')
-        print(f'seq count {node.getSeqCount()}')
-        print([seq.getSeqLen()for seq in containSegs])
-        print([seq.sid.getSeqLen()for seq in containSegs])
-        print([seq.sid.getEventsString(self.attr)for seq in node.sequences])
+        #print(f'mean Step {node.meanStep}')
+        #print(f'seq count {node.getSeqCount()}')
+        #print([seq.getSeqLen()for seq in containSegs])
+        #print([seq.sid.getSeqLen()for seq in containSegs])
+        #print([seq.sid.getEventsString(self.attr)for seq in node.sequences])
         #print(f'seq count {node.getSeqCount()}')
 
         if node.getSeqCount() >= self.minSupport:
@@ -126,7 +126,7 @@ class CoreFlowMiner:
             ind = seq.getEventPosition(self.attr, hashVal)
             if ind < 0:
                 notContain.append(seq)
-                print(f'not contain {seq.getHashList(self.attr)}')
+                #print(f'not contain {seq.getHashList(self.attr)}')
             else:
                 if ind >= 0:
                     incomingSeq = Sequence(
@@ -134,7 +134,7 @@ class CoreFlowMiner:
                     self.branchSequences[incomingSeq.getPathID()] = incomingSeq
                     incomingSeq.setVolume(seq.getVolume())
                     incomingBranchSeqs.append(incomingSeq)
-                    print(f'previous {incomingSeq.getHashList(self.attr)}')
+                    #print(f'previous {incomingSeq.getHashList(self.attr)}')
                     uniqueEvts.extend(
                         incomingSeq.getUniqueValueHashes(self.attr))
 
@@ -145,11 +145,11 @@ class CoreFlowMiner:
 
                     outgoingSeq.setVolume(seq.getVolume())
                     trailingSeqSegs.append(outgoingSeq)
-                    print(f'next {outgoingSeq.getHashList(self.attr)}')
+                    #print(f'next {outgoingSeq.getHashList(self.attr)}')
 
                 indices.extend([ind]*(seq.getVolume()))
 
-                print(f'type {seq.events[ind].type}')
+                #print(f'type {seq.events[ind].type}')
 
         node.setIncomingBranchUniqueEvts(len(set(uniqueEvts)))
         node.setSeqCount(Sequence.getSeqVolume(incomingBranchSeqs))
@@ -162,8 +162,8 @@ class CoreFlowMiner:
 
     def bundleToExit(self, seqs, parent, graph, exitNodeHash):
         """Creates Exit Node as Pattern can not be exended."""
-        print(seqs)
-        print(parent)
+        #print(seqs)
+        #print(parent)
         if len(seqs) == 0:
             return
 
@@ -172,8 +172,8 @@ class CoreFlowMiner:
         node.parent.append(parent)
         #node.attr = self.attr
         node.sequences.extend([seq.sid for seq in seqs])
-        print(f'node sequences {node.sequences}')
-        print(f'exit node hash {exitNodeHash}')
+        #print(f'node sequences {node.sequences}')
+        #print(f'exit node hash {exitNodeHash}')
         if exitNodeHash == -1:
             node.setValue("Exit")
             node.setHash(-2)
@@ -186,9 +186,9 @@ class CoreFlowMiner:
         node.setIncomingSequences(seqs)
         node.setSeqCount(Sequence.getSeqVolume(seqs))
         node.keyevts = parent.keyevts[:]
-        print([seq.getSeqLen()for seq in seqs])
-        print([seq.sid.getEventsString(self.attr)for seq in seqs])
-        print(f'exit node seq count {node.seqCount}')
+        #print([seq.getSeqLen()for seq in seqs])
+        #print([seq.sid.getEventsString(self.attr)for seq in seqs])
+        #print(f'exit node seq count {node.seqCount}')
 
         # lengths = []
         # for elem in seqs:
@@ -200,7 +200,7 @@ class CoreFlowMiner:
         linkLength = node.calcPositionsExitNode()
         # node.calcPositions(isExit=1)
         graph.nodes.append(RawNode(node, isCoreflow=True))
-        print(f'mean Step {node.meanStep}')
+        #print(f'mean Step {node.meanStep}')
         parent.children.append(node)
         graph.links.append(
             Links(parent, node, node.seqCount, linkLength))
