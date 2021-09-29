@@ -8,10 +8,11 @@
     "@testing-library/user-event": "^12.8.3",
     "bootstrap": "^5.1.0",
     "jquery": "^3.6.0",
+    "list-react-files": "^0.2.0",
+    "node-libcurl": "^2.3.3",
     "popper.js": "^1.16.1",
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.0-beta.6",
-    "node-libcurl": "^2.3.3",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.2"
@@ -39,5 +40,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "json-loader": "^0.5.7",
+    "react-require": "^1.0.1"
   }
 }
