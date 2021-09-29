@@ -1,0 +1,174 @@
+{
+ "nodes": [
+  {
+   "id": 13,
+   "event_attribute": "",
+   "Pattern": "",
+   "value": 100,
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 15,
+   "event_attribute": "Arrival",
+   "Pattern": "Arrival",
+   "value": 100,
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 17,
+   "event_attribute": "Emergency",
+   "Pattern": "Arrival-Emergency",
+   "value": 100,
+   "median_index": 1.0,
+   "average_index": 1.0
+  },
+  {
+   "id": 19,
+   "event_attribute": "ICU",
+   "Pattern": "Arrival-Emergency-ICU",
+   "value": 62,
+   "median_index": 2.0,
+   "average_index": 2.4838709677419355
+  },
+  {
+   "id": 21,
+   "event_attribute": "Die",
+   "Pattern": "Arrival-Emergency-ICU-Die",
+   "value": 36,
+   "median_index": 3.0,
+   "average_index": 3.9283154121863797
+  },
+  {
+   "id": 23,
+   "event_attribute": "Discharge-Alive",
+   "Pattern": "Arrival-Emergency-Discharge-Alive",
+   "value": 38,
+   "median_index": 2.0,
+   "average_index": 2.026315789473684
+  },
+  {
+   "id": 27,
+   "event_attribute": "Floor",
+   "Pattern": "Arrival-Emergency-Floor-ICU-Die",
+   "value": 21,
+   "median_index": 2.0,
+   "average_index": 2.0
+  },
+  {
+   "id": 29,
+   "event_attribute": "Floor",
+   "Pattern": "Arrival-Emergency-ICU-Floor",
+   "value": 24,
+   "median_index": 3.0,
+   "average_index": 3.4838709677419355
+  },
+  {
+   "id": 31,
+   "event_attribute": "Discharge-Alive",
+   "Pattern": "Arrival-Emergency-ICU-Floor-Discharge-Alive",
+   "value": 24,
+   "median_index": 4.0,
+   "average_index": 5.317204301075269
+  },
+  {
+   "id": 36,
+   "event_attribute": "Exit",
+   "Pattern": "Arrival-Emergency-Discharge-Alive",
+   "value": 38,
+   "median_index": 2.0,
+   "average_index": 2.026315789473684
+  },
+  {
+   "id": 37,
+   "event_attribute": "Exit",
+   "Pattern": "Arrival-Emergency-ICU-Floor-Discharge-Alive",
+   "value": 24,
+   "median_index": 4.0,
+   "average_index": 5.317204301075269
+  },
+  {
+   "id": 38,
+   "event_attribute": "Exit",
+   "Pattern": "Arrival-Emergency-Floor-ICU-Die",
+   "value": 21,
+   "median_index": 3.0,
+   "average_index": 3.9283154121863797
+  }
+ ],
+ "links": [
+  {
+   "source": 13,
+   "target": 15,
+   "count": 100,
+   "length": 0.0
+  },
+  {
+   "source": 15,
+   "target": 17,
+   "count": 100,
+   "length": 1.0
+  },
+  {
+   "source": 17,
+   "target": 19,
+   "count": 41,
+   "length": 1.4838709677419355
+  },
+  {
+   "source": 17,
+   "target": 23,
+   "count": 38,
+   "length": 1.0263157894736843
+  },
+  {
+   "source": 17,
+   "target": 27,
+   "count": 21,
+   "length": 1.0
+  },
+  {
+   "source": 19,
+   "target": 21,
+   "count": 36,
+   "length": 1.4444444444444444
+  },
+  {
+   "source": 19,
+   "target": 29,
+   "count": 24,
+   "length": 1.0
+  },
+  {
+   "source": 21,
+   "target": 38,
+   "count": 21,
+   "length": 0.0
+  },
+  {
+   "source": 23,
+   "target": 36,
+   "count": 38,
+   "length": 0.0
+  },
+  {
+   "source": 27,
+   "target": 19,
+   "count": 21,
+   "length": 2.0
+  },
+  {
+   "source": 29,
+   "target": 31,
+   "count": 24,
+   "length": 1.8333333333333333
+  },
+  {
+   "source": 31,
+   "target": 37,
+   "count": 24,
+   "length": 0.0
+  }
+ ]
+}

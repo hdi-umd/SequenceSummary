@@ -1,0 +1,1 @@
+[{"pattern": ["D", "B", "B"], "sequences": [["D", "E", "B", "B", "A"], ["C", "J", "D", "F", "B", "G", "B"]]}, {"pattern": ["A", "C", "C"], "sequences": [["A", "B", "C", "B", "C", "D", "E"], ["C", "A", "C", "C", "A"]]}, {"pattern": [], "sequences": [["C", "L", "F", "G", "H"], ["I", "K", "A", "E"]]}]

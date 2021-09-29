@@ -1,0 +1,154 @@
+{
+ "event_attribute": "Start",
+ "Pattern": "",
+ "value": 22,
+ "median_index": 0,
+ "average_index": 0,
+ "children": [
+  {
+   "event_attribute": "Sugar to treat",
+   "Pattern": "Sugar to treat",
+   "value": 22,
+   "median_index": 3.5,
+   "average_index": 3.9545454545454546,
+   "children": [
+    {
+     "event_attribute": "Lunch",
+     "Pattern": "Sugar to treat-Lunch",
+     "value": 21,
+     "median_index": 6.5,
+     "average_index": 6.906926406926408,
+     "children": [
+      {
+       "event_attribute": "Lunch",
+       "Pattern": "Sugar to treat-Lunch-Lunch",
+       "value": 21,
+       "median_index": 10.5,
+       "average_index": 11.906926406926408,
+       "children": [
+        {
+         "event_attribute": "Breakfast",
+         "Pattern": "Sugar to treat-Lunch-Lunch-Breakfast",
+         "value": 19,
+         "median_index": 12.5,
+         "average_index": 14.327979038505354,
+         "children": [
+          {
+           "event_attribute": "Breakfast",
+           "Pattern": "Sugar to treat-Lunch-Lunch-Breakfast-Breakfast",
+           "value": 17,
+           "median_index": 16.5,
+           "average_index": 18.327979038505354,
+           "children": [
+            {
+             "event_attribute": "Lunch",
+             "Pattern": "Sugar to treat-Lunch-Lunch-Breakfast-Breakfast-Lunch",
+             "value": 12,
+             "median_index": 21.0,
+             "average_index": 22.661312371838687,
+             "children": [
+              {
+               "event_attribute": "Breakfast",
+               "Pattern": "Sugar to treat-Lunch-Lunch-Breakfast-Breakfast-Lunch-Breakfast",
+               "value": 11,
+               "median_index": 22.0,
+               "average_index": 23.84313055365687,
+               "children": [
+                {
+                 "event_attribute": "Sugar to treat",
+                 "Pattern": "Sugar to treat-Lunch-Lunch-Breakfast-Breakfast-Lunch-Breakfast-Sugar to treat",
+                 "value": 7,
+                 "median_index": 23.0,
+                 "average_index": 25.84313055365687,
+                 "children": [
+                  {
+                   "event_attribute": "Breakfast",
+                   "Pattern": "Sugar to treat-Lunch-Lunch-Breakfast-Breakfast-Lunch-Breakfast-Sugar to treat-Breakfast",
+                   "value": 6,
+                   "median_index": 24.5,
+                   "average_index": 28.34313055365687,
+                   "children": [
+                    {
+                     "event_attribute": "Exit",
+                     "Pattern": "Sugar to treat-Lunch-Lunch-Breakfast-Breakfast-Lunch-Breakfast-Sugar to treat-Breakfast",
+                     "value": 6,
+                     "median_index": 26.5,
+                     "average_index": 30.509797220323538,
+                     "children": []
+                    }
+                   ]
+                  },
+                  {
+                   "event_attribute": "Exit",
+                   "Pattern": "Sugar to treat-Lunch-Lunch-Breakfast-Breakfast-Lunch-Breakfast-Sugar to treat",
+                   "value": 1,
+                   "median_index": 23.0,
+                   "average_index": 25.84313055365687,
+                   "children": []
+                  }
+                 ]
+                },
+                {
+                 "event_attribute": "Exit",
+                 "Pattern": "Sugar to treat-Lunch-Lunch-Breakfast-Breakfast-Lunch-Breakfast",
+                 "value": 4,
+                 "median_index": 22.0,
+                 "average_index": 24.09313055365687,
+                 "children": []
+                }
+               ]
+              },
+              {
+               "event_attribute": "Exit",
+               "Pattern": "Sugar to treat-Lunch-Lunch-Breakfast-Breakfast-Lunch",
+               "value": 1,
+               "median_index": 21.0,
+               "average_index": 22.661312371838687,
+               "children": []
+              }
+             ]
+            },
+            {
+             "event_attribute": "Exit",
+             "Pattern": "Sugar to treat-Lunch-Lunch-Breakfast-Breakfast",
+             "value": 5,
+             "median_index": 16.5,
+             "average_index": 20.727979038505353,
+             "children": []
+            }
+           ]
+          },
+          {
+           "event_attribute": "Exit",
+           "Pattern": "Sugar to treat-Lunch-Lunch-Breakfast",
+           "value": 2,
+           "median_index": 14.0,
+           "average_index": 15.827979038505354,
+           "children": []
+          }
+         ]
+        },
+        {
+         "event_attribute": "Exit",
+         "Pattern": "Sugar to treat-Lunch-Lunch",
+         "value": 2,
+         "median_index": 13.0,
+         "average_index": 14.406926406926408,
+         "children": []
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "event_attribute": "Exit",
+     "Pattern": "Sugar to treat",
+     "value": 1,
+     "median_index": 3.5,
+     "average_index": 3.9545454545454546,
+     "children": []
+    }
+   ]
+  }
+ ]
+}

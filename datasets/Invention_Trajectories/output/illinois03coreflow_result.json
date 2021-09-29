@@ -1,0 +1,68 @@
+{
+ "event_attribute": "Start",
+ "Pattern": "",
+ "value": 63,
+ "median_index": 0,
+ "average_index": 0,
+ "children": [
+  {
+   "event_attribute": "SBIR phase 1",
+   "Pattern": "SBIR phase 1",
+   "value": 57,
+   "median_index": 1.0,
+   "average_index": 1.6666666666666667,
+   "children": [
+    {
+     "event_attribute": "SBIR phase 2",
+     "Pattern": "SBIR phase 1-SBIR phase 2",
+     "value": 38,
+     "median_index": 3.0,
+     "average_index": 4.245614035087719,
+     "children": [
+      {
+       "event_attribute": "SBIR phase 1",
+       "Pattern": "SBIR phase 1-SBIR phase 2-SBIR phase 1",
+       "value": 15,
+       "median_index": 7.0,
+       "average_index": 8.912280701754387,
+       "children": [
+        {
+         "event_attribute": "Exit",
+         "Pattern": "SBIR phase 1-SBIR phase 2-SBIR phase 1",
+         "value": 15,
+         "median_index": 11.0,
+         "average_index": 17.912280701754387,
+         "children": []
+        }
+       ]
+      },
+      {
+       "event_attribute": "Exit",
+       "Pattern": "SBIR phase 1-SBIR phase 2",
+       "value": 23,
+       "median_index": 4.0,
+       "average_index": 5.41952707856598,
+       "children": []
+      }
+     ]
+    },
+    {
+     "event_attribute": "Exit",
+     "Pattern": "SBIR phase 1",
+     "value": 19,
+     "median_index": 3.0,
+     "average_index": 5.035087719298246,
+     "children": []
+    }
+   ]
+  },
+  {
+   "event_attribute": "Exit",
+   "Pattern": "",
+   "value": 6,
+   "median_index": 1.5,
+   "average_index": 13.0,
+   "children": []
+  }
+ ]
+}

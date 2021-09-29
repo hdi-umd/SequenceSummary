@@ -1,0 +1,35 @@
+{
+ "event_attribute": "Start",
+ "Pattern": "",
+ "value": 762,
+ "median_index": 0,
+ "average_index": 0,
+ "children": [
+  {
+   "event_attribute": "Incident start",
+   "Pattern": "Incident start",
+   "value": 762,
+   "median_index": 0.0,
+   "average_index": 0.23622047244094488,
+   "children": [
+    {
+     "event_attribute": "Incident closed",
+     "Pattern": "Incident start-Incident closed",
+     "value": 762,
+     "median_index": 18.0,
+     "average_index": 19.401574803149607,
+     "children": [
+      {
+       "event_attribute": "Exit",
+       "Pattern": "Incident start-Incident closed",
+       "value": 762,
+       "median_index": 18.0,
+       "average_index": 19.410761154855646,
+       "children": []
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
