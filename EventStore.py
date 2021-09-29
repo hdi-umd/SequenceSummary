@@ -28,7 +28,7 @@ class EventStore:
     # then use that instead of calling my helper
     # for those cases
 
-    def importPointEvents(self, src, timestampColumnIdx, timeFormat,
+    def importPointEvents(self, src, timeStampColumnIdx, timeFormat,
                           sep='\t', local=False, header=None, dataFrame=None):
         """ Returns a list of event objects
         src is a url or directory path, if local is false its url else its path
@@ -42,11 +42,14 @@ class EventStore:
         # For each event in the csv construct an event object
         for row in dataFrame.iterrows():
             data = row[1]
-            timestamp = datetime.strptime(data[timestampColumnIdx], timeFormat)
+            try:
+                timeStamp = datetime.strptime(data[timeStampColumnIdx], timeFormat)
+            except ValueError:
+                timeStamp = datetime.fromisoformat(data[timeStampColumnIdx])
             # for all attributes other tahn time, add them to attributes dict
-            evt = PointEvent(timestamp)
+            evt = PointEvent(timeStamp)
             for i, _ in enumerate(data):
-                if i != timestampColumnIdx:
+                if i != timeStampColumnIdx:
                     evt.addAttribute(cols[i], data[i])
             # use time stamp and attributes map to construct event object
             events.append(evt)
@@ -77,11 +80,18 @@ class EventStore:
         for row in dataFrame.iterrows():
             data = row[1]
             # create datetime object for the start and end times of the event
-            timestamp1 = datetime.strptime(
-                data[startTimeColumnIdx], timeFormat)
-            timestamp2 = datetime.strptime(data[endTimeColumnIdx], timeFormat)
+            try:
+                timeStamp1 = datetime.strptime(
+                    data[startTimeColumnIdx], timeFormat)
+            except ValueError:
+                timeStamp1 = datetime.fromisoformat(data[startTimeColumnIdx])
+            
+            try:
+                timeStamp2 = datetime.strptime(data[endTimeColumnIdx], timeFormat)
+            except ValueError:
+                timeStamp2 = datetime.fromisoformat(data[endTimeColumnIdx])
             # for all attributes other than times, add them to attributes dict
-            evt = IntervalEvent(timestamp1, timestamp2)
+            evt = IntervalEvent(timeStamp1, timeStamp2)
             for i, _ in enumerate(data):
                 if i not in (startTimeColumnIdx, endTimeColumnIdx):
                     evt.addAttribute(cols[i], data[i])
@@ -115,21 +125,30 @@ class EventStore:
         # For each event in the csv construct an event object
         for row in dataFrame.iterrows():
             data = row[1]
-            # create datetime object for timestamp (if point events)
+            # create datetime object for timeStamp (if point events)
             # or t1 and t2 (if interval event)
             # If the endTimeColumnIdx value is NaN ie a float instead of a time
             # string then its a point event
             # if isinstance(data[endTimeColumnIdx], float):
             if data[endTimeColumnIdx] is None or isinstance(data[endTimeColumnIdx], float):
-                timeStamp = datetime.strptime(
-                    data[startTimeColumnIdx], timeFormat)
+                try:
+                    timeStamp = datetime.strptime(
+                        data[startTimeColumnIdx], timeFormat)
+                except ValueError:
+                    timeStamp = datetime.fromisoformat(data[startTimeColumnIdx])
                 eventType = "point"
             # Otherwise its an interval event
             else:
-                timeStamp1 = datetime.strptime(
-                    data[startTimeColumnIdx], timeFormat)
-                timeStamp2 = datetime.strptime(
-                    data[endTimeColumnIdx], timeFormat)
+                try:
+                    timeStamp1 = datetime.strptime(
+                        data[startTimeColumnIdx], timeFormat)
+                except ValueError:
+                    timeStamp1 = datetime.fromisoformat(data[startTimeColumnIdx])
+                try:
+                    timeStamp2 = datetime.strptime(
+                        data[endTimeColumnIdx], timeFormat)
+                except ValueError:
+                    timeStamp2 = datetime.fromisoformat(data[endTimeColumnIdx])
                 eventType = "interval"
             # for all attributes other than times, add them to attributes dict
             # list of indices to be ignored
@@ -198,7 +217,7 @@ class EventStore:
         the mapping and reverse mapping dictionary.
         """
         attrList = self.events[0].attributes.keys()
-        print(attrList)
+        #print(attrList)
 
         for attr in attrList:
             unicode = 48

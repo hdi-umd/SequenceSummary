@@ -33,7 +33,7 @@ def sortByFrequency(seqList1, seqList2, selectedEvents):
             for event in seqs.events:
                 if event in selectedEvents:
                     counter[event] += 1
-    print(counter)
+    #print(counter)
     return sorted(counter, key=counter.get, reverse=True)
 
 

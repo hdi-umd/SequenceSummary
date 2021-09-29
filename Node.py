@@ -73,7 +73,7 @@ class Node():
     def setPositions(self, lst):
         """set meanStep and medianStep"""
         self.pos = lst
-        print(f'positions {self.pos}')
+        #print(f'positions {self.pos}')
         self.pos.sort()
         sumVal = sum(self.pos)+len(self.pos)
         #mid = len(self.pos)/2
@@ -205,7 +205,7 @@ class TreeNode(Node):
 
         # swap the loops for better readability
         for i, _ in enumerate(self.keyevts):
-            print(f'key events {self.keyevts}')
+            #print(f'key events {self.keyevts}')
             numSteps = []
 
             for _, elem in enumerate(self.sequences):
@@ -218,7 +218,7 @@ class TreeNode(Node):
                     else:
                         # in other cases add the difference
                         numSteps.append(pos[i]-pos[i-1])
-            print(f'numSteps {numSteps}')
+            #print(f'numSteps {numSteps}')
             sumSteps = sum(numSteps)
 
             median = Pattern.getMedian(numSteps)
@@ -234,8 +234,8 @@ class TreeNode(Node):
 
         # means = list(accumulate(means))
         # medians = list(accumulate(medians))
-        print(f'means {means}')
-        print(f'medians {medians}')
+        #print(f'means {means}')
+        #print(f'medians {medians}')
 
         self.medianPos = medians
         self.meanPos = means
@@ -254,9 +254,10 @@ class TreeNode(Node):
             pos = Pattern.getPositions(
                 self.keyevts, path.getHashList(self.attr))
             # the difference between the last event in thesequence and the last key event
-            trailingSteps[i] = len(path.events) - pos[-1]-1
+            #print(f'pos {pos} keyevts {self.keyevts} events {path.getEvtAttrValues(self.attr)}')
+            trailingSteps[i] = len(path.events) - pos[-1]-1 if pos else len(path.events)-1
 
-        print(f'trailing {trailingSteps}')
+        #print(f'trailing {trailingSteps}')
 
         trailStepSum = sum(trailingSteps)
 
@@ -270,9 +271,9 @@ class TreeNode(Node):
         # self.medianPathLength = mean+means[-1]
         #self.meanStep = mean + means[-1]
         #self.medianStep = median + medians[-1]
-        print(f'parent mean {self.parent[-1].meanStep}')
-        print(f'trailing means{mean}')
-        print(f'trailing medians{median}')
+        #print(f'parent mean {self.parent[-1].meanStep}')
+        #print(f'trailing means{mean}')
+        #print(f'trailing medians{median}')
         self.meanStep = self.parent[-1].meanStep + mean
         self.medianStep = self.parent[-1].medianStep + median
         return mean
@@ -288,7 +289,7 @@ class TreeNode(Node):
 
         # swap the loops for better readability
         for i, _ in enumerate(self.keyevts):
-            print(f'key events {self.keyevts}')
+            #print(f'key events {self.keyevts}')
             numSteps = []
 
             for _, elem in enumerate(self.sequences):
@@ -301,7 +302,7 @@ class TreeNode(Node):
                     else:
                         # in other cases add the difference
                         numSteps.append(pos[i]-pos[i-1])
-            print(f'numSteps {numSteps}')
+            #print(f'numSteps {numSteps}')
             sumSteps = sum(numSteps)
 
             median = Pattern.getMedian(numSteps)
@@ -317,8 +318,8 @@ class TreeNode(Node):
 
         means = list(accumulate(means))
         medians = list(accumulate(medians))
-        print(f'means {means}')
-        print(f'medians {medians}')
+        #print(f'means {means}')
+        #print(f'medians {medians}')
 
         self.medianPos = medians
         self.meanPos = means
@@ -345,8 +346,8 @@ class TreeNode(Node):
             #self.medianStep = median + medians[-1]
             means.append(mean + means[-1])
             medians.append(median + medians[-1])
-            print(f'trailing means{means}')
-            print(f'trailing medians{medians}')
+            #print(f'trailing means{means}')
+            #print(f'trailing medians{medians}')
         self.meanStep = means[-1]
         self.medianStep = medians[-1]
 

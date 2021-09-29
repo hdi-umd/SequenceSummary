@@ -52,7 +52,7 @@ class SentenTreeMiner:
 
             if not seq1 and not seq0:
                 word, pos, count, seq0, seq1 = self.growSeq(currentSeq)
-                print(f'key event {word} inserted at {pos} with count {count}')
+                #print(f'key event {word} inserted at {pos} with count {count}')
                 #print(f'nid {seq1.nid}')
                 if count <= self.minSupport:
                     #currentSeq.parent.insert(0, rootNode)
@@ -174,7 +174,7 @@ class SentenTreeMiner:
             # calculate average index
             posArr = [seq.seqIndices[self.ranker.pos]
                       for seq in seq1.sequences]
-            print(f'Sequence id {seqIds}')
+            #print(f'Sequence id {seqIds}')
             seq1.setPositions(posArr)
             seq0.setSeqCount(Sequence.getSeqVolume(seq0.sequences))
             seq1.setSeqCount(Sequence.getSeqVolume(seq1.sequences))
@@ -201,4 +201,4 @@ class SentenTreeMiner:
                     else:
                         linkadj[first.nid][second.nid] = min(
                             first.seqCount, second.seqCount)
-            print(linkadj)
+            #print(linkadj)
