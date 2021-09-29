@@ -17,24 +17,26 @@ function DropdownDataset() {
   // console.log(path.resolve('../../../../../'));
   // console.log(path.isAbsolute(__dirname));
   // console.log(path.join(__dirname,"../../../"));
-  console.log(__dirname);
-  const fileList = require.context("../../../datasets/Outputs", true);
+  // console.log(__dirname);
+  const fileList = require.context("../../../datasets/Outputs", false, /\.json$/);
   fileList.keys().forEach((key) => console.log(key));
   console.log(typeof fileList.keys()[0]);
   //Load json files
-  var dataList = [];
-  var dataListCoreFlow = [];
-  var dataListSententree = [];
+  var dataMap = {};
+  // var dataList = [];
+  // var dataListCoreFlow = [];
+  // var dataListSententree = [];
 
-  for (let file in fileList.keys()) {
-    dataList.push(
-      require("../../../datasets/Outputs" + fileList.keys()[file].substring(1))
-    );
+  for (let file of fileList.keys()) {
+    //As there are redundant entries in context
+    let key = file.substring(0, 11);
+    dataMap[key] = dataMap[key] || []; //initialize if not exists
+    dataMap[key].push(require("../../../datasets/Outputs" + file.substring(1)));
   }
 
   // const data = require("../../../datasets/Outputs" +
   //   fileList.keys()[0].substring(1));
-  console.log(dataList);
+  console.log(dataMap);
 
   //joining path of directory
   //const directoryPath = path.join(__dirname, "Documents");
