@@ -1,11 +1,13 @@
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
+import * as atlas from "atlas-vis";
 import React from "react";
 
-function renderTree() {
-  let scene = window.atlas.scene();
-  let data = "../../../datasets/Outputs/AAAsample_ed2coreflow_result.json"
+function renderTree(data) {
+  let scene = atlas.scene();
+  console.log(data);
+  // let data = "../../../datasets/Outputs/AAAsample_ed2coreflow_result.json"
   let node = scene.mark("text", {
     x: 100,
     y: 100,
@@ -14,7 +16,7 @@ function renderTree() {
   });
   let nodes = scene.repeat(node, data.nodeTable);
   scene.encode(node, { field: "event_attribute", channel: "text" });
-  nodes.layout = window.atlas.layout("tidytree", { width: 500, height: 300 });
+  nodes.layout = atlas.layout("tidytree", { width: 500, height: 300 });
   scene.encode(node, {
     field: "average_index",
     channel: "x",
@@ -42,12 +44,12 @@ function renderTree() {
     field: "child.value",
     range: [0, 6],
   });
-  //window.atlas.renderer("svg").render(scene, "svgElement");
-  window.atlas.renderer("svg").render(scene, "svgElement");
+  //atlas.renderer("svg").render(scene, "svgElement");
+  atlas.renderer("svg").render(scene, "svgElement");
 }
 
 function renderTree2(data) {
-  let scene = window.atlas.scene();
+  let scene = atlas.scene();
 
   let link = scene.mark("link", {
     sourceAnchor: ["right", "middle"],
@@ -59,7 +61,7 @@ function renderTree2(data) {
   let links = scene.repeat(link, data.linkTable);
   let node = scene.mark("text", { x: 120, y: 120 });
   let nodes = scene.repeat(node, data.nodeTable);
-  nodes.layout = window.atlas.layout("force", { x: 200, y: 300, iterations: 300 });
+  nodes.layout = atlas.layout("force", { x: 200, y: 300, iterations: 300 });
   scene.encode(node, {
     field: "average_index",
     channel: "x",
@@ -74,11 +76,12 @@ function renderTree2(data) {
   scene.encode(linkWeight, { field: "count", channel: "text" });
   scene.affix(linkWeight, link, "x");
   scene.affix(linkWeight, link, "y");
-  window.atlas.renderer("svg").render(scene, "svgElement");
+  atlas.renderer("svg").render(scene, "svgElement");
 }
 function RenderVisualization(props) {
   console.log(props.sententreeJson);
-  console.log(window.atlas);
+  console.log(props.coreflowJson);
+  console.log(atlas);
   renderTree(props.coreflowJson);
   //renderTree2(props.sententreeJson);
 
