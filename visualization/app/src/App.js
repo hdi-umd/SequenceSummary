@@ -21,14 +21,14 @@ function loadData() {
 function App() {
   let data = loadData();
   console.log(data);
-  let defaultVal = Object.keys(data)[0];
+  let defaultVal = Object.keys(data)[3];
   let datasetNames = Object.keys(data);
 
   const [selectedValue, setSelectedValue] = useState(defaultVal);
   const selectedValueChange = (value) => {
-    console.log(value);
+    // console.log(value);
     setSelectedValue(value);
-    console.log(selectedValue);
+    // console.log(selectedValue);
   };
   
   console.log(defaultVal);
@@ -36,7 +36,7 @@ function App() {
     <div className="App">
       <DropdownDataset
         dataNames={datasetNames}
-        defaultValue={datasetNames[0]}
+        defaultValue={datasetNames[3]}
         onSelectedValueChange={selectedValueChange}
       />
       <RenderVisualization 
