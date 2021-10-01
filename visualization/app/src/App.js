@@ -36,16 +36,20 @@ function App() {
   console.log(defaultVal);
   return (
     <div className="App">
+    <div>
       <DropdownDataset
         dataNames={datasetNames}
         defaultValue={datasetNames[0]}
         onSelectedValueChange={selectedValueChange}
       />
+      </div>
+    <div>  
       <RenderVisualization
         dataSet={selectedValue}
         coreflowJson={data[selectedValue][0]}
         sententreeJson={data[selectedValue][1]}
       />
+      </div>
     </div>
   );
 }

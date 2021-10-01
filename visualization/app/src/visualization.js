@@ -88,7 +88,7 @@ function RenderVisualization(props) {
   renderTree(props.coreflowJson);
   //renderTree2(props.sententreeJson);
 
-  return <svg id="svgElement" height="400" width="800"></svg>;
+  return (<svg id="svgElement"></svg>);
   //return <> </>;
 }
 export default RenderVisualization;
