@@ -5,7 +5,7 @@ import React, { useState } from "react";
 function loadData() {
   let dataMap = {};
   const fileList = require.context(
-    "../../../datasets/Outputs",
+    "../public/assets",
     false,
     /\.json$/
   );
@@ -14,14 +14,16 @@ function loadData() {
   for (let file of fileList.keys()) {
     let key = file.substring(2, 11);
     dataMap[key] = dataMap[key] || []; //initialize if not exists
-    dataMap[key].push(require("../../../datasets/Outputs" + file.substring(1)));
+    dataMap[key].push("/assets" + file.substring(1));
+    // dataMap[key].push(require("../../../datasets/Outputs" + file.substring(1)));
   }
   return dataMap;
 }
 function App() {
+
   let data = loadData();
   console.log(data);
-  let defaultVal = Object.keys(data)[3];
+  let defaultVal = Object.keys(data)[0];
   let datasetNames = Object.keys(data);
 
   const [selectedValue, setSelectedValue] = useState(defaultVal);
@@ -30,19 +32,19 @@ function App() {
     setSelectedValue(value);
     // console.log(selectedValue);
   };
-  
+
   console.log(defaultVal);
   return (
     <div className="App">
       <DropdownDataset
         dataNames={datasetNames}
-        defaultValue={datasetNames[3]}
+        defaultValue={datasetNames[0]}
         onSelectedValueChange={selectedValueChange}
       />
-      <RenderVisualization 
-        dataSet = {selectedValue}
-        coreflowJson = {data[selectedValue][0]}
-        sententreeJson = {data[selectedValue][1]}
+      <RenderVisualization
+        dataSet={selectedValue}
+        coreflowJson={data[selectedValue][0]}
+        sententreeJson={data[selectedValue][1]}
       />
     </div>
   );
