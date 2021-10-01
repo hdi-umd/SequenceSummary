@@ -4,8 +4,10 @@ import "bootstrap/dist/js/bootstrap.js";
 import * as atlas from "atlas-vis";
 import React from "react";
 
-function renderTree(data) {
+async function renderTree(dataPath) {
   let scene = atlas.scene();
+  console.log(dataPath);
+  let data = await atlas.treejson(dataPath);
   console.log(data);
   // let data = "../../../datasets/Outputs/AAAsample_ed2coreflow_result.json"
   let node = scene.mark("text", {
@@ -44,6 +46,7 @@ function renderTree(data) {
     field: "child.value",
     range: [0, 6],
   });
+  console.log(scene);
   //atlas.renderer("svg").render(scene, "svgElement");
   atlas.renderer("svg").render(scene, "svgElement");
 }
@@ -85,7 +88,7 @@ function RenderVisualization(props) {
   renderTree(props.coreflowJson);
   //renderTree2(props.sententreeJson);
 
-  return <svg id="svgElement"></svg>;
+  return <svg id="svgElement" height="400" width="800"></svg>;
   //return <> </>;
 }
 export default RenderVisualization;
