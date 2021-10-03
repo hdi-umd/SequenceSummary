@@ -47,13 +47,15 @@ async function renderTree(dataPath) {
     range: [0, 6],
   });
   console.log(scene);
+  console.log(document.getElementById("svgElement"));
   //atlas.renderer("svg").render(scene, "svgElement");
-  atlas.renderer("svg").render(scene, "svgElement");
+  atlas.renderer("svg", "svgElement").render(scene, "svgElement");
+  //document.getElementById("svgElement").append("whatever");
 }
 
-function renderTree2(data) {
+async function renderTree2(dataPath) {
   let scene = atlas.scene();
-
+  let data = await atlas.graphjson(dataPath);
   let link = scene.mark("link", {
     sourceAnchor: ["right", "middle"],
     targetAnchor: ["left", "middle"],
@@ -79,7 +81,7 @@ function renderTree2(data) {
   scene.encode(linkWeight, { field: "count", channel: "text" });
   scene.affix(linkWeight, link, "x");
   scene.affix(linkWeight, link, "y");
-  atlas.renderer("svg").render(scene, "svgElement");
+  atlas.renderer("svg","svgElement").render(scene, "svgElement");
 }
 function RenderVisualization(props) {
   console.log(props.sententreeJson);
@@ -88,7 +90,7 @@ function RenderVisualization(props) {
   renderTree(props.coreflowJson);
   //renderTree2(props.sententreeJson);
 
-  return (<svg id="svgElement"></svg>);
+  return (<svg id="svgElement">  </svg>);
   //return <> </>;
 }
 export default RenderVisualization;
