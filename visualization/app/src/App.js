@@ -1,6 +1,7 @@
 import DropdownDataset from "./dropdownDataset";
 import RenderVisualization from "./visualization";
 import React, { useState } from "react";
+import "./App.css";
 
 function loadData() {
   let dataMap = {};
@@ -41,9 +42,7 @@ function App() {
         dataNames={datasetNames}
         defaultValue={datasetNames[0]}
         onSelectedValueChange={selectedValueChange}
-      />
-      </div>
-    <div>  
+      />  
       <RenderVisualization
         dataSet={selectedValue}
         coreflowJson={data[selectedValue][0]}

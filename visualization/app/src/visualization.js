@@ -4,7 +4,7 @@ import "bootstrap/dist/js/bootstrap.js";
 import * as atlas from "atlas-vis";
 import React from "react";
 
-async function renderTree(dataPath) {
+async function renderTree(dataPath, renderer) {
   let scene = atlas.scene();
   console.log(dataPath);
   let data = await atlas.treejson(dataPath);
@@ -47,13 +47,15 @@ async function renderTree(dataPath) {
     range: [0, 6],
   });
   console.log(scene);
-  console.log(document.getElementById("svgElement"));
+  console.log(document.getElementById("svgElementCoreflow"));
   //atlas.renderer("svg").render(scene, "svgElement");
-  atlas.renderer("svg", "svgElement").render(scene, "svgElement");
+  
+  renderer.clear();
+  renderer.render(scene, "svgElementCoreflow");
   //document.getElementById("svgElement").append("whatever");
 }
 
-async function renderTree2(dataPath) {
+async function renderTree2(dataPath, renderer) {
   let scene = atlas.scene();
   let data = await atlas.graphjson(dataPath);
   let link = scene.mark("link", {
@@ -81,16 +83,27 @@ async function renderTree2(dataPath) {
   scene.encode(linkWeight, { field: "count", channel: "text" });
   scene.affix(linkWeight, link, "x");
   scene.affix(linkWeight, link, "y");
-  atlas.renderer("svg","svgElement").render(scene, "svgElement");
+  renderer.clear();
+  renderer.render(scene, "svgElementSententree");
+  //atlas.renderer("svg","svgElement").render(scene, "svgElement");
 }
 function RenderVisualization(props) {
   console.log(props.sententreeJson);
   console.log(props.coreflowJson);
   console.log(atlas);
-  renderTree(props.coreflowJson);
-  //renderTree2(props.sententreeJson);
+  let svgRendererCoreflow = atlas.renderer("svg", "svgElementCoreflow");
+  let svgRendererSententree = atlas.renderer("svg", "svgElementSententree");
+  renderTree(props.coreflowJson, svgRendererCoreflow);
+  renderTree2(props.sententreeJson, svgRendererSententree);
 
-  return (<svg id="svgElement">  </svg>);
+  return (<>
+  <div>
+  <svg id="svgElementCoreflow">  </svg>
+  </div>
+  <div>
+   <svg id="svgElementSententree">  </svg>
+   </div>
+   </>);
   //return <> </>;
 }
 export default RenderVisualization;
