@@ -1,2 +1,10 @@
-#svgElementCoreflow { width: 1000px; height: 500px; } 
-#svgElementSententree { width: 1000px; height: 500px; } 
+#svgElement {
+    width: 1000px;
+    height: 500px;
+  }
+  
+  .vis-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

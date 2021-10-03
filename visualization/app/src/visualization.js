@@ -2,60 +2,9 @@ import "bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
 import * as atlas from "atlas-vis";
-import React from "react";
+import React, { useEffect } from "react";
 
-async function renderTree(dataPath, renderer) {
-  let scene = atlas.scene();
-  console.log(dataPath);
-  let data = await atlas.treejson(dataPath);
-  console.log(data);
-  // let data = "../../../datasets/Outputs/AAAsample_ed2coreflow_result.json"
-  let node = scene.mark("text", {
-    x: 100,
-    y: 100,
-    fontSize: "14px",
-    fontWeight: "bold",
-  });
-  let nodes = scene.repeat(node, data.nodeTable);
-  scene.encode(node, { field: "event_attribute", channel: "text" });
-  nodes.layout = atlas.layout("tidytree", { width: 500, height: 300 });
-  scene.encode(node, {
-    field: "average_index",
-    channel: "x",
-    rangeExtent: 600,
-  });
-  scene.axis("x", "average_index", {
-    orientation: "bottom",
-    pathVisible: false,
-    tickVisible: false,
-  });
-  scene.gridlines("x", "average_index");
-  let link = scene.mark("link", {
-    sourceAnchor: ["right", "middle"],
-    targetAnchor: ["left", "middle"],
-    strokeColor: "#888",
-    sourceOffset: [5, 0],
-    targetOffset: [-5, 0],
-    mode: "curveHorizontal",
-  });
-  let links = scene.repeat(link, data.linkTable);
-  scene.encode(link, { channel: "source", field: "parent" });
-  scene.encode(link, { channel: "target", field: "child" });
-  scene.encode(link, {
-    channel: "strokeWidth",
-    field: "child.value",
-    range: [0, 6],
-  });
-  console.log(scene);
-  console.log(document.getElementById("svgElementCoreflow"));
-  //atlas.renderer("svg").render(scene, "svgElement");
-  
-  renderer.clear();
-  renderer.render(scene, "svgElementCoreflow");
-  //document.getElementById("svgElement").append("whatever");
-}
-
-async function renderTree2(dataPath, renderer) {
+async function renderTree2(dataPath) {
   let scene = atlas.scene();
   let data = await atlas.graphjson(dataPath);
   let link = scene.mark("link", {
@@ -83,27 +32,66 @@ async function renderTree2(dataPath, renderer) {
   scene.encode(linkWeight, { field: "count", channel: "text" });
   scene.affix(linkWeight, link, "x");
   scene.affix(linkWeight, link, "y");
-  renderer.clear();
-  renderer.render(scene, "svgElementSententree");
-  //atlas.renderer("svg","svgElement").render(scene, "svgElement");
+  atlas.renderer("svg", "svgElement").render(scene, "svgElement");
 }
-function RenderVisualization(props) {
-  console.log(props.sententreeJson);
-  console.log(props.coreflowJson);
-  console.log(atlas);
-  let svgRendererCoreflow = atlas.renderer("svg", "svgElementCoreflow");
-  let svgRendererSententree = atlas.renderer("svg", "svgElementSententree");
-  renderTree(props.coreflowJson, svgRendererCoreflow);
-  renderTree2(props.sententreeJson, svgRendererSententree);
 
-  return (<>
-  <div>
-  <svg id="svgElementCoreflow">  </svg>
-  </div>
-  <div>
-   <svg id="svgElementSententree">  </svg>
-   </div>
-   </>);
-  //return <> </>;
+function RenderVisualization(props) {
+  const dataPath = props.coreflowJson;
+  const svgRenderer = atlas.renderer("svg", "svgElement");
+
+  useEffect(() => {
+    console.log(dataPath);
+    renderTree(dataPath);
+  }, [dataPath]);
+
+  const renderTree = async (dataPath) => {
+    let scene = atlas.scene();
+    console.log(dataPath);
+    let data = await atlas.treejson(dataPath);
+    console.log(data);
+    // let data = "../../../datasets/Outputs/AAAsample_ed2coreflow_result.json"
+    let node = scene.mark("text", {
+      x: 100,
+      y: 100,
+      fontSize: "14px",
+      fontWeight: "bold",
+    });
+    let nodes = scene.repeat(node, data.nodeTable);
+    scene.encode(node, { field: "event_attribute", channel: "text" });
+    nodes.layout = atlas.layout("tidytree", { width: 500, height: 300 });
+    scene.encode(node, {
+      field: "average_index",
+      channel: "x",
+      rangeExtent: 600,
+    });
+    scene.axis("x", "average_index", {
+      orientation: "bottom",
+      pathVisible: false,
+      tickVisible: false,
+    });
+    scene.gridlines("x", "average_index");
+    let link = scene.mark("link", {
+      sourceAnchor: ["right", "middle"],
+      targetAnchor: ["left", "middle"],
+      strokeColor: "#888",
+      sourceOffset: [5, 0],
+      targetOffset: [-5, 0],
+      mode: "curveHorizontal",
+    });
+    let links = scene.repeat(link, data.linkTable);
+    scene.encode(link, { channel: "source", field: "parent" });
+    scene.encode(link, { channel: "target", field: "child" });
+    scene.encode(link, {
+      channel: "strokeWidth",
+      field: "child.value",
+      range: [0, 6],
+    });
+
+    svgRenderer.clear();
+    svgRenderer.render(scene, "svgElement");
+  };
+
+  return <svg id="svgElement"> </svg>;
 }
+
 export default RenderVisualization;
