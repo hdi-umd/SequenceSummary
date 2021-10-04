@@ -61,7 +61,7 @@ function RenderVisualization(props) {
     });
 
     svgRendererCoreflow.clear();
-    svgRendererCoreflow.render(scene, "svgElementCoreflow");
+    svgRendererCoreflow.render(scene);
   };
 
   const renderTree2 = async (dataPath) => {
@@ -93,7 +93,7 @@ function RenderVisualization(props) {
     scene.affix(linkWeight, link, "x");
     scene.affix(linkWeight, link, "y");
     svgRendererSentenTree.clear();
-    svgRendererSentenTree.render(scene, "svgElementSentenTree");
+    svgRendererSentenTree.render(scene);
   };
 
   return (
