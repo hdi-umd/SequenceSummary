@@ -1,10 +1,10 @@
-#svgElement {
-    width: 1000px;
-    height: 500px;
+.svgmined {
+    width: 1200px;
+    height: 600px;
   }
   
-  .vis-container {
+  /* .vis-container {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+  } */

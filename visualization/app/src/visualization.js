@@ -4,44 +4,17 @@ import "bootstrap/dist/js/bootstrap.js";
 import * as atlas from "atlas-vis";
 import React, { useEffect } from "react";
 
-async function renderTree2(dataPath) {
-  let scene = atlas.scene();
-  let data = await atlas.graphjson(dataPath);
-  let link = scene.mark("link", {
-    sourceAnchor: ["right", "middle"],
-    targetAnchor: ["left", "middle"],
-    sourceOffset: [5, 0],
-    targetOffset: [-5, 0],
-    mode: "curveHorizontal",
-  });
-  let links = scene.repeat(link, data.linkTable);
-  let node = scene.mark("text", { x: 120, y: 120 });
-  let nodes = scene.repeat(node, data.nodeTable);
-  nodes.layout = atlas.layout("force", { x: 200, y: 300, iterations: 300 });
-  scene.encode(node, {
-    field: "average_index",
-    channel: "x",
-    rangeExtent: 900,
-  });
-  scene.encode(node, { field: "event_attribute", channel: "text" });
-  scene.encode(link, { channel: "source", field: "source" });
-  scene.encode(link, { channel: "target", field: "target" });
-  scene.encode(link, { channel: "strokeWidth", field: "count", range: [0, 6] });
-  let linkWeight = scene.mark("text", { fillColor: "blue" });
-  scene.repeat(linkWeight, data.linkTable);
-  scene.encode(linkWeight, { field: "count", channel: "text" });
-  scene.affix(linkWeight, link, "x");
-  scene.affix(linkWeight, link, "y");
-  atlas.renderer("svg", "svgElement").render(scene, "svgElement");
-}
+
 
 function RenderVisualization(props) {
   const dataPath = props.coreflowJson;
-  const svgRenderer = atlas.renderer("svg", "svgElement");
+  const svgRendererCoreflow = atlas.renderer("svg", "svgElementCoreflow");
+  const svgRendererSentenTree = atlas.renderer("svg", "svgElementSentenTree");
 
   useEffect(() => {
     console.log(dataPath);
-    renderTree(dataPath);
+    renderTree(props.coreflowJson);
+    renderTree2(props.sententreeJson);
   }, [dataPath]);
 
   const renderTree = async (dataPath) => {
@@ -87,11 +60,51 @@ function RenderVisualization(props) {
       range: [0, 6],
     });
 
-    svgRenderer.clear();
-    svgRenderer.render(scene, "svgElement");
+    svgRendererCoreflow.clear();
+    svgRendererCoreflow.render(scene, "svgElementCoreflow");
   };
 
-  return <svg id="svgElement"> </svg>;
+  const renderTree2 = async (dataPath) => {
+    let scene = atlas.scene();
+    let data = await atlas.graphjson(dataPath);
+    let link = scene.mark("link", {
+      sourceAnchor: ["right", "middle"],
+      targetAnchor: ["left", "middle"],
+      sourceOffset: [5, 0],
+      targetOffset: [-5, 0],
+      mode: "curveHorizontal",
+    });
+    let links = scene.repeat(link, data.linkTable);
+    let node = scene.mark("text", { x: 120, y: 120 });
+    let nodes = scene.repeat(node, data.nodeTable);
+    nodes.layout = atlas.layout("force", { x: 200, y: 300, iterations: 300 });
+    scene.encode(node, {
+      field: "average_index",
+      channel: "x",
+      rangeExtent: 900,
+    });
+    scene.encode(node, { field: "event_attribute", channel: "text" });
+    scene.encode(link, { channel: "source", field: "source" });
+    scene.encode(link, { channel: "target", field: "target" });
+    scene.encode(link, { channel: "strokeWidth", field: "count", range: [0, 6] });
+    let linkWeight = scene.mark("text", { fillColor: "blue" });
+    scene.repeat(linkWeight, data.linkTable);
+    scene.encode(linkWeight, { field: "count", channel: "text" });
+    scene.affix(linkWeight, link, "x");
+    scene.affix(linkWeight, link, "y");
+    svgRendererSentenTree.clear();
+    svgRendererSentenTree.render(scene, "svgElementSentenTree");
+  };
+
+  return (
+    <div class="vis-container">
+    <div>
+  <svg id="svgElementCoreflow" class="svgmined"> </svg>
+  </div>
+  <div>
+  <svg id="svgElementSentenTree" class="svgmined"> </svg>
+  </div>
+  </div>);
 }
 
 export default RenderVisualization;
