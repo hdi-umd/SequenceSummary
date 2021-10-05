@@ -28,7 +28,7 @@ function DropdownDataset(props) {
     <div>
       <DropdownButton
         id="dropdown-basic-button"
-        title="Dropdown button"
+        title={props.selectedVal}
         onSelect={onDropdownSelected}
       >
         {listItems}

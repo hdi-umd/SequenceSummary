@@ -55,8 +55,9 @@ function App() {
       <div>
         <DropdownDataset
           dataNames={datasetNames}
-          defaultValue={datasetNames[0]}
+          defaultValue={defaultVal}
           onSelectedValueChange={selectedValueChange}
+          selectedVal={selectedValue}
         />
         <RenderVisualization
           dataSet={selectedValue}
