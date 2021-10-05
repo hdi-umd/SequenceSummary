@@ -11,7 +11,7 @@ from Pattern import Pattern
 class SequenceSynopsisMiner:
     """Based on some metric distance, groups sequences under same pattern."""
 
-    def __init__(self, attrib):
+    def __init__(self, attrib, alpha=0.1, lambdaVal=0.9):
         self.attr = attrib
 
     def minDL(self, seqs):

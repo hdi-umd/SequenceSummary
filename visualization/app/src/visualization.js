@@ -7,6 +7,7 @@ import React, { useEffect } from "react";
 
 
 function RenderVisualization(props) {
+  console.log(props);
   const dataPath = props.coreflowJson;
   const svgRendererCoreflow = atlas.renderer("svg", "svgElementCoreflow");
   const svgRendererSentenTree = atlas.renderer("svg", "svgElementSentenTree");
@@ -67,6 +68,7 @@ function RenderVisualization(props) {
   const renderTree2 = async (dataPath) => {
     let scene = atlas.scene();
     let data = await atlas.graphjson(dataPath);
+    console.log(data);
     let link = scene.mark("link", {
       sourceAnchor: ["right", "middle"],
       targetAnchor: ["left", "middle"],
