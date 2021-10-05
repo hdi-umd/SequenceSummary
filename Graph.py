@@ -206,7 +206,7 @@ class Links:
                 seqs.append(seq)
         #print(f'src {srcNode.nid}, target {targetNode.nid}')
 
-        if targetNode.value == "Exit":
+        if targetNode.value == "Exit!":
             trailingSteps = [0]*len(seqs)
             for i, path in enumerate(seqs):
                 pos = Pattern.getPositions(
@@ -275,7 +275,7 @@ class Graph:
     def calcPositionsNode(self):
         """Calculate mean and median node positions."""
         for node in self.nodes:
-            if node.value == "Exit":
+            if node.value == "Exit!":
                 node.calcPositionsExitNode(self.nodes)
             else:
                 node.calcPositionsGenericNode(self.nodes)
@@ -297,7 +297,7 @@ class Graph:
         startNode.meanStep = 0
         startNode.medianStep = 0
         for node in self.nodes:
-            if node.value == "Exit":
+            if node.value == "Exit!":
                 node.calcPositionsExitNode(self.nodes)
             elif node.meanStep < 0:
                 self.setMaxNodePred(node)
