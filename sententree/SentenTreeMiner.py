@@ -97,7 +97,7 @@ class SentenTreeMiner:
 
         for seq in leafSeqs:
             exitNode = GraphNode(self.attr)
-            exitNode.value = "Exit"
+            exitNode.value = "Exit!"
             exitNode.seqCount = seq.seqCount
             exitNode.sequences = seq.sequences
             exitNode.keyevts = seq.keyevts[:]
