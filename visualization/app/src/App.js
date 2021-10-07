@@ -21,7 +21,7 @@ function loadData() {
     dataMap[key] = dataMap[key] || {}; //initialize if not exists
     let minSup = file.substring(file.indexOf("_msp") + "+_msp".length);
     minSup = minSup.substring(0, minSup.indexOf(".json"));
-    if (!(minSup in minSupValues)){
+    if (!(minSup in minSupValues)) {
       minSupValues[minSup] = minSup;
     }
     if (file.indexOf("+coreflow") >= 0) {
@@ -34,29 +34,31 @@ function loadData() {
     }
   }
   console.log(minSupValues);
-  return {"dataMap": dataMap, "minSup": minSupValues};
+  return { dataMap: dataMap, minSup: minSupValues };
 }
 function App() {
   let dataDetails = loadData();
-  let data = dataDetails["dataMap"]
-  let support = dataDetails["minSup"]
+  let data = dataDetails["dataMap"];
+  let support = dataDetails["minSup"];
   console.log(dataDetails);
   let defaultVal = Object.keys(data)[0];
   let datasetNames = Object.keys(data);
   let supportRange = Object.keys(support);
-  let defaultSupport = supportRange[Math.round(supportRange.length/2)]
-  console.log(typeof defaultVal);
+  let defaultSupport = "0" + supportRange[Math.round(supportRange.length / 2)];
+  console.log(support);
+  console.log(defaultSupport);
 
   const [selectedValue, setSelectedValue] = useState(defaultVal);
   const [sliderValue, setSliderValue] = useState(defaultSupport);
   console.log(sliderValue);
-  
+
   const selectedValueChange = (value) => {
     setSelectedValue(value);
   };
 
   const setSliderValueChange = (value) => {
     setSliderValue(value);
+    console.log(sliderValue);
   };
 
   console.log(defaultVal);
@@ -69,20 +71,24 @@ function App() {
           onSelectedValueChange={selectedValueChange}
           selectedVal={selectedValue}
         />
-        <SupportSlider 
-          support = {supportRange}
-          defaultSup = {parseFloat(defaultSupport)}
-          selectedSup = {sliderValue}
-          onSuppportChange = {setSliderValueChange}
-          min = {Math.min(...supportRange)}
-          max = {Math.max(...supportRange)}
-          step = {supportRange[1]-supportRange[0]}
-          labels = {support}
+      </div>
+      <div>
+        <SupportSlider
+          support={supportRange}
+          defaultSup={parseFloat(defaultSupport)}
+          selectedSup={sliderValue}
+          onSuppportChange={setSliderValueChange}
+          min={Math.min(...supportRange)}
+          max={Math.max(...supportRange)}
+          step={supportRange[1] - supportRange[0]}
+          labels={support}
         />
+      </div>
+      <div>
         <RenderVisualization
           dataSet={selectedValue}
-          coreflowJson={data[selectedValue][cf][".05"]}
-          sententreeJson={data[selectedValue][st][".05"]}
+          coreflowJson={data[selectedValue][cf][sliderValue.substring(1)]}
+          sententreeJson={data[selectedValue][st][sliderValue.substring(1)]}
         />
       </div>
     </div>

@@ -1,0 +1,152 @@
+{
+ "nodes": [
+  {
+   "id": 1,
+   "event_attribute": "_Start",
+   "Pattern": "",
+   "value": 762,
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 3,
+   "event_attribute": "Incident start",
+   "Pattern": "Incident start",
+   "value": 762,
+   "median_index": 0.0,
+   "average_index": 0.23622047244094488
+  },
+  {
+   "id": 5,
+   "event_attribute": "Incident closed",
+   "Pattern": "Incident start-Incident closed",
+   "value": 762,
+   "median_index": 18.0,
+   "average_index": 19.401574803149607
+  },
+  {
+   "id": 7,
+   "event_attribute": "Incident cleared",
+   "Pattern": "Incident start-Incident cleared-Incident closed",
+   "value": 657,
+   "median_index": 15.0,
+   "average_index": 17.35950814367382
+  },
+  {
+   "id": 9,
+   "event_attribute": "CHART Unit notified",
+   "Pattern": "Incident start-CHART Unit notified-Incident cleared-Incident closed",
+   "value": 473,
+   "median_index": 4.0,
+   "average_index": 4.601971000982171
+  },
+  {
+   "id": 11,
+   "event_attribute": "CHART Unit notified",
+   "Pattern": "Incident start-CHART Unit notified-CHART Unit notified-Incident cleared-Incident closed",
+   "value": 302,
+   "median_index": 6.0,
+   "average_index": 7.992699477803363
+  },
+  {
+   "id": 13,
+   "event_attribute": "Fireboard departed",
+   "Pattern": "Incident start-CHART Unit notified-CHART Unit notified-Fireboard departed-Incident cleared-Incident closed",
+   "value": 190,
+   "median_index": 16.0,
+   "average_index": 20.655857372540204
+  },
+  {
+   "id": 20,
+   "event_attribute": "_Exit",
+   "Pattern": "Incident start-CHART Unit notified-CHART Unit notified-Fireboard departed-Incident cleared-Incident closed",
+   "value": 190,
+   "median_index": 18.0,
+   "average_index": 19.41736427683382
+  },
+  {
+   "id": 21,
+   "event_attribute": "_Exit",
+   "Pattern": "Incident start-Incident cleared-Incident closed",
+   "value": 184,
+   "median_index": 18.0,
+   "average_index": 19.407009585758303
+  },
+  {
+   "id": 22,
+   "event_attribute": "_Exit",
+   "Pattern": "Incident start-CHART Unit notified-Incident cleared-Incident closed",
+   "value": 171,
+   "median_index": 18.0,
+   "average_index": 19.413270709582356
+  }
+ ],
+ "links": [
+  {
+   "source": 1,
+   "target": 3,
+   "count": 762,
+   "length": 0.23622047244094488
+  },
+  {
+   "source": 3,
+   "target": 7,
+   "count": -6,
+   "length": 17.123287671232877
+  },
+  {
+   "source": 3,
+   "target": 9,
+   "count": 473,
+   "length": 4.365750528541226
+  },
+  {
+   "source": 5,
+   "target": 20,
+   "count": 190,
+   "length": 0.015789473684210527
+  },
+  {
+   "source": 5,
+   "target": 21,
+   "count": 184,
+   "length": 0.005434782608695652
+  },
+  {
+   "source": 5,
+   "target": 22,
+   "count": 171,
+   "length": 0.011695906432748537
+  },
+  {
+   "source": 7,
+   "target": 5,
+   "count": 657,
+   "length": 20.168949771689498
+  },
+  {
+   "source": 9,
+   "target": 7,
+   "count": 283,
+   "length": 19.619450317124734
+  },
+  {
+   "source": 9,
+   "target": 11,
+   "count": 302,
+   "length": 3.390728476821192
+  },
+  {
+   "source": 11,
+   "target": 13,
+   "count": 190,
+   "length": 12.663157894736843
+  },
+  {
+   "source": 13,
+   "target": 7,
+   "count": 190,
+   "length": 26.426315789473684
+  }
+ ]
+}

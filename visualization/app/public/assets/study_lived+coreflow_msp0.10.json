@@ -1,0 +1,35 @@
+{
+ "event_attribute": "_Start",
+ "Pattern": "",
+ "value": 1178,
+ "median_index": 0,
+ "average_index": 0,
+ "children": [
+  {
+   "event_attribute": "Emergency",
+   "Pattern": "Emergency",
+   "value": 1178,
+   "median_index": 1.0,
+   "average_index": 0.6366723259762309,
+   "children": [
+    {
+     "event_attribute": "Exit",
+     "Pattern": "Emergency-Exit",
+     "value": 1178,
+     "median_index": 2.0,
+     "average_index": 2.830220713073005,
+     "children": [
+      {
+       "event_attribute": "_Exit",
+       "Pattern": "Emergency-Exit",
+       "value": 1178,
+       "median_index": 2.0,
+       "average_index": 2.830220713073005,
+       "children": []
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,454 @@
+{
+ "nodes": [
+  {
+   "id": 1,
+   "event_attribute": "_Start",
+   "Pattern": "",
+   "value": 7058,
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 3,
+   "event_attribute": "CHICAGO Offense",
+   "Pattern": "CHICAGO Offense",
+   "value": 7058,
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 5,
+   "event_attribute": "Opponent Offense",
+   "Pattern": "CHICAGO Offense-Opponent Offense",
+   "value": 7058,
+   "median_index": 3.0,
+   "average_index": 3.0617738736185887
+  },
+  {
+   "id": 7,
+   "event_attribute": "Defensive Rebound",
+   "Pattern": "CHICAGO Offense-Opponent Offense-Defensive Rebound",
+   "value": 2514,
+   "median_index": 4.0,
+   "average_index": 4.212927413793609
+  },
+  {
+   "id": 9,
+   "event_attribute": "Made Shot - 2",
+   "Pattern": "CHICAGO Offense-Made Shot - 2-Opponent Offense",
+   "value": 2225,
+   "median_index": 2.0,
+   "average_index": 1.9869662921348314
+  },
+  {
+   "id": 11,
+   "event_attribute": "Missed Shot - 2",
+   "Pattern": "CHICAGO Offense-Missed Shot - 2-Opponent Offense-Defensive Rebound",
+   "value": 1610,
+   "median_index": 2.0,
+   "average_index": 1.7180124223602484
+  },
+  {
+   "id": 13,
+   "event_attribute": "Foul",
+   "Pattern": "CHICAGO Offense-Foul-Opponent Offense",
+   "value": 971,
+   "median_index": 2.0,
+   "average_index": 1.7384140061791966
+  },
+  {
+   "id": 15,
+   "event_attribute": "Defensive Rebound",
+   "Pattern": "CHICAGO Offense-Defensive Rebound-Made Shot - 2-Opponent Offense",
+   "value": 767,
+   "median_index": 1.0,
+   "average_index": 1.0039113428943938
+  },
+  {
+   "id": 17,
+   "event_attribute": "Defensive Rebound",
+   "Pattern": "CHICAGO Offense-Defensive Rebound-Missed Shot - 2-Opponent Offense-Defensive Rebound",
+   "value": 596,
+   "median_index": 1.0,
+   "average_index": 1.00503355704698
+  },
+  {
+   "id": 19,
+   "event_attribute": "Made Shot - 2",
+   "Pattern": "CHICAGO Offense-Made Shot - 2-Opponent Offense-Made Shot - 2",
+   "value": 427,
+   "median_index": 4.0,
+   "average_index": 4.642570126545989
+  },
+  {
+   "id": 21,
+   "event_attribute": "Steal",
+   "Pattern": "CHICAGO Offense-Opponent Offense-Steal",
+   "value": 486,
+   "median_index": 4.0,
+   "average_index": 4.088522844812005
+  },
+  {
+   "id": 23,
+   "event_attribute": "Missed Shot - 2",
+   "Pattern": "CHICAGO Offense-Made Shot - 2-Opponent Offense-Missed Shot - 2",
+   "value": 367,
+   "median_index": 4.0,
+   "average_index": 4.364226189694882
+  },
+  {
+   "id": 27,
+   "event_attribute": "Made Free Throw",
+   "Pattern": "CHICAGO Offense-Foul-Made Free Throw-Opponent Offense",
+   "value": 537,
+   "median_index": 3.0,
+   "average_index": 3.4218404493821764
+  },
+  {
+   "id": 29,
+   "event_attribute": "Missed Shot - 3",
+   "Pattern": "CHICAGO Offense-Missed Shot - 3-Opponent Offense-Defensive Rebound",
+   "value": 472,
+   "median_index": 2.0,
+   "average_index": 1.6504237288135593
+  },
+  {
+   "id": 31,
+   "event_attribute": "Made Shot - 3",
+   "Pattern": "CHICAGO Offense-Made Shot - 3-Opponent Offense",
+   "value": 364,
+   "median_index": 2.0,
+   "average_index": 1.7472527472527473
+  },
+  {
+   "id": 39,
+   "event_attribute": "Made Free Throw",
+   "Pattern": "CHICAGO Offense-Foul-Made Free Throw-Made Free Throw-Opponent Offense",
+   "value": 383,
+   "median_index": 4.0,
+   "average_index": 4.447950109956588
+  },
+  {
+   "id": 58,
+   "event_attribute": "_Exit",
+   "Pattern": "CHICAGO Offense-Missed Shot - 2-Opponent Offense-Defensive Rebound",
+   "value": 1014,
+   "median_index": 5.0,
+   "average_index": 6.1152942776989345
+  },
+  {
+   "id": 59,
+   "event_attribute": "_Exit",
+   "Pattern": "CHICAGO Offense-Defensive Rebound-Made Shot - 2-Opponent Offense",
+   "value": 767,
+   "median_index": 4.0,
+   "average_index": 4.9131428436316265
+  },
+  {
+   "id": 60,
+   "event_attribute": "_Exit",
+   "Pattern": "CHICAGO Offense-Made Shot - 2-Opponent Offense",
+   "value": 664,
+   "median_index": 4.0,
+   "average_index": 4.597918451931841
+  },
+  {
+   "id": 61,
+   "event_attribute": "_Exit",
+   "Pattern": "CHICAGO Offense-Defensive Rebound-Missed Shot - 2-Opponent Offense-Defensive Rebound",
+   "value": 596,
+   "median_index": 5.0,
+   "average_index": 6.107222715807032
+  },
+  {
+   "id": 62,
+   "event_attribute": "_Exit",
+   "Pattern": "CHICAGO Offense-Opponent Offense",
+   "value": 498,
+   "median_index": 4.0,
+   "average_index": 4.828842146710958
+  },
+  {
+   "id": 63,
+   "event_attribute": "_Exit",
+   "Pattern": "CHICAGO Offense-Opponent Offense-Steal",
+   "value": 486,
+   "median_index": 5.0,
+   "average_index": 5.843666877733815
+  },
+  {
+   "id": 64,
+   "event_attribute": "_Exit",
+   "Pattern": "CHICAGO Offense-Missed Shot - 3-Opponent Offense-Defensive Rebound",
+   "value": 472,
+   "median_index": 5.0,
+   "average_index": 6.206571481590219
+  },
+  {
+   "id": 65,
+   "event_attribute": "_Exit",
+   "Pattern": "CHICAGO Offense-Foul-Opponent Offense",
+   "value": 434,
+   "median_index": 4.0,
+   "average_index": 4.626290002650847
+  },
+  {
+   "id": 66,
+   "event_attribute": "_Exit",
+   "Pattern": "CHICAGO Offense-Opponent Offense-Defensive Rebound",
+   "value": 432,
+   "median_index": 5.0,
+   "average_index": 6.414316302682497
+  },
+  {
+   "id": 67,
+   "event_attribute": "_Exit",
+   "Pattern": "CHICAGO Offense-Made Shot - 2-Opponent Offense-Made Shot - 2",
+   "value": 427,
+   "median_index": 4.0,
+   "average_index": 4.794794950901961
+  },
+  {
+   "id": 68,
+   "event_attribute": "_Exit",
+   "Pattern": "CHICAGO Offense-Foul-Made Free Throw-Made Free Throw-Opponent Offense",
+   "value": 383,
+   "median_index": 4.0,
+   "average_index": 4.860729487195612
+  },
+  {
+   "id": 69,
+   "event_attribute": "_Exit",
+   "Pattern": "CHICAGO Offense-Made Shot - 2-Opponent Offense-Missed Shot - 2",
+   "value": 367,
+   "median_index": 4.0,
+   "average_index": 4.9636812305668165
+  },
+  {
+   "id": 70,
+   "event_attribute": "_Exit",
+   "Pattern": "CHICAGO Offense-Made Shot - 3-Opponent Offense",
+   "value": 364,
+   "median_index": 4.0,
+   "average_index": 4.814521126365841
+  }
+ ],
+ "links": [
+  {
+   "source": 1,
+   "target": 3,
+   "count": 7058,
+   "length": 0.0
+  },
+  {
+   "source": 3,
+   "target": 5,
+   "count": 1033,
+   "length": 3.0617738736185887
+  },
+  {
+   "source": 3,
+   "target": 9,
+   "count": 1458,
+   "length": 1.9869662921348314
+  },
+  {
+   "source": 3,
+   "target": 11,
+   "count": 1014,
+   "length": 1.7180124223602484
+  },
+  {
+   "source": 3,
+   "target": 13,
+   "count": 971,
+   "length": 1.7384140061791966
+  },
+  {
+   "source": 3,
+   "target": 15,
+   "count": 767,
+   "length": 1.0039113428943938
+  },
+  {
+   "source": 3,
+   "target": 17,
+   "count": 596,
+   "length": 1.00503355704698
+  },
+  {
+   "source": 3,
+   "target": 29,
+   "count": 472,
+   "length": 1.6504237288135593
+  },
+  {
+   "source": 3,
+   "target": 31,
+   "count": 364,
+   "length": 1.7472527472527473
+  },
+  {
+   "source": 5,
+   "target": 7,
+   "count": 2514,
+   "length": 1.15115354017502
+  },
+  {
+   "source": 5,
+   "target": 19,
+   "count": 427,
+   "length": 1.5807962529274004
+  },
+  {
+   "source": 5,
+   "target": 21,
+   "count": 486,
+   "length": 1.0267489711934157
+  },
+  {
+   "source": 5,
+   "target": 23,
+   "count": 367,
+   "length": 1.3024523160762942
+  },
+  {
+   "source": 5,
+   "target": 59,
+   "count": 767,
+   "length": 1.8513689700130378
+  },
+  {
+   "source": 5,
+   "target": 60,
+   "count": 664,
+   "length": 1.536144578313253
+  },
+  {
+   "source": 5,
+   "target": 62,
+   "count": 498,
+   "length": 1.7670682730923695
+  },
+  {
+   "source": 5,
+   "target": 65,
+   "count": 434,
+   "length": 1.564516129032258
+  },
+  {
+   "source": 5,
+   "target": 68,
+   "count": 383,
+   "length": 1.7989556135770235
+  },
+  {
+   "source": 5,
+   "target": 70,
+   "count": 364,
+   "length": 1.7527472527472527
+  },
+  {
+   "source": 7,
+   "target": 58,
+   "count": 1014,
+   "length": 1.9023668639053255
+  },
+  {
+   "source": 7,
+   "target": 61,
+   "count": 596,
+   "length": 1.8942953020134228
+  },
+  {
+   "source": 7,
+   "target": 64,
+   "count": 472,
+   "length": 1.99364406779661
+  },
+  {
+   "source": 7,
+   "target": 66,
+   "count": 432,
+   "length": 2.201388888888889
+  },
+  {
+   "source": 9,
+   "target": 5,
+   "count": -1575,
+   "length": 2.987865168539326
+  },
+  {
+   "source": 11,
+   "target": 5,
+   "count": -580,
+   "length": 3.0739130434782607
+  },
+  {
+   "source": 13,
+   "target": 5,
+   "count": -248,
+   "length": 4.2193614830072095
+  },
+  {
+   "source": 13,
+   "target": 27,
+   "count": 537,
+   "length": 1.6834264432029795
+  },
+  {
+   "source": 15,
+   "target": 9,
+   "count": 767,
+   "length": 2.5241199478487615
+  },
+  {
+   "source": 17,
+   "target": 11,
+   "count": 596,
+   "length": 2.2533557046979866
+  },
+  {
+   "source": 19,
+   "target": 67,
+   "count": 427,
+   "length": 0.1522248243559719
+  },
+  {
+   "source": 21,
+   "target": 63,
+   "count": 486,
+   "length": 1.7551440329218106
+  },
+  {
+   "source": 23,
+   "target": 69,
+   "count": 367,
+   "length": 0.5994550408719346
+  },
+  {
+   "source": 27,
+   "target": 39,
+   "count": 383,
+   "length": 1.0261096605744124
+  },
+  {
+   "source": 29,
+   "target": 5,
+   "count": -275,
+   "length": 2.7563559322033897
+  },
+  {
+   "source": 31,
+   "target": 5,
+   "count": 364,
+   "length": 2.7472527472527473
+  },
+  {
+   "source": 39,
+   "target": 5,
+   "count": 19,
+   "length": 5.245430809399478
+  }
+ ]
+}

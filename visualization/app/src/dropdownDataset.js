@@ -14,8 +14,8 @@ function DropdownDataset(props) {
 
   const onDropdownSelected = (eventkey, evt) => {
     //event.persist();
-    console.log(evt.target);
-    console.log(evt.target.innerText);
+    // console.log(evt.target);
+    // console.log(evt.target.innerText);
     props.onSelectedValueChange(evt.target.innerText);
     //console.log(dataMap[String(selectedValue)]);
   };

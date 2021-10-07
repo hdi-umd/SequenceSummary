@@ -1,0 +1,104 @@
+{
+ "event_attribute": "_Start",
+ "Pattern": "",
+ "value": 100,
+ "median_index": 0,
+ "average_index": 0,
+ "children": [
+  {
+   "event_attribute": "Arrival",
+   "Pattern": "Arrival",
+   "value": 100,
+   "median_index": 0.0,
+   "average_index": 0.0,
+   "children": [
+    {
+     "event_attribute": "Emergency",
+     "Pattern": "Arrival-Emergency",
+     "value": 100,
+     "median_index": 1.0,
+     "average_index": 1.0,
+     "children": [
+      {
+       "event_attribute": "ICU",
+       "Pattern": "Arrival-Emergency-ICU",
+       "value": 62,
+       "median_index": 2.0,
+       "average_index": 2.4838709677419355,
+       "children": [
+        {
+         "event_attribute": "Die",
+         "Pattern": "Arrival-Emergency-ICU-Die",
+         "value": 36,
+         "median_index": 3.0,
+         "average_index": 3.9283154121863797,
+         "children": [
+          {
+           "event_attribute": "_Exit",
+           "Pattern": "Arrival-Emergency-ICU-Die",
+           "value": 36,
+           "median_index": 3.0,
+           "average_index": 3.9283154121863797,
+           "children": []
+          }
+         ]
+        },
+        {
+         "event_attribute": "Floor",
+         "Pattern": "Arrival-Emergency-ICU-Floor",
+         "value": 24,
+         "median_index": 3.0,
+         "average_index": 3.4838709677419355,
+         "children": [
+          {
+           "event_attribute": "Discharge-Alive",
+           "Pattern": "Arrival-Emergency-ICU-Floor-Discharge-Alive",
+           "value": 24,
+           "median_index": 4.0,
+           "average_index": 5.317204301075269,
+           "children": [
+            {
+             "event_attribute": "_Exit",
+             "Pattern": "Arrival-Emergency-ICU-Floor-Discharge-Alive",
+             "value": 24,
+             "median_index": 4.0,
+             "average_index": 5.317204301075269,
+             "children": []
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "event_attribute": "_Exit",
+         "Pattern": "Arrival-Emergency-ICU",
+         "value": 2,
+         "median_index": 2.0,
+         "average_index": 2.4838709677419355,
+         "children": []
+        }
+       ]
+      },
+      {
+       "event_attribute": "Discharge-Alive",
+       "Pattern": "Arrival-Emergency-Discharge-Alive",
+       "value": 38,
+       "median_index": 2.0,
+       "average_index": 2.026315789473684,
+       "children": [
+        {
+         "event_attribute": "_Exit",
+         "Pattern": "Arrival-Emergency-Discharge-Alive",
+         "value": 38,
+         "median_index": 2.0,
+         "average_index": 2.026315789473684,
+         "children": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

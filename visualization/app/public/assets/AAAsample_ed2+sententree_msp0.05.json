@@ -1,0 +1,222 @@
+{
+ "nodes": [
+  {
+   "id": 1,
+   "event_attribute": "_Start",
+   "Pattern": "",
+   "value": 100,
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 3,
+   "event_attribute": "Arrival",
+   "Pattern": "Arrival",
+   "value": 100,
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 5,
+   "event_attribute": "Emergency",
+   "Pattern": "Arrival-Emergency",
+   "value": 100,
+   "median_index": 1.0,
+   "average_index": 1.0
+  },
+  {
+   "id": 7,
+   "event_attribute": "ICU",
+   "Pattern": "Arrival-Emergency-ICU",
+   "value": 62,
+   "median_index": 2.0,
+   "average_index": 2.4838709677419355
+  },
+  {
+   "id": 9,
+   "event_attribute": "Die",
+   "Pattern": "Arrival-Emergency-ICU-Die",
+   "value": 36,
+   "median_index": 3.0,
+   "average_index": 3.9283154121863797
+  },
+  {
+   "id": 11,
+   "event_attribute": "Discharge-Alive",
+   "Pattern": "Arrival-Emergency-Discharge-Alive",
+   "value": 38,
+   "median_index": 2.0,
+   "average_index": 2.026315789473684
+  },
+  {
+   "id": 15,
+   "event_attribute": "Floor",
+   "Pattern": "Arrival-Emergency-Floor-ICU-Die",
+   "value": 21,
+   "median_index": 2.0,
+   "average_index": 2.0
+  },
+  {
+   "id": 17,
+   "event_attribute": "Floor",
+   "Pattern": "Arrival-Emergency-ICU-Floor",
+   "value": 24,
+   "median_index": 3.0,
+   "average_index": 3.4838709677419355
+  },
+  {
+   "id": 19,
+   "event_attribute": "Discharge-Alive",
+   "Pattern": "Arrival-Emergency-ICU-Floor-Discharge-Alive",
+   "value": 24,
+   "median_index": 4.0,
+   "average_index": 5.317204301075269
+  },
+  {
+   "id": 21,
+   "event_attribute": "ICU",
+   "Pattern": "Arrival-Emergency-ICU-Floor-ICU-Discharge-Alive",
+   "value": 8,
+   "median_index": 4.0,
+   "average_index": 4.483870967741936
+  },
+  {
+   "id": 30,
+   "event_attribute": "_Exit",
+   "Pattern": "Arrival-Emergency-Discharge-Alive",
+   "value": 38,
+   "median_index": 2.0,
+   "average_index": 2.026315789473684
+  },
+  {
+   "id": 31,
+   "event_attribute": "_Exit",
+   "Pattern": "Arrival-Emergency-Floor-ICU-Die",
+   "value": 21,
+   "median_index": 3.0,
+   "average_index": 3.9283154121863797
+  },
+  {
+   "id": 32,
+   "event_attribute": "_Exit",
+   "Pattern": "Arrival-Emergency-ICU-Floor-Discharge-Alive",
+   "value": 16,
+   "median_index": 4.0,
+   "average_index": 5.317204301075269
+  },
+  {
+   "id": 33,
+   "event_attribute": "_Exit",
+   "Pattern": "Arrival-Emergency-ICU-Die",
+   "value": 15,
+   "median_index": 3.0,
+   "average_index": 3.9283154121863797
+  },
+  {
+   "id": 34,
+   "event_attribute": "_Exit",
+   "Pattern": "Arrival-Emergency-ICU-Floor-ICU-Discharge-Alive",
+   "value": 8,
+   "median_index": 4.0,
+   "average_index": 5.317204301075269
+  }
+ ],
+ "links": [
+  {
+   "source": 1,
+   "target": 3,
+   "count": 100,
+   "length": 0.0
+  },
+  {
+   "source": 3,
+   "target": 5,
+   "count": 100,
+   "length": 1.0
+  },
+  {
+   "source": 5,
+   "target": 7,
+   "count": 41,
+   "length": 1.4838709677419355
+  },
+  {
+   "source": 5,
+   "target": 11,
+   "count": 38,
+   "length": 1.0263157894736843
+  },
+  {
+   "source": 5,
+   "target": 15,
+   "count": 21,
+   "length": 1.0
+  },
+  {
+   "source": 7,
+   "target": 9,
+   "count": 36,
+   "length": 1.4444444444444444
+  },
+  {
+   "source": 7,
+   "target": 17,
+   "count": 24,
+   "length": 1.0
+  },
+  {
+   "source": 9,
+   "target": 31,
+   "count": 21,
+   "length": 0.0
+  },
+  {
+   "source": 9,
+   "target": 33,
+   "count": 15,
+   "length": 0.0
+  },
+  {
+   "source": 11,
+   "target": 30,
+   "count": 38,
+   "length": 0.0
+  },
+  {
+   "source": 15,
+   "target": 7,
+   "count": 21,
+   "length": 2.0
+  },
+  {
+   "source": 17,
+   "target": 19,
+   "count": 16,
+   "length": 1.8333333333333333
+  },
+  {
+   "source": 17,
+   "target": 21,
+   "count": 8,
+   "length": 1.0
+  },
+  {
+   "source": 19,
+   "target": 32,
+   "count": 16,
+   "length": 0.0
+  },
+  {
+   "source": 19,
+   "target": 34,
+   "count": 8,
+   "length": 0.0
+  },
+  {
+   "source": 21,
+   "target": 19,
+   "count": 8,
+   "length": 3.5
+  }
+ ]
+}

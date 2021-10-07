@@ -1,0 +1,346 @@
+{
+ "nodes": [
+  {
+   "id": 1,
+   "event_attribute": "_Start",
+   "Pattern": "",
+   "value": 22,
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 3,
+   "event_attribute": "Sugar to treat",
+   "Pattern": "Sugar to treat",
+   "value": 22,
+   "median_index": 3.5,
+   "average_index": 3.9545454545454546
+  },
+  {
+   "id": 5,
+   "event_attribute": "Lunch",
+   "Pattern": "Sugar to treat-Lunch",
+   "value": 21,
+   "median_index": 6.5,
+   "average_index": 6.906926406926408
+  },
+  {
+   "id": 7,
+   "event_attribute": "Breakfast",
+   "Pattern": "Sugar to treat-Lunch-Breakfast",
+   "value": 21,
+   "median_index": 8.5,
+   "average_index": 9.621212121212121
+  },
+  {
+   "id": 9,
+   "event_attribute": "Lunch",
+   "Pattern": "Sugar to treat-Lunch-Breakfast-Lunch",
+   "value": 21,
+   "median_index": 11.5,
+   "average_index": 12.859307359307358
+  },
+  {
+   "id": 11,
+   "event_attribute": "Breakfast",
+   "Pattern": "Sugar to treat-Lunch-Breakfast-Lunch-Breakfast",
+   "value": 19,
+   "median_index": 13.5,
+   "average_index": 15.175096832991569
+  },
+  {
+   "id": 13,
+   "event_attribute": "Breakfast",
+   "Pattern": "Sugar to treat-Lunch-Breakfast-Lunch-Breakfast-Breakfast",
+   "value": 16,
+   "median_index": 17.5,
+   "average_index": 19.17509683299157
+  },
+  {
+   "id": 15,
+   "event_attribute": "Sugar to treat",
+   "Pattern": "Sugar to treat-Lunch-Breakfast-Lunch-Breakfast-Breakfast-Sugar to treat",
+   "value": 11,
+   "median_index": 18.5,
+   "average_index": 20.902369560264297
+  },
+  {
+   "id": 17,
+   "event_attribute": "Breakfast",
+   "Pattern": "Sugar to treat-Lunch-Breakfast-Lunch-Breakfast-Breakfast-Sugar to treat-Breakfast",
+   "value": 9,
+   "median_index": 20.5,
+   "average_index": 23.902369560264297
+  },
+  {
+   "id": 19,
+   "event_attribute": "Dinner",
+   "Pattern": "Sugar to treat-Lunch-Breakfast-Lunch-Breakfast-Breakfast-Sugar to treat-Breakfast-Dinner",
+   "value": 7,
+   "median_index": 22.5,
+   "average_index": 26.330940988835724
+  },
+  {
+   "id": 21,
+   "event_attribute": "Breakfast",
+   "Pattern": "Sugar to treat-Lunch-Breakfast-Lunch-Breakfast-Breakfast-Sugar to treat-Breakfast-Dinner-Breakfast",
+   "value": 6,
+   "median_index": 24.5,
+   "average_index": 28.830940988835724
+  },
+  {
+   "id": 23,
+   "event_attribute": "Dinner",
+   "Pattern": "Sugar to treat-Lunch-Breakfast-Lunch-Breakfast-Dinner-Breakfast-Sugar to treat-Breakfast-Dinner-Breakfast",
+   "value": 6,
+   "median_index": 14.5,
+   "average_index": 16.67509683299157
+  },
+  {
+   "id": 25,
+   "event_attribute": "Breakfast",
+   "Pattern": "Sugar to treat-Lunch-Breakfast-Lunch-Breakfast-Dinner-Breakfast-Sugar to treat-Breakfast-Dinner-Breakfast-Breakfast",
+   "value": 5,
+   "median_index": 26.5,
+   "average_index": 32.43094098883572
+  },
+  {
+   "id": 27,
+   "event_attribute": "Dinner",
+   "Pattern": "Sugar to treat-Lunch-Breakfast-Dinner-Lunch-Breakfast-Breakfast",
+   "value": 5,
+   "median_index": 9.5,
+   "average_index": 11.621212121212121
+  },
+  {
+   "id": 29,
+   "event_attribute": "Lunch",
+   "Pattern": "Sugar to treat-Lunch-Breakfast-Lunch-Breakfast-Dinner-Breakfast-Sugar to treat-Lunch-Breakfast-Dinner-Breakfast-Breakfast",
+   "value": 4,
+   "median_index": 21.0,
+   "average_index": 24.402369560264297
+  },
+  {
+   "id": 31,
+   "event_attribute": "Dinner",
+   "Pattern": "Dinner-Sugar to treat-Lunch-Breakfast-Dinner-Lunch-Breakfast-Breakfast",
+   "value": 3,
+   "median_index": 0.0,
+   "average_index": 1.0
+  },
+  {
+   "id": 33,
+   "event_attribute": "Dinner",
+   "Pattern": "Sugar to treat-Lunch-Breakfast-Lunch-Breakfast-Dinner-Breakfast-Sugar to treat-Lunch-Breakfast-Dinner-Breakfast-Dinner-Breakfast",
+   "value": 3,
+   "median_index": 25.5,
+   "average_index": 30.164274322169057
+  },
+  {
+   "id": 35,
+   "event_attribute": "Lunch",
+   "Pattern": "Lunch-Sugar to treat-Lunch-Breakfast-Lunch-Breakfast",
+   "value": 3,
+   "median_index": 2.0,
+   "average_index": 1.3333333333333333
+  },
+  {
+   "id": 39,
+   "event_attribute": "Lunch",
+   "Pattern": "Sugar to treat-Lunch-Breakfast-Lunch-Breakfast-Dinner-Lunch-Breakfast-Sugar to treat-Lunch-Breakfast-Dinner-Breakfast-Dinner-Breakfast",
+   "value": 3,
+   "median_index": 18.5,
+   "average_index": 20.008430166324903
+  },
+  {
+   "id": 41,
+   "event_attribute": "Breakfast",
+   "Pattern": "Lunch-Breakfast-Sugar to treat-Lunch-Breakfast-Lunch-Breakfast",
+   "value": 3,
+   "median_index": 3.0,
+   "average_index": 2.333333333333333
+  },
+  {
+   "id": 46,
+   "event_attribute": "_Exit",
+   "Pattern": "Dinner-Sugar to treat-Lunch-Breakfast-Dinner-Lunch-Breakfast-Breakfast",
+   "value": 3,
+   "median_index": 18.5,
+   "average_index": 21.508430166324903
+  },
+  {
+   "id": 47,
+   "event_attribute": "_Exit",
+   "Pattern": "Sugar to treat-Lunch-Breakfast-Lunch-Breakfast-Dinner-Lunch-Breakfast-Sugar to treat-Lunch-Breakfast-Dinner-Breakfast-Dinner-Breakfast",
+   "value": 3,
+   "median_index": 26.5,
+   "average_index": 32.43094098883572
+  },
+  {
+   "id": 48,
+   "event_attribute": "_Exit",
+   "Pattern": "Lunch-Breakfast-Sugar to treat-Lunch-Breakfast-Lunch-Breakfast",
+   "value": 3,
+   "median_index": 14.5,
+   "average_index": 16.17509683299157
+  }
+ ],
+ "links": [
+  {
+   "source": 1,
+   "target": 3,
+   "count": 22,
+   "length": 3.9545454545454546
+  },
+  {
+   "source": 1,
+   "target": 31,
+   "count": 3,
+   "length": 1.0
+  },
+  {
+   "source": 1,
+   "target": 35,
+   "count": 3,
+   "length": 1.3333333333333333
+  },
+  {
+   "source": 3,
+   "target": 5,
+   "count": 21,
+   "length": 2.9523809523809526
+  },
+  {
+   "source": 5,
+   "target": 7,
+   "count": 21,
+   "length": 2.7142857142857144
+  },
+  {
+   "source": 7,
+   "target": 9,
+   "count": 16,
+   "length": 3.238095238095238
+  },
+  {
+   "source": 7,
+   "target": 27,
+   "count": 5,
+   "length": 2.0
+  },
+  {
+   "source": 9,
+   "target": 11,
+   "count": 19,
+   "length": 2.3157894736842106
+  },
+  {
+   "source": 11,
+   "target": 13,
+   "count": 13,
+   "length": 4.0
+  },
+  {
+   "source": 11,
+   "target": 23,
+   "count": 6,
+   "length": 1.5
+  },
+  {
+   "source": 11,
+   "target": 48,
+   "count": 3,
+   "length": 1.0
+  },
+  {
+   "source": 13,
+   "target": 15,
+   "count": 11,
+   "length": 1.7272727272727273
+  },
+  {
+   "source": 13,
+   "target": 46,
+   "count": 3,
+   "length": 2.3333333333333335
+  },
+  {
+   "source": 15,
+   "target": 29,
+   "count": 4,
+   "length": 3.5
+  },
+  {
+   "source": 17,
+   "target": 19,
+   "count": 7,
+   "length": 2.4285714285714284
+  },
+  {
+   "source": 19,
+   "target": 21,
+   "count": 6,
+   "length": 2.5
+  },
+  {
+   "source": 21,
+   "target": 33,
+   "count": 3,
+   "length": 1.3333333333333333
+  },
+  {
+   "source": 23,
+   "target": 39,
+   "count": 3,
+   "length": 3.3333333333333335
+  },
+  {
+   "source": 25,
+   "target": 47,
+   "count": 3,
+   "length": 0.0
+  },
+  {
+   "source": 27,
+   "target": 9,
+   "count": 5,
+   "length": 4.8
+  },
+  {
+   "source": 29,
+   "target": 17,
+   "count": 4,
+   "length": 4.75
+  },
+  {
+   "source": 31,
+   "target": 3,
+   "count": 3,
+   "length": 6.666666666666667
+  },
+  {
+   "source": 33,
+   "target": 25,
+   "count": 3,
+   "length": 4.333333333333333
+  },
+  {
+   "source": 35,
+   "target": 41,
+   "count": 3,
+   "length": 1.0
+  },
+  {
+   "source": 39,
+   "target": 13,
+   "count": 3,
+   "length": 6.0
+  },
+  {
+   "source": 41,
+   "target": 3,
+   "count": 0,
+   "length": 8.0
+  }
+ ]
+}
