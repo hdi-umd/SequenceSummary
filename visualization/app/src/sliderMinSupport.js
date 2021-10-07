@@ -9,29 +9,31 @@ import Slider from 'react-rangeslider'
 // To include the default styles
 import 'react-rangeslider/lib/index.css'
 
-function VolumeSlider() {
+function SupportSlider(props) {
 
-    const [volume, setSliderVol] = useState(0);
+    const [volume, setSliderVol] = useState(props.defaultSup);
     
   
     const handleOnChange = (value) => {
-      setSliderVol(value);
+      
+      setSliderVol(value.toFixed(2));
+      console.log(volume);
     }
   
     
     return (
     <Slider
-        min = {0.05}
-        max = {0.3}
-        step = {0.05}
+        min = {props.min}
+        max = {props.max}
+        step = {props.step}
         value={volume}
         orientation="horizontal"
         tooltip={true} 
-        labels = {{0: '0', 0.15: '0.15', 0.30: '0.30'}}
+        labels = {props.labels}
         onChange={handleOnChange}
     />
     )
     
   }
 
-export default VolumeSlider;
+export default SupportSlider;

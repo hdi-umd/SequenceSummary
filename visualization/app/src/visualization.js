@@ -15,12 +15,12 @@ function RenderVisualization(props) {
   renderTree2(props.sententreeJson, svgRendererSentenTree);
 
   return (
-    <div class="vis-container">
+    <div className="vis-container">
       <div>
-        <svg id="svgElementCoreflow" class="svgmined">
+        <svg id="svgElementCoreflow" className="svgmined">
           {" "}
         </svg>
-        <svg id="svgElementSentenTree" class="svgmined">
+        <svg id="svgElementSentenTree" className="svgmined">
           {" "}
         </svg>
       </div>

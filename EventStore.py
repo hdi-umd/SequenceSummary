@@ -85,7 +85,7 @@ class EventStore:
                     data[startTimeColumnIdx], timeFormat)
             except ValueError:
                 timeStamp1 = datetime.fromisoformat(data[startTimeColumnIdx])
-            
+
             try:
                 timeStamp2 = datetime.strptime(data[endTimeColumnIdx], timeFormat)
             except ValueError:

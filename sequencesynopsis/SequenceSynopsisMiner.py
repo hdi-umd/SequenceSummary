@@ -17,8 +17,8 @@ class SequenceSynopsisMiner:
     def minDL(self, seqs):
         """Merges sequences based on minimum Description Length."""
         # Initialization Phase
-        clustDict = [Cluster(Pattern(seq.getHashList(self.attr)), [seq], list(range(0, seq.getSeqLen())))
-                     for seq in seqs]
+        clustDict = [Cluster(Pattern(seq.getHashList(self.attr)), [seq], \
+                             list(range(0, seq.getSeqLen()))) for seq in seqs]
         #print("Initial clusts")
         #Cluster.printClustDict(clustDict, self.attr)
 
@@ -160,8 +160,8 @@ class SequenceSynopsisMiner:
                 if selectedIndex == len(averagePos):
                     averagePos.append(averagePos[-1]+1)
                 else:
-                    averagePos.insert(selectedIndex, 
-                    (averagePos[selectedIndex-1]+averagePos[selectedIndex])/2.0)
+                    averagePos.insert(selectedIndex,
+                                      (averagePos[selectedIndex-1]+averagePos[selectedIndex])/2.0)
 
                 # startInd = 0 if selectedIndex == 0 else averagePos[selectedIndex-1]
                 # endInd = -1 if len(averagePos) <= selectedIndex else averagePos[selectedIndex+1]

@@ -88,33 +88,7 @@ class RawNode:
             # rootNode
             return 0, 0
 
-        medians = []
-        means = []
-
-        for i, _ in enumerate(self.keyevts[:self.pos+1]):
-            #print(f'key events {self.keyevts[:self.pos]}')
-            numSteps = []
-
-            for _, elem in enumerate(self.sequences):
-                paths = elem.getHashList(self.attr)
-                if Pattern.matchMilestones(paths, self.keyevts[0:i+1]):
-                    pos = Pattern.getPositions(self.keyevts[0:i+1], paths)
-                    if i == 0:
-                        # add position value of first element id sequence
-                        numSteps.append(pos[i])
-                    else:
-                        # in other cases add the difference
-                        numSteps.append(pos[i]-pos[i-1])
-            #print(f'numSteps {numSteps}')
-            sumSteps = sum(numSteps)
-            #print(f'sumSteps {sumSteps}')
-            median = Pattern.getMedian(numSteps)
-
-            medians.append(median)
-            means.append(sumSteps*1.0 / len(numSteps))
-
-        #print(f'means {means}')
-        #print(f'medians {medians}')
+        medians, means = Pattern.getStats(self.keyevts[:self.pos+1], self.sequences, self.attr)
 
         return means[-1], medians[-1]
 
@@ -144,29 +118,7 @@ class RawNode:
         """Computes cumulative mean and median positions and path lengths of
         key events for the given attribute.
         """
-        trailingSteps = [0]*len(self.sequences)
-        for i, path in enumerate(self.sequences):
-            pos = Pattern.getPositions(
-                self.keyevts, path.getHashList(self.attr))
-            # the difference between the last event in thesequence and the last key event
-            trailingSteps[i] = len(path.events) - pos[-1]-1
-
-        #print(f'trailing {trailingSteps}')
-
-        trailStepSum = sum(trailingSteps)
-
-        if trailingSteps:
-            mean = trailStepSum/len(trailingSteps)
-            median = Pattern.getMedian(trailingSteps)
-        else:
-            mean = 0
-            median = 0
-        # self.meanPathLength = median+medians[-1]
-        # self.medianPathLength = mean+means[-1]
-        #self.meanStep = mean + means[-1]
-        #self.medianStep = median + medians[-1]
-        #print(f'{[x.nid for x in self.parent]}')
-        #print(f'parent mean {self.parent[-1].meanStep}')
+        median, mean = Pattern.getStatsEnd(self.keyevts, self.sequences, self.attr)
         parentNid = self.parent[-1].nid
         rawParent = [x for x in nodeList if x.nid == parentNid][0]
         #print(f'Raw parent mean {rawParent.meanStep}')
@@ -206,7 +158,7 @@ class Links:
                 seqs.append(seq)
         #print(f'src {srcNode.nid}, target {targetNode.nid}')
 
-        if targetNode.value == "Exit!":
+        if targetNode.value == "_End":
             trailingSteps = [0]*len(seqs)
             for i, path in enumerate(seqs):
                 pos = Pattern.getPositions(
@@ -226,27 +178,8 @@ class Links:
             self.length = mean
 
         else:
-            for i, _ in enumerate(targetNode.keyevts[:targetNode.pos+1]):
-                # print(targetNode.keyevts[i])
-                numSteps = []
-                # print(seqs)
-                for _, elem in enumerate(seqs):
-                    paths = elem.getHashList(targetNode.attr)
-                    #print(f'paths {paths}')
-                    if Pattern.matchMilestones(paths, targetNode.keyevts[0:i+1]):
-                        pos = Pattern.getPositions(
-                            targetNode.keyevts[0:i+1], paths)
-                        if i == 0:
-                            # add position value of first element id sequence
-                            numSteps.append(pos[i])
-                        else:
-                            # in other cases add the difference
-                            numSteps.append(pos[i]-pos[i-1])
-                #print(f'numSteps {numSteps}')
-                sumSteps = sum(numSteps)
+            _medians, means = Pattern.getStats(targetNode.keyevts[:targetNode.pos+1], seqs, targetNode.attr)
 
-                means.append(sumSteps*1.0 / len(numSteps))
-            #print(f'means {means}')
             self.length = means[-1]
         #print(
         #    f'src {srcNode.nid}, target {targetNode.nid}, length {self.length}')
@@ -275,7 +208,7 @@ class Graph:
     def calcPositionsNode(self):
         """Calculate mean and median node positions."""
         for node in self.nodes:
-            if node.value == "Exit!":
+            if node.value == "_End":
                 node.calcPositionsExitNode(self.nodes)
             else:
                 node.calcPositionsGenericNode(self.nodes)
@@ -297,7 +230,7 @@ class Graph:
         startNode.meanStep = 0
         startNode.medianStep = 0
         for node in self.nodes:
-            if node.value == "Exit!":
+            if node.value == "_End":
                 node.calcPositionsExitNode(self.nodes)
             elif node.meanStep < 0:
                 self.setMaxNodePred(node)
@@ -363,7 +296,7 @@ class Graph:
         """Bundle nodes."""
         RawNode.printNodes(self.nodes)
         delNodeIndices = []
-        uniqueValue = list(set([x.value for x in self.nodes]))
+        uniqueValue = list({x.value for x in self.nodes})
         #print(uniqueValue)
 
         bundleList = []
@@ -477,7 +410,7 @@ class Graph:
 
     @staticmethod
     def assembleGraphs(graphList):
-        """Create a single grapg given a list of graph"""
+        """Create a single graph given a list of graph"""
         newGraph = Graph()
         for graph in graphList:
             newGraph.links.extend(graph.links)
