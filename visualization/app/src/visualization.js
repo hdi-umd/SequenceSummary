@@ -20,8 +20,6 @@ function RenderVisualization(props) {
         <svg id="svgElementCoreflow" class="svgmined">
           {" "}
         </svg>
-      </div>
-      <div>
         <svg id="svgElementSentenTree" class="svgmined">
           {" "}
         </svg>
