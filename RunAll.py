@@ -115,7 +115,8 @@ if __name__ == "__main__":
                        default=TreeNode.jsonSerializeDump, indent=1)
         print(x)
 
-        with open(args.output+basename+'+coreflow_msp'+f'{minSupParam:.2f}'+'.json', 'w') as the_file:
+        with open(args.output+basename+'+coreflow_msp'+f'{minSupParam:.2f}'+'.json', 'w') \
+                  as the_file:
             the_file.write(x)
 
 
@@ -138,7 +139,8 @@ if __name__ == "__main__":
         # with open(args.output+'sententree_result.json', 'w') as the_file1:
         #     the_file1.write(x)
 
-        with open(args.output+basename+'+sententree_msp'+f'{minSupParam:.2f}'+ '.json', 'w') as the_file2:
+        with open(args.output+basename+'+sententree_msp'+f'{minSupParam:.2f}'+ '.json', 'w') \
+                  as the_file2:
             the_file2.write(y)
         minSupParam += 0.05
 

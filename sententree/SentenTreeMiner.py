@@ -1,10 +1,10 @@
 """Implements the SentenTreeMiner according to SentenTree Algo."""
 
+import numpy as np
 from Graph import RawNode, Graph
 from Node import GraphNode
 from Sequence import Sequence
 from sententree.RankingFunction import RankingFunction
-import numpy as np
 
 
 class SentenTreeMiner:
@@ -20,7 +20,8 @@ class SentenTreeMiner:
 
     def runSentenTreeMiner(self, sequences):
         """Run the sentenTreeMiner algorithm in the given sequences."""
-        root = GraphNode(self.attr)
+        GraphNode.resetCounter()
+        root = GraphNode(self.attr, Sequence.getSeqVolume(sequences), "_Start")
         root.sequences = sequences
         root.graph = Graph()
         graph = self.expandSeqTree(root, expandCnt=100)
@@ -34,8 +35,8 @@ class SentenTreeMiner:
         expandCnt -= len(rootNode.keyevts)
         seqs = []
         seqs.append(rootNode)
-        rootNode.setSeqCount(Sequence.getSeqVolume(rootNode.sequences))
-        rootNode.attr = self.attr
+        #rootNode.setSeqCount(Sequence.getSeqVolume(rootNode.sequences))
+        #rootNode.attr = self.attr
         rootNode.parent.append(rootNode)
 
         leafSeqs = []
@@ -97,7 +98,7 @@ class SentenTreeMiner:
 
         for seq in leafSeqs:
             exitNode = GraphNode(self.attr)
-            exitNode.value = "Exit!"
+            exitNode.value = "_End"
             exitNode.seqCount = seq.seqCount
             exitNode.sequences = seq.sequences
             exitNode.keyevts = seq.keyevts[:]

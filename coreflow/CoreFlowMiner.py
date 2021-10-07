@@ -22,8 +22,10 @@ class CoreFlowMiner:
     def runCoreFlowMiner(self, sequences):
         """Creates a Root Node to start mining."""
         print("Start of all " + str(len(sequences))+" visits")
+        TreeNode.resetCounter()
         root = TreeNode(self.attr, Sequence.getSeqVolume(
-            sequences), "Start")
+            sequences), "_Start")
+
         graph = Graph()
         root.graph = graph
         graph.nodes.append(RawNode(root))
@@ -175,7 +177,7 @@ class CoreFlowMiner:
         #print(f'node sequences {node.sequences}')
         #print(f'exit node hash {exitNodeHash}')
         if exitNodeHash == -1:
-            node.setValue("Exit")
+            node.setValue("_End")
             node.setHash(-2)
 
         else:
