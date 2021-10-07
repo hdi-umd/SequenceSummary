@@ -1,0 +1,68 @@
+{
+ "event_attribute": "_Start",
+ "Pattern": "",
+ "value": 215,
+ "median_index": 0,
+ "average_index": 0,
+ "children": [
+  {
+   "event_attribute": "breathsoundstime",
+   "Pattern": "breathsoundstime",
+   "value": 214,
+   "median_index": 1.0,
+   "average_index": 1.2990654205607477,
+   "children": [
+    {
+     "event_attribute": "gcstime",
+     "Pattern": "breathsoundstime-gcstime",
+     "value": 208,
+     "median_index": 5.0,
+     "average_index": 4.981757728253055,
+     "children": [
+      {
+       "event_attribute": "blankettime",
+       "Pattern": "breathsoundstime-gcstime-blankettime",
+       "value": 164,
+       "median_index": 8.0,
+       "average_index": 7.774440655082323,
+       "children": [
+        {
+         "event_attribute": "_Exit",
+         "Pattern": "breathsoundstime-gcstime-blankettime",
+         "value": 164,
+         "median_index": 9.0,
+         "average_index": 8.658586996545738,
+         "children": []
+        }
+       ]
+      },
+      {
+       "event_attribute": "_Exit",
+       "Pattern": "breathsoundstime-gcstime",
+       "value": 44,
+       "median_index": 7.0,
+       "average_index": 7.072666819162146,
+       "children": []
+      }
+     ]
+    },
+    {
+     "event_attribute": "_Exit",
+     "Pattern": "breathsoundstime",
+     "value": 6,
+     "median_index": 7.0,
+     "average_index": 6.299065420560748,
+     "children": []
+    }
+   ]
+  },
+  {
+   "event_attribute": "_Exit",
+   "Pattern": "",
+   "value": 1,
+   "median_index": 7.0,
+   "average_index": 7.0,
+   "children": []
+  }
+ ]
+}
