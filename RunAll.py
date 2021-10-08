@@ -8,6 +8,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import json
 import argparse
 import csv
+import time
 from Node import TreeNode, GraphNode
 from Sequence import Sequence
 from Graph import Graph
@@ -98,6 +99,7 @@ if __name__ == "__main__":
             seqList = [seq]
         else:
             seqList = seq
+    
 
     minSupParam = 0.05
     while minSupParam <= 0.3:
@@ -107,7 +109,10 @@ if __name__ == "__main__":
 
         # cfm.run(seqList, args.attr, root, 5 * Sequence.getSeqVolume(
         #       seqList)/100.0, Sequence.getSeqVolume(seqList), [], {}, -1)
+        start = time.time()
         root, graph = cfm.runCoreFlowMiner(seqList)
+        end = time.time()
+        print(end - start)
 
         print("\n\n*****Coreflow output******\n\n")
 
@@ -123,8 +128,10 @@ if __name__ == "__main__":
 
         stm = SentenTreeMiner(args.attr, minSup=minSupParam *
                               len(seqList), maxSup=len(seqList))
+        start = time.time()
         graph = stm.runSentenTreeMiner(seqList)
-
+        end = time.time()
+        print(end - start)
         # print("\n\n*****SentenTree output******\n\n")
 
         # x = json.dumps(root, ensure_ascii=False,
