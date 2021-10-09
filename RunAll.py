@@ -9,6 +9,8 @@ import json
 import argparse
 import csv
 import time
+from datetime import timedelta
+from memory_profiler import memory_usage
 from Node import TreeNode, GraphNode
 from Sequence import Sequence
 from Graph import Graph
@@ -99,78 +101,101 @@ if __name__ == "__main__":
             seqList = [seq]
         else:
             seqList = seq
-    
 
-    minSupParam = 0.05
-    while minSupParam <= 0.3:
-        cfm = CoreFlowMiner(args.attr, minSup=minSupParam *
-                            len(seqList), maxSup=len(seqList))
+    with open('TimeMemoryAnalysis.csv', 'w') as timeFile:#, open('MemAnalysis.csv', 'w') as memFile:
+        writer = csv.writer(timeFile)
+        writer.writerow(["Dataset", "Support", "Tool", "Time", "Memory"])
+        #memWriter = csv.writer(memFile)
+        #writer.writerow(["Dataset", "Support", "Tool", "Memory"])
+
+        minSupParam = 0.05
+        while minSupParam <= 0.3:
+            cfm = CoreFlowMiner(args.attr, minSup=minSupParam *
+                                len(seqList), maxSup=len(seqList))
+
+            start = time.time()
+            mem, output = memory_usage(proc=[cfm.runCoreFlowMiner, [seqList]],\
+                                       include_children=True, max_usage=True, retval=True)
+            end = time.time()
+            root = output[0]
+            graph = output[1]
+            #print(x)
+            #                                 include_children=True, max_usage=True, retval=True)
+            # mem, root, graph = memory_usage(proc=[cfm.runCoreFlowMiner, [seqList], {}],\
+            #                                 include_children=True, max_usage=True, retval=True)
+            #print(mem)
+            #print(timedelta(seconds=execution_time))
 
 
-        # cfm.run(seqList, args.attr, root, 5 * Sequence.getSeqVolume(
-        #       seqList)/100.0, Sequence.getSeqVolume(seqList), [], {}, -1)
-        start = time.time()
-        root, graph = cfm.runCoreFlowMiner(seqList)
-        end = time.time()
-        print(end - start)
+            # cfm.run(seqList, args.attr, root, 5 * Sequence.getSeqVolume(
+            #       seqList)/100.0, Sequence.getSeqVolume(seqList), [], {}, -1)
 
-        print("\n\n*****Coreflow output******\n\n")
+            #root, graph = cfm.runCoreFlowMiner(seqList)
+            # memWriter.writerow([basename, f'{minSupParam:.2f}', "Coreflow",\
+            #                 mem])
+            writer.writerow([basename, f'{minSupParam:.2f}', "Coreflow",\
+                            timedelta(seconds=end-start), mem])
 
-        x = json.dumps(root, ensure_ascii=False,
-                       default=TreeNode.jsonSerializeDump, indent=1)
-        print(x)
+            print("\n\n*****Coreflow output******\n\n")
 
-        with open(args.output+basename+'+coreflow_msp'+f'{minSupParam:.2f}'+'.json', 'w') \
-                  as the_file:
-            the_file.write(x)
+            x = json.dumps(root, ensure_ascii=False,
+                           default=TreeNode.jsonSerializeDump, indent=1)
+            print(x)
+
+            with open(args.output+basename+'+coreflow_msp'+f'{minSupParam:.2f}'+'.json', 'w') \
+                    as the_file:
+                the_file.write(x)
 
 
 
-        stm = SentenTreeMiner(args.attr, minSup=minSupParam *
-                              len(seqList), maxSup=len(seqList))
-        start = time.time()
-        graph = stm.runSentenTreeMiner(seqList)
-        end = time.time()
-        print(end - start)
-        # print("\n\n*****SentenTree output******\n\n")
+            stm = SentenTreeMiner(args.attr, minSup=minSupParam *
+                                  len(seqList), maxSup=len(seqList))
+            start = time.time()
+            mem, graph = memory_usage(proc=[stm.runSentenTreeMiner, [seqList]],\
+                                       include_children=True, max_usage=True, retval=True)
+            end = time.time()
 
-        # x = json.dumps(root, ensure_ascii=False,
-        #                default=GraphNode.jsonSerializeDump, indent=1)
+            writer.writerow([basename, f'{minSupParam:.2f}', "Sententree",\
+                            timedelta(seconds=end-start), mem])
+            # print("\n\n*****SentenTree output******\n\n")
+
+            # x = json.dumps(root, ensure_ascii=False,
+            #                default=GraphNode.jsonSerializeDump, indent=1)
+            # print(x)
+
+            print("\n\n*****SentenTree Graph output******\n\n")
+
+            y = json.dumps(graph, ensure_ascii=False,
+                           default=Graph.jsonSerializeDump, indent=1)
+            print(y)
+            # with open(args.output+'sententree_result.json', 'w') as the_file1:
+            #     the_file1.write(x)
+
+            with open(args.output+basename+'+sententree_msp'+f'{minSupParam:.2f}'+ '.json', 'w') \
+                    as the_file2:
+                the_file2.write(y)
+            minSupParam += 0.05
+
+        # syn = SequenceSynopsisMiner(args.attr)
+        # ssm = syn.minDL(seqList)
+        # print(ssm)
+
+        # with open(args.output+basename+'sequence_synopsis_result.csv', 'w') as the_file:
+        #     writer = csv.writer(the_file)
+        #     writer.writerow(["Pattern_ID", "Event", "Average_Index"])
+        #     for index, elem in enumerate(ssm):
+        #         print(f'elemvalue {elem.index}')
+        #         keyEvents = eventStore.getEventValue(args.attr, elem.pattern.keyEvts)
+        #         print(f'key {keyEvents}')
+        #         for ind, pos in enumerate(keyEvents):
+        #             print(f'pos {pos} ind {ind}')
+        #             writer.writerow(["P"+str(index), pos, elem.index[ind]])
+
+        # #Cluster.printClustDict(G, "Event")
+
+        # x = json.dumps([elem.jsonDefaultDump(args.attr, eventStore) for elem in ssm],
+        #                ensure_ascii=False)
         # print(x)
 
-        print("\n\n*****SentenTree Graph output******\n\n")
-
-        y = json.dumps(graph, ensure_ascii=False,
-                       default=Graph.jsonSerializeDump, indent=1)
-        print(y)
-        # with open(args.output+'sententree_result.json', 'w') as the_file1:
-        #     the_file1.write(x)
-
-        with open(args.output+basename+'+sententree_msp'+f'{minSupParam:.2f}'+ '.json', 'w') \
-                  as the_file2:
-            the_file2.write(y)
-        minSupParam += 0.05
-
-    # syn = SequenceSynopsisMiner(args.attr)
-    # ssm = syn.minDL(seqList)
-    # print(ssm)
-
-    # with open(args.output+basename+'sequence_synopsis_result.csv', 'w') as the_file:
-    #     writer = csv.writer(the_file)
-    #     writer.writerow(["Pattern_ID", "Event", "Average_Index"])
-    #     for index, elem in enumerate(ssm):
-    #         print(f'elemvalue {elem.index}')
-    #         keyEvents = eventStore.getEventValue(args.attr, elem.pattern.keyEvts)
-    #         print(f'key {keyEvents}')
-    #         for ind, pos in enumerate(keyEvents):
-    #             print(f'pos {pos} ind {ind}')
-    #             writer.writerow(["P"+str(index), pos, elem.index[ind]])
-
-    # #Cluster.printClustDict(G, "Event")
-
-    # x = json.dumps([elem.jsonDefaultDump(args.attr, eventStore) for elem in ssm],
-    #                ensure_ascii=False)
-    # print(x)
-
-    # with open(args.output+basename+'sequence_synopsis_outfile.json', 'w') as the_file3:
-    #     the_file3.write(x)
+        # with open(args.output+basename+'sequence_synopsis_outfile.json', 'w') as the_file3:
+        #     the_file3.write(x)

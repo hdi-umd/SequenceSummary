@@ -21,7 +21,7 @@ class CoreFlowMiner:
 
     def runCoreFlowMiner(self, sequences):
         """Creates a Root Node to start mining."""
-        print("Start of all " + str(len(sequences))+" visits")
+        #print("Start of all " + str(len(sequences))+" visits")
         TreeNode.resetCounter()
         root = TreeNode(self.attr, Sequence.getSeqVolume(
             sequences), "_Start")
@@ -49,7 +49,7 @@ class CoreFlowMiner:
         #print(f'topPattern {topPattern.keyEvts}')
 
         if topPattern is None:
-            print("no patterns found")
+            #print("no patterns found")
             self.bundleToExit(seqs, parent, graph, exitNodeHash)
             return
         containSegs = []

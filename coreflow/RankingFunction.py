@@ -40,7 +40,7 @@ class RankingFunction:
 
         self.topRankedEvtValues = self.tieBreaker()
 
-        print(f'top ranked{self.topRankedEvtValues[0].keyEvts}')
+        #print(f'top ranked{self.topRankedEvtValues[0].keyEvts}')
 
         return self.topRankedEvtValues[0]
 
@@ -76,7 +76,7 @@ class RankingFunction:
                 val[0] for val in result.most_common() if val[1] == maxVal]
             self.topRankedEvtValues = [elem for elem in patternDict.values()
                                        for cand in candidate if elem.keyEvts == cand]
-            print(f'top values {self.topRankedEvtValues}')
+            #print(f'top values {self.topRankedEvtValues}')
 
     def numberOfSequence(self, sequence):
         """Select the event which is present in highest number of sequences."""
