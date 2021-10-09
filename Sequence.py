@@ -27,7 +27,7 @@ class Sequence():
 
     def getSeqLen(self):
         """"Length of the eventList for this sequence."""
-        print(f'event Length {len(self.events)}')
+        #print(f'event Length {len(self.events)}')
         return len(self.events)
 
     def getEventPosition(self, attr, hashVal):
