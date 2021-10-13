@@ -11,9 +11,9 @@ import argparse
 import csv
 from EventStore import EventStore
 from Sequence import Sequence
-from SequenceSynopsisMiner import SequenceSynopsisMiner
-
-
+#from SequenceSynopsisMiner import SequenceSynopsisMiner
+#from SequenceSynopsisMinerWithLSH import SequenceSynopsisMiner
+from SequenceSynopsisMinerWithWeightedLSH import SequenceSynopsisMiner
 if __name__ == "__main__":
     # main()
 
@@ -87,20 +87,23 @@ if __name__ == "__main__":
         else:
             seqList = seq
 
-    syn = SequenceSynopsisMiner(args.attr)
+    syn = SequenceSynopsisMiner(args.attr, eventStore)
     ssm = syn.minDL(seqList)
     print(ssm)
 
     with open('sequence_synopsis_outfile.csv', 'w') as the_file:
         writer = csv.writer(the_file)
-        writer.writerow(["Pattern_ID", "Event", "Average_Index"])
+        writer.writerow(["Pattern_ID", "Event", "Average_Index", "Number of Sequences"])
         for index, elem in enumerate(ssm):
             print(f'elemvalue {elem.index}')
+            writer.writerow(["P"+str(index), "_Start", 0, str(len(elem.seqList))])
             keyEvents = eventStore.getEventValue(args.attr, elem.pattern.keyEvts)
             print(f'key {keyEvents}')
             for ind, pos in enumerate(keyEvents):
                 print(f'pos {pos} ind {ind}')
-                writer.writerow(["P"+str(index), pos, elem.index[ind]])
+                writer.writerow(["P"+str(index), pos, elem.index[ind], str(len(elem.seqList))])
+            trailingLen = sum(len(x.events) for x in elem.seqList)/len(elem.seqList)
+            writer.writerow(["P"+str(index), "_Exit", trailingLen, str(len(elem.seqList))])
 
 
 
