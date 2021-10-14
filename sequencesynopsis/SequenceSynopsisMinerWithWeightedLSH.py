@@ -17,6 +17,33 @@ class SequenceSynopsisMiner:
         self.attr = attrib
         self.eventStore = evtStore
 
+    def createMinHashandLSH(self, clustDict, threshold):
+        """
+        Input: clustDict: Doctionary of clusters
+        threshold: float value of threshold
+        Returns a minHashArr and the LSH arr
+        """
+        vectorizer = TfidfVectorizer(
+            token_pattern=r'\w+', norm="l1", sublinear_tf=True)
+        patStrings = [" ".join(self.eventStore.getEventValue(
+            self.attr, val.pattern.keyEvts)) for val in clustDict]
+        # print(x[0])
+        vectors = vectorizer.fit_transform(patStrings)
+        dense = vectors.todense()
+        denselist = dense.tolist()
+        # print(denselist)
+
+        #print("Initial clusts")
+        #Cluster.printClustDict(clustDict, self.attr)
+        wmg = WeightedMinHashGenerator(len(denselist[0]))
+
+        minHashArr = []
+        lsh = MinHashLSH(threshold=threshold, num_perm=128)
+        for ind, val in enumerate(denselist):
+            minHashArr.append(wmg.minhash(val))
+            lsh.insert(clustDict[ind], minHashArr[ind])
+        return lsh, minHashArr
+
     def minDL(self, seqs):
         """Merges sequences based on minimum Description Length."""
         # Initialization Phase
@@ -25,30 +52,11 @@ class SequenceSynopsisMiner:
         thRate = 0.6
         clustDict = [Cluster(Pattern(seq.getHashList(self.attr)), [seq],
                              list(range(0, seq.getSeqLen()))) for seq in seqs]
-        vectorizer = TfidfVectorizer(token_pattern=r'\w+', norm="l1", sublinear_tf=True)
+        priorityQueue = []
 
-        th = thStart
-        while th > thEnd:
-            x = [" ".join(self.eventStore.getEventValue(
-                self.attr, val.pattern.keyEvts)) for val in clustDict]
-            print(x[0])
-            vectors = vectorizer.fit_transform(x)
-            dense = vectors.todense()
-            denselist = dense.tolist()
-            print(denselist)
-
-            #print("Initial clusts")
-            #Cluster.printClustDict(clustDict, self.attr)
-            wmg = WeightedMinHashGenerator(len(denselist[0]))
-
-            minHashArr = []
-            for ind, val in enumerate(denselist):
-                minHashArr.append(wmg.minhash(val))
-            priorityQueue = []
-            print(th)
-            lsh = MinHashLSH(threshold=th, num_perm=128)
-            for ind, hashes in enumerate(minHashArr):
-                lsh.insert(clustDict[ind], hashes)
+        threshold = thStart
+        while threshold > thEnd:
+            lsh, minHashArr = self.createMinHashandLSH(clustDict, threshold)
             for i, clust1 in enumerate(clustDict):
                 for j, clust2 in enumerate(lsh.query(minHashArr[i])):
                     if clust1 == clust2:
@@ -86,14 +94,17 @@ class SequenceSynopsisMiner:
                 for index in sorted(deleteIndices, reverse=True):
                     del priorityQueue[index]
 
+                lsh, minHashArr = self.createMinHashandLSH(
+                    clustDict, threshold)
+
                 for clus in lsh.query(minHashArr[-1]):
                     deltaL, cStar = self.merge(clus, cNew)
                     if deltaL > 0:
                         priorityQueue.append(
                             QueueElements(deltaL, cStar, clus, cNew))
                 #QueueElements.printPriorityQueue(priorityQueue, self.attr)
-            th = th*thRate
-            print(th)
+            threshold = threshold*thRate
+            print(threshold)
         return clustDict
 
     def merge(self, pair1, pair2, alpha=0.9, lambdaVal=0.1):
@@ -106,6 +117,7 @@ class SequenceSynopsisMiner:
             candidateEventsCounter, key=candidateEventsCounter.get, reverse=True)
 
         deltaL = -1
+        maxDeltaL = -1
         #print(f'p1 {pair1.pattern.keyEvts}')
         #print(f'p2 {pair2.pattern.keyEvts}')
 
@@ -114,39 +126,40 @@ class SequenceSynopsisMiner:
         lcsPosPat2 = Pattern.getPositions(
             pStar.keyEvts, pair2.pattern.keyEvts)
         averagePos = calcAverage(lcsPosPat1, lcsPosPat2)
-        #print(f'Average Pos {averagePos}')
+        print(f'Average Pos {averagePos}')
 
         #print(f'candidates {candidateEventsCounter}')
         clust = Cluster(pStar, pair1.seqList+pair2.seqList, averagePos)
         selectedIndex = -1
 
         for candidate in candidateEventsCounter:
+            deltaLArr = []
+            pStarArr = []
+            indexArr = []
             indicesKey1 = [i for i, x in enumerate(
                 pair1.pattern.keyEvts) if x == candidate]
             indicesKey2 = [i for i, x in enumerate(
                 pair2.pattern.keyEvts) if x == candidate]
             candidatePos = []
 
+            # Find in which indices current candidate event could be inserted
             for ind in indicesKey1:
                 if candidate in pStar.keyEvts and ind in lcsPosPat1:
+                    # event already in LCS
                     continue
-                tempPattern = pStar
                 index = bisect(lcsPosPat1, ind)
                 candidatePos.append(index)
 
             for ind in indicesKey2:
                 if candidate in pStar.keyEvts and ind in lcsPosPat2:
                     continue
-
-                tempPattern = pStar
                 index = bisect(lcsPosPat2, ind)
                 candidatePos.append(index)
 
             candidatePos = list(set(candidatePos))
             #print(f'candidatepos {candidatePos}')
-
+            tempPattern = Pattern(pStar.keyEvts[:])
             for index in candidatePos:
-
                 tempPattern.keyEvts.insert(index, candidate)
                 #print(f'index {index}')
                 deltaLPrime = len(pair1.pattern.keyEvts) + len(pair2.pattern.keyEvts) - \
@@ -169,32 +182,37 @@ class SequenceSynopsisMiner:
                     del tempPattern.keyEvts[index]
                     continue
 
-                deltaL = deltaLPrime
-                pStar = tempPattern
+                deltaLArr.append(deltaLPrime)
+                pStarArr.append(Pattern(tempPattern.keyEvts[:]))
+                indexArr.append(index)
 
                 #print(f'del L  {deltaL}')
                 #print(f'pStar {pStar.keyEvts}')
-                selectedIndex = index
+                # index calculation
                 del tempPattern.keyEvts[index]
-                clust = Cluster(pStar, pair1.seqList+pair2.seqList, averagePos)
-            if selectedIndex != -1:
-                if selectedIndex == 0:
-                    averagePos.insert(0, 0)
-                if selectedIndex == len(averagePos):
-                    averagePos.append(averagePos[-1]+1)
-                else:
-                    averagePos.insert(selectedIndex,
-                                      (averagePos[selectedIndex-1]+averagePos[selectedIndex])/2.0)
+            if deltaLArr:
+                if max(deltaLArr) > deltaL:
+                    deltaL = max(deltaLArr)
+                    maxInd = deltaLArr.index(max(deltaLArr))
+                    selectedIndex = indexArr[maxInd]
+                    pStar = pStarArr[maxInd]
+                    if selectedIndex != -1:
+                        if selectedIndex == 0:
+                            averagePos.insert(0, 0)
+                        if selectedIndex >= len(averagePos):
+                            averagePos.append(averagePos[-1]+1)
+                        else:
+                            averagePos.insert(selectedIndex,
+                                            (averagePos[selectedIndex-1]+averagePos[selectedIndex])/2.0)
+                    clust = Cluster(pStar, pair1.seqList+pair2.seqList, averagePos)
 
-                # startInd = 0 if selectedIndex == 0 else averagePos[selectedIndex-1]
-                # endInd = -1 if len(averagePos) <= selectedIndex else averagePos[selectedIndex+1]
+            # startInd = 0 if selectedIndex == 0 else averagePos[selectedIndex-1]
+            # endInd = -1 if len(averagePos) <= selectedIndex else averagePos[selectedIndex+1]
 
-                # average = 0
+            # average = 0
 
-                # for sequences in clust.seqList:
-                #     sequences.index()
+            # for sequences in clust.seqList:
+            #     sequences.index()
 
-            if deltaLPrime < 0 or deltaLPrime < deltaL:
-                break
         #print(f'return del_L {deltaL} cluster {clust.pattern.keyEvts} {clust.seqList}')
         return deltaL, clust

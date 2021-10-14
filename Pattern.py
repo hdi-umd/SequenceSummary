@@ -89,8 +89,18 @@ class Pattern:
 
     def getUniqueEventsString(self):
         """Get all the unique events in pattern (valid?)"""
-        # return "-".join(str(x) for x in list(set(self.keyEvts)))
-        return "-".join(str(x) for x in list(dict.fromkeys(self.keyEvts)))
+        return "-".join(str(x) for x in list(set(self.keyEvts)))
+        #return "-".join(str(x) for x in list(dict.fromkeys(self.keyEvts)))
+
+    def getEventsHashString(self):
+        """Get all the events in pattern """
+        return " ".join(str(x) for x in list(dict.fromkeys(self.keyEvts)))
+
+    # def getEventsString(self):
+    #     """Returns the pattern string"""
+    #     return "-".join(str(
+    #         self.sequences[0].eventstore.reverseAttrDict[self.attr][hashVal])
+    #                     for hashVal in self.keyevts if self.sequences)
 
     def computePatternStats(self, evtAttr):
         """Computes mean and median positions and path lengths of
