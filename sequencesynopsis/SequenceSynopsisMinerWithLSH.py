@@ -24,6 +24,7 @@ class SequenceSynopsisMiner:
                              list(range(0, seq.getSeqLen()))) for seq in seqs]
         #print("Initial clusts")
         #Cluster.printClustDict(clustDict, self.attr)
+        #print(clustDict[0].pattern.getEventsString())
         minHashArr = []
         for ind, val in enumerate(clustDict):
             minHashArr.append(MinHash(num_perm=128))
@@ -177,7 +178,7 @@ class SequenceSynopsisMiner:
             if selectedIndex != -1:
                 if selectedIndex == 0:
                     averagePos.insert(0, 0)
-                if selectedIndex == len(averagePos):
+                if selectedIndex >= len(averagePos):
                     averagePos.append(averagePos[-1]+1)
                 else:
                     averagePos.insert(selectedIndex,
@@ -193,5 +194,8 @@ class SequenceSynopsisMiner:
 
             if deltaLPrime < 0 or deltaLPrime < deltaL:
                 break
+        
+
+
         #print(f'return del_L {deltaL} cluster {clust.pattern.keyEvts} {clust.seqList}')
         return deltaL, clust
