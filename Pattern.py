@@ -173,7 +173,7 @@ class Pattern:
             try:
                 idx = path[offset:].index(elems)
             except ValueError:
-                continue
+                pos.append(-1)
             pos.append(offset+idx)
         #print(f'Positions {pos}')
         return pos
@@ -209,7 +209,7 @@ class Pattern:
         return median
 
     @staticmethod
-    def getStats(keyEvts, seqs, evtAttr):
+    def getStats(keyEvts, seqs, evtAttr, matchAll=True):
         """Returns means and medians for a given set of key events and sequences."""
         medians = []
         means = []
@@ -223,14 +223,19 @@ class Pattern:
             numSteps = []
 
             for _, paths in enumerate(pathsOfStrings):
-                if Pattern.matchMilestones(paths, keyEvts[0:i+1]):
-                    pos = Pattern.getPositions(keyEvts[0:i+1], paths)
-                    if i == 0:
-                        # add position value of first element id sequence
-                        numSteps.append(pos[i])
-                    else:
-                        # in other cases add the difference
-                        numSteps.append(pos[i]-pos[i-1])
+                if matchAll:
+                    if not Pattern.matchMilestones(paths, keyEvts[0:i+1]):
+                        raise ValueError("Unmatched pattern!")
+                pos = Pattern.getPositions(keyEvts[0:i+1], paths)
+                print(paths)
+                print(keyEvts[0:i+1])
+                #i == -1 means not found
+                if i == 0 and pos[i]!=-1:
+                    # add position value of first element id sequence
+                    numSteps.append(pos[i])
+                elif pos[i] !=-1:
+                    # in other cases add the difference
+                    numSteps.append(pos[i]-pos[i-1])
             sumSteps = sum(numSteps)
 
             median = Pattern.getMedian(numSteps)

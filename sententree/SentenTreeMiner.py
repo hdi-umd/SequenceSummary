@@ -41,7 +41,7 @@ class SentenTreeMiner:
 
         leafSeqs = []
 
-        rootNode.graph.nodes.append(RawNode(rootNode))
+        rootNode.graph.nodes.append(RawNode(node=rootNode))
         graphs.append(rootNode.graph)
         while seqs and expandCnt > 0:
             currentSeq = max(seqs, key=lambda x: x.seqCount)
@@ -87,7 +87,7 @@ class SentenTreeMiner:
             if seq1 and seq1.seqCount >= self.minSupport:
                 expandCnt -= 1
                 seqs.append(seq1)
-                graph.nodes.append(RawNode(seq1, pos))
+                graph.nodes.append(RawNode(node=seq1, pos=pos))
 
             if seq0 and seq0.seqCount >= self.minSupport:
                 seqs.append(seq0)
@@ -113,7 +113,7 @@ class SentenTreeMiner:
             # exitNode.parent.append(seq)
             seq.parent.append(exitNode)
 
-            seq.graph.nodes.append(RawNode(exitNode, -1))
+            seq.graph.nodes.append(RawNode(node=exitNode, pos=-1))
 
         self.updateNodesEdges(graphs, leafSeqs)
         for graph in graphs:

@@ -8,6 +8,7 @@ from sequencesynopsis.QueueElements import QueueElements
 from Pattern import Pattern
 from datasketch import MinHash, MinHashLSH, WeightedMinHashGenerator
 from sklearn.feature_extraction.text import TfidfVectorizer
+from Graph import Graph, RawNode, Links
 
 
 class SequenceSynopsisMiner:
@@ -16,6 +17,9 @@ class SequenceSynopsisMiner:
     def __init__(self, attrib, evtStore, alpha=0.1, lambdaVal=0.9):
         self.attr = attrib
         self.eventStore = evtStore
+        self.alpha = alpha
+        self.lambdaVal = lambdaVal
+        self.clustDict = []  # To-Do: Make clustDict class var
 
     def createMinHashandLSH(self, clustDict, threshold):
         """
@@ -68,14 +72,16 @@ class SequenceSynopsisMiner:
                         priorityQueue.append(QueueElements(
                             deltaL, cStar, clust1, clust2))
 
-            QueueElements.printPriorityQueue(priorityQueue, self.attr)
+            #QueueElements.printPriorityQueue(priorityQueue, self.attr)
             while priorityQueue:
                 priorityQueue = sorted(
                     priorityQueue, key=lambda x: x.deltaL, reverse=True)  # sort on deltaL
 
                 #print(f'to Merge ')
                 toMerge = priorityQueue[0]
-                toMerge.printElement(self.attr)
+                # print(toMerge.clust1)
+                # print(toMerge.clust2)
+                # print(clustDict)
                 cNew = toMerge.cStar
                 clustDict.remove(toMerge.clust1)
                 clustDict.remove(toMerge.clust2)
@@ -98,26 +104,33 @@ class SequenceSynopsisMiner:
                     clustDict, threshold)
 
                 for clus in lsh.query(minHashArr[-1]):
+                    if clus == cNew:
+                        continue
                     deltaL, cStar = self.merge(clus, cNew)
                     if deltaL > 0:
                         priorityQueue.append(
                             QueueElements(deltaL, cStar, clus, cNew))
                 #QueueElements.printPriorityQueue(priorityQueue, self.attr)
             threshold = threshold*thRate
-            print(threshold)
-        return clustDict
+            # print(threshold)
+        grph = self.transformToGraph(clustDict)
+        return clustDict, grph
 
-    def merge(self, pair1, pair2, alpha=0.9, lambdaVal=0.1):
+    def merge(self, pair1, pair2):
         """Merge two seqLists and calculate the description length reduction"""
         pStar = Pattern(lcs(pair1.pattern.keyEvts, pair2.pattern.keyEvts))
         candidateEvents = list(((Counter(pair1.pattern.keyEvts)-Counter(pStar.keyEvts)) |
                                 (Counter(pair2.pattern.keyEvts)-Counter(pStar.keyEvts))).elements())
+        if not candidateEvents:
+            # same pattern
+            clust = Cluster(pStar, pair1.seqList+pair2.seqList,
+                            list(range(len(pStar.keyEvts))))
+            return 100, clust
         candidateEventsCounter = Counter(candidateEvents)
         candidateEventsCounter = sorted(
             candidateEventsCounter, key=candidateEventsCounter.get, reverse=True)
 
         deltaL = -1
-        maxDeltaL = -1
         #print(f'p1 {pair1.pattern.keyEvts}')
         #print(f'p2 {pair2.pattern.keyEvts}')
 
@@ -126,7 +139,7 @@ class SequenceSynopsisMiner:
         lcsPosPat2 = Pattern.getPositions(
             pStar.keyEvts, pair2.pattern.keyEvts)
         averagePos = calcAverage(lcsPosPat1, lcsPosPat2)
-        print(f'Average Pos {averagePos}')
+        #print(f'Average Pos {averagePos}')
 
         #print(f'candidates {candidateEventsCounter}')
         clust = Cluster(pStar, pair1.seqList+pair2.seqList, averagePos)
@@ -163,16 +176,16 @@ class SequenceSynopsisMiner:
                 tempPattern.keyEvts.insert(index, candidate)
                 #print(f'index {index}')
                 deltaLPrime = len(pair1.pattern.keyEvts) + len(pair2.pattern.keyEvts) - \
-                    len(tempPattern.keyEvts)+lambdaVal
+                    len(tempPattern.keyEvts)+self.lambdaVal
                 #print(f'del L Prime  {deltaLPrime}')
-                deltaLPrime += sum(alpha*calcDist(v1.getHashList(self.attr),
-                                                  pair1.pattern.keyEvts) for v1 in pair1.seqList)
+                deltaLPrime += sum(self.alpha*calcDist(v1.getHashList(self.attr),
+                                                       pair1.pattern.keyEvts) for v1 in pair1.seqList)
                 #print(f'del L Prime  {deltaLPrime}')
-                deltaLPrime += sum(alpha*calcDist(v2.getHashList(self.attr),
-                                                  pair2.pattern.keyEvts) for v2 in pair2.seqList)
+                deltaLPrime += sum(self.alpha*calcDist(v2.getHashList(self.attr),
+                                                       pair2.pattern.keyEvts) for v2 in pair2.seqList)
                 #print(f'del L Prime  {deltaLPrime}')
-                deltaLPrime -= sum(alpha*calcDist(v.getHashList(self.attr),
-                                                  tempPattern.keyEvts)
+                deltaLPrime -= sum(self.alpha*calcDist(v.getHashList(self.attr),
+                                                       tempPattern.keyEvts)
                                    for v in pair1.seqList+pair2.seqList)
 
                 #print(f'del L  {deltaL}')
@@ -203,8 +216,9 @@ class SequenceSynopsisMiner:
                             averagePos.append(averagePos[-1]+1)
                         else:
                             averagePos.insert(selectedIndex,
-                                            (averagePos[selectedIndex-1]+averagePos[selectedIndex])/2.0)
-                    clust = Cluster(pStar, pair1.seqList+pair2.seqList, averagePos)
+                                              (averagePos[selectedIndex-1]+averagePos[selectedIndex])/2.0)
+                    clust = Cluster(pStar, pair1.seqList +
+                                    pair2.seqList, averagePos)
 
             # startInd = 0 if selectedIndex == 0 else averagePos[selectedIndex-1]
             # endInd = -1 if len(averagePos) <= selectedIndex else averagePos[selectedIndex+1]
@@ -216,3 +230,35 @@ class SequenceSynopsisMiner:
 
         #print(f'return del_L {deltaL} cluster {clust.pattern.keyEvts} {clust.seqList}')
         return deltaL, clust
+
+    def transformToGraph(self, clust):
+        """Given a list of clusters, convert this to graph."""
+        graph = Graph()
+        count = 0
+        for index, elem in enumerate(clust):
+            keyEvents = self.eventStore.getEventValue(
+                self.attr, elem.pattern.keyEvts)
+            for ind, event in enumerate(elem.pattern.keyEvts):
+                node = RawNode()
+                node.seqCount = str(len(elem.seqList))
+                node.value = keyEvents[ind]
+                node.pos = ind
+                node.keyevts = elem.pattern.keyEvts[:]
+                node.pattern = index
+                # node.pattern = " ".join(self.eventStore.getEventValue(
+                #     self.attr, elem.pattern.keyEvts[:ind+1]))
+                node.sequences = elem.seqList
+                node.attr = self.attr
+                node.meanStep = -1
+                node.medianStep = -1
+                graph.nodes.append(node)
+
+                # This means not the first node of Pattern
+                if ind > 0:
+                    graph.links.append(Links(graph.nodes[count-1], graph.nodes[count],
+                                             len(elem.seqList)))
+                graph.calcPositionsNode(matchAll=False)
+                # graph.calcLengthsLink()
+                count += 1
+
+        return graph

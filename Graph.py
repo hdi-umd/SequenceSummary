@@ -10,27 +10,41 @@ class RawNode:
     """RawNode contains selected attributes from Node class for json conversion."""
     _ids = count(0)
 
-    def __init__(self, node=None, pos=0, isCoreflow=0):
+    def __init__(self, node=None, cluster=None, pos=0, isCoreflow=0):
         if node:
-            self.nid = node.nid
-            self.seqCount = node.seqCount
-            self.value = node.value
-            self.keyevts = node.keyevts
-            self.pattern = node.getPatternString()
-            self.parent = node.parent
-            self.sequences = node.sequences
-            self.pos = pos
-            self.attr = node.attr
-            if isCoreflow:
-                self.meanStep = node.meanStep
-                self.medianStep = node.medianStep
-            else:
-                self.meanStep = -1
-                self.medianStep = -1
-
+            self.createFromNode(node, isCoreflow)
+        else:
+            self.nid = next(self._ids) 
+            self.seqCount = 0
+            self.value = ""
+            self.keyevts = []
+            self.pattern = -1
+            self.parent = []
+            self.sequences = []
+            self.attr = ""
+            self.meanStep = -1
+            self.medianStep = -1
+        self.pos = pos
         self.rightLinks = []
         self.leftLinks = []
-        self.predecessor = []
+
+    def createFromNode(self, node, coreFlow):
+        """Create RawNode from Node object."""
+        self.nid = node.nid
+        self.seqCount = node.seqCount
+        self.value = node.value
+        self.keyevts = node.keyevts
+        self.pattern = node.getPatternString()
+        self.parent = node.parent
+        self.sequences = node.sequences
+        self.attr = node.attr
+        if coreFlow:
+            self.meanStep = node.meanStep
+            self.medianStep = node.medianStep
+        else:
+            self.meanStep = -1
+            self.medianStep = -1
+
 
     def jsonDefaultDump(self) -> dict:
         """creates the Json format output for the class RawNode."""
@@ -78,7 +92,7 @@ class RawNode:
             nodes.medianStep for nodes in nodeList)/len(nodeList)
         return node
 
-    def calcPositions(self):
+    def calcPositions(self, matchAll):
         """Computes cumulative mean and median positions and path lengths of
         key events for the given attribute.
         """
@@ -88,17 +102,18 @@ class RawNode:
             # rootNode
             return 0, 0
 
-        medians, means = Pattern.getStats(self.keyevts[:self.pos+1], self.sequences, self.attr)
+        medians, means = Pattern.getStats(self.keyevts[:self.pos+1], self.sequences,\
+                                          self.attr, matchAll)
 
         return means[-1], medians[-1]
 
-    def calcPositionsGenericNode(self, nodeList):
+    def calcPositionsGenericNode(self, nodeList, matchAll):
         """Computes cumulative mean and median positions and path lengths of
         key events for the given attribute.
         """
 
         #print(f'path of string {pathsOfStrings}')
-        mean, median = self.calcPositions()
+        mean, median = self.calcPositions(matchAll)
 
         if len(self.parent) > 1:
             #print(f'parent {self.parent[self.pos].meanStep}')
@@ -178,7 +193,8 @@ class Links:
             self.length = mean
 
         else:
-            _medians, means = Pattern.getStats(targetNode.keyevts[:targetNode.pos+1], seqs, targetNode.attr)
+            _medians, means = Pattern.getStats(targetNode.keyevts[:targetNode.pos+1],\
+                                               seqs, targetNode.attr)
 
             self.length = means[-1]
         #print(
@@ -205,13 +221,13 @@ class Graph:
         """Default JSON serializer"""
         json.dumps(self, indent=4, default=Graph.jsonSerializeDump)
 
-    def calcPositionsNode(self):
+    def calcPositionsNode(self, matchAll=True):
         """Calculate mean and median node positions."""
         for node in self.nodes:
             if node.value == "_End":
                 node.calcPositionsExitNode(self.nodes)
             else:
-                node.calcPositionsGenericNode(self.nodes)
+                node.calcPositionsGenericNode(self.nodes, matchAll)
 
     def setMaxNodePred(self, node):
         """Recursively get max predecessor."""

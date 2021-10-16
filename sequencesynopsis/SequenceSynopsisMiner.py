@@ -11,13 +11,16 @@ from Pattern import Pattern
 class SequenceSynopsisMiner:
     """Based on some metric distance, groups sequences under same pattern."""
 
-    def __init__(self, attrib, alpha=0.1, lambdaVal=0.9):
+    def __init__(self, attrib, evtStore, alpha=0.1, lambdaVal=0.9):
         self.attr = attrib
+        self.eventStore = evtStore
+        self.alpha = alpha
+        self.lambdaVal = lambdaVal
 
     def minDL(self, seqs):
         """Merges sequences based on minimum Description Length."""
         # Initialization Phase
-        clustDict = [Cluster(Pattern(seq.getHashList(self.attr)), [seq], \
+        clustDict = [Cluster(Pattern(seq.getHashList(self.attr)), [seq],
                              list(range(0, seq.getSeqLen()))) for seq in seqs]
         #print("Initial clusts")
         #Cluster.printClustDict(clustDict, self.attr)
@@ -78,6 +81,11 @@ class SequenceSynopsisMiner:
         pStar = Pattern(lcs(pair1.pattern.keyEvts, pair2.pattern.keyEvts))
         candidateEvents = list(((Counter(pair1.pattern.keyEvts)-Counter(pStar.keyEvts)) |
                                 (Counter(pair2.pattern.keyEvts)-Counter(pStar.keyEvts))).elements())
+        if not candidateEvents:
+            # same pattern
+            clust = Cluster(pStar, pair1.seqList+pair2.seqList,
+                            list(range(len(pStar.keyEvts))))
+            return 100, clust
         candidateEventsCounter = Counter(candidateEvents)
         candidateEventsCounter = sorted(
             candidateEventsCounter, key=candidateEventsCounter.get, reverse=True)
@@ -98,6 +106,9 @@ class SequenceSynopsisMiner:
         selectedIndex = -1
 
         for candidate in candidateEventsCounter:
+            deltaLArr = []
+            pStarArr = []
+            indexArr = []
             indicesKey1 = [i for i, x in enumerate(
                 pair1.pattern.keyEvts) if x == candidate]
             indicesKey2 = [i for i, x in enumerate(
@@ -107,7 +118,6 @@ class SequenceSynopsisMiner:
             for ind in indicesKey1:
                 if candidate in pStar.keyEvts and ind in lcsPosPat1:
                     continue
-                tempPattern = pStar
                 index = bisect(lcsPosPat1, ind)
                 candidatePos.append(index)
 
@@ -115,11 +125,11 @@ class SequenceSynopsisMiner:
                 if candidate in pStar.keyEvts and ind in lcsPosPat2:
                     continue
 
-                tempPattern = pStar
                 index = bisect(lcsPosPat2, ind)
                 candidatePos.append(index)
 
             candidatePos = list(set(candidatePos))
+            tempPattern = Pattern(pStar.keyEvts[:])
             #print(f'candidatepos {candidatePos}')
 
             for index in candidatePos:
@@ -146,22 +156,29 @@ class SequenceSynopsisMiner:
                     del tempPattern.keyEvts[index]
                     continue
 
-                deltaL = deltaLPrime
-                pStar = tempPattern
+                deltaLArr.append(deltaLPrime)
+                pStarArr.append(Pattern(tempPattern.keyEvts[:]))
+                indexArr.append(index)
 
                 #print(f'del L  {deltaL}')
                 #print(f'pStar {pStar.keyEvts}')
-                selectedIndex = index
                 del tempPattern.keyEvts[index]
-                clust = Cluster(pStar, pair1.seqList+pair2.seqList, averagePos)
-            if selectedIndex != -1:
-                if selectedIndex == 0:
-                    averagePos.insert(0, 0)
-                if selectedIndex == len(averagePos):
-                    averagePos.append(averagePos[-1]+1)
-                else:
-                    averagePos.insert(selectedIndex,
-                                      (averagePos[selectedIndex-1]+averagePos[selectedIndex])/2.0)
+            if deltaLArr:
+                if max(deltaLArr) > deltaL:
+                    deltaL = max(deltaLArr)
+                    maxInd = deltaLArr.index(max(deltaLArr))
+                    selectedIndex = indexArr[maxInd]
+                    pStar = pStarArr[maxInd]
+                    if selectedIndex != -1:
+                        if selectedIndex == 0:
+                            averagePos.insert(0, 0)
+                        if selectedIndex >= len(averagePos):
+                            averagePos.append(averagePos[-1]+1)
+                        else:
+                            averagePos.insert(selectedIndex,
+                                              (averagePos[selectedIndex-1]+averagePos[selectedIndex])/2.0)
+                    clust = Cluster(pStar, pair1.seqList +
+                                    pair2.seqList, averagePos)
 
                 # startInd = 0 if selectedIndex == 0 else averagePos[selectedIndex-1]
                 # endInd = -1 if len(averagePos) <= selectedIndex else averagePos[selectedIndex+1]
@@ -171,7 +188,5 @@ class SequenceSynopsisMiner:
                 # for sequences in clust.seqList:
                 #     sequences.index()
 
-            if deltaLPrime < 0 or deltaLPrime < deltaL:
-                break
         #print(f'return del_L {deltaL} cluster {clust.pattern.keyEvts} {clust.seqList}')
         return deltaL, clust
