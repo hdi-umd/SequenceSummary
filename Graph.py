@@ -8,13 +8,13 @@ from Pattern import Pattern
 
 class RawNode:
     """RawNode contains selected attributes from Node class for json conversion."""
-    _ids = count(0)
+    _ids = count(1)
 
-    def __init__(self, node=None, cluster=None, pos=0, isCoreflow=0):
+    def __init__(self, node=None, pos=0, isCoreflow=0):
         if node:
             self.createFromNode(node, isCoreflow)
         else:
-            self.nid = next(self._ids) 
+            self.nid = next(self._ids)
             self.seqCount = 0
             self.value = ""
             self.keyevts = []
@@ -105,6 +105,9 @@ class RawNode:
         medians, means = Pattern.getStats(self.keyevts[:self.pos+1], self.sequences,\
                                           self.attr, matchAll)
 
+        # if not matchAll:
+        #     return sum(means), sum(medians)
+
         return means[-1], medians[-1]
 
     def calcPositionsGenericNode(self, nodeList, matchAll):
@@ -134,13 +137,16 @@ class RawNode:
         key events for the given attribute.
         """
         median, mean = Pattern.getStatsEnd(self.keyevts, self.sequences, self.attr)
+        print(f'mean {mean}')
         parentNid = self.parent[-1].nid
         rawParent = [x for x in nodeList if x.nid == parentNid][0]
         #print(f'Raw parent mean {rawParent.meanStep}')
         #print(f'trailing means{mean}')
         #print(f'trailing medians{median}')
+        print(f'Parent meanstep {rawParent.meanStep}')
         self.meanStep = rawParent.meanStep + mean
         self.medianStep = rawParent.medianStep + median
+        print(f'overall meanstep {self.meanStep}')
         return mean
 
 
@@ -173,7 +179,7 @@ class Links:
                 seqs.append(seq)
         #print(f'src {srcNode.nid}, target {targetNode.nid}')
 
-        if targetNode.value == "_End":
+        if targetNode.value == "_Exit":
             trailingSteps = [0]*len(seqs)
             for i, path in enumerate(seqs):
                 pos = Pattern.getPositions(
@@ -224,7 +230,7 @@ class Graph:
     def calcPositionsNode(self, matchAll=True):
         """Calculate mean and median node positions."""
         for node in self.nodes:
-            if node.value == "_End":
+            if node.value == "_Exit":
                 node.calcPositionsExitNode(self.nodes)
             else:
                 node.calcPositionsGenericNode(self.nodes, matchAll)
@@ -246,7 +252,7 @@ class Graph:
         startNode.meanStep = 0
         startNode.medianStep = 0
         for node in self.nodes:
-            if node.value == "_End":
+            if node.value == "_Exit":
                 node.calcPositionsExitNode(self.nodes)
             elif node.meanStep < 0:
                 self.setMaxNodePred(node)

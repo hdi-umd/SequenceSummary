@@ -190,7 +190,7 @@ if __name__ == "__main__":
             # with open(args.output+'sententree_result.json', 'w') as the_file1:
             #     the_file1.write(x)
 
-            with open(args.output+basename+'+seqsynopsis_msp'+f'{minSupParam:.2f}'+ '.json', 'w') \
+            with open(args.output+basename+'+seqsynopsis_alpha'+f'{minSupParam:.2f}'+ '.json', 'w') \
                     as the_file3:
                 the_file3.write(z)
 
