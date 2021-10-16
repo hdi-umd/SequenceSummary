@@ -137,16 +137,16 @@ class RawNode:
         key events for the given attribute.
         """
         median, mean = Pattern.getStatsEnd(self.keyevts, self.sequences, self.attr)
-        print(f'mean {mean}')
+        #print(f'mean {mean}')
         parentNid = self.parent[-1].nid
         rawParent = [x for x in nodeList if x.nid == parentNid][0]
         #print(f'Raw parent mean {rawParent.meanStep}')
         #print(f'trailing means{mean}')
         #print(f'trailing medians{median}')
-        print(f'Parent meanstep {rawParent.meanStep}')
+        #print(f'Parent meanstep {rawParent.meanStep}')
         self.meanStep = rawParent.meanStep + mean
         self.medianStep = rawParent.medianStep + median
-        print(f'overall meanstep {self.meanStep}')
+        #print(f'overall meanstep {self.meanStep}')
         return mean
 
 

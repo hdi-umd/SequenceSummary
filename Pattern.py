@@ -253,10 +253,10 @@ class Pattern:
             pos = Pattern.getPositions(
                 keyevts, path.getHashList(attr))
             # the difference between the last event in thesequence and the last key event
-            print(f'pos {pos} keyevts {keyevts} events {path.getEvtAttrValues(attr)}')
+            #print(f'pos {pos} keyevts {keyevts} events {path.getEvtAttrValues(attr)}')
             trailingSteps[i] = len(path.events) - pos[-1]-1 if pos else len(path.events)-1
 
-        print(f'trailing {trailingSteps}')
+        #print(f'trailing {trailingSteps}')
 
         trailStepSum = sum(trailingSteps)
 
