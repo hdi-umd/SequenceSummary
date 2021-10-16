@@ -21,7 +21,7 @@ class SequenceSynopsisMiner:
         self.lambdaVal = lambdaVal
         self.clustDict = []  # To-Do: Make clustDict class var
 
-    def createMinHashandLSH(self, clustDict, threshold):
+    def createMinHashandLSH(self, threshold):
         """
         Input: clustDict: Doctionary of clusters
         threshold: float value of threshold
@@ -30,7 +30,7 @@ class SequenceSynopsisMiner:
         vectorizer = TfidfVectorizer(
             token_pattern=r'\w+', norm="l1", sublinear_tf=True)
         patStrings = [" ".join(self.eventStore.getEventValue(
-            self.attr, val.pattern.keyEvts)) for val in clustDict]
+            self.attr, val.pattern.keyEvts)) for val in self.clustDict]
         # print(x[0])
         vectors = vectorizer.fit_transform(patStrings)
         dense = vectors.todense()
@@ -45,7 +45,7 @@ class SequenceSynopsisMiner:
         lsh = MinHashLSH(threshold=threshold, num_perm=128)
         for ind, val in enumerate(denselist):
             minHashArr.append(wmg.minhash(val))
-            lsh.insert(clustDict[ind], minHashArr[ind])
+            lsh.insert(self.clustDict[ind], minHashArr[ind])
         return lsh, minHashArr
 
     def minDL(self, seqs):
@@ -54,14 +54,14 @@ class SequenceSynopsisMiner:
         thStart = 0.9
         thEnd = 0.2
         thRate = 0.6
-        clustDict = [Cluster(Pattern(seq.getHashList(self.attr)), [seq],
+        self.clustDict = [Cluster(Pattern(seq.getHashList(self.attr)), [seq],
                              list(range(0, seq.getSeqLen()))) for seq in seqs]
         priorityQueue = []
 
         threshold = thStart
         while threshold > thEnd:
-            lsh, minHashArr = self.createMinHashandLSH(clustDict, threshold)
-            for i, clust1 in enumerate(clustDict):
+            lsh, minHashArr = self.createMinHashandLSH(threshold)
+            for i, clust1 in enumerate(self.clustDict):
                 for j, clust2 in enumerate(lsh.query(minHashArr[i])):
                     if clust1 == clust2:
                         continue
@@ -83,9 +83,9 @@ class SequenceSynopsisMiner:
                 # print(toMerge.clust2)
                 # print(clustDict)
                 cNew = toMerge.cStar
-                clustDict.remove(toMerge.clust1)
-                clustDict.remove(toMerge.clust2)
-                clustDict.append(cNew)
+                self.clustDict.remove(toMerge.clust1)
+                self.clustDict.remove(toMerge.clust2)
+                self.clustDict.append(cNew)
 
                 deleteIndices = []
 
@@ -100,8 +100,7 @@ class SequenceSynopsisMiner:
                 for index in sorted(deleteIndices, reverse=True):
                     del priorityQueue[index]
 
-                lsh, minHashArr = self.createMinHashandLSH(
-                    clustDict, threshold)
+                lsh, minHashArr = self.createMinHashandLSH(threshold)
 
                 for clus in lsh.query(minHashArr[-1]):
                     if clus == cNew:
@@ -113,8 +112,8 @@ class SequenceSynopsisMiner:
                 #QueueElements.printPriorityQueue(priorityQueue, self.attr)
             threshold = threshold*thRate
             # print(threshold)
-        grph = self.transformToGraph(clustDict)
-        return clustDict, grph
+        grph = self.transformToGraph(self.clustDict)
+        return self.clustDict, grph
 
     def merge(self, pair1, pair2):
         """Merge two seqLists and calculate the description length reduction"""
@@ -238,27 +237,55 @@ class SequenceSynopsisMiner:
         for index, elem in enumerate(clust):
             keyEvents = self.eventStore.getEventValue(
                 self.attr, elem.pattern.keyEvts)
+            #Start
+            node = RawNode()
+            node.seqCount = str(len(elem.seqList))
+            node.value = "_Start"
+            node.pos = 0
+            node.sequences = elem.seqList
+            node.attr = self.attr
+            node.pattern = index
+            parentList = [node]
+            graph.nodes.append(node)
+            count += 1
             for ind, event in enumerate(elem.pattern.keyEvts):
                 node = RawNode()
                 node.seqCount = str(len(elem.seqList))
                 node.value = keyEvents[ind]
                 node.pos = ind
-                node.keyevts = elem.pattern.keyEvts[:]
+                node.keyevts = elem.pattern.keyEvts
                 node.pattern = index
+                node.parent = parentList
+
                 # node.pattern = " ".join(self.eventStore.getEventValue(
                 #     self.attr, elem.pattern.keyEvts[:ind+1]))
                 node.sequences = elem.seqList
                 node.attr = self.attr
                 node.meanStep = -1
                 node.medianStep = -1
+                parentList.append(node)
                 graph.nodes.append(node)
-
+                
                 # This means not the first node of Pattern
-                if ind > 0:
-                    graph.links.append(Links(graph.nodes[count-1], graph.nodes[count],
-                                             len(elem.seqList)))
-                graph.calcPositionsNode(matchAll=False)
+                
+                graph.links.append(Links(graph.nodes[count-1], graph.nodes[count],
+                                            len(elem.seqList)))
                 # graph.calcLengthsLink()
                 count += 1
+            #Exit Node
+            node = RawNode()
+            node.seqCount = str(len(elem.seqList))
+            node.value = "_Exit"
+            node.pos = ind+1
+            node.sequences = elem.seqList
+            node.attr = self.attr
+            node.pattern = index
+            node.parent = parentList
+            node.keyevts = elem.pattern.keyEvts
+            graph.nodes.append(node)
+            graph.links.append(Links(graph.nodes[count-1], graph.nodes[count],
+                                     len(elem.seqList)))
+            count += 1
 
+            graph.calcPositionsNode(matchAll=False)
         return graph

@@ -11,6 +11,7 @@ import argparse
 import csv
 from EventStore import EventStore
 from Sequence import Sequence
+from Graph import Graph
 #from SequenceSynopsisMiner import SequenceSynopsisMiner
 #from SequenceSynopsisMinerWithLSH import SequenceSynopsisMiner
 from SequenceSynopsisMinerWithWeightedLSH import SequenceSynopsisMiner
@@ -88,9 +89,16 @@ if __name__ == "__main__":
             seqList = seq
 
     syn = SequenceSynopsisMiner(args.attr, eventStore)
-    ssm = syn.minDL(seqList)
+    result = syn.minDL(seqList)
+    ssm = result[0]
+    grph = result[1]
+    z = json.dumps(grph, ensure_ascii=False,
+                           default=Graph.jsonSerializeDump, indent=1)
+    print(z)
+    with open('+seqsynopsis_msp'+ '.json', 'w') \
+                    as the_file3:
+                the_file3.write(z)
     print(ssm)
-
     with open('sequence_synopsis_outfile.csv', 'w') as the_file:
         writer = csv.writer(the_file)
         writer.writerow(["Pattern_ID", "Event", "Average_Index", "Number of Sequences"])

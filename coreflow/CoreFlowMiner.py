@@ -177,7 +177,7 @@ class CoreFlowMiner:
         #print(f'node sequences {node.sequences}')
         #print(f'exit node hash {exitNodeHash}')
         if exitNodeHash == -1:
-            node.setValue("_End")
+            node.setValue("_Exit")
             node.setHash(-2)
 
         else:
