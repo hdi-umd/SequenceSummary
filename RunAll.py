@@ -17,7 +17,7 @@ from Graph import Graph
 from EventStore import EventStore
 from coreflow.CoreFlowMiner import CoreFlowMiner
 from sententree.SentenTreeMiner import SentenTreeMiner
-from sequencesynopsis.SequenceSynopsisMiner import SequenceSynopsisMiner
+from sequencesynopsis.SequenceSynopsisMinerWithWeightedLSH import SequenceSynopsisMiner
 
 
 if __name__ == "__main__":
@@ -102,7 +102,7 @@ if __name__ == "__main__":
         else:
             seqList = seq
 
-    with open('TimeMemoryAnalysis.csv', 'w') as timeFile:#, open('MemAnalysis.csv', 'w') as memFile:
+    with open('TimeMemoryAnalysis.csv', 'a') as timeFile:#, open('MemAnalysis.csv', 'w') as memFile:
         writer = csv.writer(timeFile)
         writer.writerow(["Dataset", "Support", "Tool", "Time", "Memory"])
         #memWriter = csv.writer(memFile)
@@ -174,28 +174,52 @@ if __name__ == "__main__":
             with open(args.output+basename+'+sententree_msp'+f'{minSupParam:.2f}'+ '.json', 'w') \
                     as the_file2:
                 the_file2.write(y)
+
+            ssm = SequenceSynopsisMiner(args.attr, eventStore, alpha=minSupParam,\
+                                        lambdaVal=1-minSupParam)
+            start = time.time()
+            mem, output = memory_usage(proc=[ssm.minDL, [seqList]],\
+                                       include_children=True, max_usage=True, retval=True)
+            end = time.time()
+            clust = output[0]
+            grph = output[1]
+            print(clust)
+            z = json.dumps(grph, ensure_ascii=False,
+                           default=Graph.jsonSerializeDump, indent=1)
+            print(z)
+            # with open(args.output+'sententree_result.json', 'w') as the_file1:
+            #     the_file1.write(x)
+
+            with open(args.output+basename+'+seqsynopsis_msp'+f'{minSupParam:.2f}'+ '.json', 'w') \
+                    as the_file3:
+                the_file3.write(z)
+
+
+            with open(args.output+basename+'sequence_synopsis_alpha'\
+                +f'{minSupParam:.2f}'+'.csv', 'w') as ssm_file:
+                ssmWriter = csv.writer(ssm_file)
+                ssmWriter.writerow(["Pattern_ID", "Event", "Average_Index", "Number of Sequences"])
+                for index, elem in enumerate(clust):
+                    print(f'elemvalue {elem.index}')
+                    ssmWriter.writerow(["P"+str(index), "_Start", 0, str(len(elem.seqList))])
+                    keyEvents = eventStore.getEventValue(args.attr, elem.pattern.keyEvts)
+                    print(f'key {keyEvents}')
+                    for ind, event in enumerate(keyEvents):
+                        print(f'event {event} ind {ind}')
+                        ssmWriter.writerow(["P"+str(index), event, elem.index[ind],\
+                                            str(len(elem.seqList))])
+                    trailingLen = sum(len(x.events) for x in elem.seqList)/len(elem.seqList)
+                    ssmWriter.writerow(["P"+str(index), "_Exit", trailingLen,\
+                                        str(len(elem.seqList))])
+            writer.writerow([basename, f'{minSupParam:.2f}', "SyquenceSynopsis",\
+                            timedelta(seconds=end-start), mem])
             minSupParam += 0.05
 
-        # syn = SequenceSynopsisMiner(args.attr)
-        # ssm = syn.minDL(seqList)
-        # print(ssm)
+            # #Cluster.printClustDict(G, "Event")
 
-        # with open(args.output+basename+'sequence_synopsis_result.csv', 'w') as the_file:
-        #     writer = csv.writer(the_file)
-        #     writer.writerow(["Pattern_ID", "Event", "Average_Index"])
-        #     for index, elem in enumerate(ssm):
-        #         print(f'elemvalue {elem.index}')
-        #         keyEvents = eventStore.getEventValue(args.attr, elem.pattern.keyEvts)
-        #         print(f'key {keyEvents}')
-        #         for ind, pos in enumerate(keyEvents):
-        #             print(f'pos {pos} ind {ind}')
-        #             writer.writerow(["P"+str(index), pos, elem.index[ind]])
+            # x = json.dumps([elem.jsonDefaultDump(args.attr, eventStore) for elem in ssm],
+            #                ensure_ascii=False)
+            # print(x)
 
-        # #Cluster.printClustDict(G, "Event")
-
-        # x = json.dumps([elem.jsonDefaultDump(args.attr, eventStore) for elem in ssm],
-        #                ensure_ascii=False)
-        # print(x)
-
-        # with open(args.output+basename+'sequence_synopsis_outfile.json', 'w') as the_file3:
-        #     the_file3.write(x)
+            # with open(args.output+basename+'sequence_synopsis_outfile.json', 'w') as the_file3:
+            #     the_file3.write(x)
