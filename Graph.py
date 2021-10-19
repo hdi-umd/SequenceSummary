@@ -16,7 +16,8 @@ class RawNode:
         else:
             self.nid = next(self._ids)
             self.seqCount = 0
-            self.value = ""
+            
+            self.value = 0
             self.keyevts = []
             self.pattern = -1
             self.parent = []
@@ -24,6 +25,7 @@ class RawNode:
             self.attr = ""
             self.meanStep = -1
             self.medianStep = -1
+        self.evtCount = 0
         self.pos = pos
         self.rightLinks = []
         self.leftLinks = []
@@ -53,6 +55,7 @@ class RawNode:
             "event_attribute": self.value,
             "Pattern": self.pattern,
             "value": self.seqCount,
+            "value_event": self.evtCount,
             "median_index": self.medianStep,
             "average_index": self.meanStep
         }
@@ -148,6 +151,21 @@ class RawNode:
         self.medianStep = rawParent.medianStep + median
         #print(f'overall meanstep {self.meanStep}')
         return mean
+
+    def getEventValue(self):
+        """Get How many sequences this specific event has."""
+        self.evtCount = int(self.seqCount)
+        if self.value != "_Start" and self.value != "_Exit":
+            for seq in self.sequences:
+                pos = Pattern.getPositions(
+                    self.keyevts[:self.pos+1], seq.getHashList(self.attr))
+                if pos[-1] == -1:
+                    self.evtCount -= 1
+
+    @staticmethod
+    def resetCounter():
+        """resets node counter."""
+        RawNode._ids = count(1)
 
 
 class Links:
@@ -429,6 +447,11 @@ class Graph:
             if subGroup:
                 subGroups.append(subGroup)
         return subGroups
+
+    def getEventValueForNodes(self):
+        """For every node in the graph, see how many seuqences it is present in."""
+        for node in self.nodes:
+            node.getEventValue()
 
     @staticmethod
     def assembleGraphs(graphList):
