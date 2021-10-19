@@ -90,7 +90,7 @@ class Pattern:
     def getUniqueEventsString(self):
         """Get all the unique events in pattern (valid?)"""
         return "-".join(str(x) for x in list(set(self.keyEvts)))
-        #return "-".join(str(x) for x in list(dict.fromkeys(self.keyEvts)))
+        # return "-".join(str(x) for x in list(dict.fromkeys(self.keyEvts)))
 
     def getEventsHashString(self):
         """Get all the events in pattern """
@@ -107,7 +107,6 @@ class Pattern:
         key events for the given attribute
         """
 
-
         #print(f'path of string {pathsOfStrings}')
         medians, means = Pattern.getStats(self.keyEvts, self.sids, evtAttr)
 
@@ -119,7 +118,7 @@ class Pattern:
 
         #print(f'mean {means} median {medians}')
         median, mean = Pattern.getStatsEnd(self.keyEvts, self.sids, evtAttr)
-        
+
         self.setMedianPathLength(median+medians[-1])
         self.setMeanPathLength(mean+means[-1])
 
@@ -172,9 +171,10 @@ class Pattern:
             offset += idx+1
             try:
                 idx = path[offset:].index(elems)
+                pos.append(offset+idx)
             except ValueError:
                 pos.append(-1)
-            pos.append(offset+idx)
+            
         #print(f'Positions {pos}')
         return pos
 
@@ -223,17 +223,17 @@ class Pattern:
             numSteps = []
 
             for _, paths in enumerate(pathsOfStrings):
-                if matchAll:
-                    if not Pattern.matchMilestones(paths, keyEvts[0:i+1]):
+                if not Pattern.matchMilestones(paths, keyEvts[0:i+1]):
+                    if matchAll:
                         raise ValueError("Unmatched pattern!")
                 pos = Pattern.getPositions(keyEvts[0:i+1], paths)
                 # print(paths)
                 # print(keyEvts[0:i+1])
-                #i == -1 means not found
-                if i == 0 and pos[i]!=-1:
+                # i == -1 means not found
+                if i == 0 and pos[i] != -1:
                     # add position value of first element id sequence
                     numSteps.append(pos[i])
-                elif pos[i] !=-1:
+                elif pos[i] != -1:
                     # in other cases add the difference
                     numSteps.append(pos[i]-pos[i-1])
             sumSteps = sum(numSteps)
@@ -254,7 +254,8 @@ class Pattern:
                 keyevts, path.getHashList(attr))
             # the difference between the last event in thesequence and the last key event
             #print(f'pos {pos} keyevts {keyevts} events {path.getEvtAttrValues(attr)}')
-            trailingSteps[i] = len(path.events) - pos[-1]-1 if pos else len(path.events)-1
+            trailingSteps[i] = len(path.events) - pos[-1] - \
+                1 if pos else len(path.events)-1
 
         #print(f'trailing {trailingSteps}')
 

@@ -18,7 +18,7 @@ from EventStore import EventStore
 from coreflow.CoreFlowMiner import CoreFlowMiner
 from sententree.SentenTreeMiner import SentenTreeMiner
 from sequencesynopsis.SequenceSynopsisMinerWithWeightedLSH import SequenceSynopsisMiner
-
+from sequencesynopsis.SequenceSynopsisMiner import SequenceSynopsisMiner as ssmv
 
 if __name__ == "__main__":
     # main()
@@ -181,16 +181,29 @@ if __name__ == "__main__":
             mem, output = memory_usage(proc=[ssm.minDL, [seqList]],\
                                        include_children=True, max_usage=True, retval=True)
             end = time.time()
+            writer.writerow([basename, f'{minSupParam:.2f}', "SyquenceSynopsis",\
+                            timedelta(seconds=end-start), mem])
+            ssmvanilla = ssmv(args.attr, eventStore, alpha=minSupParam,\
+                                        lambdaVal=1-minSupParam)
+            start = time.time()
+            mem, output = memory_usage(proc=[ssmvanilla.minDL, [seqList]],\
+                                       include_children=True, max_usage=True, retval=True)
+            end = time.time()
+            writer.writerow([basename, f'{minSupParam:.2f}', "SyquenceSynopsisvanilla",\
+                            timedelta(seconds=end-start), mem])
+            
             clust = output[0]
             grph = output[1]
             print(clust)
             z = json.dumps(grph, ensure_ascii=False,
                            default=Graph.jsonSerializeDump, indent=1)
             print(z)
+            
             # with open(args.output+'sententree_result.json', 'w') as the_file1:
             #     the_file1.write(x)
 
-            with open(args.output+basename+'+seqsynopsis_alpha'+f'{minSupParam:.2f}'+ '.json', 'w') \
+            with open(args.output+basename+'+seqsynopsis_alpha'+f'{minSupParam:.2f}'+\
+                     '.json', 'w') \
                     as the_file3:
                 the_file3.write(z)
 
@@ -211,8 +224,7 @@ if __name__ == "__main__":
                     trailingLen = sum(len(x.events) for x in elem.seqList)/len(elem.seqList)
                     ssmWriter.writerow(["P"+str(index), "_Exit", trailingLen,\
                                         str(len(elem.seqList))])
-            writer.writerow([basename, f'{minSupParam:.2f}', "SyquenceSynopsis",\
-                            timedelta(seconds=end-start), mem])
+            
             minSupParam += 0.05
 
             # #Cluster.printClustDict(G, "Event")

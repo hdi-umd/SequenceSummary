@@ -288,4 +288,5 @@ class SequenceSynopsisMiner:
             count += 1
 
             graph.calcPositionsNode(matchAll=False)
+            graph.getEventValueForNodes()
         return graph

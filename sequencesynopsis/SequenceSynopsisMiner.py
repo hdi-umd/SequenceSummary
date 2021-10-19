@@ -6,7 +6,7 @@ from sequencesynopsis.Cluster import Cluster
 from sequencesynopsis.SequenceSynopsisHelper import lcs, calcDist, calcAverage
 from sequencesynopsis.QueueElements import QueueElements
 from Pattern import Pattern
-
+from Graph import Graph, RawNode, Links
 
 class SequenceSynopsisMiner:
     """Based on some metric distance, groups sequences under same pattern."""
@@ -16,6 +16,7 @@ class SequenceSynopsisMiner:
         self.eventStore = evtStore
         self.alpha = alpha
         self.lambdaVal = lambdaVal
+        RawNode.resetCounter()
 
     def minDL(self, seqs):
         """Merges sequences based on minimum Description Length."""
@@ -74,7 +75,8 @@ class SequenceSynopsisMiner:
                         QueueElements(deltaL, cStar, clus, cNew))
             QueueElements.printPriorityQueue(priorityQueue, self.attr)
 
-        return clustDict
+        grph = self.transformToGraph(clustDict)
+        return clustDict, grph
 
     def merge(self, pair1, pair2, alpha=0.9, lambdaVal=0.1):
         """Merge two seqLists and calculate the description length reduction"""
@@ -190,3 +192,64 @@ class SequenceSynopsisMiner:
 
         #print(f'return del_L {deltaL} cluster {clust.pattern.keyEvts} {clust.seqList}')
         return deltaL, clust
+
+    def transformToGraph(self, clust):
+        """Given a list of clusters, convert this to graph."""
+        graph = Graph()
+        count = 0
+        for index, elem in enumerate(clust):
+            keyEvents = self.eventStore.getEventValue(
+                self.attr, elem.pattern.keyEvts)
+            #Start
+            node = RawNode()
+            node.seqCount = str(len(elem.seqList))
+            node.value = "_Start"
+            node.pos = 0
+            node.sequences = elem.seqList
+            node.attr = self.attr
+            node.pattern = index
+            parentList = [node]
+            graph.nodes.append(node)
+            count += 1
+            for ind, event in enumerate(elem.pattern.keyEvts):
+                node = RawNode()
+                node.seqCount = str(len(elem.seqList))
+                node.value = keyEvents[ind]
+                node.pos = ind
+                node.keyevts = elem.pattern.keyEvts
+                node.pattern = index
+                node.parent = parentList
+
+                # node.pattern = " ".join(self.eventStore.getEventValue(
+                #     self.attr, elem.pattern.keyEvts[:ind+1]))
+                node.sequences = elem.seqList
+                node.attr = self.attr
+                node.meanStep = -1
+                node.medianStep = -1
+                parentList.append(node)
+                graph.nodes.append(node)
+                
+                # This means not the first node of Pattern
+                
+                graph.links.append(Links(graph.nodes[count-1], graph.nodes[count],
+                                            len(elem.seqList)))
+                # graph.calcLengthsLink()
+                count += 1
+            #Exit Node
+            node = RawNode()
+            node.seqCount = str(len(elem.seqList))
+            node.value = "_Exit"
+            node.pos = ind+1
+            node.sequences = elem.seqList
+            node.attr = self.attr
+            node.pattern = index
+            node.parent = parentList
+            node.keyevts = elem.pattern.keyEvts
+            graph.nodes.append(node)
+            graph.links.append(Links(graph.nodes[count-1], graph.nodes[count],
+                                     len(elem.seqList)))
+            count += 1
+
+            graph.calcPositionsNode(matchAll=False)
+        return graph
+
