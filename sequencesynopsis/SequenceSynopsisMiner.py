@@ -39,14 +39,14 @@ class SequenceSynopsisMiner:
                     priorityQueue.append(QueueElements(
                         deltaL, cStar, clust1, clust2))
 
-        QueueElements.printPriorityQueue(priorityQueue, self.attr)
+        #QueueElements.printPriorityQueue(priorityQueue, self.attr)
         while priorityQueue:
             priorityQueue = sorted(
                 priorityQueue, key=lambda x: x.deltaL, reverse=True)  # sort on deltaL
 
             #print(f'to Merge ')
             toMerge = priorityQueue[0]
-            toMerge.printElement(self.attr)
+            #toMerge.printElement(self.attr)
             cNew = toMerge.cStar
 
             clustDict.remove(toMerge.clust1)
@@ -73,12 +73,12 @@ class SequenceSynopsisMiner:
                 if deltaL > 0:
                     priorityQueue.append(
                         QueueElements(deltaL, cStar, clus, cNew))
-            QueueElements.printPriorityQueue(priorityQueue, self.attr)
+            #QueueElements.printPriorityQueue(priorityQueue, self.attr)
 
         grph = self.transformToGraph(clustDict)
         return clustDict, grph
 
-    def merge(self, pair1, pair2, alpha=0.9, lambdaVal=0.1):
+    def merge(self, pair1, pair2):
         """Merge two seqLists and calculate the description length reduction"""
         pStar = Pattern(lcs(pair1.pattern.keyEvts, pair2.pattern.keyEvts))
         candidateEvents = list(((Counter(pair1.pattern.keyEvts)-Counter(pStar.keyEvts)) |
@@ -139,15 +139,15 @@ class SequenceSynopsisMiner:
                 tempPattern.keyEvts.insert(index, candidate)
                 #print(f'index {index}')
                 deltaLPrime = len(pair1.pattern.keyEvts) + len(pair2.pattern.keyEvts) - \
-                    len(tempPattern.keyEvts)+lambdaVal
+                    len(tempPattern.keyEvts)+self.lambdaVal
                 #print(f'del L Prime  {deltaLPrime}')
-                deltaLPrime += sum(alpha*calcDist(v1.getHashList(self.attr),
+                deltaLPrime += sum(self.alpha*calcDist(v1.getHashList(self.attr),
                                                   pair1.pattern.keyEvts) for v1 in pair1.seqList)
                 #print(f'del L Prime  {deltaLPrime}')
-                deltaLPrime += sum(alpha*calcDist(v2.getHashList(self.attr),
+                deltaLPrime += sum(self.alpha*calcDist(v2.getHashList(self.attr),
                                                   pair2.pattern.keyEvts) for v2 in pair2.seqList)
                 #print(f'del L Prime  {deltaLPrime}')
-                deltaLPrime -= sum(alpha*calcDist(v.getHashList(self.attr),
+                deltaLPrime -= sum(self.alpha*calcDist(v.getHashList(self.attr),
                                                   tempPattern.keyEvts)
                                    for v in pair1.seqList+pair2.seqList)
 

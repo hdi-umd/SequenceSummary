@@ -188,7 +188,7 @@ if __name__ == "__main__":
             print(clust)
             z = json.dumps(grph, ensure_ascii=False,
                            default=Graph.jsonSerializeDump, indent=1)
-            #print(z)
+            print(z)
 
             # with open(args.output+'sententree_result.json', 'w') as the_file1:
             #     the_file1.write(x)
