@@ -183,6 +183,20 @@ if __name__ == "__main__":
             end = time.time()
             writer.writerow([basename, f'{minSupParam:.2f}', "SyquenceSynopsis",\
                             timedelta(seconds=end-start), mem])
+            clust = output[0]
+            grph = output[1]
+            print(clust)
+            z = json.dumps(grph, ensure_ascii=False,
+                           default=Graph.jsonSerializeDump, indent=1)
+            #print(z)
+
+            # with open(args.output+'sententree_result.json', 'w') as the_file1:
+            #     the_file1.write(x)
+
+            with open(args.output+basename+'+seqsynopsis_alpha'+f'{minSupParam:.2f}'+\
+                     '.json', 'w') \
+                    as the_file3:
+                the_file3.write(z)
             ssmvanilla = ssmv(args.attr, eventStore, alpha=minSupParam,\
                                         lambdaVal=1-minSupParam)
             start = time.time()
@@ -191,41 +205,32 @@ if __name__ == "__main__":
             end = time.time()
             writer.writerow([basename, f'{minSupParam:.2f}', "SyquenceSynopsisvanilla",\
                             timedelta(seconds=end-start), mem])
-            
+
+            minSupParam += 0.05
             clust = output[0]
             grph = output[1]
-            print(clust)
+            #print(clust)
             z = json.dumps(grph, ensure_ascii=False,
                            default=Graph.jsonSerializeDump, indent=1)
             print(z)
+            # with open(args.output+basename+'sequence_synopsis_alpha'\
+            #     +f'{minSupParam:.2f}'+'.csv', 'w') as ssm_file:
+            #     ssmWriter = csv.writer(ssm_file)
+            #     ssmWriter.writerow(["Pattern_ID", "Event", "Average_Index",\
+            #                        "Number of Sequences"])
+            #     for index, elem in enumerate(clust):
+            #         print(f'elemvalue {elem.index}')
+            #         ssmWriter.writerow(["P"+str(index), "_Start", 0, str(len(elem.seqList))])
+            #         keyEvents = eventStore.getEventValue(args.attr, elem.pattern.keyEvts)
+            #         print(f'key {keyEvents}')
+            #         for ind, event in enumerate(keyEvents):
+            #             print(f'event {event} ind {ind}')
+            #             ssmWriter.writerow(["P"+str(index), event, elem.index[ind],\
+            #                                 str(len(elem.seqList))])
+            #         trailingLen = sum(len(x.events) for x in elem.seqList)/len(elem.seqList)
+            #         ssmWriter.writerow(["P"+str(index), "_Exit", trailingLen,\
+            #                             str(len(elem.seqList))])
             
-            # with open(args.output+'sententree_result.json', 'w') as the_file1:
-            #     the_file1.write(x)
-
-            with open(args.output+basename+'+seqsynopsis_alpha'+f'{minSupParam:.2f}'+\
-                     '.json', 'w') \
-                    as the_file3:
-                the_file3.write(z)
-
-
-            with open(args.output+basename+'sequence_synopsis_alpha'\
-                +f'{minSupParam:.2f}'+'.csv', 'w') as ssm_file:
-                ssmWriter = csv.writer(ssm_file)
-                ssmWriter.writerow(["Pattern_ID", "Event", "Average_Index", "Number of Sequences"])
-                for index, elem in enumerate(clust):
-                    print(f'elemvalue {elem.index}')
-                    ssmWriter.writerow(["P"+str(index), "_Start", 0, str(len(elem.seqList))])
-                    keyEvents = eventStore.getEventValue(args.attr, elem.pattern.keyEvts)
-                    print(f'key {keyEvents}')
-                    for ind, event in enumerate(keyEvents):
-                        print(f'event {event} ind {ind}')
-                        ssmWriter.writerow(["P"+str(index), event, elem.index[ind],\
-                                            str(len(elem.seqList))])
-                    trailingLen = sum(len(x.events) for x in elem.seqList)/len(elem.seqList)
-                    ssmWriter.writerow(["P"+str(index), "_Exit", trailingLen,\
-                                        str(len(elem.seqList))])
-            
-            minSupParam += 0.05
 
             # #Cluster.printClustDict(G, "Event")
 
