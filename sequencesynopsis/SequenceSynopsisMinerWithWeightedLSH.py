@@ -20,6 +20,7 @@ class SequenceSynopsisMiner:
         self.alpha = alpha
         self.lambdaVal = lambdaVal
         self.clustDict = []  # To-Do: Make clustDict class var
+        RawNode.resetCounter()
 
     def createMinHashandLSH(self, threshold):
         """
