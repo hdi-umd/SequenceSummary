@@ -55,7 +55,7 @@ class RawNode:
             "event_attribute": self.value,
             "Pattern": self.pattern,
             "value": self.seqCount,
-            "value_event": self.evtCount,
+            "value_event": str(self.evtCount),
             "median_index": self.medianStep,
             "average_index": self.meanStep
         }
@@ -161,6 +161,7 @@ class RawNode:
                     self.keyevts[:self.pos+1], seq.getHashList(self.attr))
                 if pos[-1] == -1:
                     self.evtCount -= 1
+        #print(f' evt value {self.value} evt {self.evtCount}')
 
     @staticmethod
     def resetCounter():
