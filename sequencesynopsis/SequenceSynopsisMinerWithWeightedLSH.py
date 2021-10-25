@@ -29,7 +29,7 @@ class SequenceSynopsisMiner:
         Returns a minHashArr and the LSH arr
         """
         vectorizer = TfidfVectorizer(
-            token_pattern=r'\w+', norm="l1", sublinear_tf=True)
+            token_pattern=r'\w+', norm="l1", sublinear_tf=True, use_idf=False)
         patStrings = [" ".join(self.eventStore.getEventValue(
             self.attr, val.pattern.keyEvts)) for val in self.clustDict]
         # print(x[0])

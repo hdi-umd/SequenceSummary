@@ -53,8 +53,8 @@ class RawNode:
         return {
             "id": self.nid,
             "event_attribute": self.value,
-            "Pattern": self.pattern,
-            "value": self.seqCount,
+            "pattern": "P"+str(self.pattern),
+            "value": str(self.seqCount),
             "value_event": str(self.evtCount),
             "median_index": self.medianStep,
             "average_index": self.meanStep
