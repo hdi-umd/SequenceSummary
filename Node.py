@@ -284,7 +284,7 @@ class GraphNode(Node):
         return {
             "before": GraphNode.jsonSerializeDump(self.before),
             "event_attribute": self.value,
-            "Pattern": self.getPatternString(),
+            "pattern": self.getPatternString(),
             "value": self.seqCount,
             "After": GraphNode.jsonSerializeDump(self.after)
 

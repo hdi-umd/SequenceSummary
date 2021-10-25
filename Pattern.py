@@ -227,13 +227,13 @@ class Pattern:
                     raise ValueError("Unmatched pattern!")
             numSteps[k][0] += pos[0] if pos[0] != -1 else 0
             for index, (i, j) in enumerate(zip(pos[:-1], pos[1:])):
-                if j == -1:
+                if j != -1 and i != -1:
+                    numSteps[k][index+1] += j - i 
+                elif j == -1:
                     numSteps[k][index+1] += 0
                 elif i == -1:
                     subVal = [val for val in reversed(pos) if val != -1][0]
                     numSteps[k][index+1] += j - subVal
-                else:
-                    numSteps[k][index+1] += j - i
         means = np.mean(numSteps, axis=0)
         medians = np.median(numSteps, axis=0)
         return medians, means
