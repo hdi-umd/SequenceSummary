@@ -3,104 +3,117 @@
   {
    "id": 1,
    "event_attribute": "_Start",
-   "Pattern": "",
-   "value": 100,
+   "pattern": "P",
+   "value": "100",
+   "value_event": "0",
    "median_index": 0,
    "average_index": 0
   },
   {
    "id": 3,
    "event_attribute": "Arrival",
-   "Pattern": "Arrival",
-   "value": 100,
+   "pattern": "PArrival",
+   "value": "100",
+   "value_event": "0",
    "median_index": 0.0,
    "average_index": 0.0
   },
   {
    "id": 5,
    "event_attribute": "Emergency",
-   "Pattern": "Arrival-Emergency",
-   "value": 100,
+   "pattern": "PArrival-Emergency",
+   "value": "100",
+   "value_event": "0",
    "median_index": 1.0,
    "average_index": 1.0
   },
   {
    "id": 7,
    "event_attribute": "ICU",
-   "Pattern": "Arrival-Emergency-ICU",
-   "value": 62,
+   "pattern": "PArrival-Emergency-ICU",
+   "value": "62",
+   "value_event": "0",
    "median_index": 2.0,
    "average_index": 2.4838709677419355
   },
   {
    "id": 9,
    "event_attribute": "Die",
-   "Pattern": "Arrival-Emergency-ICU-Die",
-   "value": 36,
+   "pattern": "PArrival-Emergency-ICU-Die",
+   "value": "36",
+   "value_event": "0",
    "median_index": 3.0,
    "average_index": 3.9283154121863797
   },
   {
    "id": 11,
    "event_attribute": "Discharge-Alive",
-   "Pattern": "Arrival-Emergency-Discharge-Alive",
-   "value": 38,
+   "pattern": "PArrival-Emergency-Discharge-Alive",
+   "value": "38",
+   "value_event": "0",
    "median_index": 2.0,
    "average_index": 2.026315789473684
   },
   {
    "id": 15,
    "event_attribute": "Floor",
-   "Pattern": "Arrival-Emergency-Floor-ICU-Die",
-   "value": 21,
+   "pattern": "PArrival-Emergency-Floor-ICU-Die",
+   "value": "21",
+   "value_event": "0",
    "median_index": 2.0,
    "average_index": 2.0
   },
   {
    "id": 17,
    "event_attribute": "Floor",
-   "Pattern": "Arrival-Emergency-ICU-Floor",
-   "value": 24,
+   "pattern": "PArrival-Emergency-ICU-Floor",
+   "value": "24",
+   "value_event": "0",
    "median_index": 3.0,
    "average_index": 3.4838709677419355
   },
   {
    "id": 19,
    "event_attribute": "Discharge-Alive",
-   "Pattern": "Arrival-Emergency-ICU-Floor-Discharge-Alive",
-   "value": 24,
+   "pattern": "PArrival-Emergency-ICU-Floor-Discharge-Alive",
+   "value": "24",
+   "value_event": "0",
    "median_index": 4.0,
    "average_index": 5.317204301075269
   },
   {
    "id": 26,
    "event_attribute": "_Exit",
-   "Pattern": "Arrival-Emergency-Discharge-Alive",
-   "value": 38,
+   "pattern": "PArrival-Emergency-Discharge-Alive",
+   "value": "38",
+   "value_event": "0",
    "median_index": 2.0,
    "average_index": 2.026315789473684
   },
   {
    "id": 27,
    "event_attribute": "_Exit",
-   "Pattern": "Arrival-Emergency-ICU-Floor-Discharge-Alive",
-   "value": 24,
+   "pattern": "PArrival-Emergency-ICU-Floor-Discharge-Alive",
+   "value": "24",
+   "value_event": "0",
    "median_index": 4.0,
    "average_index": 5.317204301075269
   },
   {
    "id": 28,
    "event_attribute": "_Exit",
-   "Pattern": "Arrival-Emergency-Floor-ICU-Die",
-   "value": 21,
+   "pattern": "PArrival-Emergency-Floor-ICU-Die",
+   "value": "21",
+   "value_event": "0",
    "median_index": 3.0,
    "average_index": 3.9283154121863797
   },
   {
    "id": 29,
    "event_attribute": "_Exit",
-   "Pattern": "Arrival-Emergency-ICU-Die",
-   "value": 15,
+   "pattern": "PArrival-Emergency-ICU-Die",
+   "value": "15",
+   "value_event": "0",
    "median_index": 3.0,
    "average_index": 3.9283154121863797
   }

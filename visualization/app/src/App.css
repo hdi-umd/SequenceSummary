@@ -1,9 +1,46 @@
+
 .svgmined {
+  margin: 20px 20px 50px 20px;
   width: 400px;
   height: 800px;
   border: solid gray;
   border-width: 1px;
 
+}
+
+.svgmined-seq-synopsis{
+  margin: 20px 20px 50px 20px;
+  width: 800px;
+  height: 800px;
+  border: solid gray;
+  border-width: 1px;
+
+}
+.rangeslider {
+  margin: 20px 20px 50px 20px;
+  position: relative;
+  background: #e6e6e6;
+}
+
+.rangeslider-horizontal {
+  height: 12px;
+  width: 30%;
+  top: 10px;
+  bottom: 10px;
+  border-radius: 10px;
+}
+.rangeslider-horizontal .rangeslider__fill {
+  background-color: #0275D8;
+  border-radius: 10px;
+}
+
+.rangeslider .rangeslider__handle {
+  background: #fff;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  display: inline-block;
+  position: absolute;
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 -1px 3px rgba(0, 0, 0, 0.4); */
 }
 
 /* .vis-container {

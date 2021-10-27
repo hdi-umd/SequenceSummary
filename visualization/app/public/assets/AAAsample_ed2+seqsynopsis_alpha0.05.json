@@ -1,0 +1,159 @@
+{
+ "nodes": [
+  {
+   "id": 1,
+   "event_attribute": "_Start",
+   "pattern": "P0",
+   "value": "37",
+   "value_event": "37",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 2,
+   "event_attribute": "Arrival",
+   "pattern": "P0",
+   "value": "37",
+   "value_event": "37",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 3,
+   "event_attribute": "Emergency",
+   "pattern": "P0",
+   "value": "37",
+   "value_event": "37",
+   "median_index": 1.0,
+   "average_index": 1.0
+  },
+  {
+   "id": 4,
+   "event_attribute": "Discharge-Alive",
+   "pattern": "P0",
+   "value": "37",
+   "value_event": "37",
+   "median_index": 2.0,
+   "average_index": 2.0
+  },
+  {
+   "id": 5,
+   "event_attribute": "_Exit",
+   "pattern": "P0",
+   "value": "37",
+   "value_event": "37",
+   "median_index": 2.0,
+   "average_index": 2.0
+  },
+  {
+   "id": 6,
+   "event_attribute": "_Start",
+   "pattern": "P1",
+   "value": "63",
+   "value_event": "63",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 7,
+   "event_attribute": "Arrival",
+   "pattern": "P1",
+   "value": "63",
+   "value_event": "63",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 8,
+   "event_attribute": "Emergency",
+   "pattern": "P1",
+   "value": "63",
+   "value_event": "63",
+   "median_index": 1.0,
+   "average_index": 1.0
+  },
+  {
+   "id": 9,
+   "event_attribute": "ICU",
+   "pattern": "P1",
+   "value": "63",
+   "value_event": "62",
+   "median_index": 2.0,
+   "average_index": 2.4603174603174605
+  },
+  {
+   "id": 10,
+   "event_attribute": "Floor",
+   "pattern": "P1",
+   "value": "63",
+   "value_event": "30",
+   "median_index": 2.0,
+   "average_index": 2.9365079365079367
+  },
+  {
+   "id": 11,
+   "event_attribute": "_Exit",
+   "pattern": "P1",
+   "value": "63",
+   "value_event": "63",
+   "median_index": 6.0,
+   "average_index": 6.301587301587302
+  }
+ ],
+ "links": [
+  {
+   "source": 1,
+   "target": 2,
+   "count": 37,
+   "length": 0
+  },
+  {
+   "source": 2,
+   "target": 3,
+   "count": 37,
+   "length": 0
+  },
+  {
+   "source": 3,
+   "target": 4,
+   "count": 37,
+   "length": 0
+  },
+  {
+   "source": 4,
+   "target": 5,
+   "count": 37,
+   "length": 0
+  },
+  {
+   "source": 6,
+   "target": 7,
+   "count": 63,
+   "length": 0
+  },
+  {
+   "source": 7,
+   "target": 8,
+   "count": 63,
+   "length": 0
+  },
+  {
+   "source": 8,
+   "target": 9,
+   "count": 63,
+   "length": 0
+  },
+  {
+   "source": 9,
+   "target": 10,
+   "count": 63,
+   "length": 0
+  },
+  {
+   "source": 10,
+   "target": 11,
+   "count": 63,
+   "length": 0
+  }
+ ]
+}

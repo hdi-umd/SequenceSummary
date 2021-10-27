@@ -2,7 +2,7 @@ import "bootstrap";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
 import * as atlas from "atlas-vis";
-import { renderTree, renderTree2 } from "./renderAtlas";
+import { renderCoreFlow, renderSententree, renderSeqSynopsis } from "./renderAtlas";
 import React from "react";
 
 function RenderVisualization(props) {
@@ -10,10 +10,11 @@ function RenderVisualization(props) {
   
   const svgRendererCoreflow = atlas.renderer("svg", "svgElementCoreflow");
   const svgRendererSentenTree = atlas.renderer("svg", "svgElementSentenTree");
+  const svgRendererSeqSynopsis = atlas.renderer("svg", "svgElementSeqSynopsis");
 
-  renderTree(props.coreflowJson, svgRendererCoreflow);
-  renderTree2(props.sententreeJson, svgRendererSentenTree);
-
+  renderCoreFlow(props.coreflowJson, svgRendererCoreflow);
+  renderSententree(props.sententreeJson, svgRendererSentenTree);
+  renderSeqSynopsis(props.seqsynopsisJson, svgRendererSeqSynopsis);
   return (
     <div className="vis-container">
       <div>
@@ -21,6 +22,9 @@ function RenderVisualization(props) {
           {" "}
         </svg>
         <svg id="svgElementSentenTree" className="svgmined">
+          {" "}
+        </svg>
+        <svg id="svgElementSeqSynopsis" className="svgmined-seq-synopsis">
           {" "}
         </svg>
       </div>
