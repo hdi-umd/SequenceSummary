@@ -23,7 +23,7 @@ export async function renderCoreFlow(dataPath, renderer) {
   let link = scene.mark("link", {
     sourceAnchor: ["center", "bottom"],
     targetAnchor: ["center", "top"],
-    strokeColor: "#ddd",
+    strokeColor: "#C8E6FA",
     sourceOffset: [0, 5],
     targetOffset: [0, -5],
     mode: "curveVertical",
@@ -48,7 +48,7 @@ export async function renderCoreFlow(dataPath, renderer) {
   scene.encode(lbl, { field: "child.value", channel: "text" });
   scene.affix(lbl, link, "x");
   scene.affix(lbl, link, "y");
-
+  scene.find([{field: "event_attribute", values: ["_Start", "_Exit"]}, {type: "pointText"}]).forEach(d => d.visibility = "hidden");
   renderer.clear();
   renderer.render(scene);
   //document.getElementById("svgElement").append("whatever");
@@ -63,16 +63,16 @@ export async function renderSententree(dataPath, renderer) {
     sourceOffset: [0, 5],
     targetOffset: [0, -5],
     mode: "curveVertical",
-    strokeColor: "#ddd",
+    strokeColor: "#C8E6FA",
   });
   let links = scene.repeat(link, data.linkTable);
-  let node = scene.mark("text", { x: 120, y: 120 });
+  let node = scene.mark("text", { x: 120, y: 120, fontSize: "14px" });
   let nodes = scene.repeat(node, data.nodeTable);
   nodes.layout = atlas.layout("force", {
     x: 200,
     y: 150,
     iterations: 300,
-    repulsion: 90,
+    repulsion: 200,
     linkDistance: 10,
   });
   scene.encode(node, {
@@ -86,6 +86,8 @@ export async function renderSententree(dataPath, renderer) {
   scene.encode(link, { channel: "target", field: "target" });
   scene.encode(link, { channel: "strokeWidth", field: "count", range: [0, 6] });
   let linkWeight = scene.mark("text", {
+    x: 100,
+    y: 100,
     fillColor: "#006594",
     fontSize: "14px",
     fontWeight: "bold",
@@ -94,7 +96,8 @@ export async function renderSententree(dataPath, renderer) {
   scene.encode(linkWeight, { field: "count", channel: "text" });
   scene.affix(linkWeight, link, "x");
   scene.affix(linkWeight, link, "y");
-  renderer.clear();
+  scene.find([{field: "event_attribute", values: ["_Start", "_Exit"]}, {type: "pointText"}]).forEach(d => d.visibility = "hidden");
+  renderer.clear();  
   renderer.render(scene);
   //atlas.renderer("svg","svgElement").render(scene, "svgElement");
 }
@@ -102,19 +105,19 @@ export async function renderSententree(dataPath, renderer) {
 export async function renderSeqSynopsis(dataPath, renderer) {
   let scn = atlas.scene();
   let data = await atlas.graphjson(dataPath);
-  let bg = scn.mark("rect", {fillColor: "#C8E6FA", left: 100, top: 100, width: 20, strokeWidth: 0});
+  let bg = scn.mark("rect", {fillColor: "#C8E6FA", left: 100, top: 100, width: 1, strokeWidth: 0});
   scn.repeat(bg, data.nodeTable, {field: "pattern"});
-  let evtBg = scn.mark("rect", {left: 200, top: 100, width: 40, height: 1, strokeColor: "#006594"}), 
+  let evtBg = scn.mark("rect", {left: 200, top: 100, width: 1, height: 1, strokeColor: "#006594"}), 
       evtNm = scn.mark("text", {x: 200, y: 100}),
-      evtCnt = scn.mark("text", {x: 200, y: 100, fillColor: "#006594", fontSize: "12px", fontWeight: "bold"});
+      evtCnt = scn.mark("text", {x: 200, y: 100, fillColor: "#006594", fontSize: "14px", fontWeight: "bold"});
   let glyph = scn.glyph(evtBg, evtNm, evtCnt);
   scn.repeat(glyph, data.nodeTable);
   scn.encode(evtNm, {channel: "text", field: "event_attribute"});
   scn.encode(evtCnt, {channel: "text", field: "value_event"});
-  scn.encode(bg, {channel: "width", field: "value", aggregator: "max", rangeExtent: 40});
-  scn.encode(evtBg, {channel: "width", field: "value_event", rangeExtent: 40});
+  scn.encode(bg, {channel: "width", field: "value", aggregator: "max", rangeExtent: 6});
+  scn.encode(evtBg, {channel: "width", field: "value_event", rangeExtent: 6});
   let xEnc = scn.encode(evtBg, {channel: "x", field: "pattern", rangeExtent: 400});
-  let yEnc = scn.encode(glyph, {channel: "y", field: "average_index", rangeExtent: 450, invertScale: true});
+  let yEnc = scn.encode(glyph, {channel: "y", field: "average_index", rangeExtent: 400, invertScale: true});
   scn.find([{field: "event_attribute", values: ["_Start", "_Exit"]}, {type: "glyph"}]).forEach(d => d.visibility = "hidden");
   scn.affix(evtNm, evtBg, "x", {itemAnchor: "right", baseAnchor: "left", offset: -5});
   scn.affix(evtNm, evtBg, "y");
