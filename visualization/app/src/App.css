@@ -1,7 +1,22 @@
 
+.row{
+  height : 800px;
+  display:flex;
+  flex-flow:row;
+}
+
+.item{
+  background-color:rgb(217, 216, 231);
+  padding:20px;
+  width:100%;
+  margin: 10px;
+  border : black solid 2px;
+}
+
+
 .svgmined {
   margin: 20px 20px 50px 20px;
-  width: 400px;
+  width: 500px;
   height: 800px;
   border: solid gray;
   border-width: 1px;

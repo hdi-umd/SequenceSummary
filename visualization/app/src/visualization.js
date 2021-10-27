@@ -24,7 +24,7 @@ function RenderVisualization(props) {
         <svg id="svgElementSentenTree" className="svgmined">
           {" "}
         </svg>
-        <svg id="svgElementSeqSynopsis" className="svgmined-seq-synopsis">
+        <svg id="svgElementSeqSynopsis" className="svgmined">
           {" "}
         </svg>
       </div>
