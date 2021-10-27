@@ -1,0 +1,273 @@
+{
+ "nodes": [
+  {
+   "id": 1,
+   "event_attribute": "_Start",
+   "pattern": "P0",
+   "value": "37",
+   "value_event": "37",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 2,
+   "event_attribute": "Arrival",
+   "pattern": "P0",
+   "value": "37",
+   "value_event": "37",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 3,
+   "event_attribute": "Emergency",
+   "pattern": "P0",
+   "value": "37",
+   "value_event": "37",
+   "median_index": 1.0,
+   "average_index": 1.0
+  },
+  {
+   "id": 4,
+   "event_attribute": "Discharge-Alive",
+   "pattern": "P0",
+   "value": "37",
+   "value_event": "37",
+   "median_index": 2.0,
+   "average_index": 2.0
+  },
+  {
+   "id": 5,
+   "event_attribute": "_Exit",
+   "pattern": "P0",
+   "value": "37",
+   "value_event": "37",
+   "median_index": 2.0,
+   "average_index": 2.0
+  },
+  {
+   "id": 6,
+   "event_attribute": "_Start",
+   "pattern": "P1",
+   "value": "17",
+   "value_event": "17",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 7,
+   "event_attribute": "Arrival",
+   "pattern": "P1",
+   "value": "17",
+   "value_event": "17",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 8,
+   "event_attribute": "Emergency",
+   "pattern": "P1",
+   "value": "17",
+   "value_event": "17",
+   "median_index": 1.0,
+   "average_index": 1.0
+  },
+  {
+   "id": 9,
+   "event_attribute": "ICU",
+   "pattern": "P1",
+   "value": "17",
+   "value_event": "16",
+   "median_index": 2.0,
+   "average_index": 1.9411764705882353
+  },
+  {
+   "id": 10,
+   "event_attribute": "Floor",
+   "pattern": "P1",
+   "value": "17",
+   "value_event": "16",
+   "median_index": 3.0,
+   "average_index": 2.8823529411764706
+  },
+  {
+   "id": 11,
+   "event_attribute": "Discharge-Alive",
+   "pattern": "P1",
+   "value": "17",
+   "value_event": "16",
+   "median_index": 4.0,
+   "average_index": 4.0588235294117645
+  },
+  {
+   "id": 12,
+   "event_attribute": "_Exit",
+   "pattern": "P1",
+   "value": "17",
+   "value_event": "17",
+   "median_index": 4.0,
+   "average_index": 4.294117647058823
+  },
+  {
+   "id": 13,
+   "event_attribute": "_Start",
+   "pattern": "P2",
+   "value": "46",
+   "value_event": "46",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 14,
+   "event_attribute": "Arrival",
+   "pattern": "P2",
+   "value": "46",
+   "value_event": "46",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 15,
+   "event_attribute": "Emergency",
+   "pattern": "P2",
+   "value": "46",
+   "value_event": "46",
+   "median_index": 1.0,
+   "average_index": 1.0
+  },
+  {
+   "id": 16,
+   "event_attribute": "Floor",
+   "pattern": "P2",
+   "value": "46",
+   "value_event": "34",
+   "median_index": 2.0,
+   "average_index": 1.8695652173913042
+  },
+  {
+   "id": 17,
+   "event_attribute": "ICU",
+   "pattern": "P2",
+   "value": "46",
+   "value_event": "31",
+   "median_index": 3.0,
+   "average_index": 2.5869565217391304
+  },
+  {
+   "id": 18,
+   "event_attribute": "Die",
+   "pattern": "P2",
+   "value": "46",
+   "value_event": "21",
+   "median_index": 3.0,
+   "average_index": 3.3260869565217392
+  },
+  {
+   "id": 19,
+   "event_attribute": "_Exit",
+   "pattern": "P2",
+   "value": "46",
+   "value_event": "46",
+   "median_index": 7.0,
+   "average_index": 6.239130434782609
+  }
+ ],
+ "links": [
+  {
+   "source": 1,
+   "target": 2,
+   "count": 37,
+   "length": 0
+  },
+  {
+   "source": 2,
+   "target": 3,
+   "count": 37,
+   "length": 0
+  },
+  {
+   "source": 3,
+   "target": 4,
+   "count": 37,
+   "length": 0
+  },
+  {
+   "source": 4,
+   "target": 5,
+   "count": 37,
+   "length": 0
+  },
+  {
+   "source": 6,
+   "target": 7,
+   "count": 17,
+   "length": 0
+  },
+  {
+   "source": 7,
+   "target": 8,
+   "count": 17,
+   "length": 0
+  },
+  {
+   "source": 8,
+   "target": 9,
+   "count": 17,
+   "length": 0
+  },
+  {
+   "source": 9,
+   "target": 10,
+   "count": 17,
+   "length": 0
+  },
+  {
+   "source": 10,
+   "target": 11,
+   "count": 17,
+   "length": 0
+  },
+  {
+   "source": 11,
+   "target": 12,
+   "count": 17,
+   "length": 0
+  },
+  {
+   "source": 13,
+   "target": 14,
+   "count": 46,
+   "length": 0
+  },
+  {
+   "source": 14,
+   "target": 15,
+   "count": 46,
+   "length": 0
+  },
+  {
+   "source": 15,
+   "target": 16,
+   "count": 46,
+   "length": 0
+  },
+  {
+   "source": 16,
+   "target": 17,
+   "count": 46,
+   "length": 0
+  },
+  {
+   "source": 17,
+   "target": 18,
+   "count": 46,
+   "length": 0
+  },
+  {
+   "source": 18,
+   "target": 19,
+   "count": 46,
+   "length": 0
+  }
+ ]
+}
