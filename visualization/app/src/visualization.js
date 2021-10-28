@@ -17,7 +17,6 @@ function RenderVisualization(props) {
   renderSeqSynopsis(props.seqsynopsisJson, svgRendererSeqSynopsis);
   return (
     <div className="vis-container">
-      <div>
         <svg id="svgElementCoreflow" className="svgmined">
           {" "}
         </svg>
@@ -27,7 +26,6 @@ function RenderVisualization(props) {
         <svg id="svgElementSeqSynopsis" className="svgmined">
           {" "}
         </svg>
-      </div>
     </div>
   );
 }
