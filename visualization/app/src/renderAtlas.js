@@ -14,7 +14,7 @@ export async function renderCoreFlow(dataPath, renderer) {
     targetOffset: [0, -5],
     mode: "curveVertical",
   });
-  scene.repeat(link, data.linkTable);
+  let links = scene.repeat(link, data.linkTable);
   let node = scene.mark("text", { x: 100, y: 100, fontSize: "14px" });
   let nodes = scene.repeat(node, data.nodeTable);
   scene.encode(node, { field: "event_attribute", channel: "text" });
@@ -34,7 +34,7 @@ export async function renderCoreFlow(dataPath, renderer) {
   scene.encode(link, {
     channel: "strokeWidth",
     field: "child.value",
-    range: [0, 6],
+    range: [1, 6],
   });
   let lbl = scene.mark("text", {
     x: 100,
@@ -53,11 +53,25 @@ export async function renderCoreFlow(dataPath, renderer) {
       { type: "pointText" },
     ])
     .forEach((d) => (d.visibility = "hidden"));
+    for (let l of lbls.children) {
+      for (let n of nodes.children) {
+          if (l.bounds.overlap(n.bounds)) {
+              l.visibility = "hidden";
+              break;
+          }
+      }        
+  }
+  for (let l of links.children) {
+      let c = data.getNode(l.dataScope.getFieldValue("child")),
+          p = data.getNode(l.dataScope.getFieldValue("parent"));
+      if (c["average_index"] == p["average_index"])
+          l.visibility = "hidden";
+  }
   for (let l of lbls.children) {
-    let c = data.getNode(l.dataScope.getFieldValue("child")),
-      p = data.getNode(l.dataScope.getFieldValue("parent"));
-    if (c["event_attribute"] == "_Exit") l.y = l.y + 20;
-    else if (p["event_attribute"] == "_Start") l.y = l.y - 20;
+      let c = data.getNode(l.dataScope.getFieldValue("child")),
+          p = data.getNode(l.dataScope.getFieldValue("parent"));
+      if (c["average_index"] == p["average_index"])
+          l.visibility = "hidden";
   }
   renderer.clear();
   renderer.render(scene);
@@ -70,8 +84,8 @@ export async function renderSententree(dataPath, renderer) {
   let link = scene.mark("link", {
     sourceAnchor: ["center", "bottom"],
     targetAnchor: ["center", "top"],
-    sourceOffset: [0, 5],
-    targetOffset: [0, -5],
+    sourceOffset: [0, 2],
+    targetOffset: [0, -2],
     mode: "curveVertical",
     strokeColor: "#C8E6FA",
   });
@@ -94,7 +108,7 @@ export async function renderSententree(dataPath, renderer) {
   scene.encode(node, { field: "event_attribute", channel: "text" });
   scene.encode(link, { channel: "source", field: "source" });
   scene.encode(link, { channel: "target", field: "target" });
-  scene.encode(link, { channel: "strokeWidth", field: "count", range: [0, 6] });
+  scene.encode(link, { channel: "strokeWidth", field: "count", range: [1, 6] });
   let linkWeight = scene.mark("text", {
     fillColor: "#006594",
     fontSize: "14px",
@@ -111,12 +125,25 @@ export async function renderSententree(dataPath, renderer) {
     ])
     .forEach((d) => (d.visibility = "hidden"));
   for (let l of lws.children) {
-    let c = data.getNode(l.dataScope.getFieldValue("target")),
-      p = data.getNode(l.dataScope.getFieldValue("source"));
-    if (c["event_attribute"] == "_Exit") l.y = l.y + 20;
-    else if (p["event_attribute"] == "_Start") l.y = l.y - 20;
+    for (let n of nodes.children) {
+        if (l.bounds.overlap(n.bounds)) {
+            l.visibility = "hidden";
+            break;
+        }
+    }        
   }
-
+  for (let l of links.children) {
+      let c = data.getNode(l.dataScope.getFieldValue("target")),
+          p = data.getNode(l.dataScope.getFieldValue("source"));
+      if (c["average_index"] == p["average_index"])
+          l.visibility = "hidden";
+  }
+  for (let l of lws.children) {
+      let c = data.getNode(l.dataScope.getFieldValue("target")),
+          p = data.getNode(l.dataScope.getFieldValue("source"));
+      if (c["average_index"] == p["average_index"])
+          l.visibility = "hidden";
+  }
   renderer.clear();
   renderer.render(scene);
   //atlas.renderer("svg","svgElement").render(scene, "svgElement");
