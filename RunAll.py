@@ -101,7 +101,8 @@ if __name__ == "__main__":
             seqList = [seq]
         else:
             seqList = seq
-
+    for seq in seqList:
+        print(seq.getEventsString())
     with open('TimeMemoryAnalysis.csv', 'a') as timeFile:#, open('MemAnalysis.csv', 'w') as memFile:
         writer = csv.writer(timeFile)
         writer.writerow(["Dataset", "Support", "Tool", "Time", "Memory"])
