@@ -92,27 +92,20 @@ export async function renderSententree(dataPath, renderer) {
   let links = scene.repeat(link, data.linkTable);
   let node = scene.mark("text", { x: 100, y: 100 });
   let nodes = scene.repeat(node, data.nodeTable);
-  nodes.layout = atlas.layout("force", {
-    x: 200,
-    y: 185,
-    iterations: 300,
-    repulsion: 200,
-    linkDistance: 10,
-  });
+  scene.encode(node, {field: "event_attribute", channel: "text"});
+  nodes.layout = atlas.layout("sugiyama", {top: 100, left: 100});
   scene.encode(node, {
     field: "average_index",
     channel: "y",
     rangeExtent: 400,
     invertScale: true,
   });
-  scene.encode(node, { field: "event_attribute", channel: "text" });
   scene.encode(link, { channel: "source", field: "source" });
   scene.encode(link, { channel: "target", field: "target" });
   scene.encode(link, { channel: "strokeWidth", field: "count", range: [1, 6] });
   let linkWeight = scene.mark("text", {
     fillColor: "#006594",
-    fontSize: "14px",
-    fontWeight: "bold",
+    fontSize: "14px"
   });
   let lws = scene.repeat(linkWeight, data.linkTable);
   scene.encode(linkWeight, { field: "count", channel: "text" });
