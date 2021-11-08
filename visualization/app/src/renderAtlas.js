@@ -182,7 +182,7 @@ export async function renderSeqSynopsis(dataPath, renderer) {
   let xEnc = scn.encode(evtBg, {
     channel: "x",
     field: "pattern",
-    rangeExtent: 220,
+    rangeExtent: 400,
   });
   let yEnc = scn.encode(glyph, {
     channel: "y",
