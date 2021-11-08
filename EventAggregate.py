@@ -34,7 +34,7 @@ def giveDictionaryOfMappingsFile(fileName):
 # first line is the regular expression, second line is the merged event name
 
 
-def aggregateEventsRegex(eventList, regexMapping, attributeName):
+def aggregateEventsRegex(eventStore, regexMapping, attributeName):
     """This function modifies the events in eventList argument
     merge events by rules expressed in regular expressions.
     The argument regexMapping can be a path pointing to a file defining such rules.
@@ -43,6 +43,7 @@ def aggregateEventsRegex(eventList, regexMapping, attributeName):
     """
 
     aggregations = giveDictionaryOfMappingsFile(regexMapping)
+    eventList = eventStore.events
     for event in eventList:
         # Get the attribute value of interest
         attributeVal = event.attributes[attributeName]
@@ -52,6 +53,7 @@ def aggregateEventsRegex(eventList, regexMapping, attributeName):
             if re.match(regex, attributeVal):
                 event.attributes[attributeName] = aggregations[regex]
                 break
+    eventStore.createAttrDict()
     return eventList
 
 
@@ -63,7 +65,7 @@ def aggregateEventsRegex(eventList, regexMapping, attributeName):
 # original name, second line is the merged event name.
 
 
-def aggregateEventsDict(eventList, nameDict, attributeName):
+def aggregateEventsDict(eventStore, nameDict, attributeName):
     """this current modifies the events in eventList argument
     # merge events by a dictionary mapping an event name to the merged name.
     # The argument nameDict can be a path
@@ -75,6 +77,7 @@ def aggregateEventsDict(eventList, nameDict, attributeName):
     aggregations = giveDictionaryOfMappingsFile(nameDict)
     # Iterate over all events and replace evevnts in event list with updated attribute name
     # if directed to by given mappings
+    eventList = eventStore.events
     for event in eventList:
         # Get the attribute value of interest
         attributeVal = event.attributes[attributeName]
@@ -83,4 +86,5 @@ def aggregateEventsDict(eventList, nameDict, attributeName):
         if attributeVal in aggregations:
 
             event.attributes[attributeName] = aggregations[attributeVal]
+    eventStore.createAttrDict()
     return eventList

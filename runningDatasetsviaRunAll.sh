@@ -31,3 +31,8 @@ python RunAll.py --file "datasets/Invention_Trajectories/illinois03.txt" --evtty
 python RunAll.py --file "datasets/foursquare/tokyo.txt" --evttype 1 --startidx 7 --format "%a %b %d %H:%M:%S %z %Y" --sep "\t" --local True  --header "User_ID" "Venue_ID" "Venue_category_ID" "Venue_category_name" "Latitude" "Longitude" "Timezone offset" "UTC Time" --grpattr "User_ID" --attr "Venue_category_name"
 
 #Foursquare NYC
+
+
+## With merge
+
+python RunAll.py --file "datasets/Children_Hospital/DND-ChildrensDemo-06-26-13.txt" --evttype 3 --startidx 2 --endidx 3  --format "%Y-%m-%d %H:%M:%S.%f" --sep "\t" --local True --header "record_id" "event_category" "Start_time" "end_time" "event_attributes" --grpattr "record_id" --attr "event_category" --merge 1
