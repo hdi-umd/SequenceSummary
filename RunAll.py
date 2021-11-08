@@ -15,6 +15,7 @@ from Node import TreeNode, GraphNode
 from Sequence import Sequence
 from Graph import Graph
 from EventStore import EventStore
+from EventAggregate import aggregateEventsRegex, aggregateEventsDict
 from coreflow.CoreFlowMiner import CoreFlowMiner
 from sententree.SentenTreeMiner import SentenTreeMiner
 from sequencesynopsis.SequenceSynopsisMinerWithWeightedLSH import SequenceSynopsisMiner
@@ -58,6 +59,12 @@ if __name__ == "__main__":
     argParser.add_argument("--split", help="split the sequences",
                            type=str, default="")
 
+    argParser.add_argument("--merge", help="merge the events in the file 1. Dictionary 2. Regex",
+                           type=int, default=0)
+
+    argParser.add_argument("--mergefile", help="merge the events in the file",
+                           type=str, default="")
+
     argParser.add_argument("--output", help="Path of output file",
                            type=str, default="")
 
@@ -88,6 +95,12 @@ if __name__ == "__main__":
                                      args.format, sep=args.sep, local=args.local,
                                      header=args.header)
 
+    if args.merge:
+        if args.merge == 1:
+            aggregateEventsDict(eventStore, "dict.txt", args.attr)
+        elif args.merge == 2:
+            aggregateEventsRegex(eventStore, "dict.txt", args.attr)
+
     # create Sequences from Eventstore
     if args.grpattr:
         seq = eventStore.generateSequence(args.grpattr)
@@ -101,8 +114,8 @@ if __name__ == "__main__":
             seqList = [seq]
         else:
             seqList = seq
-    for seq in seqList:
-        print(seq.getEventsString())
+    # for seq in seqList:
+    #     print(seq.getEventsString(args.attr))
     with open('TimeMemoryAnalysis.csv', 'a') as timeFile:#, open('MemAnalysis.csv', 'w') as memFile:
         writer = csv.writer(timeFile)
         writer.writerow(["Dataset", "Support", "Tool", "Time", "Memory"])

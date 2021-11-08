@@ -28,6 +28,10 @@ attr: name of the attr to perform mining on. Expected value: String.
 
 split: Whether to split the sequences based on any time span. e.g. week, month or year. Expected value: String.
 
+merge: merge events based on 1. a dictionary or 2. regular expressions. In regex case, the first line is the regex, the second line is the target value. In case of dictionary, the odd lines are the values currently in dictionary and the target values are the one you want to have as Events. This information should be in the `dict.txt` file.
+Expected value: Integer.
+
+
 ## Example
 
 python main.py --file "../corelow_paper_test.csv" --evttype 1 --startidx 1 --format "%m/%d/%y" --sep "," --local True --grpattr "Category" --attr "Event"
