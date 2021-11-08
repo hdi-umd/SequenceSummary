@@ -1,0 +1,132 @@
+{
+ "nodes": [
+  {
+   "id": 1,
+   "event_attribute": "_Start",
+   "pattern": "P",
+   "value": "1178",
+   "value_event": "0",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 3,
+   "event_attribute": "Emergency",
+   "pattern": "PEmergency",
+   "value": "1178",
+   "value_event": "0",
+   "median_index": 1.0,
+   "average_index": 0.5942275042444821
+  },
+  {
+   "id": 5,
+   "event_attribute": "ICU",
+   "pattern": "PEmergency-ICU",
+   "value": "1178",
+   "value_event": "0",
+   "median_index": 3.0,
+   "average_index": 2.2521222410865875
+  },
+  {
+   "id": 7,
+   "event_attribute": "Exit",
+   "pattern": "PEmergency-ICU-Exit",
+   "value": "1116",
+   "value_event": "0",
+   "median_index": 4.0,
+   "average_index": 3.779900018864365
+  },
+  {
+   "id": 9,
+   "event_attribute": "Aspirin",
+   "pattern": "PAspirin-Emergency-ICU-Exit",
+   "value": "700",
+   "value_event": "0",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 11,
+   "event_attribute": "Normal Floor Bed",
+   "pattern": "PAspirin-Emergency-Normal Floor Bed-ICU-Exit",
+   "value": "525",
+   "value_event": "0",
+   "median_index": 2.0,
+   "average_index": 1.5942275042444822
+  },
+  {
+   "id": 16,
+   "event_attribute": "_Exit",
+   "pattern": "PAspirin-Emergency-Normal Floor Bed-ICU-Exit",
+   "value": "525",
+   "value_event": "0",
+   "median_index": 4.0,
+   "average_index": 3.779900018864365
+  },
+  {
+   "id": 17,
+   "event_attribute": "_Exit",
+   "pattern": "PEmergency-ICU-Exit",
+   "value": "416",
+   "value_event": "0",
+   "median_index": 4.0,
+   "average_index": 3.779900018864365
+  }
+ ],
+ "links": [
+  {
+   "source": 1,
+   "target": 3,
+   "count": 1178,
+   "length": 0.5942275042444821
+  },
+  {
+   "source": 1,
+   "target": 9,
+   "count": 700,
+   "length": 0.0
+  },
+  {
+   "source": 3,
+   "target": 5,
+   "count": 653,
+   "length": 1.6578947368421053
+  },
+  {
+   "source": 3,
+   "target": 11,
+   "count": 525,
+   "length": 1.0
+  },
+  {
+   "source": 5,
+   "target": 7,
+   "count": 1116,
+   "length": 1.5277777777777777
+  },
+  {
+   "source": 7,
+   "target": 16,
+   "count": 525,
+   "length": 0.0
+  },
+  {
+   "source": 7,
+   "target": 17,
+   "count": 416,
+   "length": 0.0
+  },
+  {
+   "source": 9,
+   "target": 3,
+   "count": 700,
+   "length": 1.0
+  },
+  {
+   "source": 11,
+   "target": 5,
+   "count": 525,
+   "length": 2.0
+  }
+ ]
+}
