@@ -1,0 +1,333 @@
+{
+ "nodes": [
+  {
+   "id": 1,
+   "event_attribute": "_Start",
+   "pattern": "P0",
+   "value": "54",
+   "value_event": "54",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 2,
+   "event_attribute": "airwaytime",
+   "pattern": "P0",
+   "value": "54",
+   "value_event": "54",
+   "median_index": 0.0,
+   "average_index": 0.25925925925925924
+  },
+  {
+   "id": 3,
+   "event_attribute": "breathsoundstime",
+   "pattern": "P0",
+   "value": "54",
+   "value_event": "52",
+   "median_index": 1.0,
+   "average_index": 1.425925925925926
+  },
+  {
+   "id": 4,
+   "event_attribute": "pulse",
+   "pattern": "P0",
+   "value": "54",
+   "value_event": "51",
+   "median_index": 2.0,
+   "average_index": 2.5185185185185186
+  },
+  {
+   "id": 5,
+   "event_attribute": "gcstime",
+   "pattern": "P0",
+   "value": "54",
+   "value_event": "52",
+   "median_index": 4.0,
+   "average_index": 4.814814814814815
+  },
+  {
+   "id": 6,
+   "event_attribute": "pupilstime",
+   "pattern": "P0",
+   "value": "54",
+   "value_event": "30",
+   "median_index": 5.0,
+   "average_index": 5.574074074074074
+  },
+  {
+   "id": 7,
+   "event_attribute": "startsecondary",
+   "pattern": "P0",
+   "value": "54",
+   "value_event": "20",
+   "median_index": 5.0,
+   "average_index": 6.055555555555556
+  },
+  {
+   "id": 8,
+   "event_attribute": "temptime",
+   "pattern": "P0",
+   "value": "54",
+   "value_event": "17",
+   "median_index": 5.0,
+   "average_index": 6.314814814814816
+  },
+  {
+   "id": 9,
+   "event_attribute": "ivtime",
+   "pattern": "P0",
+   "value": "54",
+   "value_event": "10",
+   "median_index": 5.0,
+   "average_index": 6.481481481481483
+  },
+  {
+   "id": 10,
+   "event_attribute": "_Exit",
+   "pattern": "P0",
+   "value": "54",
+   "value_event": "54",
+   "median_index": 14.0,
+   "average_index": 14.351851851851853
+  },
+  {
+   "id": 11,
+   "event_attribute": "_Start",
+   "pattern": "P1",
+   "value": "151",
+   "value_event": "151",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 12,
+   "event_attribute": "airwaytime",
+   "pattern": "P1",
+   "value": "151",
+   "value_event": "147",
+   "median_index": 0.0,
+   "average_index": 0.5033112582781457
+  },
+  {
+   "id": 13,
+   "event_attribute": "breathsoundstime",
+   "pattern": "P1",
+   "value": "151",
+   "value_event": "125",
+   "median_index": 1.0,
+   "average_index": 1.4701986754966887
+  },
+  {
+   "id": 14,
+   "event_attribute": "pulse",
+   "pattern": "P1",
+   "value": "151",
+   "value_event": "122",
+   "median_index": 2.0,
+   "average_index": 2.5496688741721854
+  },
+  {
+   "id": 15,
+   "event_attribute": "gcstime",
+   "pattern": "P1",
+   "value": "151",
+   "value_event": "121",
+   "median_index": 4.0,
+   "average_index": 4.28476821192053
+  },
+  {
+   "id": 16,
+   "event_attribute": "pupilstime",
+   "pattern": "P1",
+   "value": "151",
+   "value_event": "62",
+   "median_index": 4.0,
+   "average_index": 4.788079470198675
+  },
+  {
+   "id": 17,
+   "event_attribute": "blankettime",
+   "pattern": "P1",
+   "value": "151",
+   "value_event": "57",
+   "median_index": 4.0,
+   "average_index": 5.4635761589403975
+  },
+  {
+   "id": 18,
+   "event_attribute": "_Exit",
+   "pattern": "P1",
+   "value": "151",
+   "value_event": "151",
+   "median_index": 12.0,
+   "average_index": 11.29139072847682
+  },
+  {
+   "id": 19,
+   "event_attribute": "_Start",
+   "pattern": "P2",
+   "value": "10",
+   "value_event": "10",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 20,
+   "event_attribute": "airwaytime",
+   "pattern": "P2",
+   "value": "10",
+   "value_event": "10",
+   "median_index": 0.5,
+   "average_index": 1.0
+  },
+  {
+   "id": 21,
+   "event_attribute": "oxygentime",
+   "pattern": "P2",
+   "value": "10",
+   "value_event": "8",
+   "median_index": 1.5,
+   "average_index": 2.1
+  },
+  {
+   "id": 22,
+   "event_attribute": "breathsoundstime",
+   "pattern": "P2",
+   "value": "10",
+   "value_event": "4",
+   "median_index": 1.5,
+   "average_index": 2.5
+  },
+  {
+   "id": 23,
+   "event_attribute": "_Exit",
+   "pattern": "P2",
+   "value": "10",
+   "value_event": "10",
+   "median_index": 9.5,
+   "average_index": 10.5
+  }
+ ],
+ "links": [
+  {
+   "source": 1,
+   "target": 2,
+   "count": 54,
+   "length": 0
+  },
+  {
+   "source": 2,
+   "target": 3,
+   "count": 54,
+   "length": 0
+  },
+  {
+   "source": 3,
+   "target": 4,
+   "count": 54,
+   "length": 0
+  },
+  {
+   "source": 4,
+   "target": 5,
+   "count": 54,
+   "length": 0
+  },
+  {
+   "source": 5,
+   "target": 6,
+   "count": 54,
+   "length": 0
+  },
+  {
+   "source": 6,
+   "target": 7,
+   "count": 54,
+   "length": 0
+  },
+  {
+   "source": 7,
+   "target": 8,
+   "count": 54,
+   "length": 0
+  },
+  {
+   "source": 8,
+   "target": 9,
+   "count": 54,
+   "length": 0
+  },
+  {
+   "source": 9,
+   "target": 10,
+   "count": 54,
+   "length": 0
+  },
+  {
+   "source": 11,
+   "target": 12,
+   "count": 151,
+   "length": 0
+  },
+  {
+   "source": 12,
+   "target": 13,
+   "count": 151,
+   "length": 0
+  },
+  {
+   "source": 13,
+   "target": 14,
+   "count": 151,
+   "length": 0
+  },
+  {
+   "source": 14,
+   "target": 15,
+   "count": 151,
+   "length": 0
+  },
+  {
+   "source": 15,
+   "target": 16,
+   "count": 151,
+   "length": 0
+  },
+  {
+   "source": 16,
+   "target": 17,
+   "count": 151,
+   "length": 0
+  },
+  {
+   "source": 17,
+   "target": 18,
+   "count": 151,
+   "length": 0
+  },
+  {
+   "source": 19,
+   "target": 20,
+   "count": 10,
+   "length": 0
+  },
+  {
+   "source": 20,
+   "target": 21,
+   "count": 10,
+   "length": 0
+  },
+  {
+   "source": 21,
+   "target": 22,
+   "count": 10,
+   "length": 0
+  },
+  {
+   "source": 22,
+   "target": 23,
+   "count": 10,
+   "length": 0
+  }
+ ]
+}

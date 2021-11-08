@@ -1,0 +1,102 @@
+{
+ "event_attribute": "_Start",
+ "Pattern": "",
+ "value": 215,
+ "median_index": 0,
+ "average_index": 0,
+ "children": [
+  {
+   "event_attribute": "breathsoundstime",
+   "Pattern": "breathsoundstime",
+   "value": 214,
+   "median_index": 1.0,
+   "average_index": 1.2990654205607477,
+   "children": [
+    {
+     "event_attribute": "pulse",
+     "Pattern": "breathsoundstime-pulse",
+     "value": 209,
+     "median_index": 2.0,
+     "average_index": 2.705763985154049,
+     "children": [
+      {
+       "event_attribute": "pupilstime",
+       "Pattern": "breathsoundstime-pulse-pupilstime",
+       "value": 199,
+       "median_index": 4.0,
+       "average_index": 5.087673532892742,
+       "children": [
+        {
+         "event_attribute": "blankettime",
+         "Pattern": "breathsoundstime-pulse-pupilstime-blankettime",
+         "value": 161,
+         "median_index": 7.0,
+         "average_index": 7.783325706805785,
+         "children": [
+          {
+           "event_attribute": "temptime",
+           "Pattern": "breathsoundstime-pulse-pupilstime-blankettime-temptime",
+           "value": 57,
+           "median_index": 8.0,
+           "average_index": 8.958764303297013,
+           "children": [
+            {
+             "event_attribute": "_Exit",
+             "Pattern": "breathsoundstime-pulse-pupilstime-blankettime-temptime",
+             "value": 57,
+             "median_index": 9.0,
+             "average_index": 9.678062548911047,
+             "children": []
+            }
+           ]
+          },
+          {
+           "event_attribute": "_Exit",
+           "Pattern": "breathsoundstime-pulse-pupilstime-blankettime",
+           "value": 104,
+           "median_index": 7.0,
+           "average_index": 8.129479552959632,
+           "children": []
+          }
+         ]
+        },
+        {
+         "event_attribute": "_Exit",
+         "Pattern": "breathsoundstime-pulse-pupilstime",
+         "value": 38,
+         "median_index": 6.0,
+         "average_index": 7.061357743419058,
+         "children": []
+        }
+       ]
+      },
+      {
+       "event_attribute": "_Exit",
+       "Pattern": "breathsoundstime-pulse",
+       "value": 10,
+       "median_index": 6.5,
+       "average_index": 6.705763985154049,
+       "children": []
+      }
+     ]
+    },
+    {
+     "event_attribute": "_Exit",
+     "Pattern": "breathsoundstime",
+     "value": 5,
+     "median_index": 7.0,
+     "average_index": 7.299065420560748,
+     "children": []
+    }
+   ]
+  },
+  {
+   "event_attribute": "_Exit",
+   "Pattern": "",
+   "value": 1,
+   "median_index": 7.0,
+   "average_index": 7.0,
+   "children": []
+  }
+ ]
+}
