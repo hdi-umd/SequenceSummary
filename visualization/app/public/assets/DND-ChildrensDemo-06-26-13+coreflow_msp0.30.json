@@ -6,36 +6,36 @@
  "average_index": 0,
  "children": [
   {
-   "event_attribute": "breathsoundstime",
-   "Pattern": "breathsoundstime",
+   "event_attribute": "breathing",
+   "Pattern": "breathing",
    "value": 214,
    "median_index": 1.0,
    "average_index": 1.2990654205607477,
    "children": [
     {
      "event_attribute": "pulse",
-     "Pattern": "breathsoundstime-pulse",
+     "Pattern": "breathing-pulse",
      "value": 209,
      "median_index": 2.0,
      "average_index": 2.705763985154049,
      "children": [
       {
-       "event_attribute": "pupilstime",
-       "Pattern": "breathsoundstime-pulse-pupilstime",
+       "event_attribute": "pupil",
+       "Pattern": "breathing-pulse-pupil",
        "value": 199,
        "median_index": 4.0,
        "average_index": 5.087673532892742,
        "children": [
         {
-         "event_attribute": "blankettime",
-         "Pattern": "breathsoundstime-pulse-pupilstime-blankettime",
+         "event_attribute": "blanket",
+         "Pattern": "breathing-pulse-pupil-blanket",
          "value": 161,
          "median_index": 7.0,
          "average_index": 7.783325706805785,
          "children": [
           {
            "event_attribute": "_Exit",
-           "Pattern": "breathsoundstime-pulse-pupilstime-blankettime",
+           "Pattern": "breathing-pulse-pupil-blanket",
            "value": 161,
            "median_index": 8.0,
            "average_index": 8.677735644693984,
@@ -45,7 +45,7 @@
         },
         {
          "event_attribute": "_Exit",
-         "Pattern": "breathsoundstime-pulse-pupilstime",
+         "Pattern": "breathing-pulse-pupil",
          "value": 38,
          "median_index": 6.0,
          "average_index": 7.061357743419058,
@@ -55,7 +55,7 @@
       },
       {
        "event_attribute": "_Exit",
-       "Pattern": "breathsoundstime-pulse",
+       "Pattern": "breathing-pulse",
        "value": 10,
        "median_index": 6.5,
        "average_index": 6.705763985154049,
@@ -65,7 +65,7 @@
     },
     {
      "event_attribute": "_Exit",
-     "Pattern": "breathsoundstime",
+     "Pattern": "breathing",
      "value": 5,
      "median_index": 7.0,
      "average_index": 7.299065420560748,

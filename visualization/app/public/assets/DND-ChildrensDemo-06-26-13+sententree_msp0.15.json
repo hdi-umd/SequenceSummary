@@ -11,8 +11,8 @@
   },
   {
    "id": 3,
-   "event_attribute": "breathsoundstime",
-   "pattern": "Pbreathsoundstime",
+   "event_attribute": "breathing",
+   "pattern": "Pbreathing",
    "value": "214",
    "value_event": "0",
    "median_index": 1.0,
@@ -21,7 +21,7 @@
   {
    "id": 5,
    "event_attribute": "pulse",
-   "pattern": "Pbreathsoundstime-pulse",
+   "pattern": "Pbreathing-pulse",
    "value": "209",
    "value_event": "0",
    "median_index": 2.0,
@@ -29,8 +29,8 @@
   },
   {
    "id": 7,
-   "event_attribute": "pupilstime",
-   "pattern": "Pbreathsoundstime-pulse-pupilstime",
+   "event_attribute": "pupil",
+   "pattern": "Pbreathing-pulse-pupil",
    "value": "199",
    "value_event": "0",
    "median_index": 4.0,
@@ -38,8 +38,8 @@
   },
   {
    "id": 9,
-   "event_attribute": "airwaytime",
-   "pattern": "Pairwaytime-breathsoundstime-pulse-pupilstime",
+   "event_attribute": "airway",
+   "pattern": "Pairway-breathing-pulse-pupil",
    "value": "170",
    "value_event": "0",
    "median_index": 0.0,
@@ -47,8 +47,8 @@
   },
   {
    "id": 11,
-   "event_attribute": "blankettime",
-   "pattern": "Pairwaytime-breathsoundstime-pulse-pupilstime-blankettime",
+   "event_attribute": "blanket",
+   "pattern": "Pairway-breathing-pulse-pupil-blanket",
    "value": "140",
    "value_event": "0",
    "median_index": 7.0,
@@ -56,8 +56,8 @@
   },
   {
    "id": 13,
-   "event_attribute": "startsecondary",
-   "pattern": "Pairwaytime-breathsoundstime-pulse-pupilstime-startsecondary-blankettime",
+   "event_attribute": "secondary_survey",
+   "pattern": "Pairway-breathing-pulse-pupil-secondary_survey-blanket",
    "value": "73",
    "value_event": "0",
    "median_index": 5.0,
@@ -65,8 +65,8 @@
   },
   {
    "id": 17,
-   "event_attribute": "startsecondary",
-   "pattern": "Pairwaytime-breathsoundstime-pulse-startsecondary-pupilstime-blankettime",
+   "event_attribute": "secondary_survey",
+   "pattern": "Pairway-breathing-pulse-secondary_survey-pupil-blanket",
    "value": "38",
    "value_event": "0",
    "median_index": 3.5,
@@ -75,7 +75,7 @@
   {
    "id": 20,
    "event_attribute": "_Exit",
-   "pattern": "Pairwaytime-breathsoundstime-pulse-pupilstime-startsecondary-blankettime",
+   "pattern": "Pairway-breathing-pulse-pupil-secondary_survey-blanket",
    "value": "73",
    "value_event": "0",
    "median_index": 7.0,
@@ -84,7 +84,7 @@
   {
    "id": 21,
    "event_attribute": "_Exit",
-   "pattern": "Pairwaytime-breathsoundstime-pulse-startsecondary-pupilstime-blankettime",
+   "pattern": "Pairway-breathing-pulse-secondary_survey-pupil-blanket",
    "value": "38",
    "value_event": "0",
    "median_index": 8.0,
