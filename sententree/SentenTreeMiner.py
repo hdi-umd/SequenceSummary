@@ -16,7 +16,7 @@ class SentenTreeMiner:
         self.maxSupport = maxSup
         self.ranker = RankingFunction(maxSup)
         self.ranker.setRankingFunc(self.ranker.numberOfSequence)
-        self.ranker.setTieBreaker(self.ranker.performRankingMedianIndex)
+        self.ranker.setTieBreaker(self.ranker.performRankingMeanIndex)
 
     def runSentenTreeMiner(self, sequences):
         """Run the sentenTreeMiner algorithm in the given sequences."""
@@ -124,7 +124,7 @@ class SentenTreeMiner:
             # uses first node
             graph.calcPositionsNode()
             graph.calcLengthsLink()
-            # graph.bundle()
+            #graph.bundle()
         newGraph = Graph.assembleGraphs(graphs)
 
         return newGraph
