@@ -72,8 +72,8 @@ class RawNode:
     def printNode(self):
         """ Prints details for a node."""
         print(f'node {self.nid}, value {self.value}, Pattern {self.pattern}, \
-        meanStep {self.meanStep} seqcount {self.seqCount}, right {[x.source.nid for x in self.rightLinks]}, \
-        left {[x.target.nid for x in self.leftLinks]}')
+        meanStep {self.meanStep} seqcount {self.seqCount}, right {[x.target.nid for x in self.rightLinks]}, \
+        left {[x.source.nid for x in self.leftLinks]}')
 
     @staticmethod
     def printNodes(nodeList):
@@ -89,7 +89,7 @@ class RawNode:
         node.nid = max(x.nid for x in allNodes)+1
         node.value = nodeList[0].value
         node.seqCount = sum(nodes.seqCount for nodes in nodeList)
-        node.pattern = "\n".join(nodes.pattern for nodes in nodeList)
+        node.pattern = "\t".join(nodes.pattern for nodes in nodeList)
         node.meanStep = sum(nodes.meanStep for nodes in nodeList)/len(nodeList)
         node.medianStep = sum(
             nodes.medianStep for nodes in nodeList)/len(nodeList)
@@ -304,19 +304,18 @@ class Graph:
 
     def detectCycles(self):
         """Detect if two incoming nodes has same ancestor."""
-
         for node in self.nodes:
             if len(node.leftLinks) > 1:
-                rightNodes = [lnk.source for lnk in node.leftLinks]
+                leftNodes = [lnk.source for lnk in node.leftLinks]
                 parentList = []
-                for candidate in rightNodes:
+                for candidate in leftNodes:
                     parentList.append([elem.nid for elem in candidate.parent])
 
                 for i, first in enumerate(parentList):
                     for j, second in enumerate(parentList[i+1:]):
                         common = list(set(first) & set(second))
                         if len(common) > 1 or common[0] != 1:
-                            if rightNodes[i].seqCount > rightNodes[i+1+j].seqCount:
+                            if leftNodes[i].seqCount > leftNodes[i+1+j].seqCount:
                                 node.leftLinks[i].count -= node.leftLinks[i+1+j].count
                             else:
                                 node.leftLinks[i+1 +
@@ -383,6 +382,7 @@ class Graph:
         print(delNodeIndices)
         delNodeIndices = sorted(delNodeIndices, reverse=True)
         self.nodes = [x for x in self.nodes if x.nid not in delNodeIndices]
+        self.links = [x for x in self.links if x.source.nid not in delNodeIndices and x.target.nid not in delNodeIndices]
         # for idx in sorted(delNodeIndices, reverse=True):
         #     self.nodes.remove()
 
@@ -395,7 +395,7 @@ class Graph:
         #newNode.nid = self.nodes[-1].nid+1
         self.nodes.append(newNode)
         isMerged.extend(node.nid for node in nodes)
-        print(isMerged)
+        print(f'merged {isMerged}')
         deleteLinks = []
 
         rightLinkCollection = list(
@@ -408,10 +408,7 @@ class Graph:
             target = igroup[0].target
             print(f'target {target.nid}')
             target.leftLinks = [
-                x.target.leftLinks for x in igroup if x.source.nid not in isMerged] #keep non merging links intact
-            
-            deleteLinks.extend(
-                x.target.leftLinks for x in igroup if x.source.nid in isMerged)
+                x.target.leftLinks[:] for x in igroup if x.source.nid not in isMerged] #keep non merging links intact
             link = Links(newNode, target,
                          sum(lnk.count for lnk in igroup))
             target.leftLinks.append(link)
@@ -426,14 +423,17 @@ class Graph:
         
         print([l.source.nid for l in leftLinkCollection])
         for _, igroupgen in groupby(leftLinkCollection, lambda x: x.source.nid):
-            igroup = list(igroupgen) 
+            igroup = list(igroupgen)
             source = igroup[0].source
             print(f'source {source.nid}')
-            
+            print(isMerged)
+            print([x.target.nid for x in igroup])
+            print([x.source.rightLinks for x in igroup if x.target.nid  in isMerged])
+            #item for sublist in deleteLinks for item in sublist
             source.rightLinks = [
-                x.source.rightLinks for x in igroup if x.target.nid not in isMerged]
-            deleteLinks.extend(
-                x.source.rightLinks for x in igroup if x.target.nid in isMerged)
+                x.source.rightLinks[:] for x in igroup if x.target.nid not in isMerged]
+            print(source.rightLinks)
+            print([x.source.rightLinks for x in igroup])
             link = Links(source, newNode,
                             sum(lnk.count for lnk in igroup))
             source.rightLinks.append(link)
@@ -444,15 +444,17 @@ class Graph:
             
         deleteLinkIndices = []
         deleteLinks = [item for sublist in deleteLinks for item in sublist]
-        print(deleteLinks)
-        for delink in deleteLinks:
-            print(delink.source.nid)
-            print(delink.target.nid)
-            deleteLinkIndices.append(self.links.index(delink))
-        deleteLinkIndices = list(set(deleteLinkIndices))
-        for idx in sorted(deleteLinkIndices, reverse=True):
-            del self.links[idx]
-
+        print([x.target.nid for x in deleteLinks])
+        print([x.source.nid for x in deleteLinks])
+        # for delink in deleteLinks:
+        #     print(delink.source.nid)
+        #     print(delink.target.nid)
+        #     deleteLinkIndices.append(self.links.index(delink))
+        # deleteLinkIndices = list(set(deleteLinkIndices))
+        # for idx in sorted(deleteLinkIndices, reverse=True):
+        #     del self.links[idx]
+        self.links = [x for x in self.links if x not in deleteLinks]
+        print([x.target.nid for x in self.links])
         return newNode
 
     def groupMergeableNodes(self, nodes, uniqueValue):

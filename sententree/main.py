@@ -103,7 +103,7 @@ if __name__ == "__main__":
     print(eventStore.reverseAttrDict[args.attr])
 
     minSupParam = 0.05
-    while minSupParam <= 0.3:
+    while minSupParam <= 0.30:
         #stm = SentenTreeMiner(minSup=0.2*len(seqList), maxSup=len(seqList))
         stm = SentenTreeMiner(args.attr, minSup=minSupParam *
                             len(seqList), maxSup=len(seqList))
