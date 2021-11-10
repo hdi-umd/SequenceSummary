@@ -344,6 +344,7 @@ class Graph:
         merged = []  # list of nodes in merge
         for node in self.nodes:
             if len(node.rightLinks) > 1 or len(node.leftLinks) > 1:
+                print("HERE")
                 bundleList.append(node)
         #print(f'bundle {[b.nid for b in bundleList]}')
         #print(f'Heer {len(bundleList)}')
@@ -407,13 +408,14 @@ class Graph:
         leftLinkCollection = list(
             chain.from_iterable(n.leftLinks for n in nodes))
         for _, igroup in groupby(leftLinkCollection, lambda x: x.source.nid):
-            source = igroup[0].source
+            source = list(igroup)[0].source
             #print(f'source {source}')
+            print(len(list(igroup)))
             source.rightLinks = [
                 source.rightLinks for source in igroup if source.target not in isMerged]
             deleteLinks.extend(
                 source.rightLinks for source in igroup if source.target in isMerged)
-            link = Links(igroup[0].source, newNode,
+            link = Links(list(igroup)[0].source, newNode,
                          sum(lnk.count for lnk in igroup))
             source.rightLinks.append(link)
             self.links.append(link)
@@ -429,15 +431,17 @@ class Graph:
 
     def groupMergeableNodes(self, nodes, uniqueValue):
         """Group nodes and merge."""
-
+        print(uniqueValue)
+        print("VV")
         subGroups = []
         for val in uniqueValue:
             subGroup = []
-            checkMultiple = [node for node in nodes if node.nid == val]
+            checkMultiple = [node for node in nodes if node.value == val]
             if len(checkMultiple) > 1:
-                for index, node in checkMultiple:
+                print(checkMultiple)
+                for index, node in enumerate(checkMultiple):
                     linkExists = []  # Check if link exists within same items of a group
-                    for rightNode in checkMultiple[index+1]:
+                    for rightNode in checkMultiple[index+1:]:
                         linkExists.append([link for link in self.links
                                            if (link.source == node and link.target == rightNode)
                                            or (link.target == node and link.source == rightNode)])

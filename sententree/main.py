@@ -7,6 +7,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from EventStore import EventStore
 from SentenTreeMiner import SentenTreeMiner
 from Graph import Graph
+from EventAggregate import aggregateEventsRegex, aggregateEventsDict
 from Sequence import Sequence
 import json
 import argparse
@@ -32,7 +33,9 @@ if __name__ == "__main__":
                            type=str, default=",", required=False)
     argParser.add_argument("--local", help="Local availability of file",
                            type=bool, default=True, required=False)
-
+    argParser.add_argument("--header", help="name of fields",
+                           nargs='+', default="", required=False)
+   
     argParser.add_argument("--grpattr", help="group the sequences based on this attribute",
                            type=str, default="")
 
@@ -41,6 +44,12 @@ if __name__ == "__main__":
 
     argParser.add_argument("--split", help="split the sequences",
                            type=str, default="")
+    argParser.add_argument("--merge", help="merge the events in the file 1. Dictionary 2. Regex",
+                           type=int, default=0)
+
+    argParser.add_argument("--mergefile", help="merge the events in the file",
+                           type=str, default="")
+
 
     argParser.add_argument("--output", help="Path of output file",
                            type=str, default="")
@@ -48,19 +57,33 @@ if __name__ == "__main__":
     args = argParser.parse_args()
     print(args)
 
+    if not args.output:
+        if args.local:
+            args.output = os.path.dirname(os.path.abspath(args.file))+"/output_minsupport/"
+            print(f' Output path {args.output}')
+            basename = os.path.splitext(os.path.basename(args.file))[0]
+    if not os.path.exists(args.output):
+        os.makedirs(args.output)
+
     # Eventstore creates a list of events
     eventStore = EventStore()
     if args.evttype == 1:
         eventStore.importPointEvents(args.file, args.startidx,
-                                     args.format, sep=args.sep, local=args.local)
+                                     args.format, sep=args.sep, local=args.local, header=args.header)
     elif args.evttype == 2:
         eventStore.importIntervalEvents(args.file, args.startidx, args.endidx,
-                                        args.format, sep=args.sep, local=args.local)
+                                        args.format, sep=args.sep, local=args.local, header=args.header)
     else:
         eventStore.importMixedEvents(args.file, args.startidx, args.endidx,
-                                     args.format, sep=args.sep, local=args.local)
+                                     args.format, sep=args.sep, local=args.local, header=args.header)
 
     # create Sequences from Eventstore
+    if args.merge:
+        if args.merge == 1:
+            aggregateEventsDict(eventStore, "dict.txt", args.attr)
+        elif args.merge == 2:
+            aggregateEventsRegex(eventStore, "dict.txt", args.attr)
+
     if args.grpattr:
         seq = eventStore.generateSequence(args.grpattr)
     else:
@@ -74,40 +97,41 @@ if __name__ == "__main__":
         else:
             seqList = seq
 
-    rawSeq = "\n".join(seqs.getEventsString(args.attr) for seqs in seqList)
+    #rawSeq = "\n".join(seqs.getEventsString(args.attr) for seqs in seqList)
     # print(rawSeq)
 
     print(eventStore.reverseAttrDict[args.attr])
 
-    #stm = SentenTreeMiner(minSup=0.2*len(seqList), maxSup=len(seqList))
-    stm = SentenTreeMiner(args.attr, minSup=0.2 *
-                          len(seqList), maxSup=len(seqList))
-    graph = stm.runSentenTreeMiner(seqList)
-    #cfm.truncateSequences(self, seqs, hashVal, evtAttr, node,trailingSeqSegs, notContain)
+    minSupParam = 0.05
+    while minSupParam <= 0.3:
+        #stm = SentenTreeMiner(minSup=0.2*len(seqList), maxSup=len(seqList))
+        stm = SentenTreeMiner(args.attr, minSup=minSupParam *
+                            len(seqList), maxSup=len(seqList))
+        graph = stm.runSentenTreeMiner(seqList)
+        #cfm.truncateSequences(self, seqs, hashVal, evtAttr, node,trailingSeqSegs, notContain)
 
-    # print("\n\n*****SentenTree output******\n\n")
+        # print("\n\n*****SentenTree output******\n\n")
 
-    # x = json.dumps(root, ensure_ascii=False,
-    #                default=RawNode.jsonSerializeDump, indent=1)
-    # # print(x)
+        # x = json.dumps(root, ensure_ascii=False,
+        #                default=RawNode.jsonSerializeDump, indent=1)
+        # # print(x)
 
-    # print("\n\n*****SentenTree output GraphNode******\n\n")
+        # print("\n\n*****SentenTree output GraphNode******\n\n")
 
-    # x = json.dumps(root, ensure_ascii=False,
-    #                default=GraphNode.jsonSerializeDump, indent=1)
-    # print(x)
-    #print(f'LEN {len(graphList)}')
+        # x = json.dumps(root, ensure_ascii=False,
+        #                default=GraphNode.jsonSerializeDump, indent=1)
+        # print(x)
+        #print(f'LEN {len(graphList)}')
 
-    if args.output and not os.path.isdir(args.output):
-        os.mkdir(args.output)
+        print("\n\n*****SentenTree Graph output******\n\n")
 
-    print("\n\n*****SentenTree Graph output******\n\n")
+        y = json.dumps(graph, ensure_ascii=False,
+                    default=Graph.jsonSerializeDump, indent=1)
+        print(y)
+        with open(args.output+basename+'+sententree_msp'+f'{minSupParam:.2f}'+ '.json', 'w') \
+                    as the_file2:
+            the_file2.write(y)
+        minSupParam += 0.05
 
-    y = json.dumps(graph, ensure_ascii=False,
-                   default=Graph.jsonSerializeDump, indent=1)
-    print(y)
-    with open(args.output+'outfile_graph.json', 'w') as the_file2:
-        the_file2.write(y)
-
-    # with open(args.output+'outfile.json', 'w') as the_file:
-    #     the_file.write(x)
+        # with open(args.output+'outfile.json', 'w') as the_file:
+        #     the_file.write(x)

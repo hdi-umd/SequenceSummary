@@ -4,7 +4,7 @@ from itertools import count
 #from Event import Event
 from datetime import datetime
 from Helper import getTimeToSortBy, insertEventIntoDict
-
+import csv
 
 class Sequence():
     """Collection of events sharing similar property."""
@@ -169,6 +169,17 @@ class Sequence():
         """Convert the sequence events to a string."""
         return " ".join(elem for elem in self.getEvtAttrValues(attr))
 
+    @staticmethod
+    def seqListtotsv(sequenceLists, attr):
+        """Convert sequence list to tsv
+            where each line is a sequence"""
+        with open('demo4.tsv', 'w') as demoFile:
+            demowriter = csv.writer(demoFile, delimiter='\t')
+            demowriter.writerow(["id", "text"])
+            id = 1
+            for seq in sequenceLists:
+                demowriter.writerow([id, seq.getEventsString(attr)])
+                id += 1
     #ZINAT- changes
     # SequenceList represents a list of objects of type Sequence.
     # The sequences are further splitted into
