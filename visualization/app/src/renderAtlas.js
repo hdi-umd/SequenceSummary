@@ -1,4 +1,5 @@
 import * as atlas from "atlas-vis";
+import { dagStratify, decrossOpt, sugiyama } from "d3-dag";
 
 export async function renderCoreFlow(dataPath, renderer) {
   let scene = atlas.scene();
@@ -140,6 +141,101 @@ export async function renderSententree(dataPath, renderer) {
   renderer.clear();
   renderer.render(scene);
   //atlas.renderer("svg","svgElement").render(scene, "svgElement");
+}
+
+export async function renderSententree2(dataPath, renderer) {
+  let scene = atlas.scene();
+  let graph = await atlas.graphjson(dataPath);
+  //in case the node ids in the input graph file are integers
+  let nodeIdHash = new Map(), nids = {}, nodeId = "id";
+  for (let n of graph.nodes) {
+      nodeIdHash.set(n.id, n.id + "");
+      nids[n.id + ""] = [];
+  }       
+  for (let l of graph.links) {
+      nids[l.target+""].push(l.source+"");
+  }
+  let data = [];
+  for (let t in nids)
+      data.push({"id": t, "parentIds": nids[t]});
+
+  let wd = 575, ht = 700, left = 50, top = 100;
+  const dag = dagStratify()(data);
+  const layout = sugiyama().decross(decrossOpt()).size([wd, ht]);
+  //.nodeSize(n => [20, 12]);
+  layout(dag);
+  let t = Math.min(...dag.descendants().map(d => d.y)), l = Math.min(...dag.descendants().map(d => d.x));
+  let dx = left - l, dy = top - t;
+  const nid2pos = {};
+  for (const node of dag.descendants()) {
+      nid2pos[node.data.id] = {x: node.x + dx, y: node.y + dy};
+  }
+
+  let link = scene.mark("link", {
+    sourceAnchor: ["center", "bottom"],
+    targetAnchor: ["center", "top"],
+    sourceOffset: [0, 2],
+    targetOffset: [0, -2],
+    mode: "curveVertical",
+    strokeColor: "#C8E6FA",
+  });
+  let links = scene.repeat(link, graph.linkTable);
+  let node = scene.mark("text", { x: 100, y: 100 });
+  let nodes = scene.repeat(node, graph.nodeTable);
+  scene.encode(node, {field: "event_attribute", channel: "text"});
+
+  for (let node of nodes.children) {
+    let nid = node.dataScope.getFieldValue(nodeId);
+    node.x = nid2pos[nodeIdHash.get(nid)].x;
+    node.y = nid2pos[nodeIdHash.get(nid)].y;
+    console.log(node.x, node.y);
+  }
+
+  scene.encode(node, {
+    field: "average_index",
+    channel: "y",
+    rangeExtent: 400,
+    invertScale: true,
+  });
+  scene.encode(link, { channel: "source", field: "source" });
+  scene.encode(link, { channel: "target", field: "target" });
+  scene.encode(link, { channel: "strokeWidth", field: "count", range: [1, 6] });
+  let linkWeight = scene.mark("text", {
+    fillColor: "#006594",
+    fontSize: "14px"
+  });
+  let lws = scene.repeat(linkWeight, graph.linkTable);
+  scene.encode(linkWeight, { field: "count", channel: "text" });
+  scene.affix(linkWeight, link, "x");
+  scene.affix(linkWeight, link, "y");
+  scene
+    .find([
+      { field: "event_attribute", values: ["_Start", "_Exit"] },
+      { type: "pointText" },
+    ])
+    .forEach((d) => (d.visibility = "hidden"));
+  for (let l of lws.children) {
+    for (let n of nodes.children) {
+        if (l.bounds.overlap(n.bounds)) {
+            l.visibility = "hidden";
+            break;
+        }
+    }        
+  }
+  for (let l of links.children) {
+      let c = graph.getNode(l.dataScope.getFieldValue("target")),
+          p = graph.getNode(l.dataScope.getFieldValue("source"));
+      if (c["average_index"] == p["average_index"])
+          l.visibility = "hidden";
+  }
+  for (let l of lws.children) {
+      let c = graph.getNode(l.dataScope.getFieldValue("target")),
+          p = graph.getNode(l.dataScope.getFieldValue("source"));
+      if (c["average_index"] == p["average_index"])
+          l.visibility = "hidden";
+  }
+  renderer.clear();
+  renderer.render(scene);
 }
 
 export async function renderSeqSynopsis(dataPath, renderer) {
