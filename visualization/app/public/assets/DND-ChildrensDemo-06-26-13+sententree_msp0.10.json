@@ -100,24 +100,6 @@
    "average_index": 7.5276735328927415
   },
   {
-   "id": 34,
-   "event_attribute": "_Exit",
-   "pattern": "Pairway-breathing-pulse-secondary_survey-pupil-blanket",
-   "value": "38",
-   "value_event": "0",
-   "median_index": 8.0,
-   "average_index": 8.598951728381463
-  },
-  {
-   "id": 35,
-   "event_attribute": "_Exit",
-   "pattern": "Pairway-breathing-pulse-gcs-pupil-secondary_survey-blanket",
-   "value": "32",
-   "value_event": "0",
-   "median_index": 7.0,
-   "average_index": 8.105530675749884
-  },
-  {
    "id": 36,
    "event_attribute": "_Exit",
    "pattern": "Pairway-breathing-pulse-pupil",
@@ -127,24 +109,6 @@
    "average_index": 6.954340199559409
   },
   {
-   "id": 37,
-   "event_attribute": "_Exit",
-   "pattern": "Pairway-breathing-pulse-pupil-blanket",
-   "value": "29",
-   "value_event": "0",
-   "median_index": 8.0,
-   "average_index": 9.21328929643954
-  },
-  {
-   "id": 38,
-   "event_attribute": "_Exit",
-   "pattern": "Pairway-breathing-pulse-pupil-gcs-secondary_survey-blanket",
-   "value": "26",
-   "value_event": "0",
-   "median_index": 8.0,
-   "average_index": 8.538222983442193
-  },
-  {
    "id": 39,
    "event_attribute": "_Exit",
    "pattern": "Pbreathing-pulse-pupil-temp",
@@ -152,6 +116,15 @@
    "value_event": "0",
    "median_index": 8.0,
    "average_index": 9.047673532892741
+  },
+  {
+   "id": 40,
+   "event_attribute": "_Exit",
+   "pattern": "Pairway-breathing-pulse-secondary_survey-pupil-blanket\tairway-breathing-pulse-gcs-pupil-secondary_survey-blanket\tairway-breathing-pulse-pupil-blanket\tairway-breathing-pulse-pupil-gcs-secondary_survey-blanket",
+   "value": "125",
+   "value_event": "0",
+   "median_index": 7.75,
+   "average_index": 8.61399867100327
   }
  ],
  "links": [
@@ -228,30 +201,6 @@
    "length": 1.4529411764705882
   },
   {
-   "source": 11,
-   "target": 34,
-   "count": 38,
-   "length": 0.868421052631579
-  },
-  {
-   "source": 11,
-   "target": 35,
-   "count": 32,
-   "length": 0.375
-  },
-  {
-   "source": 11,
-   "target": 37,
-   "count": 29,
-   "length": 1.4827586206896552
-  },
-  {
-   "source": 11,
-   "target": 38,
-   "count": 26,
-   "length": 0.8076923076923077
-  },
-  {
    "source": 13,
    "target": 11,
    "count": 73,
@@ -280,6 +229,12 @@
    "target": 39,
    "count": 25,
    "length": 1.52
+  },
+  {
+   "source": 11,
+   "target": 40,
+   "count": 125,
+   "length": 0
   }
  ]
 }

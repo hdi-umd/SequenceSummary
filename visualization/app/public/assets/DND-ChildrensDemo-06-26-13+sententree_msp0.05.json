@@ -64,15 +64,6 @@
    "average_index": 6.6356187383721945
   },
   {
-   "id": 15,
-   "event_attribute": "gcs",
-   "pattern": "Pairway-breathing-pulse-gcs-pupil-secondary_survey-blanket",
-   "value": "32",
-   "value_event": "0",
-   "median_index": 4.0,
-   "average_index": 4.330763985154049
-  },
-  {
    "id": 17,
    "event_attribute": "secondary_survey",
    "pattern": "Pairway-breathing-pulse-secondary_survey-pupil-blanket",
@@ -89,33 +80,6 @@
    "value_event": "0",
    "median_index": 5.0,
    "average_index": 6.203058148277357
-  },
-  {
-   "id": 21,
-   "event_attribute": "temp",
-   "pattern": "Pairway-breathing-pulse-secondary_survey-pupil-temp-blanket",
-   "value": "21",
-   "value_event": "0",
-   "median_index": 5.0,
-   "average_index": 6.32576877098798
-  },
-  {
-   "id": 23,
-   "event_attribute": "temp",
-   "pattern": "Pairway-breathing-pulse-gcs-pupil-secondary_survey-temp-blanket",
-   "value": "11",
-   "value_event": "0",
-   "median_index": 6.0,
-   "average_index": 7.726527829281285
-  },
-  {
-   "id": 25,
-   "event_attribute": "gcs",
-   "pattern": "Pairway-breathing-pulse-gcs-pupil",
-   "value": "21",
-   "value_event": "0",
-   "median_index": 4.0,
-   "average_index": 4.801002080392145
   },
   {
    "id": 27,
@@ -136,15 +100,6 @@
    "average_index": 9.083471852220473
   },
   {
-   "id": 31,
-   "event_attribute": "temp",
-   "pattern": "Pairway-breathing-pulse-pupil-gcs-secondary_survey-blanket-temp",
-   "value": "11",
-   "value_event": "0",
-   "median_index": 8.0,
-   "average_index": 8.912348857568066
-  },
-  {
    "id": 33,
    "event_attribute": "airway",
    "pattern": "Pbreathing-airway-pulse-pupil-temp",
@@ -163,15 +118,6 @@
    "average_index": 6.703058148277357
   },
   {
-   "id": 41,
-   "event_attribute": "temp",
-   "pattern": "Pairway-breathing-pulse-secondary_survey-pupil-blanket-temp",
-   "value": "13",
-   "value_event": "0",
-   "median_index": 8.0,
-   "average_index": 8.807453752672961
-  },
-  {
    "id": 47,
    "event_attribute": "gcs",
    "pattern": "Pairway-breathing-pulse-pupil-secondary_survey-gcs-blanket",
@@ -179,24 +125,6 @@
    "value_event": "0",
    "median_index": 6.0,
    "average_index": 7.6356187383721945
-  },
-  {
-   "id": 62,
-   "event_attribute": "_Exit",
-   "pattern": "Pairway-breathing-pulse-secondary_survey-pupil-temp-blanket",
-   "value": "21",
-   "value_event": "0",
-   "median_index": 7.0,
-   "average_index": 8.063864009083218
-  },
-  {
-   "id": 63,
-   "event_attribute": "_Exit",
-   "pattern": "Pairway-breathing-pulse-gcs-pupil-secondary_survey-blanket",
-   "value": "21",
-   "value_event": "0",
-   "median_index": 7.0,
-   "average_index": 8.159102104321313
   },
   {
    "id": 64,
@@ -217,15 +145,6 @@
    "average_index": 9.090173532892742
   },
   {
-   "id": 66,
-   "event_attribute": "_Exit",
-   "pattern": "Pairway-breathing-pulse-pupil-gcs-secondary_survey-blanket",
-   "value": "15",
-   "value_event": "0",
-   "median_index": 7.0,
-   "average_index": 7.997197342416551
-  },
-  {
    "id": 67,
    "event_attribute": "_Exit",
    "pattern": "Pairway-breathing-pulse-gcs-pupil-temp",
@@ -235,49 +154,49 @@
    "average_index": 7.087673532892742
   },
   {
-   "id": 68,
-   "event_attribute": "_Exit",
-   "pattern": "Pairway-breathing-pulse-secondary_survey-pupil-blanket-temp",
-   "value": "13",
+   "id": 73,
+   "event_attribute": "temp",
+   "pattern": "Pairway-breathing-pulse-secondary_survey-pupil-temp-blanket\tairway-breathing-pulse-gcs-pupil-secondary_survey-temp-blanket",
+   "value": "32",
    "value_event": "0",
-   "median_index": 9.0,
-   "average_index": 9.576684521903731
+   "median_index": 5.5,
+   "average_index": 7.026148300134633
   },
   {
-   "id": 69,
-   "event_attribute": "_Exit",
-   "pattern": "Pairway-breathing-pulse-pupil-secondary_survey-gcs-blanket",
-   "value": "13",
+   "id": 74,
+   "event_attribute": "temp",
+   "pattern": "Pairway-breathing-pulse-secondary_survey-pupil-blanket-temp\tairway-breathing-pulse-pupil-gcs-secondary_survey-blanket-temp",
+   "value": "24",
    "value_event": "0",
    "median_index": 8.0,
-   "average_index": 8.576684521903731
+   "average_index": 8.859901305120513
   },
   {
-   "id": 70,
+   "id": 75,
    "event_attribute": "_Exit",
-   "pattern": "Pairway-breathing-pulse-pupil-blanket",
-   "value": "12",
+   "pattern": "Pairway-breathing-pulse-secondary_survey-pupil-temp-blanket\tairway-breathing-pulse-gcs-pupil-secondary_survey-blanket\tairway-breathing-pulse-pupil-gcs-secondary_survey-blanket\tairway-breathing-pulse-pupil-secondary_survey-gcs-blanket\tairway-breathing-pulse-pupil-blanket\tairway-breathing-pulse-gcs-pupil-secondary_survey-temp-blanket",
+   "value": "93",
    "value_event": "0",
-   "median_index": 8.0,
-   "average_index": 8.480530675749884
+   "median_index": 7.333333333333333,
+   "average_index": 8.213439433658642
   },
   {
-   "id": 71,
+   "id": 76,
    "event_attribute": "_Exit",
-   "pattern": "Pairway-breathing-pulse-gcs-pupil-secondary_survey-temp-blanket",
-   "value": "11",
+   "pattern": "Pairway-breathing-pulse-secondary_survey-pupil-blanket-temp\tairway-breathing-pulse-pupil-gcs-secondary_survey-blanket-temp",
+   "value": "24",
    "value_event": "0",
-   "median_index": 7.0,
-   "average_index": 8.003257948477158
+   "median_index": 8.5,
+   "average_index": 9.42633487155408
   },
   {
-   "id": 72,
-   "event_attribute": "_Exit",
-   "pattern": "Pairway-breathing-pulse-pupil-gcs-secondary_survey-blanket-temp",
-   "value": "11",
+   "id": 77,
+   "event_attribute": "gcs",
+   "pattern": "Pairway-breathing-pulse-gcs-pupil-secondary_survey-blanket\tairway-breathing-pulse-gcs-pupil",
+   "value": "53",
    "value_event": "0",
-   "median_index": 8.0,
-   "average_index": 9.27598522120443
+   "median_index": 4.0,
+   "average_index": 4.5658830327730975
   }
  ],
  "links": [
@@ -313,21 +232,9 @@
   },
   {
    "source": 5,
-   "target": 15,
-   "count": 32,
-   "length": 1.625
-  },
-  {
-   "source": 5,
    "target": 17,
    "count": 38,
    "length": 1.631578947368421
-  },
-  {
-   "source": 5,
-   "target": 25,
-   "count": 21,
-   "length": 2.0952380952380953
   },
   {
    "source": 7,
@@ -346,12 +253,6 @@
    "target": 19,
    "count": 26,
    "length": 1.1153846153846154
-  },
-  {
-   "source": 7,
-   "target": 21,
-   "count": 21,
-   "length": 1.2380952380952381
   },
   {
    "source": 7,
@@ -378,54 +279,6 @@
    "length": 1.3529411764705883
   },
   {
-   "source": 11,
-   "target": 31,
-   "count": 11,
-   "length": 1.1818181818181819
-  },
-  {
-   "source": 11,
-   "target": 41,
-   "count": 13,
-   "length": 1.0769230769230769
-  },
-  {
-   "source": 11,
-   "target": 62,
-   "count": 21,
-   "length": 0.3333333333333333
-  },
-  {
-   "source": 11,
-   "target": 63,
-   "count": 21,
-   "length": 0.42857142857142855
-  },
-  {
-   "source": 11,
-   "target": 66,
-   "count": 15,
-   "length": 0.26666666666666666
-  },
-  {
-   "source": 11,
-   "target": 69,
-   "count": 13,
-   "length": 0.8461538461538461
-  },
-  {
-   "source": 11,
-   "target": 70,
-   "count": 12,
-   "length": 0.75
-  },
-  {
-   "source": 11,
-   "target": 71,
-   "count": 11,
-   "length": 0.2727272727272727
-  },
-  {
    "source": 13,
    "target": 11,
    "count": 28,
@@ -433,21 +286,9 @@
   },
   {
    "source": 13,
-   "target": 23,
-   "count": 11,
-   "length": 1.0909090909090908
-  },
-  {
-   "source": 13,
    "target": 47,
    "count": 13,
    "length": 1.0
-  },
-  {
-   "source": 15,
-   "target": 7,
-   "count": 11,
-   "length": 2.84375
   },
   {
    "source": 17,
@@ -462,24 +303,6 @@
    "length": 2.3076923076923075
   },
   {
-   "source": 21,
-   "target": 11,
-   "count": -3,
-   "length": 2.4761904761904763
-  },
-  {
-   "source": 23,
-   "target": 11,
-   "count": 11,
-   "length": 3.272727272727273
-  },
-  {
-   "source": 25,
-   "target": 7,
-   "count": 21,
-   "length": 3.4761904761904763
-  },
-  {
    "source": 27,
    "target": 65,
    "count": 16,
@@ -490,12 +313,6 @@
    "target": 64,
    "count": 17,
    "length": 0.6470588235294118
-  },
-  {
-   "source": 31,
-   "target": 72,
-   "count": 11,
-   "length": 0.36363636363636365
   },
   {
    "source": 33,
@@ -510,16 +327,58 @@
    "length": 0.38461538461538464
   },
   {
-   "source": 41,
-   "target": 68,
-   "count": 13,
-   "length": 0.7692307692307693
-  },
-  {
    "source": 47,
    "target": 11,
    "count": 2,
    "length": 3.769230769230769
+  },
+  {
+   "source": 73,
+   "target": 11,
+   "count": 8,
+   "length": 0
+  },
+  {
+   "source": 7,
+   "target": 73,
+   "count": 21,
+   "length": 0
+  },
+  {
+   "source": 13,
+   "target": 73,
+   "count": 11,
+   "length": 0
+  },
+  {
+   "source": 11,
+   "target": 74,
+   "count": 24,
+   "length": 0
+  },
+  {
+   "source": 11,
+   "target": 75,
+   "count": 93,
+   "length": 0
+  },
+  {
+   "source": 74,
+   "target": 76,
+   "count": 24,
+   "length": 0
+  },
+  {
+   "source": 77,
+   "target": 7,
+   "count": 32,
+   "length": 0
+  },
+  {
+   "source": 5,
+   "target": 77,
+   "count": 53,
+   "length": 0
   }
  ]
 }

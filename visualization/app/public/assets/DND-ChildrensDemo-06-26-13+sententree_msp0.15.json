@@ -73,22 +73,13 @@
    "average_index": 4.33734293252247
   },
   {
-   "id": 20,
+   "id": 22,
    "event_attribute": "_Exit",
-   "pattern": "Pairway-breathing-pulse-pupil-secondary_survey-blanket",
-   "value": "73",
+   "pattern": "Pairway-breathing-pulse-pupil-secondary_survey-blanket\tairway-breathing-pulse-secondary_survey-pupil-blanket",
+   "value": "111",
    "value_event": "0",
-   "median_index": 7.0,
-   "average_index": 8.360667662051254
-  },
-  {
-   "id": 21,
-   "event_attribute": "_Exit",
-   "pattern": "Pairway-breathing-pulse-secondary_survey-pupil-blanket",
-   "value": "38",
-   "value_event": "0",
-   "median_index": 8.0,
-   "average_index": 8.598951728381463
+   "median_index": 7.5,
+   "average_index": 8.479809695216359
   }
  ],
  "links": [
@@ -135,18 +126,6 @@
    "length": 1.4529411764705882
   },
   {
-   "source": 11,
-   "target": 20,
-   "count": 73,
-   "length": 0.6301369863013698
-  },
-  {
-   "source": 11,
-   "target": 21,
-   "count": 38,
-   "length": 0.868421052631579
-  },
-  {
    "source": 13,
    "target": 11,
    "count": 73,
@@ -157,6 +136,12 @@
    "target": 7,
    "count": 38,
    "length": 2.973684210526316
+  },
+  {
+   "source": 11,
+   "target": 22,
+   "count": 111,
+   "length": 0
   }
  ]
 }
