@@ -40,7 +40,6 @@ class RawNode:
         self.parent = node.parent
         self.sequences = node.sequences
         self.attr = node.attr
-        next(self._ids)
         if coreFlow:
             self.meanStep = node.meanStep
             self.medianStep = node.medianStep
@@ -83,11 +82,11 @@ class RawNode:
             node.printNode()
 
     @staticmethod
-    def merge(nodeList):
+    def merge(nodeList, allNodes):
         """Merge all the nodes in nodeList into a single node."""
         #print(f'Nodes {nodeList}')
         node = RawNode()
-        #node.nid = min(x.nid for x in nodeList)
+        node.nid = max(x.nid for x in allNodes)+1
         node.value = nodeList[0].value
         node.seqCount = sum(nodes.seqCount for nodes in nodeList)
         node.pattern = "\n".join(nodes.pattern for nodes in nodeList)
@@ -381,14 +380,17 @@ class Graph:
 
             ind = bundleList.index(currentBundle)
             del bundleList[ind]
-        for idx in sorted(delNodeIndices, reverse=True):
-            del self.nodes[idx]
+        print(delNodeIndices)
+        delNodeIndices = sorted(delNodeIndices, reverse=True)
+        self.nodes = [x for x in self.nodes if x.nid not in delNodeIndices]
+        # for idx in sorted(delNodeIndices, reverse=True):
+        #     self.nodes.remove()
 
     def mergeNodes(self, nodes, isMerged):
         """ Merge the links into a single node"""
         #print(f'Nodesss {nodes}')
         print(len(self.nodes))
-        newNode = RawNode.merge(nodes)
+        newNode = RawNode.merge(nodes, self.nodes)
         print(newNode.nid)
         #newNode.nid = self.nodes[-1].nid+1
         self.nodes.append(newNode)
@@ -441,6 +443,7 @@ class Graph:
             print([x.source.nid for x in newNode.leftLinks])
             
         deleteLinkIndices = []
+        deleteLinks = [item for sublist in deleteLinks for item in sublist]
         print(deleteLinks)
         for delink in deleteLinks:
             print(delink.source.nid)
