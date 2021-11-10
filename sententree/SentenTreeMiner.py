@@ -124,7 +124,7 @@ class SentenTreeMiner:
             # uses first node
             graph.calcPositionsNode()
             graph.calcLengthsLink()
-            #graph.bundle()
+            graph.bundle()
         newGraph = Graph.assembleGraphs(graphs)
 
         return newGraph
