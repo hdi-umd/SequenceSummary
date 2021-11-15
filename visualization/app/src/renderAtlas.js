@@ -15,7 +15,7 @@ export async function renderCoreFlow(dataPath, renderer) {
     mode: "curveVertical",
   });
   let links = scene.repeat(link, data.linkTable);
-  let node = scene.mark("text", { x: 100, y: 100, fontSize: "14px" });
+  let node = scene.mark("text", { x: 100, y: 100, fontSize: "11px" });
   let nodes = scene.repeat(node, data.nodeTable);
   scene.encode(node, { field: "event_attribute", channel: "text" });
   nodes.layout = atlas.layout("tidytree", {
@@ -39,7 +39,7 @@ export async function renderCoreFlow(dataPath, renderer) {
   let lbl = scene.mark("text", {
     x: 100,
     y: 100,
-    fontSize: "14px",
+    fontSize: "11px",
     fontWeight: "bold",
     fillColor: "#006594",
   });
@@ -90,7 +90,7 @@ export async function renderSententree(dataPath, renderer) {
     strokeColor: "#C8E6FA",
   });
   let links = scene.repeat(link, data.linkTable);
-  let node = scene.mark("text", { x: 100, y: 100 });
+  let node = scene.mark("text", { x: 100, y: 100, fontSize: "11px" });
   let nodes = scene.repeat(node, data.nodeTable);
   scene.encode(node, {field: "event_attribute", channel: "text"});
   nodes.layout = atlas.layout("sugiyama", {top: 100, left: 100});
@@ -105,7 +105,8 @@ export async function renderSententree(dataPath, renderer) {
   scene.encode(link, { channel: "strokeWidth", field: "count", range: [1, 6] });
   let linkWeight = scene.mark("text", {
     fillColor: "#006594",
-    fontSize: "14px"
+    fontSize: "11px",
+    fontWeight: "bold"
   });
   let lws = scene.repeat(linkWeight, data.linkTable);
   scene.encode(linkWeight, { field: "count", channel: "text" });
@@ -160,12 +161,12 @@ export async function renderSeqSynopsis(dataPath, renderer) {
       height: 1,
       strokeColor: "#006594",
     }),
-    evtNm = scn.mark("text", { x: 200, y: 100 }),
+    evtNm = scn.mark("text", { x: 200, y: 100, fontSize: "11px"}),
     evtCnt = scn.mark("text", {
       x: 200,
       y: 100,
       fillColor: "#006594",
-      fontSize: "14px",
+      fontSize: "11px",
       fontWeight: "bold",
     });
   let glyph = scn.glyph(evtBg, evtNm, evtCnt);
