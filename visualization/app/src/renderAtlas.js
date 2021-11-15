@@ -181,7 +181,7 @@ export async function renderSententree2(dataPath, renderer) {
     strokeColor: "#C8E6FA",
   });
   let links = scene.repeat(link, graph.linkTable);
-  let node = scene.mark("text", { x: 100, y: 100 });
+  let node = scene.mark("text", { x: 100, y: 100, fontSize: "11px" });
   let nodes = scene.repeat(node, graph.nodeTable);
   scene.encode(node, {field: "event_attribute", channel: "text"});
 
@@ -203,7 +203,8 @@ export async function renderSententree2(dataPath, renderer) {
   scene.encode(link, { channel: "strokeWidth", field: "count", range: [1, 6] });
   let linkWeight = scene.mark("text", {
     fillColor: "#006594",
-    fontSize: "14px"
+    fontSize: "11px",
+    fontWeight: "bold"
   });
   let lws = scene.repeat(linkWeight, graph.linkTable);
   scene.encode(linkWeight, { field: "count", channel: "text" });
