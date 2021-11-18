@@ -197,15 +197,19 @@ class Links:
         for seq in targetNode.sequences:
             if seq in srcNode.sequences:
                 seqs.append(seq)
+                # print(seq.getEventsString(targetNode.attr))
         #print(f'src {srcNode.nid}, target {targetNode.nid}')
-
+        # print(len(seqs))
         if targetNode.value == "_Exit":
             trailingSteps = [0]*len(seqs)
             for i, path in enumerate(seqs):
                 pos = Pattern.getPositions(
                     targetNode.keyevts, path.getHashList(targetNode.attr))
                 # the difference between the last event in thesequence and the last key event
-                trailingSteps[i] = len(path.events) - pos[-1]-1
+                # print(path.getEventsString(targetNode.attr))
+                # print(srcNode.value)
+                # print(pos)
+                trailingSteps[i] = len(path.events) - (pos[-1]-1 if pos else 0) # if no sequence, Start-> Exit
 
             #print(f'trailing {trailingSteps}')
 
@@ -344,7 +348,7 @@ class Graph:
         merged = []  # list of nodes in merge
         for node in self.nodes:
             if len(node.rightLinks) > 1 or len(node.leftLinks) > 1:
-                print("HERE")
+                # print("HERE")
                 bundleList.append(node)
         #print(f'bundle {[b.nid for b in bundleList]}')
         #print(f'Heer {len(bundleList)}')
@@ -368,18 +372,18 @@ class Graph:
                     #print(f'right links exist {groups}')
 
             if groups:
-                print(f'groups {[x.value for group in groups for x in group ]}')
+                # print(f'groups {[x.value for group in groups for x in group ]}')
                 for grp in groups:
                     delNodeIndices.extend([x.nid for x in grp])
                     #delNodeIndices.append(self.nodes.index(n) for n in grp)
-                    print(f'del {list(delNodeIndices)}')
+                    # print(f'del {list(delNodeIndices)}')
                     newNode = self.mergeNodes(grp, merged)
                     if len(newNode.rightLinks) > 1 or len(newNode.leftLinks) > 1:
                         bundleList.append(newNode)
 
             ind = bundleList.index(currentBundle)
             del bundleList[ind]
-        print(delNodeIndices)
+        # print(delNodeIndices)
         delNodeIndices = sorted(delNodeIndices, reverse=True)
         self.nodes = [x for x in self.nodes if x.nid not in delNodeIndices]
         self.links = [x for x in self.links if x.source.nid not in delNodeIndices and x.target.nid not in delNodeIndices]
@@ -389,63 +393,63 @@ class Graph:
     def mergeNodes(self, nodes, isMerged):
         """ Merge the links into a single node"""
         #print(f'Nodesss {nodes}')
-        print(len(self.nodes))
+        # print(len(self.nodes))
         newNode = RawNode.merge(nodes, self.nodes)
-        print(newNode.nid)
+        # print(newNode.nid)
         #newNode.nid = self.nodes[-1].nid+1
         self.nodes.append(newNode)
         isMerged.extend(node.nid for node in nodes)
-        print(f'merged {isMerged}')
+        # print(f'merged {isMerged}')
         deleteLinks = []
 
         rightLinkCollection = list(
             chain.from_iterable(n.rightLinks for n in nodes))
-        print([r.target.nid for r in rightLinkCollection])
+        # print([r.target.nid for r in rightLinkCollection])
         rightLinkCollection = sorted(rightLinkCollection, key=lambda x: x.target.nid)
-        print([r.target.nid for r in rightLinkCollection])
+        # print([r.target.nid for r in rightLinkCollection])
         for _, igroupgen in groupby(rightLinkCollection, lambda x: x.target.nid):
             igroup = list(igroupgen)
             target = igroup[0].target
-            print(f'target {target.nid}')
+            # print(f'target {target.nid}')
             target.leftLinks = [
                 x.target.leftLinks[:] for x in igroup if x.source.nid not in isMerged] #keep non merging links intact
             link = Links(newNode, target,
                          sum(lnk.count for lnk in igroup))
             target.leftLinks.append(link)
-            print([x.source.nid for x in target.leftLinks])
+            # print([x.source.nid for x in target.leftLinks])
             self.links.append(link)
             newNode.rightLinks.extend(target.leftLinks)
-            print([x.target.nid for x in newNode.rightLinks])
+            # print([x.target.nid for x in newNode.rightLinks])
             
         leftLinkCollection = list(
             chain.from_iterable(n.leftLinks for n in nodes))
         leftLinkCollection = sorted(leftLinkCollection, key=lambda x: x.source.nid)
         
-        print([l.source.nid for l in leftLinkCollection])
+        # print([l.source.nid for l in leftLinkCollection])
         for _, igroupgen in groupby(leftLinkCollection, lambda x: x.source.nid):
             igroup = list(igroupgen)
             source = igroup[0].source
-            print(f'source {source.nid}')
-            print(isMerged)
-            print([x.target.nid for x in igroup])
-            print([x.source.rightLinks for x in igroup if x.target.nid  in isMerged])
+            # print(f'source {source.nid}')
+            # print(isMerged)
+            # print([x.target.nid for x in igroup])
+            # print([x.source.rightLinks for x in igroup if x.target.nid  in isMerged])
             #item for sublist in deleteLinks for item in sublist
             source.rightLinks = [
                 x.source.rightLinks[:] for x in igroup if x.target.nid not in isMerged]
-            print(source.rightLinks)
-            print([x.source.rightLinks for x in igroup])
+            # print(source.rightLinks)
+            # print([x.source.rightLinks for x in igroup])
             link = Links(source, newNode,
                             sum(lnk.count for lnk in igroup))
             source.rightLinks.append(link)
-            print([x.target.nid for x in source.rightLinks])
+            # print([x.target.nid for x in source.rightLinks])
             self.links.append(link)
             newNode.leftLinks.extend(source.rightLinks)
-            print([x.source.nid for x in newNode.leftLinks])
+            # print([x.source.nid for x in newNode.leftLinks])
             
         deleteLinkIndices = []
         deleteLinks = [item for sublist in deleteLinks for item in sublist]
-        print([x.target.nid for x in deleteLinks])
-        print([x.source.nid for x in deleteLinks])
+        # print([x.target.nid for x in deleteLinks])
+        # print([x.source.nid for x in deleteLinks])
         # for delink in deleteLinks:
         #     print(delink.source.nid)
         #     print(delink.target.nid)
@@ -454,19 +458,19 @@ class Graph:
         # for idx in sorted(deleteLinkIndices, reverse=True):
         #     del self.links[idx]
         self.links = [x for x in self.links if x not in deleteLinks]
-        print([x.target.nid for x in self.links])
+        # print([x.target.nid for x in self.links])
         return newNode
 
     def groupMergeableNodes(self, nodes, uniqueValue):
         """Group nodes and merge."""
         #print(uniqueValue)
-        print([x.value for x in nodes])
+        #print([x.value for x in nodes])
         subGroups = []
         for val in uniqueValue:
             subGroup = []
             checkMultiple = [node for node in nodes if node.value == val]
             if len(checkMultiple) > 1:
-                print([x.nid for x in checkMultiple])
+                #print([x.nid for x in checkMultiple])
                 for index, node in enumerate(checkMultiple):
                     linkExists = []  # Check if link exists within same items of a group
                     for rightNode in checkMultiple[index+1:]:
@@ -474,19 +478,19 @@ class Graph:
                                            if (link.source == node and link.target == rightNode)
                                            or (link.target == node and link.source == rightNode)])
                         if linkExists:
-                            print(linkExists)
+                            #print(linkExists)
                             break
                     
                     if not linkExists:  # This node has no connection to own sub group
-                        print(index)
+                        #print(index)
                         subGroup.append(node)
-                        print("X")
-                        print([x.nid for x in subGroup])
+                        #print("X")
+                        #print([x.nid for x in subGroup])
             if subGroup:
                 subGroups.append(subGroup)
-        for subGroup in subGroups:
-            print("sbgrp")
-            print([x.value for x in subGroup])
+        #for subGroup in subGroups:
+            #print("sbgrp")
+            #print([x.value for x in subGroup])
         return subGroups
 
     def getEventValueForNodes(self):
