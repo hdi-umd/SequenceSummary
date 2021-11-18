@@ -1,0 +1,60 @@
+{
+ "nodes": [
+  {
+   "id": 1,
+   "event_attribute": "_Start",
+   "pattern": "P",
+   "value": "45",
+   "value_event": "0",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 3,
+   "event_attribute": "commit changes",
+   "pattern": "Pcommit changes",
+   "value": "30",
+   "value_event": "0",
+   "median_index": 0.0,
+   "average_index": 1.0666666666666667
+  },
+  {
+   "id": 8,
+   "event_attribute": "_Exit",
+   "pattern": "Pcommit changes",
+   "value": "30",
+   "value_event": "0",
+   "median_index": 1.0,
+   "average_index": 3.9000000000000004
+  },
+  {
+   "id": 9,
+   "event_attribute": "_Exit",
+   "pattern": "P",
+   "value": "15",
+   "value_event": "0",
+   "median_index": 0.0,
+   "average_index": 1.0
+  }
+ ],
+ "links": [
+  {
+   "source": 1,
+   "target": 3,
+   "count": 30,
+   "length": 1.0666666666666667
+  },
+  {
+   "source": 1,
+   "target": 9,
+   "count": 15,
+   "length": 2.0
+  },
+  {
+   "source": 3,
+   "target": 8,
+   "count": 30,
+   "length": 4.833333333333333
+  }
+ ]
+}

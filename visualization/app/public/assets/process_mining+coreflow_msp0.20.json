@@ -1,0 +1,51 @@
+{
+ "event_attribute": "_Start",
+ "Pattern": "",
+ "value": 45,
+ "median_index": 0,
+ "average_index": 0,
+ "children": [
+  {
+   "event_attribute": "commit changes",
+   "Pattern": "commit changes",
+   "value": 30,
+   "median_index": 0.0,
+   "average_index": 1.0666666666666667,
+   "children": [
+    {
+     "event_attribute": "commit changes",
+     "Pattern": "commit changes-commit changes",
+     "value": 13,
+     "median_index": 1.0,
+     "average_index": 2.528205128205128,
+     "children": [
+      {
+       "event_attribute": "_Exit",
+       "Pattern": "commit changes-commit changes",
+       "value": 13,
+       "median_index": 2.0,
+       "average_index": 6.143589743589743,
+       "children": []
+      }
+     ]
+    },
+    {
+     "event_attribute": "_Exit",
+     "Pattern": "commit changes",
+     "value": 17,
+     "median_index": 1.0,
+     "average_index": 2.1843137254901963,
+     "children": []
+    }
+   ]
+  },
+  {
+   "event_attribute": "_Exit",
+   "Pattern": "",
+   "value": 15,
+   "median_index": 0.0,
+   "average_index": 1.0,
+   "children": []
+  }
+ ]
+}
