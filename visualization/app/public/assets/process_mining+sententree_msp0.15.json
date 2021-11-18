@@ -1,0 +1,120 @@
+{
+ "nodes": [
+  {
+   "id": 1,
+   "event_attribute": "_Start",
+   "pattern": "P",
+   "value": "45",
+   "value_event": "0",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 3,
+   "event_attribute": "commit changes",
+   "pattern": "Pcommit changes",
+   "value": "30",
+   "value_event": "0",
+   "median_index": 0.0,
+   "average_index": 1.0666666666666667
+  },
+  {
+   "id": 5,
+   "event_attribute": "commit changes",
+   "pattern": "Pcommit changes-commit changes",
+   "value": "13",
+   "value_event": "0",
+   "median_index": 1.0,
+   "average_index": 2.528205128205128
+  },
+  {
+   "id": 9,
+   "event_attribute": "create issue",
+   "pattern": "Pcreate issue",
+   "value": "7",
+   "value_event": "0",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 16,
+   "event_attribute": "_Exit",
+   "pattern": "Pcommit changes",
+   "value": "17",
+   "value_event": "0",
+   "median_index": 1.0,
+   "average_index": 2.1843137254901963
+  },
+  {
+   "id": 17,
+   "event_attribute": "_Exit",
+   "pattern": "Pcommit changes-commit changes",
+   "value": "13",
+   "value_event": "0",
+   "median_index": 2.0,
+   "average_index": 6.143589743589743
+  },
+  {
+   "id": 18,
+   "event_attribute": "_Exit",
+   "pattern": "P",
+   "value": "8",
+   "value_event": "0",
+   "median_index": 0.5,
+   "average_index": 1.75
+  },
+  {
+   "id": 19,
+   "event_attribute": "_Exit",
+   "pattern": "Pcreate issue",
+   "value": "7",
+   "value_event": "0",
+   "median_index": 0.0,
+   "average_index": 0.14285714285714285
+  }
+ ],
+ "links": [
+  {
+   "source": 1,
+   "target": 3,
+   "count": 30,
+   "length": 1.0666666666666667
+  },
+  {
+   "source": 1,
+   "target": 9,
+   "count": 7,
+   "length": 0.0
+  },
+  {
+   "source": 1,
+   "target": 18,
+   "count": 8,
+   "length": 2.75
+  },
+  {
+   "source": 3,
+   "target": 5,
+   "count": 13,
+   "length": 1.4615384615384615
+  },
+  {
+   "source": 3,
+   "target": 16,
+   "count": 17,
+   "length": 3.1176470588235294
+  },
+  {
+   "source": 5,
+   "target": 17,
+   "count": 13,
+   "length": 5.615384615384615
+  },
+  {
+   "source": 9,
+   "target": 19,
+   "count": 7,
+   "length": 2.142857142857143
+  }
+ ]
+}
