@@ -108,11 +108,10 @@ class SentenTreeMiner:
             exitNode.before = seq
             seq.after = exitNode
             lenArr = [len(x.events) for x in seq.sequences]
-            exitNode.meanStep = sum(lenArr)/len(lenArr)
+            exitNode.meanStep = sum(lenArr)/(len(lenArr) if lenArr else 1)
             exitNode.medianStep = np.median(lenArr)
             # exitNode.parent.append(seq)
             seq.parent.append(exitNode)
-
             seq.graph.nodes.append(RawNode(node=exitNode, pos=-1))
 
         self.updateNodesEdges(graphs, leafSeqs)

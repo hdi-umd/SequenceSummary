@@ -15,7 +15,7 @@ function RenderVisualization(props) {
 
   renderCoreFlow(props.coreflowJson, svgRendererCoreflow);
   renderSententree(props.sententreeJson, svgRendererSentenTree);
-  renderSententree2(props.sententreeJson, svgRendererSentenTree2);
+  // renderSententree2(props.sententreeJson, svgRendererSentenTree2);
   renderSeqSynopsis(props.seqsynopsisJson, svgRendererSeqSynopsis);
   return (
     <div className="vis-container">
@@ -25,9 +25,9 @@ function RenderVisualization(props) {
         <svg id="svgElementSentenTree" className="svgmined">
           {" "}
         </svg>
-        <svg id="svgElementSentenTree2" className="svgmined">
+        {/* <svg id="svgElementSentenTree2" className="svgmined">
           {" "}
-        </svg>
+        </svg> */}
         <svg id="svgElementSeqSynopsis" className="svgmined">
           {" "}
         </svg>

@@ -321,9 +321,11 @@ class Graph:
                         if len(common) > 1 or common[0] != 1:
                             if leftNodes[i].seqCount > leftNodes[i+1+j].seqCount:
                                 node.leftLinks[i].count -= node.leftLinks[i+1+j].count
+                                node.leftLinks[i].count = abs(node.leftLinks[i].count)
                             else:
                                 node.leftLinks[i+1 +
                                                j].count -= node.leftLinks[i].count
+                                node.leftLinks[i+1 +j].count = abs(node.leftLinks[i+1 +j].count)
 
     def createLinks(self):
         """ Create links between nodes."""

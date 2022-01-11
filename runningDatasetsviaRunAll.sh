@@ -10,6 +10,8 @@ python RunAll.py --file "datasets/emergency_department/study_lived.txt" --evttyp
 #Chicago Bulls
 python RunAll.py --file "datasets/Chicago_Bulls/CHICAGO-SeasonD2O.txt" --evttype 3 --startidx 2 --endidx 3 --format "%H:%M:%S.%f" --sep "\t" --local True --header "record_id" "event_category" "Start_time" "end_time" "event_attributes" --grpattr "record_id" --attr "event_category"
 
+python RunAll.py --file "datasets/Chicago_Bulls/CHICAGO_SeasonD2O_short.txt" --evttype 3 --startidx 2 --endidx 3 --format "%H:%M:%S.%f" --sep "\t" --local True --header "record_id" "event_category" "Start_time" "end_time" "event_attributes" --grpattr "record_id" --attr "event_category"
+
 python RunAll.py --file "datasets/Chicago_Bulls/CHICAGO-SeasonO2D.txt" --evttype 3 --startidx 2 --endidx 3 --format "%H:%M:%S.%f" --sep "\t" --local True --header "record_id" "event_category" "Start_time" "end_time" "event_attributes" --grpattr "record_id" --attr "event_category"
 
 #Sequence Braiding
@@ -31,7 +33,9 @@ python RunAll.py --file "datasets/Invention_Trajectories/illinois03.txt" --evtty
 python RunAll.py --file "datasets/foursquare/tokyo.txt" --evttype 1 --startidx 7 --format "%a %b %d %H:%M:%S %z %Y" --sep "\t" --local True  --header "User_ID" "Venue_ID" "Venue_category_ID" "Venue_category_name" "Latitude" "Longitude" "Timezone offset" "UTC Time" --grpattr "User_ID" --attr "Venue_category_name"
 
 #Foursquare NYC
+python RunAll.py --file "datasets/foursquare/NYC.txt" --evttype 1 --startidx 7 --format "%a %b %d %H:%M:%S %z %Y" --sep "," --local True --grpattr "User ID" --attr "Venue category name" --split "day" --merge 1
 
+python RunAll.py --file "datasets/foursquare/NYC_subset.txt" --evttype 1 --startidx 7 --format "%a %b %d %H:%M:%S %z %Y" --sep "," --local True --grpattr "User ID" --attr "Venue category name" --split "week" --merge 1
 
 ## With merge Children Hospital
 
