@@ -16,7 +16,7 @@ export async function renderCoreFlow(dataPath, renderer) {
     mode: "curveVertical",
   });
   let links = scene.repeat(link, data.linkTable);
-  let node = scene.mark("text", { x: 100, y: 100, fontSize: "11px" });
+  let node = scene.mark("text", { x: 100, y: 100, fontSize: "10px" });
   let nodes = scene.repeat(node, data.nodeTable);
   scene.encode(node, { field: "event_attribute", channel: "text" });
   nodes.layout = atlas.layout("tidytree", {
@@ -40,7 +40,7 @@ export async function renderCoreFlow(dataPath, renderer) {
   let lbl = scene.mark("text", {
     x: 100,
     y: 100,
-    fontSize: "11px",
+    fontSize: "8px",
     fontWeight: "bold",
     fillColor: "#006594",
   });
@@ -91,7 +91,7 @@ export async function renderSententree(dataPath, renderer) {
     strokeColor: "#C8E6FA",
   });
   let links = scene.repeat(link, data.linkTable);
-  let node = scene.mark("text", { x: 100, y: 100, fontSize: "11px" });
+  let node = scene.mark("text", { x: 100, y: 100, fontSize: "10px" });
   let nodes = scene.repeat(node, data.nodeTable);
   scene.encode(node, {field: "event_attribute", channel: "text"});
   nodes.layout = atlas.layout("sugiyama", {top: 100, left: 100});
@@ -106,7 +106,7 @@ export async function renderSententree(dataPath, renderer) {
   scene.encode(link, { channel: "strokeWidth", field: "count", range: [1, 6] });
   let linkWeight = scene.mark("text", {
     fillColor: "#006594",
-    fontSize: "11px",
+    fontSize: "8px",
     fontWeight: "bold"
   });
   let lws = scene.repeat(linkWeight, data.linkTable);
@@ -181,7 +181,7 @@ export async function renderSententree2(dataPath, renderer) {
     strokeColor: "#C8E6FA",
   });
   let links = scene.repeat(link, graph.linkTable);
-  let node = scene.mark("text", { x: 100, y: 100, fontSize: "11px" });
+  let node = scene.mark("text", { x: 100, y: 100, fontSize: "10px" });
   let nodes = scene.repeat(node, graph.nodeTable);
   scene.encode(node, {field: "event_attribute", channel: "text"});
 
@@ -203,7 +203,7 @@ export async function renderSententree2(dataPath, renderer) {
   scene.encode(link, { channel: "strokeWidth", field: "count", range: [1, 6] });
   let linkWeight = scene.mark("text", {
     fillColor: "#006594",
-    fontSize: "11px",
+    fontSize: "9px",
     fontWeight: "bold"
   });
   let lws = scene.repeat(linkWeight, graph.linkTable);
@@ -250,7 +250,9 @@ export async function renderSeqSynopsis(dataPath, renderer) {
     width: 1,
     strokeWidth: 0,
   });
+  let clusterSize = scn.mark("text", {x: 200, y: 70});
   scn.repeat(bg, data.nodeTable, { field: "pattern" });
+  scn.repeat(clusterSize, data.nodeTable, {field: "pattern"});
   let evtBg = scn.mark("rect", {
       left: 100,
       top: 100,
@@ -258,12 +260,12 @@ export async function renderSeqSynopsis(dataPath, renderer) {
       height: 1,
       strokeColor: "#006594",
     }),
-    evtNm = scn.mark("text", { x: 200, y: 100, fontSize: "11px"}),
+    evtNm = scn.mark("text", { x: 200, y: 100, fontSize: "10px"}),
     evtCnt = scn.mark("text", {
       x: 200,
       y: 100,
       fillColor: "#006594",
-      fontSize: "11px",
+      fontSize: "8px",
       fontWeight: "bold",
     });
   let glyph = scn.glyph(evtBg, evtNm, evtCnt);
@@ -277,6 +279,7 @@ export async function renderSeqSynopsis(dataPath, renderer) {
     rangeExtent: 6,
   });
   scn.encode(evtBg, { channel: "width", field: "value_event", rangeExtent: 6 });
+  scn.encode(clusterSize, {channel: "text", field: "value", aggregator: "max", rangeExtent: 40});
   let xEnc = scn.encode(evtBg, {
     channel: "x",
     field: "pattern",
@@ -286,7 +289,7 @@ export async function renderSeqSynopsis(dataPath, renderer) {
     channel: "y",
     field: "average_index",
     rangeExtent: 400,
-    invertScale: true,
+    flipScale: true,
   });
   scn
     .find([
@@ -307,6 +310,7 @@ export async function renderSeqSynopsis(dataPath, renderer) {
   });
   scn.affix(evtCnt, evtBg, "y");
   scn.encode(bg, { channel: "x", field: "pattern", scale: xEnc.scale });
+  scn.encode(clusterSize, {channel: "x", field: "pattern", scale: xEnc.scale});
   scn.encode(bg.topSegment, {
     channel: "y",
     field: "average_index",
