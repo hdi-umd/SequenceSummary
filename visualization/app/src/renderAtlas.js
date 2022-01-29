@@ -28,7 +28,7 @@ export async function renderCoreFlow(dataPath, renderer) {
     field: "average_index",
     channel: "y",
     rangeExtent: 400,
-    invertScale: true,
+    flipScale: true,
   });
   scene.encode(link, { channel: "source", field: "parent" });
   scene.encode(link, { channel: "target", field: "child" });
@@ -40,7 +40,7 @@ export async function renderCoreFlow(dataPath, renderer) {
   let lbl = scene.mark("text", {
     x: 100,
     y: 100,
-    fontSize: "8px",
+    fontSize: "9px",
     fontWeight: "bold",
     fillColor: "#006594",
   });
@@ -99,14 +99,14 @@ export async function renderSententree(dataPath, renderer) {
     field: "average_index",
     channel: "y",
     rangeExtent: 400,
-    invertScale: true,
+    flipScale: true,
   });
   scene.encode(link, { channel: "source", field: "source" });
   scene.encode(link, { channel: "target", field: "target" });
   scene.encode(link, { channel: "strokeWidth", field: "count", range: [1, 6] });
   let linkWeight = scene.mark("text", {
     fillColor: "#006594",
-    fontSize: "8px",
+    fontSize: "9px",
     fontWeight: "bold"
   });
   let lws = scene.repeat(linkWeight, data.linkTable);
@@ -196,7 +196,7 @@ export async function renderSententree2(dataPath, renderer) {
     field: "average_index",
     channel: "y",
     rangeExtent: 400,
-    invertScale: true,
+    flipScale: true,
   });
   scene.encode(link, { channel: "source", field: "source" });
   scene.encode(link, { channel: "target", field: "target" });
@@ -265,7 +265,7 @@ export async function renderSeqSynopsis(dataPath, renderer) {
       x: 200,
       y: 100,
       fillColor: "#006594",
-      fontSize: "8px",
+      fontSize: "9px",
       fontWeight: "bold",
     });
   let glyph = scn.glyph(evtBg, evtNm, evtCnt);
