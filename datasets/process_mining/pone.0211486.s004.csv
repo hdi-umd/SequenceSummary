@@ -1,0 +1,66 @@
+Trace,Workflow Label,Actions
+1,bugfix,commit changes
+2,bugfix,"commit changes,commit changes,commit changes,commit changes,commit changes,commit changes,commit changes"
+3,bugfix,"commit changes,close pull request,automated comment issue"
+4,bugfix,"commit changes,commit changes,commit changes,commit changes,commit changes,commit changes,commit changes,commit changes,commit changes,commit changes,commit changes,commit changes,commit changes,commit changes,commit changes,commit changes,commit changes,commit changes,commit changes,commit changes,close pull request"
+5,bugfix,"assign issue,issue update,work started issue"
+6,system update,"build system update,build system update,build system update,build system update,build system update,build system update,build system update,build system update"
+7,bugfix,commit changes
+8,bugfix,"commit changes,commit changes,commit changes,commit changes"
+9,support,ask a question
+10,support,"ask a question,provide support"
+11,support,"ask a question,provide support"
+12,bugfix,"assign issue,issue comment"
+13,situational awareness,distribute situational awareness
+14,"support, bugfix","create issue,provide support,assign issue,open pull request,automated comment issue,commit changes,issue update,resolve issue,close pull request,automated comment issue"
+15,support,"ask a question,provide support,close question"
+16,support,"ask a question,provide support"
+17,support,ask a question
+18,support,"ask a question,provide support,update question,provide support,update question"
+19,bugfix,"create issue,issue update,issue update,issue update,issue update,issue update,assign issue,issue comment,open pull request,automated comment issue,commit changes,close pull request,automated comment issue,issue update,resolve issue"
+20,support,"ask a question,update question,provide support,ask a question,provide support"
+21,bugfix,commit changes
+22,bugfix,"create issue,issue comment,issue comment,commit changes,issue comment,issue update,resolve issue,assign issue"
+23,bugfix,"issue update,issue comment,issue comment,issue comment,issue update,issue comment,issue comment,issue comment,issue comment,issue update,issue comment,open pull request,commit changes,close pull request,issue comment"
+24,release planning,"version release planning,version release planning,version release planning,version release planning"
+25,bugfix,"create issue,issue update"
+26,bugfix,create issue
+27,bugfix,create issue
+28,bugfix,create issue
+29,bugfix,create issue
+30,bugfix,"issue comment,issue update,issue comment"
+31,bugfix,"create issue,commit changes,resolve issue"
+32,bugfix,commit changes
+33,bugfix,commit changes
+34,bugfix,"create issue,commit changes,work started issue,resolve issue"
+35,bugfix,"commit changes,commit changes"
+36,bugfix,"open pull request,commit changes,commit changes,close pull request"
+37,bugfix,commit changes
+38,bugfix,"open pull request,commit changes,close pull request"
+39,bugfix,create issue
+40,bugfix,"commit changes,commit changes"
+41,bugfix,"commit changes,commit changes,commit changes,close pull request,automated comment issue,commit changes"
+42,support,"ask a question,ask a question"
+43,bugfix,"create issue,commit changes,resolve issue,reopen issue,commit changes,resolve issue"
+44,support,"ask a question,provide support,close question,provide support"
+45,bugfix,"create issue,commit changes,resolve issue"
+46,bugfix,"create issue,commit changes,resolve issue,issue comment,reopen issue,issue comment,commit changes,commit changes,commit changes,commit changes,commit changes,commit changes,commit changes,commit changes,commit changes,commit changes,commit changes,commit changes,resolve issue,commit changes"
+47,bugfix,commit changes
+48,bugfix,"issue comment,issue comment,issue comment,commit changes,commit changes,issue comment,commit changes"
+49,"support, bugfix","ask a question,assign issue,open pull request,automated comment issue"
+50,bugfix,"create issue,assign issue,issue comment,open pull request,automated comment issue,commit changes,close pull request,automated comment issue,resolve issue,assign issue"
+51,bugfix,"commit changes,close pull request,automated comment issue"
+52,system update,build system update
+53,bugfix,"commit changes,commit changes"
+54,support,"ask a question,provide support,close question"
+55,bugfix,commit changes
+56,system update,build system update
+57,bugfix,"create issue,commit changes,resolve issue"
+58,bugfix,assign issue
+59,bugfix,issue update
+60,bugfix,create issue
+61,bugfix,"commit changes,commit changes"
+62,bugfix,"commit changes,commit changes"
+63,bugfix,"open pull request,commit changes,close pull request"
+64,support,"ask a question,ask a question,update question,provide support,ask a question,ask a question"
+65,publicity,publicity

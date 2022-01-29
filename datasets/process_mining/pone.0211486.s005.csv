@@ -1,0 +1,251 @@
+Email_ID,type,Trace_ID,Action,Date
+1,email,1,commit changes,2017-04-14 10:42:39 UTC
+2,email,2,commit changes,2017-04-14 10:52:55 UTC
+3,email,2,commit changes,2017-04-14 10:52:56 UTC
+4,email,2,commit changes,2017-04-14 10:52:57 UTC
+5,email,2,commit changes,2017-04-14 10:52:58 UTC
+6,email,2,commit changes,2017-04-14 10:52:59 UTC
+7,email,2,commit changes,2017-04-14 10:53:00 UTC
+39,email,2,commit changes,2017-04-14 14:42:28 UTC
+8,email,3,commit changes,2017-04-14 10:55:56 UTC
+29,email,3,close pull request,2017-04-14 11:23:11 UTC
+30,email,3,automated comment issue,2017-04-14 11:23:42 UTC
+9,email,4,commit changes,2017-04-14 10:57:46 UTC
+10,email,4,commit changes,2017-04-14 10:57:47 UTC
+11,email,4,commit changes,2017-04-14 10:57:48 UTC
+12,email,4,commit changes,2017-04-14 10:57:49 UTC
+13,email,4,commit changes,2017-04-14 10:57:50 UTC
+14,email,4,commit changes,2017-04-14 10:57:51 UTC
+15,email,4,commit changes,2017-04-14 10:57:52 UTC
+16,email,4,commit changes,2017-04-14 10:57:53 UTC
+17,email,4,commit changes,2017-04-14 10:57:54 UTC
+18,email,4,commit changes,2017-04-14 10:57:55 UTC
+19,email,4,commit changes,2017-04-14 10:57:56 UTC
+20,email,4,commit changes,2017-04-14 10:57:57 UTC
+21,email,4,commit changes,2017-04-14 10:57:58 UTC
+22,email,4,commit changes,2017-04-14 10:57:59 UTC
+23,email,4,commit changes,2017-04-14 10:58:00 UTC
+24,email,4,commit changes,2017-04-14 10:58:01 UTC
+25,email,4,commit changes,2017-04-14 10:58:02 UTC
+26,email,4,commit changes,2017-04-14 10:58:03 UTC
+27,email,4,commit changes,2017-04-14 10:58:04 UTC
+28,email,4,commit changes,2017-04-14 10:58:05 UTC
+32,email,4,close pull request,2017-04-14 11:40:12 UTC
+31,email,5,build system update,2017-04-14 11:26:43 UTC
+35,email,5,build system update,2017-04-14 13:20:41 UTC
+42,email,5,build system update,2017-04-14 16:08:45 UTC
+44,email,5,build system update,2017-04-14 18:13:42 UTC
+99,email,5,build system update,2017-04-18 08:49:55 UTC
+112,email,5,build system update,2017-04-18 10:51:17 UTC
+156,email,5,build system update,2017-04-18 16:56:04 UTC
+234,email,5,build system update,2017-04-19 11:51:33 UTC
+33,email,6,assign issue,2017-04-14 13:05:42 UTC
+34,email,6,issue update,2017-04-14 13:05:42 UTC
+93,email,6,work started issue,2017-04-18 07:56:41 UTC
+36,email,7,commit changes,2017-04-14 14:18:45 UTC
+37,email,8,commit changes,2017-04-14 14:26:14 UTC
+38,email,8,commit changes,2017-04-14 14:35:24 UTC
+40,email,8,commit changes,2017-04-14 14:53:30 UTC
+41,email,8,commit changes,2017-04-14 15:39:24 UTC
+43,email,9,ask a question,2017-04-14 17:15:23 UTC
+45,email,10,ask a question,2017-04-14 20:39:13 UTC
+48,email,10,provide support,2017-04-16 07:27:20 UTC
+46,email,11,ask a question,2017-04-16 03:49:18 UTC
+49,email,11,provide support,2017-04-16 07:27:52 UTC
+47,email,12,distribute situational awareness,2017-04-16 07:22:58 UTC
+50,email,13,create issue,2017-04-16 07:31:41 UTC
+51,email,13,provide support,2017-04-16 07:31:43 UTC
+54,email,13,assign issue,2017-04-17 11:32:41 UTC
+80,email,13,open pull request,2017-04-18 07:22:10 UTC
+81,email,13,automated comment issue,2017-04-18 07:22:42 UTC
+119,email,13,commit changes,2017-04-18 11:21:42 UTC
+120,email,13,issue update,2017-04-18 11:22:41 UTC
+121,email,13,resolve issue,2017-04-18 11:23:41 UTC
+122,email,13,close pull request,2017-04-18 11:24:47 UTC
+123,email,13,automated comment issue,2017-04-18 11:25:41 UTC
+52,email,14,ask a question,2017-04-16 22:46:11 UTC
+111,email,14,provide support,2017-04-18 10:44:12 UTC
+160,email,14,close question,2017-04-19 03:40:13 UTC
+53,email,15,ask a question,2017-04-17 10:08:36 UTC
+82,email,15,provide support,2017-04-18 07:25:40 UTC
+55,email,16,ask a question,2017-04-17 15:56:13 UTC
+56,email,17,ask a question,2017-04-17 16:45:13 UTC
+57,email,17,provide support,2017-04-17 17:40:41 UTC
+58,email,17,update question,2017-04-17 17:49:25 UTC
+59,email,17,provide support,2017-04-17 18:21:25 UTC
+60,email,17,update question,2017-04-17 18:32:24 UTC
+61,email,18,create issue,2017-04-18 01:35:42 UTC
+62,email,18,issue update,2017-04-18 01:36:41 UTC
+63,email,18,issue update,2017-04-18 01:37:41 UTC
+64,email,18,issue update,2017-04-18 01:37:41 UTC
+65,email,18,issue update,2017-04-18 01:52:41 UTC
+66,email,18,issue update,2017-04-18 01:53:41 UTC
+67,email,18,assign issue,2017-04-18 02:22:42 UTC
+68,email,18,issue comment,2017-04-18 02:25:41 UTC
+69,email,18,open pull request,2017-04-18 02:28:26 UTC
+70,email,18,automated comment issue,2017-04-18 02:28:42 UTC
+73,email,18,commit changes,2017-04-18 06:46:50 UTC
+74,email,18,close pull request,2017-04-18 06:47:17 UTC
+75,email,18,automated comment issue,2017-04-18 06:47:41 UTC
+78,email,18,issue update,2017-04-18 07:07:41 UTC
+79,email,18,resolve issue,2017-04-18 07:07:41 UTC
+71,email,19,ask a question,2017-04-18 04:11:28 UTC
+72,email,19,update question,2017-04-18 04:13:56 UTC
+83,email,19,provide support,2017-04-18 07:29:15 UTC
+176,email,19,ask a question,2017-04-19 07:57:38 UTC
+177,email,19,provide support,2017-04-19 08:00:23 UTC
+76,email,20,commit changes,2017-04-18 06:48:14 UTC
+77,email,21,create issue,2017-04-18 07:04:42 UTC
+87,email,21,issue comment,2017-04-18 07:42:42 UTC
+94,email,21,issue comment,2017-04-18 08:08:42 UTC
+108,email,21,commit changes,2017-04-18 09:28:42 UTC
+109,email,21,issue comment,2017-04-18 09:31:41 UTC
+168,email,21,issue update,2017-04-19 07:32:41 UTC
+169,email,21,resolve issue,2017-04-19 07:32:41 UTC
+170,email,21,assign issue,2017-04-19 07:32:41 UTC
+84,email,22,issue update,2017-04-18 07:34:41 UTC
+85,email,22,issue comment,2017-04-18 07:34:41 UTC
+86,email,22,issue comment,2017-04-18 07:41:41 UTC
+127,email,22,issue comment,2017-04-18 12:13:41 UTC
+128,email,22,issue update,2017-04-18 12:13:41 UTC
+131,email,22,issue comment,2017-04-18 12:17:41 UTC
+136,email,22,issue comment,2017-04-18 12:34:42 UTC
+162,email,22,issue comment,2017-04-19 06:14:41 UTC
+167,email,22,issue comment,2017-04-19 07:08:41 UTC
+171,email,22,issue update,2017-04-19 07:46:41 UTC
+172,email,22,issue comment,2017-04-19 07:46:41 UTC
+209,email,22,open pull request,2017-04-19 09:09:49 UTC
+214,email,22,commit changes,2017-04-19 09:17:59 UTC
+215,email,22,close pull request,2017-04-19 09:19:19 UTC
+216,email,22,issue comment,2017-04-19 09:20:41 UTC
+88,email,23,assign issue,2017-04-18 07:44:41 UTC
+89,email,23,issue comment,2017-04-18 07:44:41 UTC
+90,email,24,version release planning,2017-04-18 07:45:20 UTC
+174,email,24,version release planning,2017-04-19 07:54:25 UTC
+233,email,24,version release planning,2017-04-19 11:39:20 UTC
+239,email,24,version release planning,2017-04-19 12:21:57 UTC
+91,email,25,create issue,2017-04-18 07:54:41 UTC
+92,email,25,issue update,2017-04-18 07:55:41 UTC
+95,email,26,create issue,2017-04-18 08:11:41 UTC
+96,email,27,create issue,2017-04-18 08:17:41 UTC
+97,email,28,create issue,2017-04-18 08:19:41 UTC
+98,email,29,create issue,2017-04-18 08:21:41 UTC
+100,email,30,issue comment,2017-04-18 08:57:41 UTC
+101,email,30,issue update,2017-04-18 08:59:41 UTC
+104,email,30,issue comment,2017-04-18 09:00:50 UTC
+102,email,31,create issue,2017-04-18 08:59:41 UTC
+106,email,31,commit changes,2017-04-18 09:25:03 UTC
+107,email,31,resolve issue,2017-04-18 09:25:41 UTC
+103,email,32,commit changes,2017-04-18 09:00:40 UTC
+105,email,33,commit changes,2017-04-18 09:08:19 UTC
+110,email,34,create issue,2017-04-18 10:18:42 UTC
+114,email,34,commit changes,2017-04-18 11:09:43 UTC
+126,email,34,work started issue,2017-04-18 11:58:41 UTC
+138,email,34,resolve issue,2017-04-18 12:40:41 UTC
+113,email,35,commit changes,2017-04-18 11:08:29 UTC
+124,email,35,commit changes,2017-04-18 11:38:19 UTC
+115,email,36,open pull request,2017-04-18 11:10:54 UTC
+117,email,36,commit changes,2017-04-18 11:21:09 UTC
+118,email,36,commit changes,2017-04-18 11:21:10 UTC
+125,email,36,close pull request,2017-04-18 11:42:51 UTC
+129,email,37,open pull request,2017-04-18 12:14:39 UTC
+132,email,37,commit changes,2017-04-18 12:26:07 UTC
+133,email,37,close pull request,2017-04-18 12:26:22 UTC
+116,email,38,commit changes,2017-04-18 11:17:25 UTC
+130,email,39,create issue,2017-04-18 12:14:41 UTC
+134,email,40,commit changes,2017-04-18 12:27:16 UTC
+135,email,40,commit changes,2017-04-18 12:27:17 UTC
+137,email,41,commit changes,2017-04-18 12:35:02 UTC
+144,email,41,commit changes,2017-04-18 14:04:53 UTC
+145,email,41,commit changes,2017-04-18 14:04:54 UTC
+152,email,41,close pull request,2017-04-18 15:05:28 UTC
+153,email,41,automated comment issue,2017-04-18 15:05:41 UTC
+227,email,41,commit changes,2017-04-19 11:04:44 UTC
+139,email,42,ask a question,2017-04-18 12:53:34 UTC
+154,email,42,ask a question,2017-04-18 15:20:06 UTC
+140,email,43,create issue,2017-04-18 13:15:41 UTC
+141,email,43,commit changes,2017-04-18 13:17:12 UTC
+142,email,43,resolve issue,2017-04-18 13:17:41 UTC
+201,email,43,reopen issue,2017-04-19 08:39:41 UTC
+204,email,43,commit changes,2017-04-19 08:48:23 UTC
+205,email,43,resolve issue,2017-04-19 08:49:41 UTC
+143,email,44,ask a question,2017-04-18 13:47:39 UTC
+146,email,44,provide support,2017-04-18 14:05:59 UTC
+155,email,44,close question,2017-04-18 15:37:49 UTC
+166,email,44,provide support,2017-04-19 07:07:12 UTC
+147,email,45,create issue,2017-04-18 14:19:41 UTC
+217,email,45,commit changes,2017-04-19 09:45:35 UTC
+218,email,45,resolve issue,2017-04-19 09:46:41 UTC
+148,email,46,create issue,2017-04-18 14:22:41 UTC
+149,email,46,commit changes,2017-04-18 14:40:02 UTC
+150,email,46,resolve issue,2017-04-18 14:40:41 UTC
+163,email,46,issue comment,2017-04-19 07:05:41 UTC
+164,email,46,reopen issue,2017-04-19 07:06:41 UTC
+165,email,46,issue comment,2017-04-19 07:06:41 UTC
+187,email,46,commit changes,2017-04-19 08:35:46 UTC
+188,email,46,commit changes,2017-04-19 08:35:47 UTC
+189,email,46,commit changes,2017-04-19 08:35:48 UTC
+190,email,46,commit changes,2017-04-19 08:35:49 UTC
+191,email,46,commit changes,2017-04-19 08:35:50 UTC
+192,email,46,commit changes,2017-04-19 08:35:51 UTC
+193,email,46,commit changes,2017-04-19 08:35:52 UTC
+194,email,46,commit changes,2017-04-19 08:35:53 UTC
+195,email,46,commit changes,2017-04-19 08:35:54 UTC
+196,email,46,commit changes,2017-04-19 08:35:55 UTC
+197,email,46,commit changes,2017-04-19 08:35:56 UTC
+198,email,46,commit changes,2017-04-19 08:35:57 UTC
+200,email,46,resolve issue,2017-04-19 08:38:41 UTC
+211,email,46,commit changes,2017-04-19 09:14:38 UTC
+151,email,47,commit changes,2017-04-18 14:53:26 UTC
+157,email,48,issue comment,2017-04-18 21:13:41 UTC
+158,email,48,issue comment,2017-04-18 21:15:42 UTC
+159,email,48,issue comment,2017-04-18 21:18:41 UTC
+182,email,48,commit changes,2017-04-19 08:05:09 UTC
+183,email,48,commit changes,2017-04-19 08:08:27 UTC
+184,email,48,issue comment,2017-04-19 08:10:41 UTC
+185,email,48,commit changes,2017-04-19 08:10:44 UTC
+161,email,49,ask a question,2017-04-19 05:10:16 UTC
+230,email,49,assign issue,2017-04-19 11:37:41 UTC
+231,email,49,open pull request,2017-04-19 11:38:12 UTC
+232,email,49,automated comment issue,2017-04-19 11:38:41 UTC
+173,email,50,create issue,2017-04-19 07:47:41 UTC
+175,email,50,assign issue,2017-04-19 07:56:41 UTC
+178,email,50,issue comment,2017-04-19 08:01:41 UTC
+220,email,50,open pull request,2017-04-19 10:33:12 UTC
+221,email,50,automated comment issue,2017-04-19 10:33:41 UTC
+222,email,50,commit changes,2017-04-19 10:52:10 UTC
+223,email,50,close pull request,2017-04-19 10:52:29 UTC
+224,email,50,automated comment issue,2017-04-19 10:52:41 UTC
+225,email,50,resolve issue,2017-04-19 11:00:47 UTC
+226,email,50,assign issue,2017-04-19 11:00:47 UTC
+186,email,51,build system update,2017-04-19 08:31:14 UTC
+179,email,52,commit changes,2017-04-19 08:02:24 UTC
+180,email,52,close pull request,2017-04-19 08:02:44 UTC
+181,email,52,automated comment issue,2017-04-19 08:03:41 UTC
+199,email,53,commit changes,2017-04-19 08:35:58 UTC
+210,email,53,commit changes,2017-04-19 09:14:37 UTC
+202,email,54,ask a question,2017-04-19 08:42:49 UTC
+207,email,54,provide support,2017-04-19 09:05:02 UTC
+243,email,54,close question,2017-04-19 12:30:24 UTC
+203,email,55,commit changes,2017-04-19 08:44:54 UTC
+206,email,56,build system update,2017-04-19 08:51:49 UTC
+208,email,57,create issue,2017-04-19 09:08:41 UTC
+212,email,57,commit changes,2017-04-19 09:15:57 UTC
+213,email,57,resolve issue,2017-04-19 09:16:41 UTC
+219,email,58,assign issue,2017-04-19 10:18:41 UTC
+228,email,59,issue update,2017-04-19 11:11:41 UTC
+229,email,60,create issue,2017-04-19 11:14:41 UTC
+235,email,61,commit changes,2017-04-19 11:53:09 UTC
+236,email,61,commit changes,2017-04-19 11:53:10 UTC
+237,email,62,commit changes,2017-04-19 11:57:57 UTC
+240,email,62,commit changes,2017-04-19 12:26:53 UTC
+238,email,63,open pull request,2017-04-19 12:21:29 UTC
+245,email,63,commit changes,2017-04-19 12:31:03 UTC
+246,email,63,close pull request,2017-04-19 12:31:17 UTC
+241,email,64,ask a question,2017-04-19 12:27:35 UTC
+242,email,64,ask a question,2017-04-19 12:29:00 UTC
+244,email,64,update question,2017-04-19 12:30:59 UTC
+247,email,64,provide support,2017-04-19 12:35:40 UTC
+248,email,64,ask a question,2017-04-19 13:08:24 UTC
+249,email,64,ask a question,2017-04-19 13:27:36 UTC
+250,email,65,publicity,2017-04-19 13:27:37 UTC

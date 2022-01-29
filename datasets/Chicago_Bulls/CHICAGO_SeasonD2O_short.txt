@@ -1,0 +1,1000 @@
+1.0	Opponent Offense	00:08:30.000	00:08:49.002
+1.0	Defensive Rebound	00:08:30.001	
+1.0	Made Shot - 2	00:08:49.001	
+1.0	CHICAGO Offense	00:08:49.003	00:09:04.999
+3.0	Opponent Offense	00:09:05.000	00:09:11.002
+3.0	Steal	00:09:05.001	
+3.0	Made Shot - 2	00:09:11.001	
+3.0	CHICAGO Offense	00:09:11.003	00:09:30.002
+3.0	Made Shot - 2	00:09:30.001	
+5.0	Opponent Offense	00:09:30.003	00:09:52.999
+5.0	Missed Shot - 2	00:09:45.001	
+5.0	Offensive Rebound	00:09:45.011	
+5.0	CHICAGO Offense	00:09:53.000	00:09:57.002
+5.0	Steal	00:09:53.001	
+5.0	Made Shot - 2	00:09:57.001	
+7.0	Opponent Offense	00:09:57.003	00:10:15.009
+7.0	Missed Shot - 2	00:10:15.001	
+7.0	CHICAGO Offense	00:10:15.010	00:10:25.999
+7.0	Defensive Rebound	00:10:15.011	
+7.0	Missed Shot - 3	00:10:24.001	
+9.0	Opponent Offense	00:10:26.000	00:10:35.002
+9.0	Defensive Rebound	00:10:26.001	
+9.0	Made Shot - 2	00:10:35.001	
+9.0	CHICAGO Offense	00:10:35.003	00:10:53.002
+9.0	Made Shot - 2	00:10:53.001	
+11.0	Opponent Offense	00:10:53.003	00:11:12.002
+11.0	Timeout	00:11:00.001	
+11.0	Turnover	00:11:12.001	
+11.0	CHICAGO Offense	00:11:12.003	00:11:23.002
+11.0	Made Shot - 2	00:11:23.001	
+13.0	Opponent Offense	00:11:23.003	00:11:36.999
+13.0	CHICAGO Offense	00:11:37.000	00:11:42.002
+13.0	Steal	00:11:37.001	
+13.0	Made Shot - 2	00:11:42.001	
+15.0	Opponent Offense	00:11:42.003	00:12:00.002
+15.0	Made Shot - 3	00:12:00.001	
+15.0	CHICAGO Offense	00:12:00.003	00:12:19.002
+15.0	Turnover	00:12:19.001	
+17.0	Opponent Offense	00:12:19.003	00:12:38.009
+17.0	Missed Shot - 2	00:12:38.001	
+17.0	CHICAGO Offense	00:12:38.010	00:12:47.002
+17.0	Defensive Rebound	00:12:38.011	
+17.0	Made Shot - 2	00:12:47.001	
+19.0	Opponent Offense	00:12:47.003	00:13:03.999
+19.0	Foul	00:12:49.001	
+19.0	Missed Shot - 2	00:13:02.001	
+19.0	CHICAGO Offense	00:13:04.000	00:13:05.999
+19.0	Defensive Rebound	00:13:04.001	
+21.0	Opponent Offense	00:13:06.000	00:13:10.002
+21.0	Steal	00:13:06.001	
+21.0	Turnover	00:13:10.001	
+21.0	CHICAGO Offense	00:13:10.003	00:13:21.002
+21.0	Foul	00:13:21.001	
+24.0	Opponent Offense	00:13:21.013	00:13:34.002
+24.0	Made Shot - 2	00:13:34.001	
+24.0	CHICAGO Offense	00:13:34.003	00:13:59.012
+24.0	Missed Shot - 3	00:13:59.001	
+24.0	Made Shot - 2	00:13:59.011	
+26.0	Opponent Offense	00:13:59.013	00:14:19.002
+26.0	Offensive Rebound	00:13:59.021	
+26.0	Made Shot - 2	00:14:19.001	
+26.0	CHICAGO Offense	00:14:19.003	00:14:28.999
+26.0	Block	00:14:27.001	
+28.0	Opponent Offense	00:14:29.000	00:14:37.999
+28.0	Defensive Rebound	00:14:29.001	
+28.0	CHICAGO Offense	00:14:38.000	00:14:49.002
+28.0	Steal	00:14:38.001	
+28.0	Foul	00:14:42.001	
+28.0	Timeout	00:14:42.011	
+28.0	Made Shot - 2	00:14:49.001	
+30.0	Opponent Offense	00:14:49.003	00:14:59.002
+30.0	Foul	00:14:59.001	
+30.0	CHICAGO Offense	00:14:59.003	00:14:59.012
+30.0	Turnover	00:14:59.011	
+32.0	Opponent Offense	00:14:59.013	00:15:11.999
+32.0	CHICAGO Offense	00:15:12.000	00:15:15.022
+32.0	Steal	00:15:12.001	
+32.0	Foul	00:15:15.001	
+32.0	Made Free Throw	00:15:15.011	
+32.0	Made Free Throw	00:15:15.021	
+35.0	Opponent Offense	00:15:36.000	00:15:57.002
+35.0	Defensive Rebound	00:15:36.001	
+35.0	Block	00:15:49.001	
+35.0	Offensive Rebound	00:15:49.011	
+35.0	Made Shot - 2	00:15:57.001	
+35.0	CHICAGO Offense	00:15:57.003	00:16:25.999
+35.0	Missed Shot - 2	00:16:24.001	
+35.0	Missed Shot - 2	00:16:25.001	
+35.0	Offensive Rebound	00:16:25.011	
+37.0	Opponent Offense	00:16:26.000	00:16:38.999
+37.0	Defensive Rebound	00:16:26.001	
+37.0	CHICAGO Offense	00:16:39.000	00:16:42.002
+37.0	Steal	00:16:39.001	
+37.0	Made Shot - 2	00:16:42.001	
+39.0	Opponent Offense	00:16:42.003	00:16:59.002
+39.0	Foul	00:16:50.001	
+39.0	Made Shot - 3	00:16:59.001	
+39.0	CHICAGO Offense	00:16:59.003	00:17:25.999
+39.0	Missed Shot - 3	00:17:25.001	
+41.0	Opponent Offense	00:17:26.000	00:17:34.002
+41.0	Defensive Rebound	00:17:26.001	
+41.0	Made Shot - 2	00:17:34.001	
+41.0	CHICAGO Offense	00:17:34.003	00:18:13.019
+41.0	Foul	00:17:56.001	
+41.0	Timeout	00:17:56.011	
+41.0	Missed Free Throw	00:17:56.021	
+41.0	Offensive Rebound	00:17:56.031	
+41.0	Missed Shot - 2	00:18:11.001	
+41.0	Missed Shot - 2	00:18:13.001	
+41.0	Offensive Rebound	00:18:13.011	
+43.0	Opponent Offense	00:18:13.020	00:18:37.002
+43.0	Defensive Rebound	00:18:13.021	
+43.0	Block	00:18:29.001	
+43.0	Offensive Rebound	00:18:29.011	
+43.0	Turnover	00:18:37.001	
+43.0	CHICAGO Offense	00:18:37.003	00:18:54.002
+43.0	Made Shot - 2	00:18:54.001	
+45.0	Opponent Offense	00:18:54.003	00:19:05.999
+45.0	Missed Shot - 2	00:19:05.001	
+45.0	CHICAGO Offense	00:19:06.000	00:19:09.002
+45.0	Defensive Rebound	00:19:06.001	
+45.0	Made Shot - 2	00:19:09.001	
+47.0	Opponent Offense	00:19:09.003	00:19:09.012
+47.0	Foul	00:19:09.011	
+47.0	CHICAGO Offense	00:19:09.013	00:19:11.999
+47.0	Missed Free Throw	00:19:09.021	
+49.0	Opponent Offense	00:19:12.000	00:19:28.002
+49.0	Defensive Rebound	00:19:12.001	
+49.0	Foul	00:19:28.001	
+49.0	CHICAGO Offense	00:19:28.003	00:19:28.012
+49.0	Turnover	00:19:28.011	
+53.0	Opponent Offense	00:19:53.003	00:20:00.032
+53.0	Foul	00:20:00.001	
+53.0	Missed Free Throw	00:20:00.011	
+53.0	Offensive Rebound	00:20:00.021	
+53.0	Made Free Throw	00:20:00.031	
+53.0	CHICAGO Offense	00:20:00.033	00:20:00.042
+53.0	End of Period	00:20:00.041	
+55.0	Opponent Offense	00:08:13.000	00:08:13.002
+55.0	Made Shot - 2	00:08:13.001	
+55.0	CHICAGO Offense	00:08:13.003	00:08:35.002
+55.0	Missed Shot - 2	00:08:31.001	
+55.0	Offensive Rebound	00:08:33.001	
+55.0	Made Shot - 2	00:08:35.001	
+57.0	Opponent Offense	00:08:35.003	00:08:53.032
+57.0	Foul	00:08:53.001	
+57.0	Missed Free Throw	00:08:53.011	
+57.0	Offensive Rebound	00:08:53.021	
+57.0	Foul	00:08:53.031	
+57.0	CHICAGO Offense	00:08:53.033	00:08:53.042
+57.0	Turnover	00:08:53.041	
+60.0	Opponent Offense	00:09:16.000	00:09:27.002
+60.0	Defensive Rebound	00:09:16.001	
+60.0	Foul	00:09:27.001	
+60.0	CHICAGO Offense	00:09:27.003	00:09:27.012
+60.0	Turnover	00:09:27.011	
+63.0	Opponent Offense	00:09:45.000	00:10:11.999
+63.0	Defensive Rebound	00:09:45.001	
+63.0	Missed Shot - 3	00:10:09.001	
+63.0	CHICAGO Offense	00:10:12.000	00:10:30.002
+63.0	Defensive Rebound	00:10:12.001	
+63.0	Foul	00:10:19.001	
+63.0	Made Shot - 2	00:10:30.001	
+65.0	Opponent Offense	00:10:30.003	00:10:42.999
+65.0	Missed Shot - 2	00:10:42.001	
+65.0	CHICAGO Offense	00:10:43.000	00:10:56.999
+65.0	Defensive Rebound	00:10:43.001	
+65.0	Foul	00:10:43.011	
+65.0	Missed Shot - 2	00:10:56.001	
+67.0	Opponent Offense	00:10:57.000	00:11:17.999
+67.0	Defensive Rebound	00:10:57.001	
+67.0	Missed Shot - 3	00:11:16.001	
+67.0	CHICAGO Offense	00:11:18.000	00:11:22.002
+67.0	Defensive Rebound	00:11:18.001	
+67.0	Turnover	00:11:22.001	
+69.0	Opponent Offense	00:11:22.003	00:11:53.009
+69.0	Timeout	00:11:22.011	
+69.0	Missed Shot - 3	00:11:48.001	
+69.0	Offensive Rebound	00:11:49.001	
+69.0	Missed Shot - 2	00:11:53.001	
+69.0	CHICAGO Offense	00:11:53.010	00:12:07.999
+69.0	Defensive Rebound	00:11:53.011	
+69.0	Missed Shot - 2	00:12:06.001	
+71.0	Opponent Offense	00:12:08.000	00:12:12.002
+71.0	Defensive Rebound	00:12:08.001	
+71.0	Made Shot - 2	00:12:12.001	
+71.0	CHICAGO Offense	00:12:12.003	00:12:25.002
+71.0	Made Shot - 2	00:12:25.001	
+73.0	Opponent Offense	00:12:25.003	00:12:42.009
+73.0	Missed Shot - 2	00:12:42.001	
+73.0	CHICAGO Offense	00:12:42.010	00:12:48.999
+73.0	Defensive Rebound	00:12:42.011	
+75.0	Opponent Offense	00:12:49.000	00:13:04.009
+75.0	Steal	00:12:49.001	
+75.0	Block	00:13:04.001	
+75.0	CHICAGO Offense	00:13:04.010	00:13:25.012
+75.0	Defensive Rebound	00:13:04.011	
+75.0	Missed Shot - 2	00:13:23.001	
+75.0	Offensive Rebound	00:13:25.001	
+75.0	Made Shot - 2	00:13:25.011	
+77.0	Opponent Offense	00:13:25.013	00:13:34.002
+77.0	Made Shot - 2	00:13:34.001	
+77.0	CHICAGO Offense	00:13:34.003	00:13:34.012
+77.0	Foul	00:13:34.011	
+79.0	Opponent Offense	00:13:34.013	00:13:34.029
+79.0	Missed Free Throw	00:13:34.021	
+79.0	CHICAGO Offense	00:13:34.030	00:13:47.009
+79.0	Defensive Rebound	00:13:34.031	
+79.0	Missed Shot - 2	00:13:47.001	
+81.0	Opponent Offense	00:13:47.010	00:14:16.999
+81.0	Defensive Rebound	00:13:47.011	
+81.0	Foul	00:13:57.001	
+81.0	Foul	00:14:06.001	
+81.0	Timeout	00:14:06.011	
+81.0	Missed Shot - 2	00:14:15.001	
+81.0	CHICAGO Offense	00:14:17.000	00:14:18.999
+81.0	Defensive Rebound	00:14:17.001	
+83.0	Opponent Offense	00:14:19.000	00:14:25.002
+83.0	Steal	00:14:19.001	
+83.0	Made Shot - 3	00:14:25.001	
+83.0	CHICAGO Offense	00:14:25.003	00:14:51.022
+83.0	Foul	00:14:51.001	
+83.0	Made Free Throw	00:14:51.011	
+83.0	Made Free Throw	00:14:51.021	
+85.0	Opponent Offense	00:14:51.023	00:15:10.002
+85.0	Turnover	00:15:10.001	
+85.0	CHICAGO Offense	00:15:10.003	00:15:19.002
+85.0	Foul	00:15:10.011	
+85.0	Made Shot - 2	00:15:19.001	
+87.0	Opponent Offense	00:15:19.003	00:15:46.999
+87.0	Missed Shot - 3	00:15:45.001	
+87.0	CHICAGO Offense	00:15:47.000	00:16:02.999
+87.0	Defensive Rebound	00:15:47.001	
+87.0	Missed Shot - 2	00:16:02.001	
+89.0	Opponent Offense	00:16:03.000	00:16:19.009
+89.0	Defensive Rebound	00:16:03.001	
+89.0	Missed Shot - 2	00:16:19.001	
+89.0	CHICAGO Offense	00:16:19.010	00:16:29.999
+89.0	Defensive Rebound	00:16:19.011	
+91.0	Opponent Offense	00:16:30.000	00:16:33.002
+91.0	Steal	00:16:30.001	
+91.0	Made Shot - 2	00:16:33.001	
+91.0	CHICAGO Offense	00:16:33.003	00:16:54.999
+91.0	Foul	00:16:52.001	
+91.0	Missed Free Throw	00:16:52.011	
+91.0	Offensive Rebound	00:16:52.021	
+91.0	Missed Free Throw	00:16:52.031	
+93.0	Opponent Offense	00:16:55.000	00:17:04.002
+93.0	Defensive Rebound	00:16:55.001	
+93.0	Foul	00:17:04.001	
+93.0	CHICAGO Offense	00:17:04.003	00:17:04.012
+93.0	Turnover	00:17:04.011	
+96.0	Opponent Offense	00:17:22.003	00:17:40.002
+96.0	Made Shot - 2	00:17:40.001	
+96.0	CHICAGO Offense	00:17:40.003	00:17:59.999
+96.0	Missed Shot - 2	00:17:59.001	
+98.0	Opponent Offense	00:18:00.000	00:18:08.002
+98.0	Defensive Rebound	00:18:00.001	
+98.0	Made Shot - 2	00:18:08.001	
+98.0	CHICAGO Offense	00:18:08.003	00:18:27.999
+100.0	Opponent Offense	00:18:28.000	00:18:32.999
+100.0	Steal	00:18:28.001	
+100.0	CHICAGO Offense	00:18:33.000	00:18:39.002
+100.0	Steal	00:18:33.001	
+100.0	Missed Shot - 2	00:18:38.001	
+100.0	Made Shot - 2	00:18:39.001	
+102.0	Opponent Offense	00:18:39.003	00:19:04.999
+102.0	Offensive Rebound	00:18:39.011	
+102.0	Missed Shot - 3	00:19:02.001	
+102.0	CHICAGO Offense	00:19:05.000	00:19:11.032
+102.0	Defensive Rebound	00:19:05.001	
+102.0	Foul	00:19:11.001	
+102.0	Missed Free Throw	00:19:11.011	
+102.0	Offensive Rebound	00:19:11.021	
+102.0	Made Free Throw	00:19:11.031	
+104.0	Opponent Offense	00:19:11.033	00:19:28.999
+104.0	Missed Shot - 2	00:19:28.001	
+104.0	CHICAGO Offense	00:19:29.000	00:19:44.002
+104.0	Defensive Rebound	00:19:29.001	
+104.0	Made Shot - 2	00:19:44.001	
+106.0	Opponent Offense	00:19:44.003	00:19:58.002
+106.0	Foul	00:19:54.001	
+106.0	Made Shot - 2	00:19:58.001	
+106.0	CHICAGO Offense	00:19:58.003	00:20:00.002
+106.0	End of Period	00:20:00.001	
+108.0	Opponent Offense	00:08:16.000	00:08:18.999
+108.0	Block	00:08:16.001	
+108.0	CHICAGO Offense	00:08:19.000	00:08:36.999
+108.0	Defensive Rebound	00:08:19.001	
+108.0	Missed Shot - 3	00:08:35.001	
+110.0	Opponent Offense	00:08:37.000	00:08:56.002
+110.0	Defensive Rebound	00:08:37.001	
+110.0	Turnover	00:08:56.001	
+110.0	CHICAGO Offense	00:08:56.003	00:09:12.009
+110.0	Missed Shot - 2	00:09:12.001	
+112.0	Opponent Offense	00:09:12.010	00:09:21.999
+112.0	Defensive Rebound	00:09:12.011	
+112.0	Foul	00:09:16.001	
+112.0	Missed Shot - 2	00:09:20.001	
+112.0	CHICAGO Offense	00:09:22.000	00:09:30.002
+112.0	Defensive Rebound	00:09:22.001	
+112.0	Made Shot - 2	00:09:30.001	
+114.0	Opponent Offense	00:09:30.003	00:09:54.002
+114.0	Missed Shot - 3	00:09:52.001	
+114.0	Missed Shot - 2	00:09:53.001	
+114.0	Offensive Rebound	00:09:53.011	
+114.0	Made Shot - 2	00:09:54.001	
+114.0	CHICAGO Offense	00:09:54.003	00:10:13.002
+114.0	Offensive Rebound	00:09:54.011	
+114.0	Missed Shot - 2	00:10:12.001	
+114.0	Offensive Rebound	00:10:12.011	
+114.0	Made Shot - 2	00:10:13.001	
+116.0	Opponent Offense	00:10:13.003	00:10:13.012
+116.0	Foul	00:10:13.011	
+116.0	CHICAGO Offense	00:10:13.013	00:10:13.022
+116.0	Made Free Throw	00:10:13.021	
+118.0	Opponent Offense	00:10:13.023	00:10:41.999
+118.0	Missed Shot - 2	00:10:34.001	
+118.0	Offensive Rebound	00:10:34.011	
+118.0	Foul	00:10:34.021	
+118.0	CHICAGO Offense	00:10:42.000	00:10:46.002
+118.0	Steal	00:10:42.001	
+118.0	Made Shot - 2	00:10:46.001	
+120.0	Opponent Offense	00:10:46.003	00:10:57.009
+120.0	Missed Shot - 2	00:10:57.001	
+120.0	CHICAGO Offense	00:10:57.010	00:11:09.002
+120.0	Defensive Rebound	00:10:57.011	
+120.0	Turnover	00:11:09.001	
+122.0	Opponent Offense	00:11:09.003	00:11:26.999
+122.0	Missed Shot - 2	00:11:24.001	
+122.0	Missed Shot - 2	00:11:26.001	
+122.0	Offensive Rebound	00:11:26.011	
+122.0	CHICAGO Offense	00:11:27.000	00:11:38.042
+122.0	Defensive Rebound	00:11:27.001	
+122.0	Foul	00:11:38.001	
+122.0	Foul	00:11:38.011	
+122.0	Made Free Throw	00:11:38.021	
+122.0	Made Free Throw	00:11:38.031	
+122.0	Made Free Throw	00:11:38.041	
+124.0	Opponent Offense	00:11:38.043	00:11:59.999
+124.0	Block	00:11:56.001	
+124.0	Offensive Rebound	00:11:57.001	
+124.0	Missed Shot - 2	00:11:58.001	
+124.0	CHICAGO Offense	00:12:00.000	00:12:06.002
+124.0	Defensive Rebound	00:12:00.001	
+124.0	Made Shot - 2	00:12:06.001	
+126.0	Opponent Offense	00:12:06.003	00:12:23.002
+126.0	Timeout	00:12:08.001	
+126.0	Made Shot - 2	00:12:23.001	
+126.0	CHICAGO Offense	00:12:23.003	00:12:43.999
+126.0	Missed Shot - 2	00:12:42.001	
+128.0	Opponent Offense	00:12:44.000	00:12:52.999
+128.0	Defensive Rebound	00:12:44.001	
+128.0	Missed Shot - 2	00:12:51.001	
+128.0	CHICAGO Offense	00:12:53.000	00:13:13.999
+128.0	Defensive Rebound	00:12:53.001	
+128.0	Foul	00:12:55.001	
+128.0	Foul	00:13:02.001	
+130.0	Opponent Offense	00:13:14.000	00:13:35.999
+130.0	Steal	00:13:14.001	
+130.0	Foul	00:13:14.011	
+130.0	Missed Shot - 2	00:13:34.001	
+130.0	CHICAGO Offense	00:13:36.000	00:13:36.042
+130.0	Defensive Rebound	00:13:36.001	
+130.0	Foul	00:13:36.011	
+130.0	Missed Free Throw	00:13:36.021	
+130.0	Offensive Rebound	00:13:36.031	
+130.0	Made Free Throw	00:13:36.041	
+132.0	Opponent Offense	00:13:36.043	00:13:51.002
+132.0	Made Shot - 2	00:13:51.001	
+132.0	CHICAGO Offense	00:13:51.003	00:14:08.012
+132.0	Missed Shot - 2	00:14:08.001	
+132.0	Made Shot - 2	00:14:08.011	
+135.0	Opponent Offense	00:14:08.043	00:14:21.002
+135.0	Made Shot - 3	00:14:21.001	
+135.0	CHICAGO Offense	00:14:21.003	00:14:31.999
+137.0	Opponent Offense	00:14:32.000	00:14:35.999
+137.0	Steal	00:14:32.001	
+137.0	CHICAGO Offense	00:14:36.000	00:14:44.009
+137.0	Steal	00:14:36.001	
+137.0	Missed Shot - 3	00:14:44.001	
+139.0	Opponent Offense	00:14:44.010	00:14:47.022
+139.0	Defensive Rebound	00:14:44.011	
+139.0	Foul	00:14:47.001	
+139.0	Made Free Throw	00:14:47.011	
+139.0	Made Free Throw	00:14:47.021	
+139.0	CHICAGO Offense	00:14:47.023	00:15:06.002
+139.0	Made Shot - 2	00:15:06.001	
+141.0	Opponent Offense	00:15:06.003	00:15:21.002
+141.0	Turnover	00:15:21.001	
+141.0	CHICAGO Offense	00:15:21.003	00:15:34.002
+141.0	Turnover	00:15:34.001	
+143.0	Opponent Offense	00:15:34.003	00:15:47.009
+143.0	Missed Shot - 3	00:15:47.001	
+143.0	CHICAGO Offense	00:15:47.010	00:15:47.042
+143.0	Defensive Rebound	00:15:47.011	
+143.0	Foul	00:15:47.021	
+143.0	Made Free Throw	00:15:47.031	
+143.0	Made Free Throw	00:15:47.041	
+145.0	Opponent Offense	00:15:47.043	00:16:08.999
+145.0	Block	00:16:05.001	
+145.0	CHICAGO Offense	00:16:09.000	00:16:17.999
+145.0	Defensive Rebound	00:16:09.001	
+145.0	Missed Shot - 2	00:16:15.001	
+145.0	Missed Shot - 2	00:16:17.001	
+145.0	Offensive Rebound	00:16:17.011	
+147.0	Opponent Offense	00:16:18.000	00:16:33.022
+147.0	Defensive Rebound	00:16:18.001	
+147.0	Missed Shot - 3	00:16:28.001	
+147.0	Offensive Rebound	00:16:29.001	
+147.0	Foul	00:16:33.001	
+147.0	Made Free Throw	00:16:33.011	
+147.0	Made Free Throw	00:16:33.021	
+147.0	CHICAGO Offense	00:16:33.023	00:16:51.022
+147.0	Foul	00:16:51.001	
+147.0	Made Free Throw	00:16:51.011	
+147.0	Made Free Throw	00:16:51.021	
+149.0	Opponent Offense	00:16:51.023	00:17:06.002
+149.0	Made Shot - 2	00:17:06.001	
+149.0	CHICAGO Offense	00:17:06.003	00:17:32.999
+149.0	Missed Shot - 2	00:17:32.001	
+151.0	Opponent Offense	00:17:33.000	00:17:43.002
+151.0	Defensive Rebound	00:17:33.001	
+151.0	Made Shot - 2	00:17:43.001	
+151.0	CHICAGO Offense	00:17:43.003	00:17:56.002
+151.0	Timeout	00:17:52.001	
+151.0	Foul	00:17:56.001	
+154.0	Opponent Offense	00:17:56.013	00:18:13.999
+154.0	Missed Shot - 2	00:18:13.001	
+154.0	CHICAGO Offense	00:18:14.000	00:18:36.999
+154.0	Defensive Rebound	00:18:14.001	
+154.0	Block	00:18:36.001	
+156.0	Opponent Offense	00:18:37.000	00:18:40.999
+156.0	Defensive Rebound	00:18:37.001	
+156.0	Missed Shot - 2	00:18:40.001	
+156.0	CHICAGO Offense	00:18:41.000	00:18:47.009
+156.0	Defensive Rebound	00:18:41.001	
+156.0	Missed Shot - 2	00:18:47.001	
+158.0	Opponent Offense	00:18:47.010	00:18:47.042
+158.0	Defensive Rebound	00:18:47.011	
+158.0	Foul	00:18:47.021	
+158.0	Made Free Throw	00:18:47.031	
+158.0	Made Free Throw	00:18:47.041	
+158.0	CHICAGO Offense	00:18:47.043	00:19:06.032
+158.0	Foul	00:19:06.001	
+158.0	Made Free Throw	00:19:06.011	
+158.0	Made Free Throw	00:19:06.021	
+158.0	Made Free Throw	00:19:06.031	
+160.0	Opponent Offense	00:19:06.033	00:19:28.002
+160.0	Foul	00:19:14.001	
+160.0	Made Shot - 2	00:19:28.001	
+160.0	CHICAGO Offense	00:19:28.003	00:19:49.999
+160.0	Missed Shot - 2	00:19:48.001	
+162.0	Opponent Offense	00:19:50.000	00:19:53.012
+162.0	Defensive Rebound	00:19:50.001	
+162.0	Block	00:19:53.001	
+162.0	Made Shot - 2	00:19:53.011	
+162.0	CHICAGO Offense	00:19:53.013	00:19:59.999
+162.0	Offensive Rebound	00:19:53.021	
+167.0	Opponent Offense	00:08:09.013	00:08:27.002
+167.0	Made Shot - 2	00:08:27.001	
+167.0	CHICAGO Offense	00:08:27.003	00:08:45.002
+167.0	Made Shot - 2	00:08:45.001	
+170.0	Opponent Offense	00:09:05.000	00:09:45.002
+170.0	Defensive Rebound	00:09:05.001	
+170.0	Block	00:09:05.011	
+170.0	Made Shot - 3	00:09:45.001	
+170.0	CHICAGO Offense	00:09:45.003	00:10:04.002
+170.0	Foul	00:10:04.001	
+173.0	Opponent Offense	00:10:04.033	00:10:34.002
+173.0	Missed Shot - 2	00:10:30.001	
+173.0	Offensive Rebound	00:10:33.001	
+173.0	Foul	00:10:34.001	
+173.0	CHICAGO Offense	00:10:34.003	00:10:34.012
+173.0	Turnover	00:10:34.011	
+176.0	Opponent Offense	00:10:57.010	00:11:18.002
+176.0	Defensive Rebound	00:10:57.011	
+176.0	Made Shot - 2	00:11:18.001	
+176.0	CHICAGO Offense	00:11:18.003	00:11:33.999
+176.0	Missed Shot - 3	00:11:33.001	
+178.0	Opponent Offense	00:11:34.000	00:11:49.022
+178.0	Defensive Rebound	00:11:34.001	
+178.0	Timeout	00:11:34.011	
+178.0	Foul	00:11:49.001	
+178.0	Made Free Throw	00:11:49.011	
+178.0	Made Free Throw	00:11:49.021	
+178.0	CHICAGO Offense	00:11:49.023	00:12:10.009
+178.0	Missed Shot - 2	00:12:10.001	
+180.0	Opponent Offense	00:12:10.010	00:12:18.999
+180.0	Defensive Rebound	00:12:10.011	
+180.0	Missed Shot - 2	00:12:17.001	
+180.0	CHICAGO Offense	00:12:19.000	00:12:36.002
+180.0	Defensive Rebound	00:12:19.001	
+180.0	Made Shot - 2	00:12:36.001	
+182.0	Opponent Offense	00:12:36.003	00:13:04.009
+182.0	Block	00:12:53.001	
+182.0	Offensive Rebound	00:12:57.001	
+182.0	Missed Shot - 3	00:13:04.001	
+182.0	CHICAGO Offense	00:13:04.010	00:13:22.999
+182.0	Defensive Rebound	00:13:04.011	
+182.0	Block	00:13:21.001	
+184.0	Opponent Offense	00:13:23.000	00:13:25.002
+184.0	Defensive Rebound	00:13:23.001	
+184.0	Made Shot - 2	00:13:25.001	
+184.0	CHICAGO Offense	00:13:25.003	00:13:44.002
+184.0	Made Shot - 2	00:13:44.001	
+186.0	Opponent Offense	00:13:44.003	00:14:06.032
+186.0	Foul	00:14:06.001	
+186.0	Timeout	00:14:06.011	
+186.0	Made Free Throw	00:14:06.021	
+186.0	Made Free Throw	00:14:06.031	
+186.0	CHICAGO Offense	00:14:06.033	00:14:21.009
+186.0	Missed Shot - 2	00:14:21.001	
+189.0	Opponent Offense	00:14:32.013	00:14:46.999
+189.0	Missed Shot - 2	00:14:45.001	
+189.0	CHICAGO Offense	00:14:47.000	00:15:02.002
+189.0	Defensive Rebound	00:14:47.001	
+189.0	Made Shot - 2	00:15:02.001	
+191.0	Opponent Offense	00:15:02.003	00:15:29.009
+191.0	Missed Shot - 2	00:15:29.001	
+191.0	CHICAGO Offense	00:15:29.010	00:15:55.002
+191.0	Defensive Rebound	00:15:29.011	
+191.0	Missed Shot - 2	00:15:36.001	
+191.0	Offensive Rebound	00:15:40.001	
+191.0	Made Shot - 2	00:15:55.001	
+193.0	Opponent Offense	00:15:55.003	00:16:07.002
+193.0	Timeout	00:15:57.001	
+193.0	Made Shot - 2	00:16:07.001	
+193.0	CHICAGO Offense	00:16:07.003	00:16:39.999
+193.0	Block	00:16:31.001	
+193.0	Offensive Rebound	00:16:31.011	
+193.0	Missed Shot - 2	00:16:39.001	
+195.0	Opponent Offense	00:16:40.000	00:16:59.999
+195.0	Defensive Rebound	00:16:40.001	
+195.0	Missed Shot - 2	00:16:48.001	
+195.0	Offensive Rebound	00:16:48.011	
+195.0	Foul	00:16:48.021	
+195.0	Missed Shot - 2	00:16:59.001	
+195.0	CHICAGO Offense	00:17:00.000	00:17:14.022
+195.0	Defensive Rebound	00:17:00.001	
+195.0	Missed Shot - 2	00:17:14.001	
+195.0	Offensive Rebound	00:17:14.011	
+195.0	Made Shot - 2	00:17:14.021	
+197.0	Opponent Offense	00:17:14.023	00:17:14.032
+197.0	Foul	00:17:14.031	
+197.0	CHICAGO Offense	00:17:14.033	00:17:14.042
+197.0	Made Free Throw	00:17:14.041	
+199.0	Opponent Offense	00:17:14.043	00:17:29.002
+199.0	Made Shot - 3	00:17:29.001	
+199.0	CHICAGO Offense	00:17:29.003	00:17:49.999
+202.0	Opponent Offense	00:18:13.000	00:18:22.999
+202.0	Defensive Rebound	00:18:13.001	
+202.0	Missed Shot - 2	00:18:22.001	
+202.0	CHICAGO Offense	00:18:23.000	00:19:11.999
+202.0	Defensive Rebound	00:18:23.001	
+202.0	Missed Shot - 2	00:18:38.001	
+202.0	Offensive Rebound	00:18:38.011	
+202.0	Foul	00:18:38.021	
+202.0	Timeout	00:18:45.001	
+202.0	Missed Shot - 2	00:18:58.001	
+202.0	Offensive Rebound	00:18:59.001	
+202.0	Missed Shot - 2	00:19:11.001	
+204.0	Opponent Offense	00:19:12.000	00:19:19.002
+204.0	Defensive Rebound	00:19:12.001	
+204.0	Made Shot - 2	00:19:19.001	
+204.0	CHICAGO Offense	00:19:19.003	00:19:25.032
+204.0	Foul	00:19:25.001	
+204.0	Missed Free Throw	00:19:25.011	
+204.0	Offensive Rebound	00:19:25.021	
+204.0	Made Free Throw	00:19:25.031	
+206.0	Opponent Offense	00:19:25.033	00:19:28.002
+206.0	Timeout	00:19:25.041	
+206.0	Timeout	00:19:25.051	
+206.0	Foul	00:19:28.001	
+206.0	CHICAGO Offense	00:19:28.003	00:19:28.022
+206.0	Made Free Throw	00:19:28.011	
+206.0	Made Free Throw	00:19:28.021	
+208.0	Opponent Offense	00:19:28.023	00:19:35.002
+208.0	Timeout	00:19:28.031	
+208.0	Made Shot - 2	00:19:35.001	
+208.0	CHICAGO Offense	00:19:35.003	00:19:36.022
+208.0	Foul	00:19:36.001	
+208.0	Made Free Throw	00:19:36.011	
+208.0	Made Free Throw	00:19:36.021	
+210.0	Opponent Offense	00:19:36.023	00:19:41.022
+210.0	Timeout	00:19:36.031	
+210.0	Missed Shot - 3	00:19:41.001	
+210.0	Offensive Rebound	00:19:41.011	
+210.0	Made Shot - 2	00:19:41.021	
+210.0	CHICAGO Offense	00:19:41.023	00:19:44.022
+210.0	Foul	00:19:44.001	
+210.0	Made Free Throw	00:19:44.011	
+210.0	Made Free Throw	00:19:44.021	
+212.0	Opponent Offense	00:19:44.023	00:19:51.999
+212.0	Missed Shot - 3	00:19:51.001	
+212.0	CHICAGO Offense	00:19:52.000	00:20:00.002
+212.0	Defensive Rebound	00:19:52.001	
+212.0	End of Period	00:20:00.001	
+1.1	Opponent Offense	00:08:23.003	00:08:39.012
+1.1	Foul	00:08:39.001	
+1.1	Turnover	00:08:39.011	
+1.1	CHICAGO Offense	00:08:39.013	00:08:53.002
+1.1	Made Shot - 2	00:08:53.001	
+5.1	Opponent Offense	00:09:28.000	00:09:37.999
+5.1	Defensive Rebound	00:09:28.001	
+5.1	CHICAGO Offense	00:09:38.000	00:09:41.002
+5.1	Steal	00:09:38.001	
+5.1	Made Shot - 2	00:09:41.001	
+7.1	Opponent Offense	00:09:41.003	00:09:41.012
+7.1	Foul	00:09:41.011	
+7.1	CHICAGO Offense	00:09:41.013	00:09:41.022
+7.1	Made Free Throw	00:09:41.021	
+9.1	Opponent Offense	00:09:41.023	00:10:00.002
+9.1	Made Shot - 3	00:10:00.001	
+9.1	CHICAGO Offense	00:10:00.003	00:10:15.002
+9.1	Made Shot - 2	00:10:15.001	
+11.1	Opponent Offense	00:10:15.003	00:10:33.002
+11.1	Made Shot - 2	00:10:33.001	
+11.1	CHICAGO Offense	00:10:33.003	00:10:49.002
+11.1	Made Shot - 2	00:10:49.001	
+13.1	Opponent Offense	00:10:49.003	00:11:05.002
+13.1	Made Shot - 2	00:11:05.001	
+13.1	CHICAGO Offense	00:11:05.003	00:11:26.999
+15.1	Opponent Offense	00:11:27.000	00:11:35.002
+15.1	Steal	00:11:27.001	
+15.1	Made Shot - 3	00:11:35.001	
+15.1	CHICAGO Offense	00:11:35.003	00:11:50.002
+15.1	Turnover	00:11:50.001	
+17.1	Opponent Offense	00:11:50.003	00:12:04.009
+17.1	Missed Shot - 2	00:12:04.001	
+17.1	CHICAGO Offense	00:12:04.010	00:12:10.002
+17.1	Defensive Rebound	00:12:04.011	
+17.1	Made Shot - 2	00:12:10.001	
+19.1	Opponent Offense	00:12:10.003	00:12:21.009
+19.1	Missed Shot - 2	00:12:21.001	
+19.1	CHICAGO Offense	00:12:21.010	00:12:29.009
+19.1	Defensive Rebound	00:12:21.011	
+19.1	Missed Shot - 2	00:12:29.001	
+21.1	Opponent Offense	00:12:29.010	00:12:40.012
+21.1	Defensive Rebound	00:12:29.011	
+21.1	Foul	00:12:40.001	
+21.1	Made Free Throw	00:12:40.011	
+21.1	CHICAGO Offense	00:12:40.013	00:13:02.002
+21.1	Missed Shot - 2	00:12:45.001	
+21.1	Offensive Rebound	00:12:47.001	
+21.1	Made Shot - 2	00:13:02.001	
+25.1	Opponent Offense	00:13:21.000	00:13:35.999
+25.1	Steal	00:13:21.001	
+25.1	CHICAGO Offense	00:13:36.000	00:13:44.999
+25.1	Defensive Rebound	00:13:36.001	
+25.1	Offensive Rebound	00:13:38.001	
+25.1	Block	00:13:42.001	
+28.1	Opponent Offense	00:13:49.003	00:14:00.002
+28.1	Made Shot - 2	00:14:00.001	
+28.1	CHICAGO Offense	00:14:00.003	00:14:16.999
+28.1	Missed Shot - 2	00:14:14.001	
+30.1	Opponent Offense	00:14:17.000	00:14:34.009
+30.1	Defensive Rebound	00:14:17.001	
+30.1	Missed Shot - 2	00:14:34.001	
+30.1	CHICAGO Offense	00:14:34.010	00:14:47.002
+30.1	Defensive Rebound	00:14:34.011	
+30.1	Made Shot - 2	00:14:47.001	
+32.1	Opponent Offense	00:14:47.003	00:15:19.002
+32.1	Timeout	00:14:53.001	
+32.1	Block	00:14:59.001	
+32.1	Offensive Rebound	00:15:02.001	
+32.1	Missed Shot - 2	00:15:08.001	
+32.1	Offensive Rebound	00:15:10.001	
+32.1	Made Shot - 2	00:15:19.001	
+32.1	CHICAGO Offense	00:15:19.003	00:15:34.002
+32.1	Made Shot - 2	00:15:34.001	
+34.1	Opponent Offense	00:15:34.003	00:15:44.002
+34.1	Turnover	00:15:44.001	
+34.1	CHICAGO Offense	00:15:44.003	00:15:59.002
+34.1	Made Shot - 2	00:15:59.001	
+36.1	Opponent Offense	00:15:59.003	00:15:59.012
+36.1	Foul	00:15:59.011	
+36.1	CHICAGO Offense	00:15:59.013	00:15:59.022
+36.1	Made Free Throw	00:15:59.021	
+38.1	Opponent Offense	00:15:59.023	00:16:03.002
+38.1	Turnover	00:16:03.001	
+38.1	CHICAGO Offense	00:16:03.003	00:16:14.002
+38.1	Foul	00:16:14.001	
+41.1	Opponent Offense	00:16:14.013	00:16:30.999
+41.1	Missed Shot - 2	00:16:30.001	
+41.1	CHICAGO Offense	00:16:31.000	00:16:46.999
+41.1	Defensive Rebound	00:16:31.001	
+41.1	Missed Shot - 2	00:16:45.001	
+43.1	Opponent Offense	00:16:47.000	00:17:10.999
+43.1	Defensive Rebound	00:16:47.001	
+43.1	Jump Ball	00:16:52.001	
+43.1	Missed Shot - 2	00:17:10.001	
+43.1	CHICAGO Offense	00:17:11.000	00:17:14.032
+43.1	Defensive Rebound	00:17:11.001	
+43.1	Foul	00:17:14.001	
+43.1	Timeout	00:17:14.011	
+43.1	Made Free Throw	00:17:14.021	
+43.1	Made Free Throw	00:17:14.031	
+45.1	Opponent Offense	00:17:14.033	00:17:28.999
+45.1	CHICAGO Offense	00:17:29.000	00:17:46.002
+45.1	Steal	00:17:29.001	
+45.1	Made Shot - 2	00:17:46.001	
+47.1	Opponent Offense	00:17:46.003	00:17:58.999
+47.1	Missed Shot - 2	00:17:57.001	
+47.1	Offensive Rebound	00:17:58.001	
+47.1	Foul	00:17:58.011	
+47.1	Made Free Throw	00:17:58.021	
+47.1	Missed Free Throw	00:17:58.031	
+47.1	CHICAGO Offense	00:17:59.000	00:18:07.999
+47.1	Defensive Rebound	00:17:59.001	
+49.1	Opponent Offense	00:18:08.000	00:18:15.999
+49.1	Steal	00:18:08.001	
+49.1	Missed Shot - 3	00:18:15.001	
+49.1	CHICAGO Offense	00:18:16.000	00:18:30.999
+49.1	Defensive Rebound	00:18:16.001	
+49.1	Foul	00:18:16.011	
+51.1	Opponent Offense	00:18:31.000	00:18:36.002
+51.1	Steal	00:18:31.001	
+51.1	Foul	00:18:36.001	
+51.1	CHICAGO Offense	00:18:36.003	00:18:36.012
+51.1	Turnover	00:18:36.011	
+54.1	Opponent Offense	00:18:48.003	00:19:07.999
+54.1	Missed Shot - 2	00:19:07.001	
+54.1	CHICAGO Offense	00:19:08.000	00:19:27.999
+54.1	Defensive Rebound	00:19:08.001	
+54.1	Missed Shot - 2	00:19:26.001	
+56.1	Opponent Offense	00:19:28.000	00:19:49.999
+56.1	Defensive Rebound	00:19:28.001	
+56.1	Missed Shot - 2	00:19:49.001	
+56.1	CHICAGO Offense	00:19:50.000	00:19:59.002
+56.1	Defensive Rebound	00:19:50.001	
+56.1	Made Shot - 2	00:19:59.001	
+60.1	Opponent Offense	00:08:11.003	00:08:16.002
+60.1	Turnover	00:08:16.001	
+60.1	CHICAGO Offense	00:08:16.003	00:08:29.999
+60.1	Missed Shot - 2	00:08:28.001	
+62.1	Opponent Offense	00:08:30.000	00:08:38.999
+62.1	Defensive Rebound	00:08:30.001	
+62.1	Missed Shot - 2	00:08:38.001	
+62.1	CHICAGO Offense	00:08:39.000	00:08:58.002
+62.1	Defensive Rebound	00:08:39.001	
+62.1	Foul	00:08:53.001	
+62.1	Made Shot - 2	00:08:58.001	
+64.1	Opponent Offense	00:08:58.003	00:09:15.999
+64.1	Missed Shot - 2	00:09:15.001	
+64.1	CHICAGO Offense	00:09:16.000	00:09:27.022
+64.1	Defensive Rebound	00:09:16.001	
+64.1	Foul	00:09:27.001	
+64.1	Made Free Throw	00:09:27.011	
+64.1	Made Free Throw	00:09:27.021	
+66.1	Opponent Offense	00:09:27.023	00:09:42.002
+66.1	Turnover	00:09:42.001	
+66.1	CHICAGO Offense	00:09:42.003	00:10:04.002
+66.1	Made Shot - 3	00:10:04.001	
+68.1	Opponent Offense	00:10:04.003	00:10:15.009
+68.1	Missed Shot - 3	00:10:15.001	
+68.1	CHICAGO Offense	00:10:15.010	00:10:25.999
+68.1	Defensive Rebound	00:10:15.011	
+68.1	Foul	00:10:23.001	
+68.1	Missed Free Throw	00:10:23.011	
+68.1	Offensive Rebound	00:10:23.021	
+68.1	Missed Free Throw	00:10:23.031	
+70.1	Opponent Offense	00:10:26.000	00:10:34.002
+70.1	Defensive Rebound	00:10:26.001	
+70.1	Made Shot - 2	00:10:34.001	
+70.1	CHICAGO Offense	00:10:34.003	00:11:00.002
+70.1	Foul	00:10:49.001	
+70.1	Made Shot - 2	00:11:00.001	
+72.1	Opponent Offense	00:11:00.003	00:11:18.999
+72.1	Foul	00:11:07.001	
+72.1	Timeout	00:11:07.011	
+72.1	Missed Shot - 3	00:11:18.001	
+72.1	CHICAGO Offense	00:11:19.000	00:11:30.002
+72.1	Defensive Rebound	00:11:19.001	
+72.1	Turnover	00:11:30.001	
+74.1	Opponent Offense	00:11:30.003	00:11:53.999
+74.1	Missed Shot - 3	00:11:53.001	
+74.1	CHICAGO Offense	00:11:54.000	00:12:14.999
+74.1	Defensive Rebound	00:11:54.001	
+74.1	Missed Shot - 2	00:12:13.001	
+76.1	Opponent Offense	00:12:15.000	00:12:25.022
+76.1	Defensive Rebound	00:12:15.001	
+76.1	Foul	00:12:25.001	
+76.1	Made Free Throw	00:12:25.011	
+76.1	Made Free Throw	00:12:25.021	
+76.1	CHICAGO Offense	00:12:25.023	00:12:44.002
+76.1	Made Shot - 2	00:12:44.001	
+78.1	Opponent Offense	00:12:44.003	00:13:06.002
+78.1	Made Shot - 2	00:13:06.001	
+78.1	CHICAGO Offense	00:13:06.003	00:13:31.999
+78.1	Missed Shot - 2	00:13:29.001	
+80.1	Opponent Offense	00:13:32.000	00:13:44.009
+80.1	Defensive Rebound	00:13:32.001	
+80.1	Missed Shot - 2	00:13:44.001	
+80.1	CHICAGO Offense	00:13:44.010	00:13:59.032
+80.1	Defensive Rebound	00:13:44.011	
+80.1	Foul	00:13:59.001	
+80.1	Missed Free Throw	00:13:59.011	
+80.1	Offensive Rebound	00:13:59.021	
+80.1	Made Free Throw	00:13:59.031	
+82.1	Opponent Offense	00:13:59.033	00:14:14.999
+82.1	Block	00:14:13.001	
+82.1	CHICAGO Offense	00:14:15.000	00:14:26.999
+82.1	Defensive Rebound	00:14:15.001	
+84.1	Opponent Offense	00:14:27.000	00:14:32.002
+84.1	Steal	00:14:27.001	
+84.1	Made Shot - 2	00:14:32.001	
+84.1	CHICAGO Offense	00:14:32.003	00:14:55.009
+84.1	Timeout	00:14:40.001	
+84.1	Missed Shot - 3	00:14:55.001	
+86.1	Opponent Offense	00:14:55.010	00:15:12.009
+86.1	Defensive Rebound	00:14:55.011	
+86.1	Missed Shot - 2	00:15:06.001	
+86.1	Offensive Rebound	00:15:10.001	
+86.1	Missed Shot - 2	00:15:12.001	
+86.1	CHICAGO Offense	00:15:12.010	00:15:30.002
+86.1	Defensive Rebound	00:15:12.011	
+86.1	Missed Shot - 2	00:15:29.001	
+86.1	Made Shot - 2	00:15:30.001	
+88.1	Opponent Offense	00:15:30.003	00:15:50.999
+88.1	Offensive Rebound	00:15:30.011	
+88.1	Missed Shot - 2	00:15:49.001	
+88.1	CHICAGO Offense	00:15:51.000	00:16:11.999
+88.1	Defensive Rebound	00:15:51.001	
+88.1	Block	00:16:04.001	
+88.1	Offensive Rebound	00:16:06.001	
+88.1	Missed Shot - 2	00:16:10.001	
+90.1	Opponent Offense	00:16:12.000	00:16:13.022
+90.1	Defensive Rebound	00:16:12.001	
+90.1	Foul	00:16:13.001	
+90.1	Made Free Throw	00:16:13.011	
+90.1	Made Free Throw	00:16:13.021	
+90.1	CHICAGO Offense	00:16:13.023	00:16:25.032
+90.1	Foul	00:16:25.001	
+90.1	Missed Free Throw	00:16:25.011	
+90.1	Offensive Rebound	00:16:25.021	
+90.1	Made Free Throw	00:16:25.031	
+92.1	Opponent Offense	00:16:25.033	00:16:40.022
+92.1	Missed Shot - 2	00:16:37.001	
+92.1	Offensive Rebound	00:16:39.001	
+92.1	Foul	00:16:40.001	
+92.1	Made Free Throw	00:16:40.011	
+92.1	Made Free Throw	00:16:40.021	
+92.1	CHICAGO Offense	00:16:40.023	00:16:59.002
+92.1	Made Shot - 2	00:16:59.001	
+94.1	Opponent Offense	00:16:59.003	00:17:17.999
+94.1	Foul	00:17:00.001	
+94.1	Missed Shot - 2	00:17:17.001	
+94.1	CHICAGO Offense	00:17:18.000	00:17:31.002
+94.1	Defensive Rebound	00:17:18.001	
+94.1	Made Shot - 2	00:17:31.001	
+96.1	Opponent Offense	00:17:31.003	00:17:41.002
+96.1	Made Shot - 2	00:17:41.001	
+96.1	CHICAGO Offense	00:17:41.003	00:18:03.002
+96.1	Made Shot - 2	00:18:03.001	
+98.1	Opponent Offense	00:18:03.003	00:18:20.002
+98.1	Made Shot - 2	00:18:20.001	
+98.1	CHICAGO Offense	00:18:20.003	00:18:20.012
+98.1	Foul	00:18:20.011	
+100.1	Opponent Offense	00:18:20.013	00:18:20.999
+100.1	Timeout	00:18:20.021	
+100.1	Missed Free Throw	00:18:20.031	
+100.1	CHICAGO Offense	00:18:21.000	00:18:32.022
+100.1	Defensive Rebound	00:18:21.001	
+100.1	Foul	00:18:32.001	
+100.1	Made Free Throw	00:18:32.011	
+100.1	Made Free Throw	00:18:32.021	
+102.1	Opponent Offense	00:18:32.023	00:18:46.999
+102.1	Missed Shot - 2	00:18:45.001	
+102.1	CHICAGO Offense	00:18:47.000	00:18:52.002
+102.1	Defensive Rebound	00:18:47.001	
+102.1	Made Shot - 2	00:18:52.001	
+104.1	Opponent Offense	00:18:52.003	00:19:01.999
+104.1	Foul	00:19:00.001	
+104.1	Missed Free Throw	00:19:00.011	
+104.1	Offensive Rebound	00:19:00.021	
+104.1	Missed Free Throw	00:19:00.031	
+104.1	CHICAGO Offense	00:19:02.000	00:19:16.002
+104.1	Defensive Rebound	00:19:02.001	
+104.1	Turnover	00:19:16.001	
+106.1	Opponent Offense	00:19:16.003	00:19:35.999
+106.1	Missed Shot - 2	00:19:35.001	
+106.1	CHICAGO Offense	00:19:36.000	00:19:55.002
+106.1	Defensive Rebound	00:19:36.001	
+106.1	Made Shot - 3	00:19:55.001	
+108.1	Opponent Offense	00:19:55.003	00:20:00.002
+108.1	Made Shot - 3	00:20:00.001	
+108.1	CHICAGO Offense	00:20:00.003	00:20:00.012
+108.1	End of Period	00:20:00.011	
+110.1	Opponent Offense	00:08:13.000	00:08:23.002
+110.1	Foul	00:08:13.001	
+110.1	Made Shot - 2	00:08:23.001	
+110.1	CHICAGO Offense	00:08:23.003	00:08:42.002
+110.1	Foul	00:08:35.001	
+110.1	Made Shot - 2	00:08:42.001	
+112.1	Opponent Offense	00:08:42.003	00:08:42.012
+112.1	Foul	00:08:42.011	
+112.1	CHICAGO Offense	00:08:42.013	00:08:42.022
+112.1	Made Free Throw	00:08:42.021	
+114.1	Opponent Offense	00:08:42.023	00:09:11.002
+114.1	Foul	00:09:00.001	
+114.1	Made Shot - 2	00:09:11.001	
+114.1	CHICAGO Offense	00:09:11.003	00:09:30.009
+114.1	Timeout	00:09:15.001	
+114.1	Missed Shot - 2	00:09:30.001	
+116.1	Opponent Offense	00:09:30.010	00:09:56.002
+116.1	Defensive Rebound	00:09:30.011	
+116.1	Missed Shot - 3	00:09:53.001	
+116.1	Offensive Rebound	00:09:54.001	
+116.1	Made Shot - 2	00:09:56.001	
+116.1	CHICAGO Offense	00:09:56.003	00:10:12.002
+116.1	Turnover	00:10:12.001	
+118.1	Opponent Offense	00:10:12.003	00:10:27.002
+118.1	Turnover	00:10:27.001	
+118.1	CHICAGO Offense	00:10:27.003	00:10:39.002
+118.1	Made Shot - 2	00:10:39.001	
+120.1	Opponent Offense	00:10:39.003	00:10:59.999
+120.1	Missed Shot - 2	00:10:58.001	
+120.1	CHICAGO Offense	00:11:00.000	00:11:17.999
+120.1	Defensive Rebound	00:11:00.001	
+120.1	Missed Shot - 2	00:11:16.001	
+122.1	Opponent Offense	00:11:18.000	00:11:34.002
+122.1	Defensive Rebound	00:11:18.001	
+122.1	Missed Shot - 2	00:11:26.001	
+122.1	Offensive Rebound	00:11:27.001	
+122.1	Made Shot - 2	00:11:34.001	
+122.1	CHICAGO Offense	00:11:34.003	00:11:53.002
+122.1	Made Shot - 2	00:11:53.001	
+124.1	Opponent Offense	00:11:53.003	00:12:14.999
+124.1	CHICAGO Offense	00:12:15.000	00:12:21.002
+124.1	Steal	00:12:15.001	
+124.1	Turnover	00:12:21.001	
+126.1	Opponent Offense	00:12:21.003	00:12:40.002
+126.1	Made Shot - 2	00:12:40.001	
+126.1	CHICAGO Offense	00:12:40.003	00:12:59.009
+126.1	Missed Shot - 2	00:12:59.001	
+128.1	Opponent Offense	00:12:59.010	00:13:15.002
+128.1	Defensive Rebound	00:12:59.011	
+128.1	Foul	00:13:12.001	
+128.1	Turnover	00:13:15.001	
+128.1	CHICAGO Offense	00:13:15.003	00:13:36.002
+128.1	Missed Shot - 3	00:13:29.001	
+128.1	Offensive Rebound	00:13:29.011	
+128.1	Foul	00:13:29.021	
+128.1	Missed Free Throw	00:13:29.031	
+128.1	Offensive Rebound	00:13:29.041	
+128.1	Missed Free Throw	00:13:29.051	
+128.1	Offensive Rebound	00:13:30.001	
+128.1	Turnover	00:13:36.001	
+130.1	Opponent Offense	00:13:36.003	00:13:50.999
+130.1	Missed Shot - 2	00:13:49.001	
+130.1	CHICAGO Offense	00:13:51.000	00:14:13.002
+130.1	Defensive Rebound	00:13:51.001	
+130.1	Made Shot - 2	00:14:13.001	
+132.1	Opponent Offense	00:14:13.003	00:14:32.002
+132.1	Made Shot - 2	00:14:32.001	
+132.1	CHICAGO Offense	00:14:32.003	00:14:56.999
+134.1	Opponent Offense	00:14:57.000	00:14:57.009
+134.1	Steal	00:14:57.001	
+134.1	CHICAGO Offense	00:14:57.010	00:15:02.009
+134.1	Defensive Rebound	00:14:57.011	
+134.1	Missed Shot - 2	00:15:02.001	
+137.1	Opponent Offense	00:15:25.003	00:15:40.002
+137.1	Made Shot - 2	00:15:40.001	
+137.1	CHICAGO Offense	00:15:40.003	00:16:00.002
+137.1	Made Shot - 2	00:16:00.001	
+139.1	Opponent Offense	00:16:00.003	00:16:13.002
+139.1	Made Shot - 2	00:16:13.001	
+139.1	CHICAGO Offense	00:16:13.003	00:16:33.022
+139.1	Foul	00:16:33.001	
+139.1	Made Free Throw	00:16:33.011	
+139.1	Made Free Throw	00:16:33.021	
+141.1	Opponent Offense	00:16:33.023	00:16:45.999
+141.1	Missed Shot - 2	00:16:45.001	
+141.1	CHICAGO Offense	00:16:46.000	00:16:51.002
+141.1	Defensive Rebound	00:16:46.001	
+141.1	Made Shot - 2	00:16:51.001	
+143.1	Opponent Offense	00:16:51.003	00:17:03.032
+143.1	Foul	00:17:03.001	
+143.1	Timeout	00:17:03.011	
+143.1	Made Free Throw	00:17:03.021	
+143.1	Made Free Throw	00:17:03.031	
+143.1	CHICAGO Offense	00:17:03.033	00:17:20.002
+143.1	Made Shot - 2	00:17:20.001	
+145.1	Opponent Offense	00:17:20.003	00:17:41.999
+145.1	Missed Shot - 2	00:17:41.001	
+145.1	CHICAGO Offense	00:17:42.000	00:17:57.002
+145.1	Defensive Rebound	00:17:42.001	
+145.1	Turnover	00:17:57.001	
+147.1	Opponent Offense	00:17:57.003	00:18:10.052
+147.1	Missed Shot - 2	00:18:10.001	
+147.1	Offensive Rebound	00:18:10.011	
+147.1	Foul	00:18:10.021	
+147.1	Missed Free Throw	00:18:10.031	
+147.1	Offensive Rebound	00:18:10.041	
+147.1	Made Free Throw	00:18:10.051	
+147.1	CHICAGO Offense	00:18:10.053	00:18:23.002
+147.1	Made Shot - 2	00:18:23.001	
+149.1	Opponent Offense	00:18:23.003	00:18:36.002
+149.1	Turnover	00:18:36.001	

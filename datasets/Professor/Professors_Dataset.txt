@@ -1,0 +1,767 @@
+0	BS	3/25/1993	
+0	MS	3/25/1995		
+0	PhD	3/24/1997		
+0	Journal	11/23/1993		
+0	Conference	7/24/1994	
+0	Book	7/23/2006	
+0	Newspaper	7/21/2004			
+0	Journal	7/23/1997		
+0	Conference	11/22/1997		
+0	Assistant Professor	11/22/1998	3/24/2001	
+0	Journal	11/22/1999		
+0	Associate Professor	3/30/2001	7/21/2011	
+0	Journal	11/21/2001		
+0	Conference	7/22/2002		
+0	Conference	3/23/2003		
+0	Journal	7/22/2003		
+0	Conference	3/22/2004				
+0	Conference	7/21/2006		
+0	Conference	7/21/2007		
+0	Conference	3/21/2008		
+0	Journal	3/21/2009		
+0	Conference	11/19/2010		
+0	Professor	7/23/2011	12/1/2012	
+0	Journal	3/20/2012		
+1	BS	3/25/1993		
+1	Journal	3/25/1994		
+1	Conference	7/24/1995		
+1	Conference	11/23/1995		
+1	MS	3/24/1996		
+1	Journal	7/23/1996		
+1	Conference	7/23/1998		
+1	Conference	11/22/1998		
+1	Journal	3/24/1999		
+1	PhD	7/23/1999		
+1	Assistant Professor	3/23/2000	7/22/2002	
+1	Conference	3/23/2001		
+1	Associate Professor	7/25/2002	11/11/2003	
+1	Journal	11/21/2002		
+1	Book	3/23/2003		
+1	Journal	7/22/2003		
+1	Professor	11/21/2003	12/1/2012	
+1	Journal	3/22/2004		
+1	Conference	11/20/2004		
+1	Journal	7/21/2006		
+1	Journal	3/21/2011		
+1	Journal	11/19/2011		
+1	Conference	3/20/2012		
+2	Conference	11/23/1992		
+2	Journal	3/25/1993		
+2	BS	3/25/1994		
+2	Journal	7/24/1994		
+2	Journal	11/23/1994		
+2	MS	3/25/1995		
+2	Conference	7/24/1995		
+2	Conference	3/24/1998		
+2	Conference	7/23/1998		
+2	Conference	11/22/1998		
+2	PhD	7/23/1999		
+2	Assistant Professor	11/22/1999	3/23/2002	
+2	Journal	11/21/2000		
+2	Journal	11/21/2001		
+2	Associate Professor	3/27/2002	7/20/2010	
+2	Conference	11/21/2002		
+2	Journal	3/23/2003		
+2	Book	3/22/2004		
+2	Journal	7/21/2004		
+2	Journal	3/22/2005		
+2	Conference	7/21/2005		
+2	Journal	3/22/2006		
+2	Conference	7/21/2006		
+2	Conference	11/20/2006		
+2	Journal	3/22/2007		
+2	Conference	7/20/2008		
+2	Conference	7/20/2010		
+2	Professor	7/22/2010	12/1/2012	
+2	Journal	7/20/2011		
+2	Journal	11/19/2011		
+3	Conference	7/24/1993		
+3	BS	11/23/1993		
+3	MS	3/25/1995		
+3	Conference	7/23/1996		
+3	Journal	11/22/1996		
+3	Journal	11/22/1997		
+3	Journal	3/24/1998		
+3	Journal	7/23/1998		
+3	PhD	3/24/1999		
+3	Assistant Professor	7/23/1999	11/22/2001	
+3	Journal	11/21/2000		
+3	Conference	3/23/2001		
+3	Journal	11/21/2001		
+3	Associate Professor	11/29/2001	3/21/2006	
+3	Journal	3/22/2004		
+3	Professor	3/23/2006	12/1/2012	
+3	Journal	7/21/2006		
+3	Journal	3/22/2007		
+3	Journal	11/20/2007		
+3	Conference	3/21/2008		
+3	Conference	7/20/2008		
+3	Journal	11/19/2008		
+3	Journal	11/19/2009		
+3	Conference	3/21/2010		
+3	Journal	7/20/2010		
+3	Journal	11/19/2011		
+3	Journal	7/19/2012		
+4	BS	12/25/1982		
+4	Journal	7/27/1984		
+4	MS	12/29/1984		
+4	Journal	8/27/1986		
+4	Conference	2/15/1989		
+4	Conference	1/31/1990		
+4	PhD	9/26/1991		
+4	Assistant Professor	8/2/1992	11/30/1997	
+4	Conference	1/24/1996		
+4	Associate Professor	12/1/1997	11/22/2005	
+4	Journal	12/26/1997		
+4	Conference	2/20/1999		
+4	Conference	3/16/2000		
+4	Conference	3/4/2001		
+4	Conference	9/10/2003		
+4	Conference	7/31/2005		
+4	Professor	11/28/2005	12/1/2012	
+4	Journal	11/29/2009		
+4	Journal	4/30/2010		
+5	BS	9/19/1983		
+5	Journal	1/18/1984		
+5	MS	2/9/1985		
+5	Conference	1/1/1986		
+5	Conference	1/28/1988		
+5	PhD	10/24/1989		
+5	Assistant Professor	12/21/1989	12/3/1990	
+5	Associate Professor	5/23/1991	11/29/1999	
+5	Conference	3/27/1993		
+5	Journal	12/13/1994		
+5	Newspaper	2/18/1997		
+5	Conference	9/22/1998		
+5	Professor	1/21/2000	12/1/2012	
+5	Conference	11/26/2006		
+5	Book	8/18/2007		
+5	Conference	7/13/2011		
+6	BS	3/25/1982		
+6	Journal	10/2/1983		
+6	MS	3/7/1984		
+6	Conference	9/16/1985		
+6	Journal	2/17/1986		
+6	PhD	3/31/1987		
+6	Assistant Professor	7/29/1988	12/7/1993	
+6	Associate Professor	12/12/1993	12/2/1999	
+6	Journal	9/25/1995		
+6	Journal	1/28/1996		
+6	Conference	9/18/1998		
+6	Journal	1/24/1999		
+6	Professor	12/10/1999	12/1/2012	
+6	Conference	4/19/2005		
+6	Journal	8/6/2006		
+6	Conference	3/6/2007		
+6	Journal	5/3/2008		
+6	Conference	2/8/2009		
+6	Conference	5/9/2010		
+7	BS	1/15/1983		
+7	MS	2/29/1984		
+7	Conference	3/7/1987		
+7	Conference	4/16/1988		
+7	PhD	10/27/1989		
+7	Journal	11/25/1990		
+7	Assistant Professor	12/7/1991	12/6/1994	
+7	Associate Professor	8/21/1996	12/1/1999	
+7	Conference	7/9/1997		
+7	Conference	5/3/1998		
+7	Professor	12/6/1999	12/1/2012	
+7	Book	3/1/2002		
+7	Newspaper	9/1/2002		
+7	Conference	11/28/2008		
+7	Conference	2/23/2010		
+8	Journal	5/23/1982		
+8	BS	5/11/1984		
+8	MS	9/6/1986		
+8	Journal	7/13/1987		
+8	Conference	4/26/1988		
+8	PhD	7/4/1989		
+8	Assistant Professor	2/6/1990	11/30/1998	
+8	Journal	9/23/1993		
+8	Conference	1/10/1995		
+8	Conference	8/15/1996		
+8	Conference	4/28/1997		
+8	Associate Professor	12/1/1998	12/2/2003	
+8	Journal	1/6/1999		
+8	Conference	10/1/2000		
+8	Journal	8/21/2002		
+8	Professor	12/6/2003	12/1/2012	
+8	Journal	1/22/2006		
+8	Journal	8/16/2008		
+8	Conference	4/20/2009		
+9	BS	8/26/1983		
+9	MS	12/18/1984		
+9	Conference	2/7/1987		
+9	Conference	3/17/1988		
+9	PhD	10/27/1989		
+9	Assistant Professor	11/12/1990	11/30/1993	
+9	Associate Professor	12/1/1993	12/1/2003	
+9	Conference	6/12/1994		
+9	Conference	5/13/1998		
+9	Newspaper	3/4/2000		
+9	Journal	8/5/2001		
+9	Journal	5/26/2002		
+9	Professor	12/7/2003	12/1/2012	
+9	Journal	9/15/2004		
+9	Conference	12/4/2005		
+9	Book	3/4/2007		
+9	Journal	6/14/2010		
+10	Conference	12/14/1981		
+10	BS	9/9/1984		
+10	Conference	12/24/1985		
+10	MS	6/8/1987		
+10	Conference	9/21/1990		
+10	Conference	5/14/1991		
+10	Conference	11/14/1993		
+10	PhD	3/31/1998		
+10	Journal	4/11/1995		
+10	Conference	4/30/1996		
+10	Assistant Professor	9/10/1998	11/29/2004	
+10	Journal	6/21/2001		
+10	Associate Professor	12/1/2004	11/22/2010	
+10	Conference	6/18/2007		
+10	Conference	7/23/2009		
+10	Professor	11/29/2010	12/1/2012	
+11	Journal	5/3/1982		
+11	BS	4/21/1983		
+11	Journal	1/6/1984		
+11	Conference	1/18/1985		
+11	MS	2/18/1986		
+11	PhD	4/28/1990		
+11	Assistant Professor	10/1/1991	11/29/1996	
+11	Journal	8/30/1996		
+11	Associate Professor	12/1/1996	12/1/2005	
+11	Journal	7/22/1997		
+11	Conference	5/17/1998		
+11	Journal	1/28/2000		
+11	Conference	5/3/2001		
+11	Conference	2/28/2004		
+11	Professor	12/6/2005	12/1/2012	
+11	Journal	7/6/2010		
+11	Conference	9/30/2011		
+12	BS	7/31/1984		
+12	MS	12/8/1985		
+12	PhD	12/25/1989		
+12	Conference	5/30/1991		
+12	Assistant Professor	11/18/1992	1/25/1995	
+12	Conference	1/13/1995		
+12	Associate Professor	2/1/1995	6/1/2001	
+12	Journal	9/29/1996		
+12	Conference	4/25/1998		
+12	Conference	3/9/1999		
+12	Professor	6/17/2001	12/1/2012	
+12	Conference	8/19/2002		
+12	Conference	12/25/2009		
+13	BS	3/9/1982		
+13	MS	12/28/1983		
+13	Conference	12/11/1984		
+13	Conference	12/16/1986		
+13	PhD	10/17/1988		
+13	Conference	3/27/1989		
+13	Journal	4/22/1990		
+13	Assistant Professor	3/27/1992	3/26/2000	
+13	Conference	11/2/1995		
+13	Conference	8/30/1998		
+13	Conference	11/6/1999		
+13	Associate Professor	4/1/2000	11/20/2010	
+13	Journal	11/9/2000		
+13	Journal	1/4/2002		
+13	Conference	10/1/2005		
+13	Professor	11/22/2010	12/1/2012	
+14	BS	9/17/1982		
+14	Conference	4/17/1983		
+14	MS	11/20/1984		
+14	Journal	9/8/1988		
+14	PhD	12/12/1989		
+14	Assistant Professor	11/10/1994	10/11/2000	
+14	Book	3/6/1996		
+14	Conference	7/6/1997		
+14	Conference	7/23/1998		
+14	Associate Professor	12/1/2000	12/1/2011	
+14	Conference	2/16/2001		
+14	Conference	5/24/2002		
+14	Conference	1/18/2004		
+14	Journal	12/3/2005		
+14	Journal	3/22/2010		
+14	Professor	12/16/2011	12/1/2012	
+15	Journal	1/26/1982		
+15	BS	11/23/1982		
+15	Journal	1/31/1984		
+15	MS	5/30/1984		
+15	Journal	11/5/1985		
+15	Conference	8/17/1989		
+15	PhD	1/27/1991		
+15	Assistant Professor	5/3/1992	12/6/1997	
+15	Journal	11/19/1994		
+15	Conference	1/31/1996		
+15	Associate Professor	12/12/1997	11/11/2005	
+15	Journal	12/25/1997		
+15	Conference	6/11/2002		
+15	Conference	11/3/2003		
+15	Professor	11/16/2005	12/1/2012	
+15	Journal	8/6/2006		
+15	Conference	7/22/2007		
+16	Conference	2/8/1981		
+16	BS	9/28/1983		
+16	MS	3/1/1985		
+16	Conference	8/3/1986		
+16	PhD	7/25/1989		
+16	Conference	8/3/1989		
+16	Conference	9/1/1989		
+16	Assistant Professor	1/15/1990	4/3/1991	
+16	Conference	3/1/1990		
+16	Conference	4/1/1991		
+16	Associate Professor	4/6/1991	1/20/2000	
+16	Conference	11/22/1993		
+16	Journal	3/9/1995		
+16	Conference	11/15/1996		
+16	Conference	11/23/1997		
+16	Conference	10/24/1998		
+16	Journal	7/22/1999		
+16	Professor	1/28/2000	12/1/2012	
+16	Conference	7/4/2001		
+16	Conference	12/24/2002		
+16	Conference	6/18/2007		
+16	Conference	4/15/2010		
+17	BS	7/24/1981		
+17	Journal	5/19/1983		
+17	MS	5/19/1984		
+17	PhD	9/8/1987		
+17	Assistant Professor	3/11/1988	4/1/1993	
+17	Associate Professor	5/1/1993	6/1/2000	
+17	Journal	11/27/1995		
+17	Conference	2/5/1999		
+17	Journal	3/10/1999		
+17	Journal	4/1/2000		
+17	Professor	6/11/2000	12/1/2012	
+18	Conference	1/20/1981		
+18	BS	1/9/1983		
+18	MS	4/6/1984		
+18	Conference	9/1/1987		
+18	PhD	1/19/1989		
+18	Assistant Professor	7/31/1992	3/20/1997	
+18	Associate Professor	3/23/1997	5/20/2000	
+18	Conference	7/28/1997		
+18	Professor	5/24/2000	12/1/2012	
+18	Conference	11/17/2003		
+18	Journal	7/4/2004		
+18	Conference	5/27/2006		
+18	Conference	5/13/2007		
+19	BS	5/26/1984		
+19	MS	4/18/1986		
+19	Journal	6/11/1986		
+19	Conference	10/24/1988		
+19	Assistant Professor	6/21/1989	7/28/1998	
+19	PhD	11/23/1989		
+19	Journal	9/24/1993		
+19	Conference	7/8/1996		
+19	Associate Professor	8/1/1998	1/10/2003	
+19	Journal	9/17/1998		
+19	Professor	1/11/2003	12/1/2012	
+19	Journal	4/30/2006		
+19	Journal	8/22/2008		
+19	Conference	3/16/2009		
+19	Journal	5/10/2010		
+19	Conference	3/13/2012		
+20	BS	8/25/1983		
+20	MS	8/7/1984		
+20	Conference	7/25/1985		
+20	PhD	7/28/1989		
+20	Assistant Professor	4/23/1990	10/26/1993	
+20	Associate Professor	11/1/1993	11/20/2003	
+20	Book	1/1/1994		
+20	Journal	8/9/1996		
+20	Conference	12/13/1998		
+20	Journal	11/28/1999		
+20	Professor	11/29/2003	12/1/2012	
+20	Conference	4/29/2008		
+20	Conference	3/10/2011		
+21	Journal	7/28/1983		
+21	BS	7/20/1985		
+21	Conference	3/5/1986		
+21	MS	6/15/1987		
+21	Conference	12/31/1990		
+21	Conference	3/15/1992		
+21	PhD	8/8/1993		
+21	Conference	10/27/1997		
+21	Assistant Professor	10/24/1998	3/13/2005	
+21	Associate Professor	3/15/2005	4/14/2011	
+21	Conference	9/10/2005		
+21	Conference	5/4/2007		
+21	Conference	11/22/2008		
+21	Conference	3/8/2010		
+21	Journal	12/8/2010		
+21	Professor	4/16/2011	12/1/2012	
+22	Journal	11/21/1981		
+22	BS	3/13/1983		
+22	MS	11/11/1985		
+22	Journal	2/17/1987		
+22	Conference	2/23/1989		
+22	PhD	12/23/1989		
+22	Assistant Professor	12/7/1991	11/28/1996	
+22	Conference	5/1/1995		
+22	Associate Professor	12/1/1996	2/14/2005	
+22	Professor	2/18/2005	12/1/2012	
+22	Conference	7/15/2008		
+22	Journal	12/18/2010		
+22	Conference	5/5/2011
+22	Journal	2/18/2011	
+22	Journal	5/1/2012			
+23	Journal	8/20/1982		
+23	BS	3/23/1984		
+23	Conference	8/29/1985		
+23	MS	9/16/1985		
+23	Journal	10/25/1987		
+23	Journal	9/26/1989		
+23	PhD	11/14/1989		
+23	Assistant Professor	7/28/1993	3/17/1995	
+23	Associate Professor	3/19/1995	6/2/2001	
+23	Conference	3/20/1995		
+23	Book	4/11/1996		
+23	Newspaper	4/11/1999		
+23	Journal	5/10/2000		
+23	Professor	6/6/2001	12/1/2012	
+23	Journal	12/2/2001		
+23	Conference	6/13/2004		
+23	Conference	10/29/2009		
+24	BS	10/3/1982		
+24	Journal	3/22/1983		
+24	MS	12/20/1983		
+24	Conference	5/24/1985		
+24	PhD	5/5/1989		
+24	Assistant Professor	8/10/1991	9/4/2000	
+24	Conference	7/10/1995		
+24	Conference	10/28/1996		
+24	Associate Professor	9/10/2000	5/23/2010	
+24	Conference	3/29/2002		
+24	Professor	5/30/2010	12/1/2012	
+25	BS	10/1/1982		
+25	MS	11/18/1984		
+25	Conference	4/19/1986		
+25	PhD	3/28/1987		
+25	Journal	3/10/1991		
+25	Conference	12/22/1992		
+25	Assistant Professor	1/5/1995	11/23/2000	
+25	Conference	9/27/1998		
+25	Journal	1/16/1999		
+25	Associate Professor	11/30/2000	2/10/2012	
+25	Conference	2/12/2002		
+25	Conference	9/3/2003		
+25	Conference	10/9/2006		
+25	Journal	11/5/2010		
+25	Professor	2/14/2012	12/1/2012	
+26	Journal	10/1/1992		
+26	Journal	7/6/1993		
+26	BS	8/17/1993		
+26	Conference	9/21/1993		
+26	MS	11/7/1994		
+26	Journal	4/30/1995		
+26	PhD	10/22/1996		
+26	Journal	1/5/1997		
+26	Conference	7/24/1997		
+26	Journal	11/14/1998		
+26	Assistant Professor	1/27/1999	6/17/2001	
+26	Journal	4/2/2000		
+26	Journal	11/7/2000		
+26	Associate Professor	6/19/2001	3/11/2011	
+26	Journal	3/30/2003		
+26	Conference	8/3/2004		
+26	Journal	12/23/2004		
+26	Conference	3/24/2006		
+26	Journal	6/4/2006		
+26	Conference	10/21/2006		
+26	Conference	5/14/2007		
+26	Conference	6/25/2008		
+26	Journal	9/16/2008		
+26	Conference	2/12/2009		
+26	Journal	4/29/2009		
+26	Journal	11/2/2009		
+26	Journal	11/6/2010		
+26	Professor	3/15/2011	12/1/2012	
+26	Journal	7/10/2011		
+26	Journal	1/2/2013		
+27	Journal	6/7/1993		
+27	BS	11/17/1993		
+27	Conference	3/5/1995		
+27	MS	10/3/1995		
+27	Conference	11/27/1995		
+27	Conference	4/10/1996		
+27	Journal	4/16/1997		
+27	Conference	3/28/1998		
+27	Conference	8/25/1998		
+27	PhD	12/19/1998		
+27	Conference	4/25/1999		
+27	Assistant Professor	8/22/1999	4/11/2003	
+27	Conference	1/1/2000		
+27	Newspaper	10/14/2000		
+27	Conference	12/13/2000		
+27	Book	10/14/2001		
+27	Journal	5/12/2002		
+27	Journal	12/17/2002		
+27	Associate Professor	4/15/2003	4/4/2009	
+27	Journal	10/5/2003		
+27	Conference	10/6/2004		
+27	Conference	1/3/2005		
+27	Journal	4/18/2005		
+27	Journal	4/14/2006		
+27	Conference	8/14/2006		
+27	Conference	12/7/2006		
+27	Journal	7/11/2007		
+27	Journal	9/13/2007		
+27	Journal	6/16/2008		
+27	Professor	4/9/2009	12/1/2012	
+27	Conference	5/5/2011		
+27	Journal	5/8/2011		
+28	BS	9/17/1994		
+28	MS	12/6/1994		
+28	Conference	8/18/1997		
+28	Conference	10/8/1997		
+28	Book	3/2/1998		
+28	Journal	8/26/1998		
+28	Conference	9/10/1998		
+28	PhD	4/19/1999		
+28	Assistant Professor	1/12/2000	3/23/2002	
+28	Journal	1/16/2001		
+28	Conference	3/27/2001		
+28	Associate Professor	3/28/2002	7/20/2010	
+28	Conference	9/1/2002		
+28	Journal	2/2/2003		
+28	Conference	9/30/2003		
+28	Journal	10/15/2003		
+28	Journal	6/7/2004		
+28	Journal	9/13/2004		
+28	Journal	2/19/2005		
+28	Conference	11/10/2005		
+28	Journal	11/11/2005		
+28	Conference	5/5/2007		
+28	Journal	11/17/2007		
+28	Professor	7/22/2010	12/1/2012	
+28	Conference	12/17/2010		
+28	Journal	6/22/2011		
+28	Journal	11/9/2011		
+28	Journal	2/14/2012		
+29	Journal	5/8/1993		
+29	BS	8/3/1993		
+29	Conference	10/25/1993		
+29	Journal	4/22/1994		
+29	MS	12/11/1994		
+29	Conference	7/29/1995		
+29	Conference	12/16/1996		
+29	Conference	1/1/1997		
+29	Journal	3/4/1997		
+29	Journal	7/2/1997		
+29	PhD	10/25/1997		
+29	Journal	11/17/1997		
+29	Assistant Professor	9/19/1999	11/2/2001	
+29	Journal	10/21/2000		
+29	Journal	2/13/2001		
+29	Associate Professor	11/5/2001	3/23/2006	
+29	Conference	7/27/2002		
+29	Journal	10/4/2002		
+29	Conference	4/25/2003		
+29	Journal	12/13/2003		
+29	Journal	8/14/2005		
+29	Professor	4/21/2006	12/1/2012	
+29	Journal	1/8/2007		
+29	Conference	11/29/2008		
+29	Journal	12/18/2008		
+29	Conference	7/7/2009		
+29	Journal	10/26/2009		
+29	Journal	11/9/2009		
+29	Journal	12/8/2009		
+29	Journal	6/8/2012		
+29	Journal	6/29/2012		
+30	BS	6/2/1983		
+30	MS	11/27/1984		
+30	Journal	3/1/1987		
+30	Conference	8/10/1987		
+30	Conference	7/29/1989		
+30	PhD	7/1/1990		
+30	Assistant Professor	10/5/1991	11/30/1997	
+30	Journal	8/2/1992		
+30	Journal	11/11/1995		
+30	Conference	5/15/1996		
+30	Associate Professor	12/1/1997	11/28/2005	
+30	Conference	6/10/2002		
+30	Conference	10/4/2003		
+30	Professor	12/1/2005	12/1/2012	
+30	Journal	5/12/2006		
+30	Conference	7/23/2007		
+30	Journal	2/4/2009		
+31	Journal	3/12/1984		
+31	BS	4/20/1984		
+31	Assistant Professor	12/5/1984	8/21/1989	
+31	MS	12/21/1984		
+31	Conference	2/17/1986		
+31	Conference	5/23/1987		
+31	PhD	6/15/1987		
+31	Associate Professor	8/23/1989	10/1/2009	
+31	Conference	11/27/1994		
+31	Journal	1/8/1995		
+31	Conference	12/14/1996		
+31	Conference	5/16/1998		
+31	Conference	9/25/2000		
+31	Journal	3/21/2001		
+31	Book	8/27/2002		
+31	Conference	4/18/2004		
+31	Conference	8/13/2007		
+31	Journal	10/12/2007		
+31	Conference	9/28/2009		
+31	Professor	10/2/2009	12/1/2012	
+31	Conference	10/12/2010		
+32	BS	7/11/1981		
+32	MS	9/9/1983		
+32	Conference	5/28/1986		
+32	PhD	10/7/1986		
+32	Assistant Professor	6/21/1988	10/4/1993	
+32	Conference	4/19/1993		
+32	Associate Professor	10/10/1993	12/1/1999	
+32	Conference	8/22/1994		
+32	Conference	4/26/1999		
+32	Professor	12/10/1999	12/1/2012	
+32	Journal	1/6/2001		
+32	Journal	1/18/2005		
+32	Journal	4/30/2008		
+32	Conference	3/30/2009		
+33	BS	1/20/1983		
+33	Conference	2/11/1985		
+33	MS	3/16/1986		
+33	Conference	7/31/1986		
+33	Conference	6/26/1988		
+33	PhD	10/10/1989		
+33	Journal	3/22/1991		
+33	Assistant Professor	10/9/1991	1/16/1997	
+33	Associate Professor	2/1/1997	3/1/1999	
+33	Conference	3/10/1998		
+33	Conference	5/10/1998		
+33	Professor	3/21/1999	12/1/2012	
+33	Journal	12/6/1999		
+33	Conference	7/4/2000		
+33	Conference	6/30/2001		
+33	Journal	5/6/2002		
+33	Journal	1/22/2005		
+33	Conference	5/4/2006		
+33	Conference	8/12/2008		
+34	Journal	10/21/1982		
+34	Conference	4/10/1983		
+34	BS	10/26/1983		
+34	Journal	7/3/1985		
+34	MS	9/24/1986		
+34	Journal	12/29/1987		
+34	PhD	2/4/1989		
+34	Assistant Professor	1/23/1990	3/1/1999	
+34	Newspaper	1/21/1991		
+34	Journal	9/2/1993		
+34	Book	1/21/1994		
+34	Conference	4/12/1995		
+34	Conference	5/16/1997		
+34	Journal	9/4/1998		
+34	Associate Professor	4/1/1999	12/1/2003	
+34	Conference	9/22/2003		
+34	Professor	12/6/2003	12/1/2012	
+34	Journal	11/30/2006		
+34	Journal	12/12/2006		
+34	Journal	11/2/2007		
+34	Journal	10/7/2010		
+35	Conference	10/10/1983		
+35	BS	10/13/1983		
+35	MS	9/17/1985		
+35	Conference	10/25/1986		
+35	Conference	11/24/1987		
+35	PhD	12/14/1989		
+35	Assistant Professor	10/10/1990	10/19/1997	
+35	Conference	3/8/1993		
+35	Newspaper	5/21/1993		
+35	Journal	3/27/1995		
+35	Associate Professor	11/1/1997	7/1/2003	
+35	Journal	9/4/1999		
+35	Book	5/21/2002		
+35	Professor	7/22/2003	12/1/2012	
+35	Journal	3/29/2004		
+35	Journal	11/30/2005		
+35	Journal	2/17/2010		
+36	Journal	6/24/1983		
+36	BS	1/27/1984		
+36	Journal	12/13/1985		
+36	Conference	4/14/1986		
+36	MS	8/19/1986		
+36	Journal	7/19/1989		
+36	Conference	2/18/1991		
+36	PhD	8/12/1993		
+36	Conference	1/30/1996		
+36	Conference	3/1/1997		
+36	Assistant Professor	9/2/1998	11/8/2004	
+36	Journal	1/28/2001		
+36	Journal	5/9/2002		
+36	Journal	10/3/2002		
+36	Associate Professor	12/1/2004	11/20/2010	
+36	Conference	10/27/2005		
+36	Conference	8/29/2006		
+36	Conference	4/12/2008		
+36	Conference	8/11/2008		
+36	Conference	6/9/2009		
+36	Conference	12/26/2009		
+36	Professor	11/22/2010	12/1/2012	
+36	Journal	6/9/2011		
+37	Journal	8/18/1982		
+37	BS	3/22/1984		
+37	MS	9/17/1985		
+37	Journal	11/20/1986		
+37	Conference	11/3/1989		
+37	PhD	9/9/1990		
+37	Assistant Professor	5/31/1991	7/27/1999	
+37	Journal	10/2/1994		
+37	Conference	9/26/1995		
+37	Journal	3/20/1997		
+37	Conference	11/14/1998		
+37	Associate Professor	7/29/1999	11/18/2005	
+37	Journal	2/15/2000		
+37	Conference	9/20/2001		
+37	Journal	1/27/2002		
+37	Conference	1/14/2003		
+37	Conference	6/23/2004		
+37	Professor	11/20/2005	12/1/2012	
+37	Conference	6/28/2006		
+37	Book	4/28/2007		
+37	Conference	8/5/2007		
+37	Newspaper	4/28/2009		
+37	Journal	3/22/2010		
+37	Conference	11/5/2011		
+38	Journal	2/6/1983		
+38	BS	6/3/1984		
+38	Conference	2/12/1985		
+38	MS	12/26/1985		
+38	Journal	7/2/1986		
+38	PhD	7/13/1989		
+38	Journal	12/21/1989		
+38	Assistant Professor	5/12/1991	2/7/1995	
+38	Conference	5/12/1991		
+38	Associate Professor	2/10/1995	9/25/2001	
+38	Conference	12/11/1995		
+38	Journal	11/17/1996		
+38	Conference	6/29/1998		
+38	Journal	12/25/1999		
+38	Journal	9/23/2001		
+38	Professor	9/27/2001	12/1/2012	
+38	Conference	3/17/2005		
+38	Conference	5/21/2005		
+38	Conference	12/30/2009		
+38	Conference	5/23/2010		
+39	BS	5/29/1981		
+39	Journal	2/13/1983		
+39	MS	4/4/1984		
+39	Conference	10/13/1985		
+39	Conference	7/1/1987		
+39	PhD	7/13/1988		
+39	Conference	3/30/1989		
+39	Assistant Professor	9/30/1991	3/11/2000	
+39	Conference	10/17/1991		
+39	Conference	9/26/1996		
+39	Associate Professor	3/12/2000	1/22/2011	
+39	Journal	3/18/2000		
+39	Conference	4/14/2002		
+39	Conference	7/22/2003		
+39	Book	5/18/2005		
+39	Conference	11/2/2005		
+39	Professor	1/24/2011	12/1/2012
