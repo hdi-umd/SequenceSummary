@@ -1,0 +1,471 @@
+0	Foul	00:00:24.001		Half="1";GameTime="19:36";Score="0-0"
+0	Made Shot	00:00:58.001		Half="1";GameTime="19:02";Score="2-0";By="Alex Len";ShotType="Dunk. Assisted by Dez Wells."
+0	UMD Offense	00:00:24.000	00:00:58.002	
+0	Made Shot	00:01:11.001		Half="1";GameTime="18:49";Score="2-3";By="P.J. Hairston";ShotType="Three Point Jumper. Assisted by Reggie Bullock."
+0	UNC Offense	00:00:58.003	00:01:11.002	
+1	Missed Shot	00:01:30.001		Half="1";GameTime="18:30";Score="2-3";By="Jake Layman";ShotType="Three Point Jumper."
+1	UMD Offense	00:01:11.003	00:01:30.009	
+1	Rebound	00:01:30.011		Half="1";GameTime="18:30";Score="2-3";By="James Michael"
+1	Made Shot	00:01:44.001		Half="1";GameTime="18:16";Score="2-6";By="Reggie Bullock";ShotType="Three Point Jumper. Assisted by Dexter Strickland."
+1	UNC Offense	00:01:30.010	00:01:44.002	
+2	Made Shot	00:02:13.001		Half="1";GameTime="17:47";Score="4-6";By="Alex Len";ShotType="Dunk."
+2	UMD Offense	00:01:44.003	00:02:13.002	
+2	Made Shot	00:02:20.001		Half="1";GameTime="17:40";Score="4-8";By="Reggie Bullock";ShotType="Layup."
+2	UNC Offense	00:02:13.003	00:02:20.002	
+3	Missed Shot	00:02:35.001		Half="1";GameTime="17:25";Score="4-8";By="Nick Faust";ShotType="Three Point Jumper."
+3	Rebound	00:02:35.011		Half="1";GameTime="17:25";Score="4-8";By="Jake Layman"
+3	Foul	00:02:52.001		Half="1";GameTime="17:08";Score="4-8"
+3	Made Free Throw	00:02:52.011		Half="1";GameTime="17:08";Score="5-8"
+3	Made Free Throw	00:02:52.021		Half="1";GameTime="17:08";Score="6-8"
+3	UMD Offense	00:02:20.003	00:02:52.022	
+3	Missed Shot	00:03:13.001		Half="1";GameTime="16:47";Score="6-8";By="James Michael";ShotType="Jumper."
+3	UNC Offense	00:02:52.023	00:03:13.009	
+4	Rebound	00:03:13.011		Half="1";GameTime="16:47";Score="6-8";By="Alex Len"
+4	Foul	00:03:40.001		Half="1";GameTime="16:20";Score="6-8"
+4	UMD Offense	00:03:13.010	00:03:40.002	
+4	Missed Shot	00:03:49.001		Half="1";GameTime="16:11";Score="6-8";By="Reggie Bullock";ShotType="Three Point Jumper."
+4	UNC Offense	00:03:40.003	00:03:49.009	
+5	Rebound	00:03:49.011		Half="1";GameTime="16:11";Score="6-8";By="Dez Wells"
+5	Missed Shot	00:04:00.001		Half="1";GameTime="16:00";Score="6-8";By="Nick Faust";ShotType="Three Point Jumper."
+5	UMD Offense	00:03:49.010	00:04:00.009	
+5	Rebound	00:04:00.011		Half="1";GameTime="16:00";Score="6-8";By="James Michael"
+5	Made Shot	00:04:13.001		Half="1";GameTime="15:47";Score="6-10";By="Dexter Strickland";ShotType="Jumper."
+5	UNC Offense	00:04:00.010	00:04:13.002	
+6	Timeout	00:04:13.011		Half="1";GameTime="15:47";Score="6-10";CalledBy="Official"
+6	Turnover	00:04:24.001		Half="1";GameTime="15:36";Score="6-10"
+6	UMD Offense	00:04:13.003	00:04:24.002	
+6	Steal	00:04:24.011		Half="1";GameTime="15:36";Score="6-10"
+6	Made Shot	00:04:33.001		Half="1";GameTime="15:27";Score="6-13";By="P.J. Hairston";ShotType="Three Point Jumper."
+6	UNC Offense	00:04:24.003	00:04:33.002	
+7	Made Shot	00:04:59.001		Half="1";GameTime="15:01";Score="9-13";By="Seth Allen";ShotType="Three Point Jumper. Assisted by Nick Faust."
+7	UMD Offense	00:04:33.003	00:04:59.002	
+7	Turnover	00:05:20.001		Half="1";GameTime="14:40";Score="9-13"
+7	UNC Offense	00:04:59.003	00:05:20.002	
+8	Steal	00:05:20.011		Half="1";GameTime="14:40";Score="9-13"
+8	Missed Shot	00:05:27.001		Half="1";GameTime="14:33";Score="9-13";By="Seth Allen";ShotType="Three Point Jumper."
+8	UMD Offense	00:05:20.003	00:05:27.009	
+8	Rebound	00:05:27.011		Half="1";GameTime="14:33";Score="9-13";By="James Michael"
+8	Foul	00:05:39.001		Half="1";GameTime="14:21";Score="9-13"
+8	UNC Offense	00:05:27.010	00:05:39.002	
+9	Missed Shot	00:05:52.001		Half="1";GameTime="14:08";Score="9-13";By="Dez Wells";ShotType="Jumper."
+9	UMD Offense	00:05:39.003	00:05:52.009	
+9	Rebound	00:05:52.011		Half="1";GameTime="14:08";Score="9-13";By="James Michael"
+9	Missed Shot	00:06:06.001		Half="1";GameTime="13:54";Score="9-13";By="Brice Johnson";ShotType="Jumper."
+9	UNC Offense	00:05:52.010	00:06:06.009	
+10	Rebound	00:06:06.011		Half="1";GameTime="13:54";Score="9-13";By="Dez Wells"
+10	Turnover	00:06:19.001		Half="1";GameTime="13:41";Score="9-13"
+10	UMD Offense	00:06:06.010	00:06:19.002	
+10	Steal	00:06:19.011		Half="1";GameTime="13:41";Score="9-13"
+10	Made Shot	00:06:31.001		Half="1";GameTime="13:29";Score="9-15";By="Dexter Strickland";ShotType="Jumper. Assisted by Reggie Bullock."
+10	UNC Offense	00:06:19.003	00:06:31.002	
+11	Timeout	00:06:40.001		Half="1";GameTime="13:20";Score="9-15";CalledBy="Maryland"
+11	Missed Shot	00:06:52.001		Half="1";GameTime="13:08";Score="9-15";By="Logan Aronhalt";ShotType="Three Point Jumper."
+11	UMD Offense	00:06:31.003	00:06:52.009	
+11	Rebound	00:06:52.011		Half="1";GameTime="13:08";Score="9-15";By="Brice Johnson"
+11	Missed Shot	00:07:17.001		Half="1";GameTime="12:43";Score="9-15";By="James Michael";ShotType="Jumper."
+11	UNC Offense	00:06:52.010	00:07:17.009	
+12	Rebound	00:07:17.011		Half="1";GameTime="12:43";Score="9-15";By="Charles Mitchell"
+12	Turnover	00:07:27.001		Half="1";GameTime="12:33";Score="9-15"
+12	UMD Offense	00:07:17.010	00:07:27.002	
+12	Foul	00:07:40.001		Half="1";GameTime="12:20";Score="9-15"
+12	Made Free Throw	00:07:40.011		Half="1";GameTime="12:20";Score="9-16"
+12	Made Free Throw	00:07:40.021		Half="1";GameTime="12:20";Score="9-17"
+12	UNC Offense	00:07:27.003	00:07:40.022	
+13	Missed Shot	00:07:56.001		Half="1";GameTime="12:04";Score="9-17";By="Shaquille Cleare";ShotType="Jumper."
+13	UMD Offense	00:07:40.023	00:07:56.009	
+13	Rebound	00:07:56.011		Half="1";GameTime="12:04";Score="9-17";By="Dexter Strickland"
+13	Made Shot	00:08:02.001		Half="1";GameTime="11:58";Score="9-19";By="Dexter Strickland";ShotType="Layup."
+13	Foul	00:08:02.011		Half="1";GameTime="11:58";Score="9-19"
+13	Timeout	00:08:02.021		Half="1";GameTime="11:58";Score="9-19";CalledBy="Official"
+13	Made Free Throw	00:08:02.031		Half="1";GameTime="11:58";Score="9-20"
+13	UNC Offense	00:07:56.010	00:08:02.032	
+14	Missed Shot	00:08:14.001		Half="1";GameTime="11:46";Score="9-20";By="Shaquille Cleare";ShotType="Layup."
+14	Block	00:08:14.011		Half="1";GameTime="11:46";Score="9-20"
+14	Rebound	00:08:14.021		Half="1";GameTime="11:46";Score="9-20";By="Maryland Offensive"
+14	Foul	00:08:23.001		Half="1";GameTime="11:37";Score="9-20"
+14	Made Free Throw	00:08:23.011		Half="1";GameTime="11:37";Score="10-20"
+14	Made Free Throw	00:08:23.021		Half="1";GameTime="11:37";Score="11-20"
+14	UMD Offense	00:08:02.033	00:08:23.022	
+14	Foul	00:08:31.001		Half="1";GameTime="11:29";Score="11-20"
+14	Missed Shot	00:08:37.001		Half="1";GameTime="11:23";Score="11-20";By="Leslie McDonald";ShotType="Three Point Jumper."
+14	Rebound	00:08:37.011		Half="1";GameTime="11:23";Score="11-20";By="North Carolina"
+14	Missed Shot	00:09:14.001		Half="1";GameTime="10:46";Score="11-20";By="Reggie Bullock";ShotType="Three Point Jumper."
+14	UNC Offense	00:08:23.023	00:09:14.009	
+15	Rebound	00:09:14.011		Half="1";GameTime="10:46";Score="11-20";By="Alex Len"
+15	Foul	00:09:24.001		Half="1";GameTime="10:36";Score="11-20"
+15	Missed Free Throw	00:09:24.011		Half="1";GameTime="10:36";Score="11-20"
+15	Missed Free Throw	00:09:24.021		Half="1";GameTime="10:36";Score="11-20"
+15	UMD Offense	00:09:14.010	00:09:24.029	
+15	Rebound	00:09:24.031		Half="1";GameTime="10:36";Score="11-20";By="P.J. Hairston"
+15	Made Shot	00:09:37.001		Half="1";GameTime="10:23";Score="11-22";By="James Michael";ShotType="Jumper. Assisted by Reggie Bullock."
+15	UNC Offense	00:09:24.030	00:09:37.002	
+16	Missed Shot	00:10:00.001		Half="1";GameTime="10:00";Score="11-22";By="Dez Wells";ShotType="Layup."
+16	UMD Offense	00:09:37.003	00:10:00.009	
+16	Rebound	00:10:00.011		Half="1";GameTime="10:00";Score="11-22";By="James Michael"
+16	Missed Shot	00:10:07.001		Half="1";GameTime="9:53";Score="11-22";By="Reggie Bullock";ShotType="Three Point Jumper."
+16	UNC Offense	00:10:00.010	00:10:07.009	
+17	Rebound	00:10:07.011		Half="1";GameTime="9:53";Score="11-22";By="Dez Wells"
+17	Foul	00:10:35.001		Half="1";GameTime="9:25";Score="11-22"
+17	Made Free Throw	00:10:35.011		Half="1";GameTime="9:25";Score="12-22"
+17	Missed Free Throw	00:10:35.021		Half="1";GameTime="9:25";Score="12-22"
+17	UMD Offense	00:10:07.010	00:10:35.029	
+17	Rebound	00:10:35.031		Half="1";GameTime="9:25";Score="12-22";By="Joel James"
+17	Missed Shot	00:10:57.001		Half="1";GameTime="9:03";Score="12-22";By="J.P. Tokoto";ShotType="Jumper."
+17	UNC Offense	00:10:35.030	00:10:57.009	
+18	Rebound	00:10:57.011		Half="1";GameTime="9:03";Score="12-22";By="Alex Len"
+18	Turnover	00:11:25.001		Half="1";GameTime="8:35";Score="12-22"
+18	UMD Offense	00:10:57.010	00:11:25.002	
+18	Steal	00:11:25.011		Half="1";GameTime="8:35";Score="12-22"
+18	Missed Shot	00:11:31.001		Half="1";GameTime="8:29";Score="12-22";By="Leslie McDonald";ShotType="Three Point Jumper."
+18	Rebound	00:11:31.011		Half="1";GameTime="8:29";Score="12-22";By="North Carolina"
+18	Missed Shot	00:11:52.001		Half="1";GameTime="8:08";Score="12-22";By="P.J. Hairston";ShotType="Layup."
+18	Rebound	00:11:52.011		Half="1";GameTime="8:08";Score="12-22";By="Joel James"
+18	Made Shot	00:11:56.001		Half="1";GameTime="8:04";Score="12-24";By="Joel James";ShotType="Layup."
+18	UNC Offense	00:11:25.003	00:11:56.002	
+19	Made Shot	00:12:06.001		Half="1";GameTime="7:54";Score="15-24";By="Nick Faust";ShotType="Three Point Jumper. Assisted by Seth Allen."
+19	UMD Offense	00:11:56.003	00:12:06.002	
+19	Missed Shot	00:12:15.001		Half="1";GameTime="7:45";Score="15-24";By="J.P. Tokoto";ShotType="Jumper."
+19	UNC Offense	00:12:06.003	00:12:15.009	
+20	Rebound	00:12:15.011		Half="1";GameTime="7:45";Score="15-24";By="Nick Faust"
+20	Missed Shot	00:12:24.001		Half="1";GameTime="7:36";Score="15-24";By="Nick Faust";ShotType="Jumper."
+20	Rebound	00:12:24.011		Half="1";GameTime="7:36";Score="15-24";By="Jake Layman"
+20	Made Shot	00:12:38.001		Half="1";GameTime="7:22";Score="18-24";By="Nick Faust";ShotType="Three Point Jumper. Assisted by Seth Allen."
+20	UMD Offense	00:12:15.010	00:12:38.002	
+20	Missed Shot	00:12:59.001		Half="1";GameTime="7:01";Score="18-24";By="Leslie McDonald";ShotType="Layup."
+20	UNC Offense	00:12:38.003	00:12:59.009	
+21	Rebound	00:12:59.011		Half="1";GameTime="7:01";Score="18-24";By="Charles Mitchell"
+21	Missed Shot	00:13:13.001		Half="1";GameTime="6:47";Score="18-24";By="Seth Allen";ShotType="Three Point Jumper."
+21	Rebound	00:13:13.011		Half="1";GameTime="6:47";Score="18-24";By="Charles Mitchell"
+21	Missed Shot	00:13:13.021		Half="1";GameTime="6:47";Score="18-24";By="Charles Mitchell";ShotType="Tip Shot."
+21	UMD Offense	00:12:59.010	00:13:13.029	
+21	Rebound	00:13:13.031		Half="1";GameTime="6:47";Score="18-24";By="North Carolina"
+21	Timeout	00:13:18.001		Half="1";GameTime="6:42";Score="18-24";CalledBy="Official"
+21	Foul	00:13:35.001		Half="1";GameTime="6:25";Score="18-24"
+21	Missed Shot	00:13:42.001		Half="1";GameTime="6:18";Score="18-24";By="P.J. Hairston";ShotType="Three Point Jumper."
+21	UNC Offense	00:13:13.030	00:13:42.009	
+22	Rebound	00:13:42.011		Half="1";GameTime="6:18";Score="18-24";By="Logan Aronhalt"
+22	Made Shot	00:14:07.001		Half="1";GameTime="5:53";Score="20-24";By="Dez Wells";ShotType="Layup. Assisted by Pe'Shon Howard."
+22	UMD Offense	00:13:42.010	00:14:07.002	
+22	Missed Shot	00:14:16.001		Half="1";GameTime="5:44";Score="20-24";By="P.J. Hairston";ShotType="Three Point Jumper."
+22	UNC Offense	00:14:07.003	00:14:16.009	
+23	Rebound	00:14:16.011		Half="1";GameTime="5:44";Score="20-24";By="Pe'Shon Howard"
+23	Missed Shot	00:14:39.001		Half="1";GameTime="5:21";Score="20-24";By="Seth Allen";ShotType="Layup."
+23	UMD Offense	00:14:16.010	00:14:39.009	
+23	Rebound	00:14:39.011		Half="1";GameTime="5:21";Score="20-24";By="Reggie Bullock"
+23	Missed Shot	00:14:52.001		Half="1";GameTime="5:08";Score="20-24";By="Dexter Strickland";ShotType="Layup."
+23	UNC Offense	00:14:39.010	00:14:52.009	
+24	Rebound	00:14:52.011		Half="1";GameTime="5:08";Score="20-24";By="Logan Aronhalt"
+24	Made Shot	00:15:02.001		Half="1";GameTime="4:58";Score="22-24";By="Dez Wells";ShotType="Layup."
+24	UMD Offense	00:14:52.010	00:15:02.002	
+24	Made Shot	00:15:11.001		Half="1";GameTime="4:49";Score="22-26";By="P.J. Hairston";ShotType="Layup. Assisted by Dexter Strickland."
+24	Foul	00:15:11.011		Half="1";GameTime="4:49";Score="22-26"
+24	Made Free Throw	00:15:11.021		Half="1";GameTime="4:49";Score="22-27"
+24	UNC Offense	00:15:02.003	00:15:11.022	
+25	Foul	00:15:32.001		Half="1";GameTime="4:28";Score="22-27"
+25	Made Free Throw	00:15:32.011		Half="1";GameTime="4:28";Score="23-27"
+25	Made Free Throw	00:15:32.021		Half="1";GameTime="4:28";Score="24-27"
+25	UMD Offense	00:15:11.023	00:15:32.022	
+25	Missed Shot	00:15:43.001		Half="1";GameTime="4:17";Score="24-27";By="Dexter Strickland";ShotType="Layup."
+25	UNC Offense	00:15:32.023	00:15:43.009	
+26	Rebound	00:15:43.011		Half="1";GameTime="4:17";Score="24-27";By="Dez Wells"
+26	Missed Shot	00:15:50.001		Half="1";GameTime="4:10";Score="24-27";By="Seth Allen";ShotType="Jumper."
+26	UMD Offense	00:15:43.010	00:15:50.009	
+26	Rebound	00:15:50.011		Half="1";GameTime="4:10";Score="24-27";By="James Michael"
+26	Missed Shot	00:16:01.001		Half="1";GameTime="3:59";Score="24-27";By="James Michael";ShotType="Jumper."
+26	UNC Offense	00:15:50.010	00:16:01.009	
+27	Rebound	00:16:01.011		Half="1";GameTime="3:59";Score="24-27";By="Dez Wells"
+27	Missed Shot	00:16:09.001		Half="1";GameTime="3:51";Score="24-27";By="Nick Faust";ShotType="Layup."
+27	UMD Offense	00:16:01.010	00:16:09.009	
+27	Rebound	00:16:09.011		Half="1";GameTime="3:51";Score="24-27";By="James Michael"
+27	Made Shot	00:16:21.001		Half="1";GameTime="3:39";Score="24-29";By="James Michael";ShotType="Layup. Assisted by Marcus Paige."
+27	UNC Offense	00:16:09.010	00:16:21.002	
+28	Missed Shot	00:16:41.001		Half="1";GameTime="3:19";Score="24-29";By="Dez Wells";ShotType="Jumper."
+28	UMD Offense	00:16:21.003	00:16:41.009	
+28	Rebound	00:16:41.011		Half="1";GameTime="3:19";Score="24-29";By="P.J. Hairston"
+28	Made Shot	00:16:55.001		Half="1";GameTime="3:05";Score="24-31";By="James Michael";ShotType="Jumper. Assisted by Dexter Strickland."
+28	UNC Offense	00:16:41.010	00:16:55.002	
+29	Timeout	00:16:58.001		Half="1";GameTime="3:02";Score="24-31";CalledBy="Maryland"
+29	Turnover	00:17:07.001		Half="1";GameTime="2:53";Score="24-31"
+29	UMD Offense	00:16:55.003	00:17:07.002	
+29	Steal	00:17:07.011		Half="1";GameTime="2:53";Score="24-31"
+29	Made Shot	00:17:13.001		Half="1";GameTime="2:47";Score="24-33";By="Reggie Bullock";ShotType="Layup."
+29	UNC Offense	00:17:07.003	00:17:13.002	
+30	Missed Shot	00:17:37.001		Half="1";GameTime="2:23";Score="24-33";By="Alex Len";ShotType="Jumper."
+30	UMD Offense	00:17:13.003	00:17:37.009	
+30	Rebound	00:17:37.011		Half="1";GameTime="2:23";Score="24-33";By="Marcus Paige"
+30	Missed Shot	00:17:48.001		Half="1";GameTime="2:12";Score="24-33";By="Brice Johnson";ShotType="Jumper."
+30	UNC Offense	00:17:37.010	00:17:48.009	
+31	Rebound	00:17:48.011		Half="1";GameTime="2:12";Score="24-33";By="Charles Mitchell"
+31	Made Shot	00:18:08.001		Half="1";GameTime="1:52";Score="27-33";By="Nick Faust";ShotType="Three Point Jumper. Assisted by Jake Layman."
+31	UMD Offense	00:17:48.010	00:18:08.002	
+31	Timeout	00:18:17.001		Half="1";GameTime="1:43";Score="27-33";CalledBy="North"
+31	Made Shot	00:18:33.001		Half="1";GameTime="1:27";Score="27-35";By="Dexter Strickland";ShotType="Jumper."
+31	UNC Offense	00:18:08.003	00:18:33.002	
+32	Missed Shot	00:18:53.001		Half="1";GameTime="1:07";Score="27-35";By="Nick Faust";ShotType="Three Point Jumper."
+32	Rebound	00:18:53.011		Half="1";GameTime="1:07";Score="27-35";By="Charles Mitchell"
+32	Made Shot	00:18:57.001		Half="1";GameTime="1:03";Score="29-35";By="Charles Mitchell";ShotType="Layup."
+32	UMD Offense	00:18:33.003	00:18:57.002	
+32	Made Shot	00:19:16.001		Half="1";GameTime="0:44";Score="29-37";By="Dexter Strickland";ShotType="Jumper."
+32	UNC Offense	00:18:57.003	00:19:16.002	
+33	Missed Shot	00:19:51.001		Half="1";GameTime="0:09";Score="29-37";By="Nick Faust";ShotType="Jumper."
+33	Rebound	00:19:51.011		Half="1";GameTime="0:09";Score="29-37";By="Charles Mitchell"
+33	Made Shot	00:19:54.001		Half="1";GameTime="0:06";Score="31-37";By="Charles Mitchell";ShotType="Layup."
+33	Foul	00:19:54.011		Half="1";GameTime="0:06";Score="31-37"
+33	Timeout	00:19:54.021		Half="1";GameTime="0:06";Score="31-37";CalledBy="Official"
+33	Made Free Throw	00:19:54.031		Half="1";GameTime="0:06";Score="32-37"
+33	UMD Offense	00:19:16.003	00:19:54.032	
+33	Missed Shot	00:19:59.001		Half="1";GameTime="0:01";Score="32-37";By="Dexter Strickland";ShotType="Three Point Jumper."
+33	End of Half	00:20:00.001		Half="1";GameTime="0:00";Score="32-37"
+33	UNC Offense	00:19:54.033	00:20:00.002	
+34	Jump Ball	00:00:00.001		Half="2";GameTime="20:00";Score="32-37"
+34	Missed Shot	00:00:11.001		Half="2";GameTime="19:49";Score="32-37";By="Dez Wells";ShotType="Three Point Jumper."
+34	UMD Offense	00:00:00.000	00:00:11.009	
+34	Rebound	00:00:11.011		Half="2";GameTime="19:49";Score="32-37";By="Reggie Bullock"
+34	Missed Shot	00:00:21.001		Half="2";GameTime="19:39";Score="32-37";By="James Michael";ShotType="Jumper."
+34	UNC Offense	00:00:11.010	00:00:21.009	
+35	Rebound	00:00:21.011		Half="2";GameTime="19:39";Score="32-37";By="Nick Faust"
+35	Missed Shot	00:00:54.001		Half="2";GameTime="19:06";Score="32-37";By="Pe'Shon Howard";ShotType="Layup."
+35	UMD Offense	00:00:21.010	00:00:54.009	
+35	Rebound	00:00:54.011		Half="2";GameTime="19:06";Score="32-37";By="Reggie Bullock"
+35	Made Shot	00:01:00.001		Half="2";GameTime="19:00";Score="32-40";By="Marcus Paige";ShotType="Three Point Jumper."
+35	UNC Offense	00:00:54.010	00:01:00.002	
+36	Missed Shot	00:01:20.001		Half="2";GameTime="18:40";Score="32-40";By="Alex Len";ShotType="Jumper."
+36	Foul	00:01:23.001		Half="2";GameTime="18:37";Score="32-40"
+36	UMD Offense	00:01:00.003	00:01:23.002	
+36	Foul	00:01:41.001		Half="2";GameTime="18:19";Score="32-40"
+36	Made Free Throw	00:01:41.011		Half="2";GameTime="18:19";Score="32-41"
+36	Missed Free Throw	00:01:41.021		Half="2";GameTime="18:19";Score="32-41"
+36	UNC Offense	00:01:23.003	00:01:41.029	
+37	Rebound	00:01:41.031		Half="2";GameTime="18:19";Score="32-41";By="Alex Len"
+37	Made Shot	00:01:57.001		Half="2";GameTime="18:03";Score="35-41";By="Nick Faust";ShotType="Three Point Jumper. Assisted by Dez Wells."
+37	UMD Offense	00:01:41.030	00:01:57.002	
+37	Made Shot	00:02:13.001		Half="2";GameTime="17:47";Score="35-43";By="Dexter Strickland";ShotType="Jumper."
+37	UNC Offense	00:01:57.003	00:02:13.002	
+38	Foul	00:02:36.001		Half="2";GameTime="17:24";Score="35-43"
+38	UMD Offense	00:02:13.003	00:02:36.002	
+38	Made Shot	00:02:44.001		Half="2";GameTime="17:16";Score="35-45";By="Dexter Strickland";ShotType="Layup. Assisted by Marcus Paige."
+38	UNC Offense	00:02:36.003	00:02:44.002	
+39	Missed Shot	00:03:06.001		Half="2";GameTime="16:54";Score="35-45";By="Dez Wells";ShotType="Layup."
+39	UMD Offense	00:02:44.003	00:03:06.009	
+39	Rebound	00:03:06.011		Half="2";GameTime="16:54";Score="35-45";By="Reggie Bullock"
+39	Made Shot	00:03:14.001		Half="2";GameTime="16:46";Score="35-47";By="Reggie Bullock";ShotType="Jumper."
+39	UNC Offense	00:03:06.010	00:03:14.002	
+40	Made Shot	00:03:46.001		Half="2";GameTime="16:14";Score="37-47";By="Pe'Shon Howard";ShotType="Jumper."
+40	Foul	00:03:46.011		Half="2";GameTime="16:14";Score="37-47"
+40	Made Free Throw	00:03:46.021		Half="2";GameTime="16:14";Score="38-47"
+40	UMD Offense	00:03:14.003	00:03:46.022	
+40	Foul	00:04:02.001		Half="2";GameTime="15:58";Score="38-47"
+40	Timeout	00:04:02.011		Half="2";GameTime="15:58";Score="38-47";CalledBy="Official"
+40	Missed Free Throw	00:04:02.021		Half="2";GameTime="15:58";Score="38-47"
+40	Missed Free Throw	00:04:02.031		Half="2";GameTime="15:58";Score="38-47"
+40	Rebound	00:04:02.041		Half="2";GameTime="15:58";Score="38-47";By="P.J. Hairston"
+40	Missed Shot	00:04:05.001		Half="2";GameTime="15:55";Score="38-47";By="Leslie McDonald";ShotType="Three Point Jumper."
+40	UNC Offense	00:03:46.023	00:04:05.009	
+41	Rebound	00:04:05.011		Half="2";GameTime="15:55";Score="38-47";By="Dez Wells"
+41	Turnover	00:04:38.001		Half="2";GameTime="15:22";Score="38-47"
+41	UMD Offense	00:04:05.010	00:04:38.002	
+41	Steal	00:04:38.011		Half="2";GameTime="15:22";Score="38-47"
+41	Made Shot	00:04:55.001		Half="2";GameTime="15:05";Score="38-49";By="James Michael";ShotType="Jumper."
+41	Foul	00:04:55.011		Half="2";GameTime="15:05";Score="38-49"
+41	Made Free Throw	00:04:55.021		Half="2";GameTime="15:05";Score="38-50"
+41	UNC Offense	00:04:38.003	00:04:55.022	
+42	Missed Shot	00:05:13.001		Half="2";GameTime="14:47";Score="38-50";By="Seth Allen";ShotType="Jumper."
+42	UMD Offense	00:04:55.023	00:05:13.009	
+42	Rebound	00:05:13.011		Half="2";GameTime="14:47";Score="38-50";By="Leslie McDonald"
+42	Missed Shot	00:05:29.001		Half="2";GameTime="14:31";Score="38-50";By="James Michael";ShotType="Layup."
+42	UNC Offense	00:05:13.010	00:05:29.009	
+43	Rebound	00:05:29.011		Half="2";GameTime="14:31";Score="38-50";By="Logan Aronhalt"
+43	Made Shot	00:05:36.001		Half="2";GameTime="14:24";Score="40-50";By="Nick Faust";ShotType="Jumper."
+43	UMD Offense	00:05:29.010	00:05:36.002	
+43	Foul	00:05:54.001		Half="2";GameTime="14:06";Score="40-50"
+43	Made Free Throw	00:05:54.011		Half="2";GameTime="14:06";Score="40-51"
+43	Missed Free Throw	00:05:54.021		Half="2";GameTime="14:06";Score="40-51"
+43	Made Free Throw	00:05:54.031		Half="2";GameTime="14:06";Score="40-52"
+43	UNC Offense	00:05:36.003	00:05:54.032	
+44	Missed Shot	00:06:09.001		Half="2";GameTime="13:51";Score="40-52";By="James Padgett";ShotType="Layup."
+44	Block	00:06:09.011		Half="2";GameTime="13:51";Score="40-52"
+44	Rebound	00:06:09.021		Half="2";GameTime="13:51";Score="40-52";By="Maryland Offensive"
+44	Made Shot	00:06:13.001		Half="2";GameTime="13:47";Score="43-52";By="Logan Aronhalt";ShotType="Three Point Jumper. Assisted by Pe'Shon Howard."
+44	UMD Offense	00:05:54.033	00:06:13.002	
+44	Missed Shot	00:06:40.001		Half="2";GameTime="13:20";Score="43-52";By="Leslie McDonald";ShotType="Three Point Jumper."
+44	Rebound	00:06:40.011		Half="2";GameTime="13:20";Score="43-52";By="P.J. Hairston"
+44	Missed Shot	00:06:47.001		Half="2";GameTime="13:13";Score="43-52";By="Leslie McDonald";ShotType="Layup."
+44	Rebound	00:06:47.011		Half="2";GameTime="13:13";Score="43-52";By="Reggie Bullock"
+44	Missed Shot	00:07:00.001		Half="2";GameTime="13:00";Score="43-52";By="Reggie Bullock";ShotType="Layup."
+44	Rebound	00:07:00.011		Half="2";GameTime="13:00";Score="43-52";By="Desmond Hubert"
+44	Made Shot	00:07:03.001		Half="2";GameTime="12:57";Score="43-54";By="Desmond Hubert";ShotType="Layup."
+44	UNC Offense	00:06:13.003	00:07:03.002	
+45	Foul	00:07:05.001		Half="2";GameTime="12:55";Score="43-54"
+45	Made Shot	00:07:08.001		Half="2";GameTime="12:52";Score="45-54";By="James Padgett";ShotType="Layup. Assisted by Dez Wells."
+45	UMD Offense	00:07:03.003	00:07:08.002	
+45	Made Shot	00:07:21.001		Half="2";GameTime="12:39";Score="45-56";By="Brice Johnson";ShotType="Dunk. Assisted by Reggie Bullock."
+45	UNC Offense	00:07:08.003	00:07:21.002	
+46	Foul	00:07:43.001		Half="2";GameTime="12:17";Score="45-56"
+46	Foul	00:08:01.001		Half="2";GameTime="11:59";Score="45-56"
+46	UMD Offense	00:07:21.003	00:08:01.002	
+46	Turnover	00:08:01.021		Half="2";GameTime="11:59";Score="45-56"
+46	Foul	00:08:12.001		Half="2";GameTime="11:48";Score="45-56"
+46	UNC Offense	00:08:01.003	00:08:12.002	
+47	Foul	00:08:32.001		Half="2";GameTime="11:28";Score="45-56"
+47	Missed Free Throw	00:08:32.011		Half="2";GameTime="11:28";Score="45-56"
+47	Missed Free Throw	00:08:32.021		Half="2";GameTime="11:28";Score="45-56"
+47	UMD Offense	00:08:12.003	00:08:32.029	
+47	Rebound	00:08:32.031		Half="2";GameTime="11:28";Score="45-56";By="Leslie McDonald"
+47	Foul	00:08:32.041		Half="2";GameTime="11:28";Score="45-56"
+47	Made Free Throw	00:08:32.051		Half="2";GameTime="11:28";Score="45-57"
+47	Made Free Throw	00:08:32.061		Half="2";GameTime="11:28";Score="45-58"
+47	UNC Offense	00:08:32.030	00:08:32.062	
+48	Foul	00:08:44.001		Half="2";GameTime="11:16";Score="45-58"
+48	Made Free Throw	00:08:44.011		Half="2";GameTime="11:16";Score="46-58"
+48	Missed Free Throw	00:08:44.021		Half="2";GameTime="11:16";Score="46-58"
+48	UMD Offense	00:08:32.063	00:08:44.029	
+48	Rebound	00:08:44.031		Half="2";GameTime="11:16";Score="46-58";By="Reggie Bullock"
+48	Missed Shot	00:09:06.001		Half="2";GameTime="10:54";Score="46-58";By="P.J. Hairston";ShotType="Three Point Jumper."
+48	UNC Offense	00:08:44.030	00:09:06.009	
+49	Rebound	00:09:06.011		Half="2";GameTime="10:54";Score="46-58";By="James Padgett"
+49	Made Shot	00:09:22.001		Half="2";GameTime="10:38";Score="49-58";By="Dez Wells";ShotType="Three Point Jumper. Assisted by Nick Faust."
+49	UMD Offense	00:09:06.010	00:09:22.002	
+49	Missed Shot	00:09:43.001		Half="2";GameTime="10:17";Score="49-58";By="James Michael";ShotType="Jumper."
+49	UNC Offense	00:09:22.003	00:09:43.009	
+50	Rebound	00:09:43.011		Half="2";GameTime="10:17";Score="49-58";By="Dez Wells"
+50	Missed Shot	00:09:49.001		Half="2";GameTime="10:11";Score="49-58";By="Dez Wells";ShotType="Layup."
+50	Rebound	00:09:49.011		Half="2";GameTime="10:11";Score="49-58";By="Logan Aronhalt"
+50	Missed Shot	00:09:49.021		Half="2";GameTime="10:11";Score="49-58";By="Logan Aronhalt";ShotType="Tip Shot."
+50	Rebound	00:09:49.031		Half="2";GameTime="10:11";Score="49-58";By="Alex Len"
+50	Foul	00:09:54.001		Half="2";GameTime="10:06";Score="49-58"
+50	Made Free Throw	00:09:54.011		Half="2";GameTime="10:06";Score="50-58"
+50	Made Free Throw	00:09:54.021		Half="2";GameTime="10:06";Score="51-58"
+50	UMD Offense	00:09:43.010	00:09:54.022	
+50	Foul	00:10:08.001		Half="2";GameTime="9:52";Score="51-58"
+50	Made Free Throw	00:10:08.011		Half="2";GameTime="9:52";Score="51-59"
+50	Missed Free Throw	00:10:08.021		Half="2";GameTime="9:52";Score="51-59"
+50	UNC Offense	00:09:54.023	00:10:08.029	
+51	Rebound	00:10:08.031		Half="2";GameTime="9:52";Score="51-59";By="Logan Aronhalt"
+51	Missed Shot	00:10:19.001		Half="2";GameTime="9:41";Score="51-59";By="Logan Aronhalt";ShotType="Three Point Jumper."
+51	Rebound	00:10:19.011		Half="2";GameTime="9:41";Score="51-59";By="Alex Len"
+51	Made Shot	00:10:19.021		Half="2";GameTime="9:41";Score="53-59";By="Alex Len";ShotType="Tip Shot."
+51	UMD Offense	00:10:08.030	00:10:19.022	
+51	Turnover	00:10:45.001		Half="2";GameTime="9:15";Score="53-59"
+51	UNC Offense	00:10:19.023	00:10:45.002	
+52	Steal	00:10:45.011		Half="2";GameTime="9:15";Score="53-59"
+52	Made Shot	00:10:57.001		Half="2";GameTime="9:03";Score="55-59";By="Dez Wells";ShotType="Jumper."
+52	UMD Offense	00:10:45.003	00:10:57.002	
+52	Foul	00:10:57.011		Half="2";GameTime="9:03";Score="55-59"
+52	Missed Free Throw	00:10:57.021		Half="2";GameTime="9:03";Score="55-59"
+52	Made Free Throw	00:10:57.031		Half="2";GameTime="9:03";Score="55-60"
+52	UNC Offense	00:10:57.003	00:10:57.032	
+53	Foul	00:11:14.001		Half="2";GameTime="8:46";Score="55-60"
+53	Made Free Throw	00:11:14.011		Half="2";GameTime="8:46";Score="56-60"
+53	Made Free Throw	00:11:14.021		Half="2";GameTime="8:46";Score="57-60"
+53	UMD Offense	00:10:57.033	00:11:14.022	
+53	Made Shot	00:11:24.001		Half="2";GameTime="8:36";Score="57-63";By="Leslie McDonald";ShotType="Three Point Jumper. Assisted by P.J. Hairston."
+53	UNC Offense	00:11:14.023	00:11:24.002	
+54	Foul	00:11:56.001		Half="2";GameTime="8:04";Score="57-63"
+54	Missed Free Throw	00:11:56.011		Half="2";GameTime="8:04";Score="57-63"
+54	Made Free Throw	00:11:56.021		Half="2";GameTime="8:04";Score="58-63"
+54	UMD Offense	00:11:24.003	00:11:56.022	
+54	Made Shot	00:12:08.001		Half="2";GameTime="7:52";Score="58-66";By="Reggie Bullock";ShotType="Three Point Jumper. Assisted by Dexter Strickland."
+54	UNC Offense	00:11:56.023	00:12:08.002	
+55	Missed Shot	00:12:18.001		Half="2";GameTime="7:42";Score="58-66";By="Dez Wells";ShotType="Layup."
+55	UMD Offense	00:12:08.003	00:12:18.009	
+55	Rebound	00:12:18.011		Half="2";GameTime="7:42";Score="58-66";By="Leslie McDonald"
+55	Foul	00:12:20.001		Half="2";GameTime="7:40";Score="58-66"
+55	Timeout	00:12:20.011		Half="2";GameTime="7:40";Score="58-66";CalledBy="Official"
+55	Made Free Throw	00:12:20.021		Half="2";GameTime="7:40";Score="58-67"
+55	Made Free Throw	00:12:20.031		Half="2";GameTime="7:40";Score="58-68"
+55	UNC Offense	00:12:18.010	00:12:20.032	
+56	Missed Shot	00:12:34.001		Half="2";GameTime="7:26";Score="58-68";By="Logan Aronhalt";ShotType="Three Point Jumper."
+56	UMD Offense	00:12:20.033	00:12:34.009	
+56	Rebound	00:12:34.011		Half="2";GameTime="7:26";Score="58-68";By="Dexter Strickland"
+56	Turnover	00:12:47.001		Half="2";GameTime="7:13";Score="58-68"
+56	UNC Offense	00:12:34.010	00:12:47.002	
+57	Steal	00:12:47.011		Half="2";GameTime="7:13";Score="58-68"
+57	Made Shot	00:12:53.001		Half="2";GameTime="7:07";Score="60-68";By="Logan Aronhalt";ShotType="Layup. Assisted by Pe'Shon Howard."
+57	UMD Offense	00:12:47.003	00:12:53.002	
+57	Missed Shot	00:13:08.001		Half="2";GameTime="6:52";Score="60-68";By="P.J. Hairston";ShotType="Three Point Jumper."
+57	Rebound	00:13:08.011		Half="2";GameTime="6:52";Score="60-68";By="Desmond Hubert"
+57	Missed Shot	00:13:13.001		Half="2";GameTime="6:47";Score="60-68";By="P.J. Hairston";ShotType="Three Point Jumper."
+57	UNC Offense	00:12:53.003	00:13:13.009	
+58	Rebound	00:13:13.011		Half="2";GameTime="6:47";Score="60-68";By="Dez Wells"
+58	Made Shot	00:13:29.001		Half="2";GameTime="6:31";Score="63-68";By="Nick Faust";ShotType="Three Point Jumper. Assisted by Logan Aronhalt."
+58	UMD Offense	00:13:13.010	00:13:29.002	
+58	Made Shot	00:13:51.001		Half="2";GameTime="6:09";Score="63-71";By="Reggie Bullock";ShotType="Three Point Jumper. Assisted by Desmond Hubert."
+58	UNC Offense	00:13:29.003	00:13:51.002	
+59	Missed Shot	00:14:08.001		Half="2";GameTime="5:52";Score="63-71";By="Dez Wells";ShotType="Jumper."
+59	Rebound	00:14:08.011		Half="2";GameTime="5:52";Score="63-71";By="Alex Len"
+59	Foul	00:14:14.001		Half="2";GameTime="5:46";Score="63-71"
+59	Made Free Throw	00:14:14.011		Half="2";GameTime="5:46";Score="64-71"
+59	Missed Free Throw	00:14:14.021		Half="2";GameTime="5:46";Score="64-71"
+59	UMD Offense	00:13:51.003	00:14:14.029	
+59	Rebound	00:14:14.031		Half="2";GameTime="5:46";Score="64-71";By="James Michael"
+59	Missed Shot	00:14:31.001		Half="2";GameTime="5:29";Score="64-71";By="P.J. Hairston";ShotType="Three Point Jumper."
+59	Rebound	00:14:31.011		Half="2";GameTime="5:29";Score="64-71";By="North Carolina"
+59	Timeout	00:14:35.001		Half="2";GameTime="5:25";Score="64-71";CalledBy="North"
+59	Missed Shot	00:15:02.001		Half="2";GameTime="4:58";Score="64-71";By="Dexter Strickland";ShotType="Jumper."
+59	UNC Offense	00:14:14.030	00:15:02.009	
+60	Rebound	00:15:02.011		Half="2";GameTime="4:58";Score="64-71";By="Nick Faust"
+60	Missed Shot	00:15:19.001		Half="2";GameTime="4:41";Score="64-71";By="Nick Faust";ShotType="Three Point Jumper."
+60	UMD Offense	00:15:02.010	00:15:19.009	
+60	Rebound	00:15:19.011		Half="2";GameTime="4:41";Score="64-71";By="Reggie Bullock"
+60	Missed Shot	00:15:38.001		Half="2";GameTime="4:22";Score="64-71";By="Dexter Strickland";ShotType="Jumper."
+60	UNC Offense	00:15:19.010	00:15:38.009	
+61	Rebound	00:15:38.011		Half="2";GameTime="4:22";Score="64-71";By="Pe'Shon Howard"
+61	Made Shot	00:15:51.001		Half="2";GameTime="4:09";Score="66-71";By="Alex Len";ShotType="Dunk. Assisted by Nick Faust."
+61	UMD Offense	00:15:38.010	00:15:51.002	
+61	Timeout	00:15:51.011		Half="2";GameTime="4:09";Score="66-71";CalledBy="Maryland"
+61	Turnover	00:16:18.001		Half="2";GameTime="3:42";Score="66-71"
+61	UNC Offense	00:15:51.003	00:16:18.002	
+62	Steal	00:16:18.011		Half="2";GameTime="3:42";Score="66-71"
+62	Made Shot	00:16:22.001		Half="2";GameTime="3:38";Score="68-71";By="Dez Wells";ShotType="Layup."
+62	UMD Offense	00:16:18.003	00:16:22.002	
+62	Turnover	00:16:37.001		Half="2";GameTime="3:23";Score="68-71"
+62	UNC Offense	00:16:22.003	00:16:37.002	
+63	Timeout	00:16:37.011		Half="2";GameTime="3:23";Score="68-71";CalledBy="Official"
+63	Made Shot	00:16:40.001		Half="2";GameTime="3:20";Score="70-71";By="Alex Len";ShotType="Layup. Assisted by Dez Wells."
+63	UMD Offense	00:16:37.003	00:16:40.002	
+63	Made Shot	00:17:10.001		Half="2";GameTime="2:50";Score="70-73";By="Marcus Paige";ShotType="Jumper."
+63	UNC Offense	00:16:40.003	00:17:10.002	
+64	Turnover	00:17:36.001		Half="2";GameTime="2:24";Score="70-73"
+64	UMD Offense	00:17:10.003	00:17:36.002	
+64	Steal	00:17:36.011		Half="2";GameTime="2:24";Score="70-73"
+64	Foul	00:17:41.001		Half="2";GameTime="2:19";Score="70-73"
+64	Made Free Throw	00:17:41.011		Half="2";GameTime="2:19";Score="70-74"
+64	Made Free Throw	00:17:41.021		Half="2";GameTime="2:19";Score="70-75"
+64	UNC Offense	00:17:36.003	00:17:41.022	
+65	Missed Shot	00:17:55.001		Half="2";GameTime="2:05";Score="70-75";By="Dez Wells";ShotType="Jumper."
+65	UMD Offense	00:17:41.023	00:17:55.009	
+65	Rebound	00:17:55.011		Half="2";GameTime="2:05";Score="70-75";By="Reggie Bullock"
+65	Missed Shot	00:18:32.001		Half="2";GameTime="1:28";Score="70-75";By="James Michael";ShotType="Jumper."
+65	UNC Offense	00:17:55.010	00:18:32.009	
+66	Rebound	00:18:32.011		Half="2";GameTime="1:28";Score="70-75";By="Logan Aronhalt"
+66	Missed Shot	00:18:46.001		Half="2";GameTime="1:14";Score="70-75";By="Pe'Shon Howard";ShotType="Jumper."
+66	Block	00:18:46.011		Half="2";GameTime="1:14";Score="70-75"
+66	Rebound	00:18:46.021		Half="2";GameTime="1:14";Score="70-75";By="Pe'Shon Howard"
+66	Made Shot	00:18:51.001		Half="2";GameTime="1:09";Score="72-75";By="Dez Wells";ShotType="Layup."
+66	UMD Offense	00:18:32.010	00:18:51.002	
+66	Timeout	00:18:53.001		Half="2";GameTime="1:07";Score="72-75";CalledBy="Maryland"
+66	Made Shot	00:19:24.001		Half="2";GameTime="0:36";Score="72-77";By="Marcus Paige";ShotType="Jumper."
+66	UNC Offense	00:18:51.003	00:19:24.002	
+67	Foul	00:19:28.001		Half="2";GameTime="0:32";Score="72-77"
+67	Made Free Throw	00:19:28.011		Half="2";GameTime="0:32";Score="73-77"
+67	Made Free Throw	00:19:28.021		Half="2";GameTime="0:32";Score="74-77"
+67	UMD Offense	00:19:24.003	00:19:28.022	
+67	Foul	00:19:29.001		Half="2";GameTime="0:31";Score="74-77"
+67	Missed Free Throw	00:19:29.011		Half="2";GameTime="0:31";Score="74-77"
+67	Made Free Throw	00:19:29.021		Half="2";GameTime="0:31";Score="74-78"
+67	UNC Offense	00:19:28.023	00:19:29.022	
+68	Missed Shot	00:19:38.001		Half="2";GameTime="0:22";Score="74-78";By="Seth Allen";ShotType="Three Point Jumper."
+68	Rebound	00:19:38.011		Half="2";GameTime="0:22";Score="74-78";By="Logan Aronhalt"
+68	Made Shot	00:19:43.001		Half="2";GameTime="0:17";Score="76-78";By="Logan Aronhalt";ShotType="Layup."
+68	UMD Offense	00:19:29.023	00:19:43.002	
+68	Foul	00:19:44.001		Half="2";GameTime="0:16";Score="76-78"
+68	Made Free Throw	00:19:44.011		Half="2";GameTime="0:16";Score="76-79"
+68	Missed Free Throw	00:19:44.021		Half="2";GameTime="0:16";Score="76-79"
+68	UNC Offense	00:19:43.003	00:19:44.029	
+69	Rebound	00:19:44.031		Half="2";GameTime="0:16";Score="76-79";By="Dez Wells"
+69	Timeout	00:19:49.001		Half="2";GameTime="0:11";Score="76-79";CalledBy="Maryland"
+69	Missed Shot	00:19:51.001		Half="2";GameTime="0:09";Score="76-79";By="Logan Aronhalt";ShotType="Three Point Jumper."
+69	UMD Offense	00:19:44.030	00:19:51.009	
+69	Rebound	00:19:51.011		Half="2";GameTime="0:09";Score="76-79";By="Reggie Bullock"
+69	End of Game	00:20:00.001		Half="2";GameTime="0:00";Score="76-79"
+69	UNC Offense	00:19:51.010	00:20:00.002	
