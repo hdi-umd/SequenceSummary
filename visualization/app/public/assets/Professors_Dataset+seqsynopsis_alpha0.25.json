@@ -1,0 +1,294 @@
+{
+ "nodes": [
+  {
+   "id": 1,
+   "event_attribute": "_Start",
+   "pattern": "P0",
+   "value": "4",
+   "value_event": "4",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 2,
+   "event_attribute": "Journal",
+   "pattern": "P0",
+   "value": "4",
+   "value_event": "4",
+   "median_index": 0.0,
+   "average_index": 0.25
+  },
+  {
+   "id": 3,
+   "event_attribute": "Conference",
+   "pattern": "P0",
+   "value": "4",
+   "value_event": "4",
+   "median_index": 2.0,
+   "average_index": 2.75
+  },
+  {
+   "id": 4,
+   "event_attribute": "Conference",
+   "pattern": "P0",
+   "value": "4",
+   "value_event": "4",
+   "median_index": 5.5,
+   "average_index": 6.5
+  },
+  {
+   "id": 5,
+   "event_attribute": "Journal",
+   "pattern": "P0",
+   "value": "4",
+   "value_event": "4",
+   "median_index": 9.0,
+   "average_index": 10.75
+  },
+  {
+   "id": 6,
+   "event_attribute": "Conference",
+   "pattern": "P0",
+   "value": "4",
+   "value_event": "4",
+   "median_index": 10.0,
+   "average_index": 12.25
+  },
+  {
+   "id": 7,
+   "event_attribute": "Conference",
+   "pattern": "P0",
+   "value": "4",
+   "value_event": "4",
+   "median_index": 11.0,
+   "average_index": 14.0
+  },
+  {
+   "id": 8,
+   "event_attribute": "_Exit",
+   "pattern": "P0",
+   "value": "4",
+   "value_event": "4",
+   "median_index": 14.0,
+   "average_index": 17.75
+  },
+  {
+   "id": 9,
+   "event_attribute": "_Start",
+   "pattern": "P1",
+   "value": "36",
+   "value_event": "36",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 10,
+   "event_attribute": "BS",
+   "pattern": "P1",
+   "value": "36",
+   "value_event": "36",
+   "median_index": 0.0,
+   "average_index": 0.5555555555555556
+  },
+  {
+   "id": 11,
+   "event_attribute": "MS",
+   "pattern": "P1",
+   "value": "36",
+   "value_event": "36",
+   "median_index": 2.0,
+   "average_index": 2.2777777777777777
+  },
+  {
+   "id": 12,
+   "event_attribute": "Conference",
+   "pattern": "P1",
+   "value": "36",
+   "value_event": "36",
+   "median_index": 3.0,
+   "average_index": 4.222222222222222
+  },
+  {
+   "id": 13,
+   "event_attribute": "PhD",
+   "pattern": "P1",
+   "value": "36",
+   "value_event": "29",
+   "median_index": 4.5,
+   "average_index": 6.027777777777778
+  },
+  {
+   "id": 14,
+   "event_attribute": "Assistant Professor",
+   "pattern": "P1",
+   "value": "36",
+   "value_event": "28",
+   "median_index": 5.5,
+   "average_index": 7.166666666666666
+  },
+  {
+   "id": 15,
+   "event_attribute": "Journal",
+   "pattern": "P1",
+   "value": "36",
+   "value_event": "29",
+   "median_index": 6.5,
+   "average_index": 9.277777777777777
+  },
+  {
+   "id": 16,
+   "event_attribute": "Conference",
+   "pattern": "P1",
+   "value": "36",
+   "value_event": "30",
+   "median_index": 7.5,
+   "average_index": 10.833333333333332
+  },
+  {
+   "id": 17,
+   "event_attribute": "Journal",
+   "pattern": "P1",
+   "value": "36",
+   "value_event": "23",
+   "median_index": 8.5,
+   "average_index": 12.416666666666666
+  },
+  {
+   "id": 18,
+   "event_attribute": "Conference",
+   "pattern": "P1",
+   "value": "36",
+   "value_event": "20",
+   "median_index": 8.5,
+   "average_index": 13.333333333333332
+  },
+  {
+   "id": 19,
+   "event_attribute": "Conference",
+   "pattern": "P1",
+   "value": "36",
+   "value_event": "13",
+   "median_index": 8.5,
+   "average_index": 14.138888888888888
+  },
+  {
+   "id": 20,
+   "event_attribute": "_Exit",
+   "pattern": "P1",
+   "value": "36",
+   "value_event": "36",
+   "median_index": 23.0,
+   "average_index": 26.583333333333332
+  }
+ ],
+ "links": [
+  {
+   "source": 1,
+   "target": 2,
+   "count": 4,
+   "length": 0
+  },
+  {
+   "source": 2,
+   "target": 3,
+   "count": 4,
+   "length": 0
+  },
+  {
+   "source": 3,
+   "target": 4,
+   "count": 4,
+   "length": 0
+  },
+  {
+   "source": 4,
+   "target": 5,
+   "count": 4,
+   "length": 0
+  },
+  {
+   "source": 5,
+   "target": 6,
+   "count": 4,
+   "length": 0
+  },
+  {
+   "source": 6,
+   "target": 7,
+   "count": 4,
+   "length": 0
+  },
+  {
+   "source": 7,
+   "target": 8,
+   "count": 4,
+   "length": 0
+  },
+  {
+   "source": 9,
+   "target": 10,
+   "count": 36,
+   "length": 0
+  },
+  {
+   "source": 10,
+   "target": 11,
+   "count": 36,
+   "length": 0
+  },
+  {
+   "source": 11,
+   "target": 12,
+   "count": 36,
+   "length": 0
+  },
+  {
+   "source": 12,
+   "target": 13,
+   "count": 36,
+   "length": 0
+  },
+  {
+   "source": 13,
+   "target": 14,
+   "count": 36,
+   "length": 0
+  },
+  {
+   "source": 14,
+   "target": 15,
+   "count": 36,
+   "length": 0
+  },
+  {
+   "source": 15,
+   "target": 16,
+   "count": 36,
+   "length": 0
+  },
+  {
+   "source": 16,
+   "target": 17,
+   "count": 36,
+   "length": 0
+  },
+  {
+   "source": 17,
+   "target": 18,
+   "count": 36,
+   "length": 0
+  },
+  {
+   "source": 18,
+   "target": 19,
+   "count": 36,
+   "length": 0
+  },
+  {
+   "source": 19,
+   "target": 20,
+   "count": 36,
+   "length": 0
+  }
+ ]
+}

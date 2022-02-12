@@ -1,0 +1,228 @@
+{
+ "nodes": [
+  {
+   "id": 1,
+   "event_attribute": "_Start",
+   "pattern": "P0",
+   "value": "2",
+   "value_event": "2",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 2,
+   "event_attribute": "UNC Offense",
+   "pattern": "P0",
+   "value": "2",
+   "value_event": "2",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 3,
+   "event_attribute": "Jump Ball",
+   "pattern": "P0",
+   "value": "2",
+   "value_event": "1",
+   "median_index": 0.5,
+   "average_index": 0.5
+  },
+  {
+   "id": 4,
+   "event_attribute": "Missed Shot",
+   "pattern": "P0",
+   "value": "2",
+   "value_event": "2",
+   "median_index": 1.0,
+   "average_index": 1.0
+  },
+  {
+   "id": 5,
+   "event_attribute": "_Exit",
+   "pattern": "P0",
+   "value": "2",
+   "value_event": "2",
+   "median_index": 2.5,
+   "average_index": 2.5
+  },
+  {
+   "id": 6,
+   "event_attribute": "_Start",
+   "pattern": "P1",
+   "value": "7",
+   "value_event": "7",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 7,
+   "event_attribute": "UNC Offense",
+   "pattern": "P1",
+   "value": "7",
+   "value_event": "7",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 8,
+   "event_attribute": "UMD Offense",
+   "pattern": "P1",
+   "value": "7",
+   "value_event": "7",
+   "median_index": 3.0,
+   "average_index": 3.4285714285714284
+  },
+  {
+   "id": 9,
+   "event_attribute": "Foul",
+   "pattern": "P1",
+   "value": "7",
+   "value_event": "3",
+   "median_index": 3.0,
+   "average_index": 3.8571428571428568
+  },
+  {
+   "id": 10,
+   "event_attribute": "_Exit",
+   "pattern": "P1",
+   "value": "7",
+   "value_event": "7",
+   "median_index": 8.0,
+   "average_index": 7.571428571428571
+  },
+  {
+   "id": 11,
+   "event_attribute": "_Start",
+   "pattern": "P2",
+   "value": "60",
+   "value_event": "60",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 12,
+   "event_attribute": "UNC Offense",
+   "pattern": "P2",
+   "value": "60",
+   "value_event": "60",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 13,
+   "event_attribute": "Missed Shot",
+   "pattern": "P2",
+   "value": "60",
+   "value_event": "44",
+   "median_index": 2.0,
+   "average_index": 2.3333333333333335
+  },
+  {
+   "id": 14,
+   "event_attribute": "UMD Offense",
+   "pattern": "P2",
+   "value": "60",
+   "value_event": "40",
+   "median_index": 2.0,
+   "average_index": 2.916666666666667
+  },
+  {
+   "id": 15,
+   "event_attribute": "Rebound",
+   "pattern": "P2",
+   "value": "60",
+   "value_event": "24",
+   "median_index": 2.0,
+   "average_index": 3.316666666666667
+  },
+  {
+   "id": 16,
+   "event_attribute": "_Exit",
+   "pattern": "P2",
+   "value": "60",
+   "value_event": "60",
+   "median_index": 7.0,
+   "average_index": 7.983333333333334
+  }
+ ],
+ "links": [
+  {
+   "source": 1,
+   "target": 2,
+   "count": 2,
+   "length": 0
+  },
+  {
+   "source": 2,
+   "target": 3,
+   "count": 2,
+   "length": 0
+  },
+  {
+   "source": 3,
+   "target": 4,
+   "count": 2,
+   "length": 0
+  },
+  {
+   "source": 4,
+   "target": 5,
+   "count": 2,
+   "length": 0
+  },
+  {
+   "source": 6,
+   "target": 7,
+   "count": 7,
+   "length": 0
+  },
+  {
+   "source": 7,
+   "target": 8,
+   "count": 7,
+   "length": 0
+  },
+  {
+   "source": 8,
+   "target": 9,
+   "count": 7,
+   "length": 0
+  },
+  {
+   "source": 9,
+   "target": 10,
+   "count": 7,
+   "length": 0
+  },
+  {
+   "source": 11,
+   "target": 12,
+   "count": 60,
+   "length": 0
+  },
+  {
+   "source": 12,
+   "target": 13,
+   "count": 60,
+   "length": 0
+  },
+  {
+   "source": 13,
+   "target": 14,
+   "count": 60,
+   "length": 0
+  },
+  {
+   "source": 14,
+   "target": 15,
+   "count": 60,
+   "length": 0
+  },
+  {
+   "source": 15,
+   "target": 16,
+   "count": 60,
+   "length": 0
+  }
+ ]
+}
