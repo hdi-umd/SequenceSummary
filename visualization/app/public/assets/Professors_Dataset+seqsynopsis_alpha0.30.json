@@ -1,0 +1,195 @@
+{
+ "nodes": [
+  {
+   "id": 1,
+   "event_attribute": "_Start",
+   "pattern": "P0",
+   "value": "40",
+   "value_event": "40",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 2,
+   "event_attribute": "BS",
+   "pattern": "P0",
+   "value": "40",
+   "value_event": "40",
+   "median_index": 0.5,
+   "average_index": 0.575
+  },
+  {
+   "id": 3,
+   "event_attribute": "MS",
+   "pattern": "P0",
+   "value": "40",
+   "value_event": "40",
+   "median_index": 2.5,
+   "average_index": 2.325
+  },
+  {
+   "id": 4,
+   "event_attribute": "Conference",
+   "pattern": "P0",
+   "value": "40",
+   "value_event": "40",
+   "median_index": 3.5,
+   "average_index": 4.4
+  },
+  {
+   "id": 5,
+   "event_attribute": "PhD",
+   "pattern": "P0",
+   "value": "40",
+   "value_event": "31",
+   "median_index": 5.0,
+   "average_index": 6.125
+  },
+  {
+   "id": 6,
+   "event_attribute": "Assistant Professor",
+   "pattern": "P0",
+   "value": "40",
+   "value_event": "29",
+   "median_index": 6.0,
+   "average_index": 7.2
+  },
+  {
+   "id": 7,
+   "event_attribute": "Associate Professor",
+   "pattern": "P0",
+   "value": "40",
+   "value_event": "30",
+   "median_index": 8.0,
+   "average_index": 9.175
+  },
+  {
+   "id": 8,
+   "event_attribute": "Journal",
+   "pattern": "P0",
+   "value": "40",
+   "value_event": "30",
+   "median_index": 9.0,
+   "average_index": 10.775
+  },
+  {
+   "id": 9,
+   "event_attribute": "Conference",
+   "pattern": "P0",
+   "value": "40",
+   "value_event": "28",
+   "median_index": 10.0,
+   "average_index": 12.025
+  },
+  {
+   "id": 10,
+   "event_attribute": "Conference",
+   "pattern": "P0",
+   "value": "40",
+   "value_event": "20",
+   "median_index": 10.5,
+   "average_index": 13.175
+  },
+  {
+   "id": 11,
+   "event_attribute": "Conference",
+   "pattern": "P0",
+   "value": "40",
+   "value_event": "16",
+   "median_index": 10.5,
+   "average_index": 13.925
+  },
+  {
+   "id": 12,
+   "event_attribute": "Journal",
+   "pattern": "P0",
+   "value": "40",
+   "value_event": "11",
+   "median_index": 10.5,
+   "average_index": 14.375
+  },
+  {
+   "id": 13,
+   "event_attribute": "_Exit",
+   "pattern": "P0",
+   "value": "40",
+   "value_event": "40",
+   "median_index": 26.0,
+   "average_index": 27.425
+  }
+ ],
+ "links": [
+  {
+   "source": 1,
+   "target": 2,
+   "count": 40,
+   "length": 0
+  },
+  {
+   "source": 2,
+   "target": 3,
+   "count": 40,
+   "length": 0
+  },
+  {
+   "source": 3,
+   "target": 4,
+   "count": 40,
+   "length": 0
+  },
+  {
+   "source": 4,
+   "target": 5,
+   "count": 40,
+   "length": 0
+  },
+  {
+   "source": 5,
+   "target": 6,
+   "count": 40,
+   "length": 0
+  },
+  {
+   "source": 6,
+   "target": 7,
+   "count": 40,
+   "length": 0
+  },
+  {
+   "source": 7,
+   "target": 8,
+   "count": 40,
+   "length": 0
+  },
+  {
+   "source": 8,
+   "target": 9,
+   "count": 40,
+   "length": 0
+  },
+  {
+   "source": 9,
+   "target": 10,
+   "count": 40,
+   "length": 0
+  },
+  {
+   "source": 10,
+   "target": 11,
+   "count": 40,
+   "length": 0
+  },
+  {
+   "source": 11,
+   "target": 12,
+   "count": 40,
+   "length": 0
+  },
+  {
+   "source": 12,
+   "target": 13,
+   "count": 40,
+   "length": 0
+  }
+ ]
+}

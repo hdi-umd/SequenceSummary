@@ -1,0 +1,135 @@
+{
+ "nodes": [
+  {
+   "id": 1,
+   "event_attribute": "_Start",
+   "pattern": "P0",
+   "value": "40",
+   "value_event": "40",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 2,
+   "event_attribute": "BS",
+   "pattern": "P0",
+   "value": "40",
+   "value_event": "40",
+   "median_index": 0.5,
+   "average_index": 0.575
+  },
+  {
+   "id": 3,
+   "event_attribute": "MS",
+   "pattern": "P0",
+   "value": "40",
+   "value_event": "40",
+   "median_index": 2.5,
+   "average_index": 2.325
+  },
+  {
+   "id": 4,
+   "event_attribute": "Assistant Professor",
+   "pattern": "P0",
+   "value": "40",
+   "value_event": "39",
+   "median_index": 6.5,
+   "average_index": 6.8
+  },
+  {
+   "id": 5,
+   "event_attribute": "Conference",
+   "pattern": "P0",
+   "value": "40",
+   "value_event": "40",
+   "median_index": 8.5,
+   "average_index": 9.025
+  },
+  {
+   "id": 6,
+   "event_attribute": "Journal",
+   "pattern": "P0",
+   "value": "40",
+   "value_event": "37",
+   "median_index": 10.5,
+   "average_index": 11.425
+  },
+  {
+   "id": 7,
+   "event_attribute": "Conference",
+   "pattern": "P0",
+   "value": "40",
+   "value_event": "34",
+   "median_index": 11.5,
+   "average_index": 13.05
+  },
+  {
+   "id": 8,
+   "event_attribute": "Conference",
+   "pattern": "P0",
+   "value": "40",
+   "value_event": "27",
+   "median_index": 12.5,
+   "average_index": 14.375
+  },
+  {
+   "id": 9,
+   "event_attribute": "_Exit",
+   "pattern": "P0",
+   "value": "40",
+   "value_event": "40",
+   "median_index": 19.5,
+   "average_index": 22.475
+  }
+ ],
+ "links": [
+  {
+   "source": 1,
+   "target": 2,
+   "count": 40,
+   "length": 0
+  },
+  {
+   "source": 2,
+   "target": 3,
+   "count": 40,
+   "length": 0
+  },
+  {
+   "source": 3,
+   "target": 4,
+   "count": 40,
+   "length": 0
+  },
+  {
+   "source": 4,
+   "target": 5,
+   "count": 40,
+   "length": 0
+  },
+  {
+   "source": 5,
+   "target": 6,
+   "count": 40,
+   "length": 0
+  },
+  {
+   "source": 6,
+   "target": 7,
+   "count": 40,
+   "length": 0
+  },
+  {
+   "source": 7,
+   "target": 8,
+   "count": 40,
+   "length": 0
+  },
+  {
+   "source": 8,
+   "target": 9,
+   "count": 40,
+   "length": 0
+  }
+ ]
+}

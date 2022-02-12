@@ -1,0 +1,90 @@
+{
+ "nodes": [
+  {
+   "id": 1,
+   "event_attribute": "_Start",
+   "pattern": "P0",
+   "value": "69",
+   "value_event": "69",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 2,
+   "event_attribute": "UNC Offense",
+   "pattern": "P0",
+   "value": "69",
+   "value_event": "69",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 3,
+   "event_attribute": "UMD Offense",
+   "pattern": "P0",
+   "value": "69",
+   "value_event": "69",
+   "median_index": 3.0,
+   "average_index": 3.3333333333333335
+  },
+  {
+   "id": 4,
+   "event_attribute": "Jump Ball",
+   "pattern": "P0",
+   "value": "69",
+   "value_event": "0",
+   "median_index": 3.0,
+   "average_index": 3.3333333333333335
+  },
+  {
+   "id": 5,
+   "event_attribute": "Missed Shot",
+   "pattern": "P0",
+   "value": "69",
+   "value_event": "2",
+   "median_index": 3.0,
+   "average_index": 3.3333333333333335
+  },
+  {
+   "id": 6,
+   "event_attribute": "_Exit",
+   "pattern": "P0",
+   "value": "69",
+   "value_event": "69",
+   "median_index": 9.0,
+   "average_index": 9.869565217391305
+  }
+ ],
+ "links": [
+  {
+   "source": 1,
+   "target": 2,
+   "count": 69,
+   "length": 0
+  },
+  {
+   "source": 2,
+   "target": 3,
+   "count": 69,
+   "length": 0
+  },
+  {
+   "source": 3,
+   "target": 4,
+   "count": 69,
+   "length": 0
+  },
+  {
+   "source": 4,
+   "target": 5,
+   "count": 69,
+   "length": 0
+  },
+  {
+   "source": 5,
+   "target": 6,
+   "count": 69,
+   "length": 0
+  }
+ ]
+}

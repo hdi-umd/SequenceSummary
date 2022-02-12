@@ -1,0 +1,163 @@
+{
+ "event_attribute": "_Start",
+ "Pattern": "",
+ "value": 40,
+ "median_index": 0,
+ "average_index": 0,
+ "children": [
+  {
+   "event_attribute": "BS",
+   "Pattern": "BS",
+   "value": 40,
+   "median_index": 0.5,
+   "average_index": 0.575,
+   "children": [
+    {
+     "event_attribute": "Conference",
+     "Pattern": "BS-Conference",
+     "value": 40,
+     "median_index": 2.5,
+     "average_index": 3.075,
+     "children": [
+      {
+       "event_attribute": "Professor",
+       "Pattern": "BS-Conference-Professor",
+       "value": 40,
+       "median_index": 14.0,
+       "average_index": 15.149999999999999,
+       "children": [
+        {
+         "event_attribute": "Conference",
+         "Pattern": "BS-Conference-Professor-Conference",
+         "value": 25,
+         "median_index": 16.0,
+         "average_index": 16.95,
+         "children": [
+          {
+           "event_attribute": "Conference",
+           "Pattern": "BS-Conference-Professor-Conference-Conference",
+           "value": 16,
+           "median_index": 17.5,
+           "average_index": 18.6375,
+           "children": [
+            {
+             "event_attribute": "Conference",
+             "Pattern": "BS-Conference-Professor-Conference-Conference-Conference",
+             "value": 7,
+             "median_index": 19.5,
+             "average_index": 20.6375,
+             "children": [
+              {
+               "event_attribute": "Conference",
+               "Pattern": "BS-Conference-Professor-Conference-Conference-Conference-Conference",
+               "value": 4,
+               "median_index": 20.5,
+               "average_index": 21.6375,
+               "children": [
+                {
+                 "event_attribute": "_Exit",
+                 "Pattern": "BS-Conference-Professor-Conference-Conference-Conference-Conference",
+                 "value": 4,
+                 "median_index": 20.5,
+                 "average_index": 21.6375,
+                 "children": []
+                }
+               ]
+              },
+              {
+               "event_attribute": "_Exit",
+               "Pattern": "BS-Conference-Professor-Conference-Conference-Conference",
+               "value": 3,
+               "median_index": 19.5,
+               "average_index": 21.6375,
+               "children": []
+              }
+             ]
+            },
+            {
+             "event_attribute": "_Exit",
+             "Pattern": "BS-Conference-Professor-Conference-Conference",
+             "value": 9,
+             "median_index": 17.5,
+             "average_index": 19.304166666666667,
+             "children": []
+            }
+           ]
+          },
+          {
+           "event_attribute": "Journal",
+           "Pattern": "BS-Conference-Professor-Conference-Journal",
+           "value": 4,
+           "median_index": 17.0,
+           "average_index": 18.2,
+           "children": [
+            {
+             "event_attribute": "_Exit",
+             "Pattern": "BS-Conference-Professor-Conference-Journal",
+             "value": 4,
+             "median_index": 17.0,
+             "average_index": 18.7,
+             "children": []
+            }
+           ]
+          },
+          {
+           "event_attribute": "_Exit",
+           "Pattern": "BS-Conference-Professor-Conference",
+           "value": 5,
+           "median_index": 16.0,
+           "average_index": 16.95,
+           "children": []
+          }
+         ]
+        },
+        {
+         "event_attribute": "Journal",
+         "Pattern": "BS-Conference-Professor-Journal",
+         "value": 7,
+         "median_index": 15.0,
+         "average_index": 16.15,
+         "children": [
+          {
+           "event_attribute": "Journal",
+           "Pattern": "BS-Conference-Professor-Journal-Journal",
+           "value": 5,
+           "median_index": 16.0,
+           "average_index": 17.15,
+           "children": [
+            {
+             "event_attribute": "_Exit",
+             "Pattern": "BS-Conference-Professor-Journal-Journal",
+             "value": 5,
+             "median_index": 16.0,
+             "average_index": 17.75,
+             "children": []
+            }
+           ]
+          },
+          {
+           "event_attribute": "_Exit",
+           "Pattern": "BS-Conference-Professor-Journal",
+           "value": 2,
+           "median_index": 15.0,
+           "average_index": 16.15,
+           "children": []
+          }
+         ]
+        },
+        {
+         "event_attribute": "_Exit",
+         "Pattern": "BS-Conference-Professor",
+         "value": 8,
+         "median_index": 14.0,
+         "average_index": 15.149999999999999,
+         "children": []
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

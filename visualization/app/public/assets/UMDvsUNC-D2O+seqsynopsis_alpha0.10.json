@@ -1,0 +1,144 @@
+{
+ "nodes": [
+  {
+   "id": 1,
+   "event_attribute": "_Start",
+   "pattern": "P0",
+   "value": "11",
+   "value_event": "11",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 2,
+   "event_attribute": "UNC Offense",
+   "pattern": "P0",
+   "value": "11",
+   "value_event": "11",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 3,
+   "event_attribute": "Foul",
+   "pattern": "P0",
+   "value": "11",
+   "value_event": "9",
+   "median_index": 2.0,
+   "average_index": 2.272727272727273
+  },
+  {
+   "id": 4,
+   "event_attribute": "Made Free Throw",
+   "pattern": "P0",
+   "value": "11",
+   "value_event": "9",
+   "median_index": 3.0,
+   "average_index": 3.181818181818182
+  },
+  {
+   "id": 5,
+   "event_attribute": "_Exit",
+   "pattern": "P0",
+   "value": "11",
+   "value_event": "11",
+   "median_index": 6.0,
+   "average_index": 6.454545454545455
+  },
+  {
+   "id": 6,
+   "event_attribute": "_Start",
+   "pattern": "P1",
+   "value": "58",
+   "value_event": "58",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 7,
+   "event_attribute": "UNC Offense",
+   "pattern": "P1",
+   "value": "58",
+   "value_event": "58",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 8,
+   "event_attribute": "Missed Shot",
+   "pattern": "P1",
+   "value": "58",
+   "value_event": "42",
+   "median_index": 2.0,
+   "average_index": 2.0689655172413794
+  },
+  {
+   "id": 9,
+   "event_attribute": "UMD Offense",
+   "pattern": "P1",
+   "value": "58",
+   "value_event": "42",
+   "median_index": 2.0,
+   "average_index": 2.8275862068965516
+  },
+  {
+   "id": 10,
+   "event_attribute": "_Exit",
+   "pattern": "P1",
+   "value": "58",
+   "value_event": "58",
+   "median_index": 4.0,
+   "average_index": 6.344827586206897
+  }
+ ],
+ "links": [
+  {
+   "source": 1,
+   "target": 2,
+   "count": 11,
+   "length": 0
+  },
+  {
+   "source": 2,
+   "target": 3,
+   "count": 11,
+   "length": 0
+  },
+  {
+   "source": 3,
+   "target": 4,
+   "count": 11,
+   "length": 0
+  },
+  {
+   "source": 4,
+   "target": 5,
+   "count": 11,
+   "length": 0
+  },
+  {
+   "source": 6,
+   "target": 7,
+   "count": 58,
+   "length": 0
+  },
+  {
+   "source": 7,
+   "target": 8,
+   "count": 58,
+   "length": 0
+  },
+  {
+   "source": 8,
+   "target": 9,
+   "count": 58,
+   "length": 0
+  },
+  {
+   "source": 9,
+   "target": 10,
+   "count": 58,
+   "length": 0
+  }
+ ]
+}
