@@ -50,13 +50,7 @@ class SentenTreeMiner:
 
             seq0 = currentSeq.after
             seq1 = currentSeq.before
-            if seq1:
-                print("seq1")
-                print(seq1.printNode())
-            if seq0:
-                print("seq0")
-                print(seq0.printNode())
-
+            
             if not seq1 and not seq0:
                 word, pos, count, seq0, seq1 = self.growSeq(currentSeq)
                 #print(f'key event {word} inserted at {pos} with count {count}')
