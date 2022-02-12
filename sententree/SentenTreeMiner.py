@@ -50,6 +50,12 @@ class SentenTreeMiner:
 
             seq0 = currentSeq.after
             seq1 = currentSeq.before
+            if seq1:
+                print("seq1")
+                print(seq1.printNode())
+            if seq0:
+                print("seq0")
+                print(seq0.printNode())
 
             if not seq1 and not seq0:
                 word, pos, count, seq0, seq1 = self.growSeq(currentSeq)
@@ -58,6 +64,8 @@ class SentenTreeMiner:
                 if count <= self.minSupport:
                     #currentSeq.parent.insert(0, rootNode)
                     leafSeqs.append(currentSeq)
+                    del seqs[seqs.index(currentSeq)]
+                    continue
                 else:
                     if not graph:
                         graph = Graph()
