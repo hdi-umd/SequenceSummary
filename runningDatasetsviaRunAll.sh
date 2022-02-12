@@ -42,4 +42,15 @@ python RunAll.py --file "datasets/foursquare/NYC_subset.txt" --evttype 1 --start
 python RunAll.py --file "datasets/Children_Hospital/DND-ChildrensDemo-06-26-13.txt" --evttype 3 --startidx 2 --endidx 3  --format "%Y-%m-%d %H:%M:%S.%f" --sep "\t" --local True --header "record_id" "event_category" "Start_time" "end_time" "event_attributes" --grpattr "record_id" --attr "event_category" --merge 1
 
 #Process Mining
-python RunAll.py --file "process_mining.csv" --evttype 1 --startidx 4  --format "%Y-%m-%d %H:%M:%S UTC" --sep "," --local True  --grpattr "Trace_ID" --attr "Action" --merge 1
+python RunAll.py --file "process_mining.csv" --evttype 1 --startidx 4  --format "%Y-%m-%d %H:%M:%S UTC" --sep "," --local True  --grpattr "Trace_ID" --attr "Action"
+
+## Professor
+
+python RunAll.py --file "datasets/Professor/Professors_Dataset.txt" --evttype 3 --startidx 2 --endidx 3  --format "%m/%d/%Y" --sep "\t" --local True --header "record_id" "event_category" "Start_time" "end_time" "event_attributes" --grpattr "record_id" --attr "event_category"
+
+#UMDvsUNC
+python RunAll.py --file "datasets/UMDvsUNC_Dataset/UMDvsUNC/UMDvsUNC-D2O.txt" --evttype 3 --startidx 2 --endidx 3 --format "%H:%M:%S.%f" --sep "\t" --local True --header "record_id" "event_category" "Start_time" "end_time" "event_attributes" --grpattr "record_id" --attr "event_category"
+
+
+#VAST
+python RunAll.py --file "datasets/VAST2017MC1/cleaned-eventflow.txt" --evttype 1 --startidx 2 --format "%m/%d/%y %H:%M" --sep "\t" --local True --header "record_id" "event_category" "Start_time" "event_attributes" --grpattr "record_id" --attr "event_category"
