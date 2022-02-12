@@ -358,6 +358,8 @@ class Graph:
             currentBundle = max(bundleList, key=lambda x: x.nid)
             #print(f'nid {currentBundle.nid}')
             if currentBundle.nid in merged:
+                ind = bundleList.index(currentBundle)
+                del bundleList[ind]
                 continue
             groups = []
             if len(currentBundle.leftLinks) > 1:
