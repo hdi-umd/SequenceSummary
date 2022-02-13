@@ -40,7 +40,7 @@ export async function renderCoreFlow(dataPath, renderer) {
   let lbl = scene.mark("text", {
     x: 100,
     y: 100,
-    fontSize: "9px",
+    fontSize: "11px",
     fontWeight: "bold",
     fillColor: "#006594",
   });
@@ -106,7 +106,7 @@ export async function renderSententree(dataPath, renderer) {
   scene.encode(link, { channel: "strokeWidth", field: "count", range: [1, 6] });
   let linkWeight = scene.mark("text", {
     fillColor: "#006594",
-    fontSize: "9px",
+    fontSize: "11px",
     fontWeight: "bold"
   });
   let lws = scene.repeat(linkWeight, data.linkTable);
@@ -265,7 +265,7 @@ export async function renderSeqSynopsis(dataPath, renderer) {
       x: 200,
       y: 100,
       fillColor: "#006594",
-      fontSize: "9px",
+      fontSize: "11px",
       fontWeight: "bold",
     });
   let glyph = scn.glyph(evtBg, evtNm, evtCnt);
