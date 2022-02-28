@@ -1,0 +1,34 @@
+{
+ "event_attribute": "_Start",
+ "Pattern": "",
+ "value": 662,
+ "median_index": 0,
+ "average_index": 0,
+ "children": [
+  {
+   "event_attribute": "Fast Food",
+   "Pattern": "Fast Food",
+   "value": 337,
+   "median_index": 2.0,
+   "average_index": 2.5608308605341246,
+   "children": [
+    {
+     "event_attribute": "_Exit",
+     "Pattern": "Fast Food",
+     "value": 337,
+     "median_index": 6.0,
+     "average_index": 9.335311572700297,
+     "children": []
+    }
+   ]
+  },
+  {
+   "event_attribute": "_Exit",
+   "Pattern": "",
+   "value": 325,
+   "median_index": 2.0,
+   "average_index": 3.289230769230769,
+   "children": []
+  }
+ ]
+}

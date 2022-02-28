@@ -1,0 +1,141 @@
+{
+ "nodes": [
+  {
+   "id": 1,
+   "event_attribute": "_Start",
+   "pattern": "P",
+   "value": "662",
+   "value_event": "0",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 3,
+   "event_attribute": "Fast Food",
+   "pattern": "PFast Food",
+   "value": "337",
+   "value_event": "0",
+   "median_index": 2.0,
+   "average_index": 2.5608308605341246
+  },
+  {
+   "id": 5,
+   "event_attribute": "Restaurant",
+   "pattern": "PFast Food-Fast Food",
+   "value": "182",
+   "value_event": "0",
+   "median_index": 5.0,
+   "average_index": 5.874017673720938
+  },
+  {
+   "id": 7,
+   "event_attribute": "Restaurant",
+   "pattern": "PRestaurant",
+   "value": "137",
+   "value_event": "0",
+   "median_index": 1.0,
+   "average_index": 1.1532846715328466
+  },
+  {
+   "id": 11,
+   "event_attribute": "Fast Food",
+   "pattern": "PFast Food-Fast Food-Fast Food",
+   "value": "106",
+   "value_event": "0",
+   "median_index": 7.0,
+   "average_index": 8.69477239070207
+  },
+  {
+   "id": 18,
+   "event_attribute": "_Exit",
+   "pattern": "P",
+   "value": "188",
+   "value_event": "0",
+   "median_index": 1.0,
+   "average_index": 2.9361702127659575
+  },
+  {
+   "id": 20,
+   "event_attribute": "Gym",
+   "pattern": "PRestaurant",
+   "value": "292",
+   "value_event": "0",
+   "median_index": 6.0,
+   "average_index": 6.773722627737226
+  },
+  {
+   "id": 21,
+   "event_attribute": "_Exit",
+   "pattern": "PFast Food-Fast Food-Fast Food",
+   "value": "106",
+   "value_event": "0",
+   "median_index": 12.0,
+   "average_index": 15.958923334098298
+  },
+  {
+    "id": 22,
+    "event_attribute": "_Exit",
+    "pattern": "PRestaurant",
+    "value": "292",
+    "value_event": "0",
+    "median_index": 7.0,
+    "average_index": 8.773722627737226
+   }
+ ],
+ "links": [
+  {
+   "source": 1,
+   "target": 3,
+   "count": 337,
+   "length": 2.5608308605341246
+  },
+  {
+   "source": 1,
+   "target": 7,
+   "count": 137,
+   "length": 1.1532846715328466
+  },
+  {
+   "source": 1,
+   "target": 18,
+   "count": 188,
+   "length": 3.9361702127659575
+  },
+  {
+   "source": 3,
+   "target": 5,
+   "count": 182,
+   "length": 3.3131868131868134
+  },
+  {
+   "source": 3,
+   "target": 20,
+   "count": 155,
+   "length": 4.716129032258064
+  },
+  {
+   "source": 5,
+   "target": 11,
+   "count": 106,
+   "length": 2.8207547169811322
+  },
+  {
+   "source": 7,
+   "target": 20,
+   "count": 137,
+   "length": 4.62043795620438
+  },
+  {
+   "source": 11,
+   "target": 21,
+   "count": 106,
+   "length": 9.264150943396226
+  },
+  {
+    "source": 20,
+    "target": 22,
+    "count": 292,
+    "length": 8.264150943396226
+   }
+ ]
+}

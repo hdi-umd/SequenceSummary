@@ -1,0 +1,1698 @@
+{
+ "nodes": [
+  {
+   "id": 1,
+   "event_attribute": "_Start",
+   "pattern": "P0",
+   "value": "1",
+   "value_event": "1",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 2,
+   "event_attribute": "Laundry Service",
+   "pattern": "P0",
+   "value": "1",
+   "value_event": "1",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 3,
+   "event_attribute": "_Exit",
+   "pattern": "P0",
+   "value": "1",
+   "value_event": "1",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 4,
+   "event_attribute": "_Start",
+   "pattern": "P1",
+   "value": "1",
+   "value_event": "1",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 5,
+   "event_attribute": "Tattoo Parlor",
+   "pattern": "P1",
+   "value": "1",
+   "value_event": "1",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 6,
+   "event_attribute": "Alcohol",
+   "pattern": "P1",
+   "value": "1",
+   "value_event": "1",
+   "median_index": 1.0,
+   "average_index": 1.0
+  },
+  {
+   "id": 7,
+   "event_attribute": "_Exit",
+   "pattern": "P1",
+   "value": "1",
+   "value_event": "1",
+   "median_index": 1.0,
+   "average_index": 1.0
+  },
+  {
+   "id": 8,
+   "event_attribute": "_Start",
+   "pattern": "P2",
+   "value": "1",
+   "value_event": "1",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 9,
+   "event_attribute": "Railway",
+   "pattern": "P2",
+   "value": "1",
+   "value_event": "1",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 10,
+   "event_attribute": "Outdoor",
+   "pattern": "P2",
+   "value": "1",
+   "value_event": "1",
+   "median_index": 1.0,
+   "average_index": 1.0
+  },
+  {
+   "id": 11,
+   "event_attribute": "_Exit",
+   "pattern": "P2",
+   "value": "1",
+   "value_event": "1",
+   "median_index": 1.0,
+   "average_index": 1.0
+  },
+  {
+   "id": 12,
+   "event_attribute": "_Start",
+   "pattern": "P3",
+   "value": "1",
+   "value_event": "1",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 13,
+   "event_attribute": "Tea Room",
+   "pattern": "P3",
+   "value": "1",
+   "value_event": "1",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 14,
+   "event_attribute": "Home (private)",
+   "pattern": "P3",
+   "value": "1",
+   "value_event": "1",
+   "median_index": 1.0,
+   "average_index": 1.0
+  },
+  {
+   "id": 15,
+   "event_attribute": "_Exit",
+   "pattern": "P3",
+   "value": "1",
+   "value_event": "1",
+   "median_index": 1.0,
+   "average_index": 1.0
+  },
+  {
+   "id": 16,
+   "event_attribute": "_Start",
+   "pattern": "P4",
+   "value": "1",
+   "value_event": "1",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 17,
+   "event_attribute": "Recreation",
+   "pattern": "P4",
+   "value": "1",
+   "value_event": "1",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 18,
+   "event_attribute": "Recreation",
+   "pattern": "P4",
+   "value": "1",
+   "value_event": "1",
+   "median_index": 1.0,
+   "average_index": 1.0
+  },
+  {
+   "id": 19,
+   "event_attribute": "Recreation",
+   "pattern": "P4",
+   "value": "1",
+   "value_event": "1",
+   "median_index": 2.0,
+   "average_index": 2.0
+  },
+  {
+   "id": 20,
+   "event_attribute": "Flea Market",
+   "pattern": "P4",
+   "value": "1",
+   "value_event": "1",
+   "median_index": 3.0,
+   "average_index": 3.0
+  },
+  {
+   "id": 21,
+   "event_attribute": "Government Building",
+   "pattern": "P4",
+   "value": "1",
+   "value_event": "1",
+   "median_index": 4.0,
+   "average_index": 4.0
+  },
+  {
+   "id": 22,
+   "event_attribute": "Museum",
+   "pattern": "P4",
+   "value": "1",
+   "value_event": "1",
+   "median_index": 5.0,
+   "average_index": 5.0
+  },
+  {
+   "id": 23,
+   "event_attribute": "_Exit",
+   "pattern": "P4",
+   "value": "1",
+   "value_event": "1",
+   "median_index": 5.0,
+   "average_index": 5.0
+  },
+  {
+   "id": 24,
+   "event_attribute": "_Start",
+   "pattern": "P5",
+   "value": "3",
+   "value_event": "3",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 25,
+   "event_attribute": "Hotel",
+   "pattern": "P5",
+   "value": "3",
+   "value_event": "3",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 26,
+   "event_attribute": "_Exit",
+   "pattern": "P5",
+   "value": "3",
+   "value_event": "3",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 27,
+   "event_attribute": "_Start",
+   "pattern": "P6",
+   "value": "21",
+   "value_event": "21",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 28,
+   "event_attribute": "Restaurant",
+   "pattern": "P6",
+   "value": "21",
+   "value_event": "21",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 29,
+   "event_attribute": "_Exit",
+   "pattern": "P6",
+   "value": "21",
+   "value_event": "21",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 30,
+   "event_attribute": "_Start",
+   "pattern": "P7",
+   "value": "2",
+   "value_event": "2",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 31,
+   "event_attribute": "Outdoor",
+   "pattern": "P7",
+   "value": "2",
+   "value_event": "2",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 32,
+   "event_attribute": "Outdoor",
+   "pattern": "P7",
+   "value": "2",
+   "value_event": "1",
+   "median_index": 0.5,
+   "average_index": 0.5
+  },
+  {
+   "id": 33,
+   "event_attribute": "_Exit",
+   "pattern": "P7",
+   "value": "2",
+   "value_event": "2",
+   "median_index": 1.0,
+   "average_index": 1.0
+  },
+  {
+   "id": 34,
+   "event_attribute": "_Start",
+   "pattern": "P8",
+   "value": "28",
+   "value_event": "28",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 35,
+   "event_attribute": "Recreation",
+   "pattern": "P8",
+   "value": "28",
+   "value_event": "28",
+   "median_index": 0.0,
+   "average_index": 1.0357142857142858
+  },
+  {
+   "id": 36,
+   "event_attribute": "Fast Food",
+   "pattern": "P8",
+   "value": "28",
+   "value_event": "28",
+   "median_index": 2.0,
+   "average_index": 3.75
+  },
+  {
+   "id": 37,
+   "event_attribute": "Recreation",
+   "pattern": "P8",
+   "value": "28",
+   "value_event": "23",
+   "median_index": 3.0,
+   "average_index": 5.285714285714286
+  },
+  {
+   "id": 38,
+   "event_attribute": "Fast Food",
+   "pattern": "P8",
+   "value": "28",
+   "value_event": "20",
+   "median_index": 4.0,
+   "average_index": 7.678571428571429
+  },
+  {
+   "id": 39,
+   "event_attribute": "Recreation",
+   "pattern": "P8",
+   "value": "28",
+   "value_event": "13",
+   "median_index": 4.0,
+   "average_index": 8.392857142857142
+  },
+  {
+   "id": 40,
+   "event_attribute": "_Exit",
+   "pattern": "P8",
+   "value": "28",
+   "value_event": "28",
+   "median_index": 8.0,
+   "average_index": 16.67857142857143
+  },
+  {
+   "id": 41,
+   "event_attribute": "_Start",
+   "pattern": "P9",
+   "value": "59",
+   "value_event": "59",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 42,
+   "event_attribute": "Fast Food",
+   "pattern": "P9",
+   "value": "59",
+   "value_event": "59",
+   "median_index": 1.0,
+   "average_index": 1.2881355932203389
+  },
+  {
+   "id": 43,
+   "event_attribute": "Store",
+   "pattern": "P9",
+   "value": "59",
+   "value_event": "33",
+   "median_index": 2.0,
+   "average_index": 4.440677966101695
+  },
+  {
+   "id": 44,
+   "event_attribute": "Fast Food",
+   "pattern": "P9",
+   "value": "59",
+   "value_event": "48",
+   "median_index": 2.0,
+   "average_index": 5.5593220338983045
+  },
+  {
+   "id": 45,
+   "event_attribute": "Fast Food",
+   "pattern": "P9",
+   "value": "59",
+   "value_event": "30",
+   "median_index": 3.0,
+   "average_index": 6.7627118644067785
+  },
+  {
+   "id": 46,
+   "event_attribute": "Restaurant",
+   "pattern": "P9",
+   "value": "59",
+   "value_event": "19",
+   "median_index": 3.0,
+   "average_index": 8.322033898305083
+  },
+  {
+   "id": 47,
+   "event_attribute": "Fast Food",
+   "pattern": "P9",
+   "value": "59",
+   "value_event": "18",
+   "median_index": 3.0,
+   "average_index": 8.949152542372879
+  },
+  {
+   "id": 48,
+   "event_attribute": "_Exit",
+   "pattern": "P9",
+   "value": "59",
+   "value_event": "59",
+   "median_index": 10.0,
+   "average_index": 17.406779661016948
+  },
+  {
+   "id": 49,
+   "event_attribute": "_Start",
+   "pattern": "P10",
+   "value": "5",
+   "value_event": "5",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 50,
+   "event_attribute": "Schools",
+   "pattern": "P10",
+   "value": "5",
+   "value_event": "2",
+   "median_index": 0.0,
+   "average_index": 0.4
+  },
+  {
+   "id": 51,
+   "event_attribute": "Railway",
+   "pattern": "P10",
+   "value": "5",
+   "value_event": "5",
+   "median_index": 0.0,
+   "average_index": 0.8
+  },
+  {
+   "id": 52,
+   "event_attribute": "_Exit",
+   "pattern": "P10",
+   "value": "5",
+   "value_event": "5",
+   "median_index": 4.0,
+   "average_index": 10.4
+  },
+  {
+   "id": 53,
+   "event_attribute": "_Start",
+   "pattern": "P11",
+   "value": "6",
+   "value_event": "6",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 54,
+   "event_attribute": "Laundry Service",
+   "pattern": "P11",
+   "value": "6",
+   "value_event": "2",
+   "median_index": 0.0,
+   "average_index": 0.5
+  },
+  {
+   "id": 55,
+   "event_attribute": "Residential Building (Apartment / Condo)",
+   "pattern": "P11",
+   "value": "6",
+   "value_event": "6",
+   "median_index": 0.0,
+   "average_index": 1.0
+  },
+  {
+   "id": 56,
+   "event_attribute": "_Exit",
+   "pattern": "P11",
+   "value": "6",
+   "value_event": "6",
+   "median_index": 4.0,
+   "average_index": 8.833333333333332
+  },
+  {
+   "id": 57,
+   "event_attribute": "_Start",
+   "pattern": "P12",
+   "value": "21",
+   "value_event": "21",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 58,
+   "event_attribute": "Recreation",
+   "pattern": "P12",
+   "value": "21",
+   "value_event": "21",
+   "median_index": 0.0,
+   "average_index": 1.1428571428571428
+  },
+  {
+   "id": 59,
+   "event_attribute": "Office",
+   "pattern": "P12",
+   "value": "21",
+   "value_event": "9",
+   "median_index": 0.0,
+   "average_index": 1.7619047619047619
+  },
+  {
+   "id": 60,
+   "event_attribute": "Gym / Fitness Center",
+   "pattern": "P12",
+   "value": "21",
+   "value_event": "10",
+   "median_index": 0.0,
+   "average_index": 2.4761904761904763
+  },
+  {
+   "id": 61,
+   "event_attribute": "Recreation",
+   "pattern": "P12",
+   "value": "21",
+   "value_event": "15",
+   "median_index": 0.0,
+   "average_index": 3.1904761904761907
+  },
+  {
+   "id": 62,
+   "event_attribute": "Recreation",
+   "pattern": "P12",
+   "value": "21",
+   "value_event": "11",
+   "median_index": 1.0,
+   "average_index": 4.190476190476191
+  },
+  {
+   "id": 63,
+   "event_attribute": "_Exit",
+   "pattern": "P12",
+   "value": "21",
+   "value_event": "21",
+   "median_index": 5.0,
+   "average_index": 9.857142857142858
+  },
+  {
+   "id": 64,
+   "event_attribute": "_Start",
+   "pattern": "P13",
+   "value": "5",
+   "value_event": "5",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 65,
+   "event_attribute": "Event Space",
+   "pattern": "P13",
+   "value": "5",
+   "value_event": "1",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 66,
+   "event_attribute": "Store",
+   "pattern": "P13",
+   "value": "5",
+   "value_event": "4",
+   "median_index": 0.0,
+   "average_index": 0.4
+  },
+  {
+   "id": 67,
+   "event_attribute": "_Exit",
+   "pattern": "P13",
+   "value": "5",
+   "value_event": "5",
+   "median_index": 6.0,
+   "average_index": 7.4
+  },
+  {
+   "id": 68,
+   "event_attribute": "_Start",
+   "pattern": "P14",
+   "value": "72",
+   "value_event": "72",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 69,
+   "event_attribute": "Fast Food",
+   "pattern": "P14",
+   "value": "72",
+   "value_event": "69",
+   "median_index": 1.5,
+   "average_index": 2.2083333333333335
+  },
+  {
+   "id": 70,
+   "event_attribute": "Restaurant",
+   "pattern": "P14",
+   "value": "72",
+   "value_event": "31",
+   "median_index": 1.5,
+   "average_index": 3.9027777777777777
+  },
+  {
+   "id": 71,
+   "event_attribute": "Fast Food",
+   "pattern": "P14",
+   "value": "72",
+   "value_event": "15",
+   "median_index": 1.5,
+   "average_index": 4.375
+  },
+  {
+   "id": 72,
+   "event_attribute": "_Exit",
+   "pattern": "P14",
+   "value": "72",
+   "value_event": "72",
+   "median_index": 5.5,
+   "average_index": 10.569444444444445
+  },
+  {
+   "id": 73,
+   "event_attribute": "_Start",
+   "pattern": "P15",
+   "value": "19",
+   "value_event": "19",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 74,
+   "event_attribute": "Alcohol",
+   "pattern": "P15",
+   "value": "19",
+   "value_event": "14",
+   "median_index": 0.0,
+   "average_index": 0.21052631578947367
+  },
+  {
+   "id": 75,
+   "event_attribute": "_Exit",
+   "pattern": "P15",
+   "value": "19",
+   "value_event": "19",
+   "median_index": 0.0,
+   "average_index": 1.5789473684210527
+  },
+  {
+   "id": 76,
+   "event_attribute": "_Start",
+   "pattern": "P16",
+   "value": "51",
+   "value_event": "51",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 77,
+   "event_attribute": "Fast Food",
+   "pattern": "P16",
+   "value": "51",
+   "value_event": "50",
+   "median_index": 0.0,
+   "average_index": 0.6274509803921569
+  },
+  {
+   "id": 78,
+   "event_attribute": "Fast Food",
+   "pattern": "P16",
+   "value": "51",
+   "value_event": "22",
+   "median_index": 0.0,
+   "average_index": 1.4509803921568627
+  },
+  {
+   "id": 79,
+   "event_attribute": "_Exit",
+   "pattern": "P16",
+   "value": "51",
+   "value_event": "51",
+   "median_index": 2.0,
+   "average_index": 3.7254901960784315
+  },
+  {
+   "id": 80,
+   "event_attribute": "_Start",
+   "pattern": "P17",
+   "value": "15",
+   "value_event": "15",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 81,
+   "event_attribute": "Office",
+   "pattern": "P17",
+   "value": "15",
+   "value_event": "14",
+   "median_index": 0.0,
+   "average_index": 1.4
+  },
+  {
+   "id": 82,
+   "event_attribute": "Office",
+   "pattern": "P17",
+   "value": "15",
+   "value_event": "5",
+   "median_index": 0.0,
+   "average_index": 2.2666666666666666
+  },
+  {
+   "id": 83,
+   "event_attribute": "_Exit",
+   "pattern": "P17",
+   "value": "15",
+   "value_event": "15",
+   "median_index": 2.0,
+   "average_index": 5.199999999999999
+  },
+  {
+   "id": 84,
+   "event_attribute": "_Start",
+   "pattern": "P18",
+   "value": "24",
+   "value_event": "24",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 85,
+   "event_attribute": "Spiritual",
+   "pattern": "P18",
+   "value": "24",
+   "value_event": "9",
+   "median_index": 0.0,
+   "average_index": 0.16666666666666666
+  },
+  {
+   "id": 86,
+   "event_attribute": "Store",
+   "pattern": "P18",
+   "value": "24",
+   "value_event": "16",
+   "median_index": 0.0,
+   "average_index": 0.41666666666666663
+  },
+  {
+   "id": 87,
+   "event_attribute": "_Exit",
+   "pattern": "P18",
+   "value": "24",
+   "value_event": "24",
+   "median_index": 1.0,
+   "average_index": 2.75
+  },
+  {
+   "id": 88,
+   "event_attribute": "_Start",
+   "pattern": "P19",
+   "value": "10",
+   "value_event": "10",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 89,
+   "event_attribute": "Recreation",
+   "pattern": "P19",
+   "value": "10",
+   "value_event": "9",
+   "median_index": 0.0,
+   "average_index": 0.1
+  },
+  {
+   "id": 90,
+   "event_attribute": "Recreation",
+   "pattern": "P19",
+   "value": "10",
+   "value_event": "3",
+   "median_index": 0.0,
+   "average_index": 0.5
+  },
+  {
+   "id": 91,
+   "event_attribute": "_Exit",
+   "pattern": "P19",
+   "value": "10",
+   "value_event": "10",
+   "median_index": 1.0,
+   "average_index": 2.4
+  },
+  {
+   "id": 92,
+   "event_attribute": "_Start",
+   "pattern": "P20",
+   "value": "21",
+   "value_event": "21",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 93,
+   "event_attribute": "Restaurant",
+   "pattern": "P20",
+   "value": "21",
+   "value_event": "11",
+   "median_index": 0.0,
+   "average_index": 1.3333333333333333
+  },
+  {
+   "id": 94,
+   "event_attribute": "Home (private)",
+   "pattern": "P20",
+   "value": "21",
+   "value_event": "18",
+   "median_index": 0.0,
+   "average_index": 2.4761904761904763
+  },
+  {
+   "id": 95,
+   "event_attribute": "_Exit",
+   "pattern": "P20",
+   "value": "21",
+   "value_event": "21",
+   "median_index": 3.0,
+   "average_index": 8.61904761904762
+  },
+  {
+   "id": 96,
+   "event_attribute": "_Start",
+   "pattern": "P21",
+   "value": "5",
+   "value_event": "5",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 97,
+   "event_attribute": "Neighborhood",
+   "pattern": "P21",
+   "value": "5",
+   "value_event": "4",
+   "median_index": 0.0,
+   "average_index": 0.6
+  },
+  {
+   "id": 98,
+   "event_attribute": "Stadium",
+   "pattern": "P21",
+   "value": "5",
+   "value_event": "2",
+   "median_index": 0.0,
+   "average_index": 1.2
+  },
+  {
+   "id": 99,
+   "event_attribute": "_Exit",
+   "pattern": "P21",
+   "value": "5",
+   "value_event": "5",
+   "median_index": 1.0,
+   "average_index": 2.4
+  },
+  {
+   "id": 100,
+   "event_attribute": "_Start",
+   "pattern": "P22",
+   "value": "7",
+   "value_event": "7",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 101,
+   "event_attribute": "Shop",
+   "pattern": "P22",
+   "value": "7",
+   "value_event": "4",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 102,
+   "event_attribute": "Schools",
+   "pattern": "P22",
+   "value": "7",
+   "value_event": "4",
+   "median_index": 0.0,
+   "average_index": 0.14285714285714285
+  },
+  {
+   "id": 103,
+   "event_attribute": "_Exit",
+   "pattern": "P22",
+   "value": "7",
+   "value_event": "7",
+   "median_index": 1.0,
+   "average_index": 1.0
+  },
+  {
+   "id": 104,
+   "event_attribute": "_Start",
+   "pattern": "P23",
+   "value": "53",
+   "value_event": "53",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 105,
+   "event_attribute": "Arts & Entertainment",
+   "pattern": "P23",
+   "value": "53",
+   "value_event": "19",
+   "median_index": 0.0,
+   "average_index": 1.6981132075471699
+  },
+  {
+   "id": 106,
+   "event_attribute": "Travel & Transport",
+   "pattern": "P23",
+   "value": "53",
+   "value_event": "35",
+   "median_index": 0.0,
+   "average_index": 2.056603773584906
+  },
+  {
+   "id": 107,
+   "event_attribute": "_Exit",
+   "pattern": "P23",
+   "value": "53",
+   "value_event": "53",
+   "median_index": 2.0,
+   "average_index": 7.60377358490566
+  },
+  {
+   "id": 108,
+   "event_attribute": "_Start",
+   "pattern": "P24",
+   "value": "43",
+   "value_event": "43",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 109,
+   "event_attribute": "Gym / Fitness Center",
+   "pattern": "P24",
+   "value": "43",
+   "value_event": "35",
+   "median_index": 0.0,
+   "average_index": 0.5116279069767442
+  },
+  {
+   "id": 110,
+   "event_attribute": "_Exit",
+   "pattern": "P24",
+   "value": "43",
+   "value_event": "43",
+   "median_index": 1.0,
+   "average_index": 2.697674418604651
+  },
+  {
+   "id": 111,
+   "event_attribute": "_Start",
+   "pattern": "P25",
+   "value": "10",
+   "value_event": "10",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 112,
+   "event_attribute": "General College & University",
+   "pattern": "P25",
+   "value": "10",
+   "value_event": "10",
+   "median_index": 0.0,
+   "average_index": 0.2
+  },
+  {
+   "id": 113,
+   "event_attribute": "General College & University",
+   "pattern": "P25",
+   "value": "10",
+   "value_event": "9",
+   "median_index": 1.0,
+   "average_index": 1.3
+  },
+  {
+   "id": 114,
+   "event_attribute": "General College & University",
+   "pattern": "P25",
+   "value": "10",
+   "value_event": "9",
+   "median_index": 2.0,
+   "average_index": 2.7
+  },
+  {
+   "id": 115,
+   "event_attribute": "_Exit",
+   "pattern": "P25",
+   "value": "10",
+   "value_event": "10",
+   "median_index": 14.0,
+   "average_index": 19.7
+  },
+  {
+   "id": 116,
+   "event_attribute": "_Start",
+   "pattern": "P26",
+   "value": "74",
+   "value_event": "74",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 117,
+   "event_attribute": "Gym / Fitness Center",
+   "pattern": "P26",
+   "value": "74",
+   "value_event": "72",
+   "median_index": 0.0,
+   "average_index": 1.3918918918918919
+  },
+  {
+   "id": 118,
+   "event_attribute": "Gym / Fitness Center",
+   "pattern": "P26",
+   "value": "74",
+   "value_event": "59",
+   "median_index": 1.0,
+   "average_index": 3.054054054054054
+  },
+  {
+   "id": 119,
+   "event_attribute": "Gym / Fitness Center",
+   "pattern": "P26",
+   "value": "74",
+   "value_event": "28",
+   "median_index": 1.0,
+   "average_index": 3.72972972972973
+  },
+  {
+   "id": 120,
+   "event_attribute": "_Exit",
+   "pattern": "P26",
+   "value": "74",
+   "value_event": "74",
+   "median_index": 5.0,
+   "average_index": 8.85135135135135
+  },
+  {
+   "id": 121,
+   "event_attribute": "_Start",
+   "pattern": "P27",
+   "value": "103",
+   "value_event": "103",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 122,
+   "event_attribute": "Restaurant",
+   "pattern": "P27",
+   "value": "103",
+   "value_event": "88",
+   "median_index": 0.0,
+   "average_index": 1.1067961165048543
+  },
+  {
+   "id": 123,
+   "event_attribute": "Restaurant",
+   "pattern": "P27",
+   "value": "103",
+   "value_event": "55",
+   "median_index": 1.0,
+   "average_index": 2.699029126213592
+  },
+  {
+   "id": 124,
+   "event_attribute": "_Exit",
+   "pattern": "P27",
+   "value": "103",
+   "value_event": "103",
+   "median_index": 4.0,
+   "average_index": 6.786407766990291
+  }
+ ],
+ "links": [
+  {
+   "source": 1,
+   "target": 2,
+   "count": 1,
+   "length": 0
+  },
+  {
+   "source": 2,
+   "target": 3,
+   "count": 1,
+   "length": 0
+  },
+  {
+   "source": 4,
+   "target": 5,
+   "count": 1,
+   "length": 0
+  },
+  {
+   "source": 5,
+   "target": 6,
+   "count": 1,
+   "length": 0
+  },
+  {
+   "source": 6,
+   "target": 7,
+   "count": 1,
+   "length": 0
+  },
+  {
+   "source": 8,
+   "target": 9,
+   "count": 1,
+   "length": 0
+  },
+  {
+   "source": 9,
+   "target": 10,
+   "count": 1,
+   "length": 0
+  },
+  {
+   "source": 10,
+   "target": 11,
+   "count": 1,
+   "length": 0
+  },
+  {
+   "source": 12,
+   "target": 13,
+   "count": 1,
+   "length": 0
+  },
+  {
+   "source": 13,
+   "target": 14,
+   "count": 1,
+   "length": 0
+  },
+  {
+   "source": 14,
+   "target": 15,
+   "count": 1,
+   "length": 0
+  },
+  {
+   "source": 16,
+   "target": 17,
+   "count": 1,
+   "length": 0
+  },
+  {
+   "source": 17,
+   "target": 18,
+   "count": 1,
+   "length": 0
+  },
+  {
+   "source": 18,
+   "target": 19,
+   "count": 1,
+   "length": 0
+  },
+  {
+   "source": 19,
+   "target": 20,
+   "count": 1,
+   "length": 0
+  },
+  {
+   "source": 20,
+   "target": 21,
+   "count": 1,
+   "length": 0
+  },
+  {
+   "source": 21,
+   "target": 22,
+   "count": 1,
+   "length": 0
+  },
+  {
+   "source": 22,
+   "target": 23,
+   "count": 1,
+   "length": 0
+  },
+  {
+   "source": 24,
+   "target": 25,
+   "count": 3,
+   "length": 0
+  },
+  {
+   "source": 25,
+   "target": 26,
+   "count": 3,
+   "length": 0
+  },
+  {
+   "source": 27,
+   "target": 28,
+   "count": 21,
+   "length": 0
+  },
+  {
+   "source": 28,
+   "target": 29,
+   "count": 21,
+   "length": 0
+  },
+  {
+   "source": 30,
+   "target": 31,
+   "count": 2,
+   "length": 0
+  },
+  {
+   "source": 31,
+   "target": 32,
+   "count": 2,
+   "length": 0
+  },
+  {
+   "source": 32,
+   "target": 33,
+   "count": 2,
+   "length": 0
+  },
+  {
+   "source": 34,
+   "target": 35,
+   "count": 28,
+   "length": 0
+  },
+  {
+   "source": 35,
+   "target": 36,
+   "count": 28,
+   "length": 0
+  },
+  {
+   "source": 36,
+   "target": 37,
+   "count": 28,
+   "length": 0
+  },
+  {
+   "source": 37,
+   "target": 38,
+   "count": 28,
+   "length": 0
+  },
+  {
+   "source": 38,
+   "target": 39,
+   "count": 28,
+   "length": 0
+  },
+  {
+   "source": 39,
+   "target": 40,
+   "count": 28,
+   "length": 0
+  },
+  {
+   "source": 41,
+   "target": 42,
+   "count": 59,
+   "length": 0
+  },
+  {
+   "source": 42,
+   "target": 43,
+   "count": 59,
+   "length": 0
+  },
+  {
+   "source": 43,
+   "target": 44,
+   "count": 59,
+   "length": 0
+  },
+  {
+   "source": 44,
+   "target": 45,
+   "count": 59,
+   "length": 0
+  },
+  {
+   "source": 45,
+   "target": 46,
+   "count": 59,
+   "length": 0
+  },
+  {
+   "source": 46,
+   "target": 47,
+   "count": 59,
+   "length": 0
+  },
+  {
+   "source": 47,
+   "target": 48,
+   "count": 59,
+   "length": 0
+  },
+  {
+   "source": 49,
+   "target": 50,
+   "count": 5,
+   "length": 0
+  },
+  {
+   "source": 50,
+   "target": 51,
+   "count": 5,
+   "length": 0
+  },
+  {
+   "source": 51,
+   "target": 52,
+   "count": 5,
+   "length": 0
+  },
+  {
+   "source": 53,
+   "target": 54,
+   "count": 6,
+   "length": 0
+  },
+  {
+   "source": 54,
+   "target": 55,
+   "count": 6,
+   "length": 0
+  },
+  {
+   "source": 55,
+   "target": 56,
+   "count": 6,
+   "length": 0
+  },
+  {
+   "source": 57,
+   "target": 58,
+   "count": 21,
+   "length": 0
+  },
+  {
+   "source": 58,
+   "target": 59,
+   "count": 21,
+   "length": 0
+  },
+  {
+   "source": 59,
+   "target": 60,
+   "count": 21,
+   "length": 0
+  },
+  {
+   "source": 60,
+   "target": 61,
+   "count": 21,
+   "length": 0
+  },
+  {
+   "source": 61,
+   "target": 62,
+   "count": 21,
+   "length": 0
+  },
+  {
+   "source": 62,
+   "target": 63,
+   "count": 21,
+   "length": 0
+  },
+  {
+   "source": 64,
+   "target": 65,
+   "count": 5,
+   "length": 0
+  },
+  {
+   "source": 65,
+   "target": 66,
+   "count": 5,
+   "length": 0
+  },
+  {
+   "source": 66,
+   "target": 67,
+   "count": 5,
+   "length": 0
+  },
+  {
+   "source": 68,
+   "target": 69,
+   "count": 72,
+   "length": 0
+  },
+  {
+   "source": 69,
+   "target": 70,
+   "count": 72,
+   "length": 0
+  },
+  {
+   "source": 70,
+   "target": 71,
+   "count": 72,
+   "length": 0
+  },
+  {
+   "source": 71,
+   "target": 72,
+   "count": 72,
+   "length": 0
+  },
+  {
+   "source": 73,
+   "target": 74,
+   "count": 19,
+   "length": 0
+  },
+  {
+   "source": 74,
+   "target": 75,
+   "count": 19,
+   "length": 0
+  },
+  {
+   "source": 76,
+   "target": 77,
+   "count": 51,
+   "length": 0
+  },
+  {
+   "source": 77,
+   "target": 78,
+   "count": 51,
+   "length": 0
+  },
+  {
+   "source": 78,
+   "target": 79,
+   "count": 51,
+   "length": 0
+  },
+  {
+   "source": 80,
+   "target": 81,
+   "count": 15,
+   "length": 0
+  },
+  {
+   "source": 81,
+   "target": 82,
+   "count": 15,
+   "length": 0
+  },
+  {
+   "source": 82,
+   "target": 83,
+   "count": 15,
+   "length": 0
+  },
+  {
+   "source": 84,
+   "target": 85,
+   "count": 24,
+   "length": 0
+  },
+  {
+   "source": 85,
+   "target": 86,
+   "count": 24,
+   "length": 0
+  },
+  {
+   "source": 86,
+   "target": 87,
+   "count": 24,
+   "length": 0
+  },
+  {
+   "source": 88,
+   "target": 89,
+   "count": 10,
+   "length": 0
+  },
+  {
+   "source": 89,
+   "target": 90,
+   "count": 10,
+   "length": 0
+  },
+  {
+   "source": 90,
+   "target": 91,
+   "count": 10,
+   "length": 0
+  },
+  {
+   "source": 92,
+   "target": 93,
+   "count": 21,
+   "length": 0
+  },
+  {
+   "source": 93,
+   "target": 94,
+   "count": 21,
+   "length": 0
+  },
+  {
+   "source": 94,
+   "target": 95,
+   "count": 21,
+   "length": 0
+  },
+  {
+   "source": 96,
+   "target": 97,
+   "count": 5,
+   "length": 0
+  },
+  {
+   "source": 97,
+   "target": 98,
+   "count": 5,
+   "length": 0
+  },
+  {
+   "source": 98,
+   "target": 99,
+   "count": 5,
+   "length": 0
+  },
+  {
+   "source": 100,
+   "target": 101,
+   "count": 7,
+   "length": 0
+  },
+  {
+   "source": 101,
+   "target": 102,
+   "count": 7,
+   "length": 0
+  },
+  {
+   "source": 102,
+   "target": 103,
+   "count": 7,
+   "length": 0
+  },
+  {
+   "source": 104,
+   "target": 105,
+   "count": 53,
+   "length": 0
+  },
+  {
+   "source": 105,
+   "target": 106,
+   "count": 53,
+   "length": 0
+  },
+  {
+   "source": 106,
+   "target": 107,
+   "count": 53,
+   "length": 0
+  },
+  {
+   "source": 108,
+   "target": 109,
+   "count": 43,
+   "length": 0
+  },
+  {
+   "source": 109,
+   "target": 110,
+   "count": 43,
+   "length": 0
+  },
+  {
+   "source": 111,
+   "target": 112,
+   "count": 10,
+   "length": 0
+  },
+  {
+   "source": 112,
+   "target": 113,
+   "count": 10,
+   "length": 0
+  },
+  {
+   "source": 113,
+   "target": 114,
+   "count": 10,
+   "length": 0
+  },
+  {
+   "source": 114,
+   "target": 115,
+   "count": 10,
+   "length": 0
+  },
+  {
+   "source": 116,
+   "target": 117,
+   "count": 74,
+   "length": 0
+  },
+  {
+   "source": 117,
+   "target": 118,
+   "count": 74,
+   "length": 0
+  },
+  {
+   "source": 118,
+   "target": 119,
+   "count": 74,
+   "length": 0
+  },
+  {
+   "source": 119,
+   "target": 120,
+   "count": 74,
+   "length": 0
+  },
+  {
+   "source": 121,
+   "target": 122,
+   "count": 103,
+   "length": 0
+  },
+  {
+   "source": 122,
+   "target": 123,
+   "count": 103,
+   "length": 0
+  },
+  {
+   "source": 123,
+   "target": 124,
+   "count": 103,
+   "length": 0
+  }
+ ]
+}
