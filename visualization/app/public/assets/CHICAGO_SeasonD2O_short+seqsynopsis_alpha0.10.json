@@ -1,0 +1,213 @@
+{
+ "nodes": [
+  {
+   "id": 1,
+   "event_attribute": "_Start",
+   "pattern": "P0",
+   "value": "30",
+   "value_event": "30",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 2,
+   "event_attribute": "Team-2 Offense",
+   "pattern": "P0",
+   "value": "30",
+   "value_event": "30",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 3,
+   "event_attribute": "Team-2 Foul",
+   "pattern": "P0",
+   "value": "30",
+   "value_event": "26",
+   "median_index": 2.0,
+   "average_index": 2.2
+  },
+  {
+   "id": 4,
+   "event_attribute": "Team-2 Free Throw",
+   "pattern": "P0",
+   "value": "30",
+   "value_event": "22",
+   "median_index": 3.0,
+   "average_index": 3.3000000000000003
+  },
+  {
+   "id": 5,
+   "event_attribute": "_Exit",
+   "pattern": "P0",
+   "value": "30",
+   "value_event": "30",
+   "median_index": 6.0,
+   "average_index": 6.300000000000001
+  },
+  {
+   "id": 6,
+   "event_attribute": "_Start",
+   "pattern": "P1",
+   "value": "39",
+   "value_event": "39",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 7,
+   "event_attribute": "Team-2 Offense",
+   "pattern": "P1",
+   "value": "39",
+   "value_event": "39",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 8,
+   "event_attribute": "Team-1 Defensive Rebound",
+   "pattern": "P1",
+   "value": "39",
+   "value_event": "32",
+   "median_index": 1.0,
+   "average_index": 1.6666666666666667
+  },
+  {
+   "id": 9,
+   "event_attribute": "Team-1 Defensive Rebound",
+   "pattern": "P1",
+   "value": "39",
+   "value_event": "13",
+   "median_index": 1.0,
+   "average_index": 2.871794871794872
+  },
+  {
+   "id": 10,
+   "event_attribute": "_Exit",
+   "pattern": "P1",
+   "value": "39",
+   "value_event": "39",
+   "median_index": 6.0,
+   "average_index": 7.794871794871796
+  },
+  {
+   "id": 11,
+   "event_attribute": "_Start",
+   "pattern": "P2",
+   "value": "99",
+   "value_event": "99",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 12,
+   "event_attribute": "Team-2 Offense",
+   "pattern": "P2",
+   "value": "99",
+   "value_event": "99",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 13,
+   "event_attribute": "Team-2 Missed Shot",
+   "pattern": "P2",
+   "value": "99",
+   "value_event": "43",
+   "median_index": 0.0,
+   "average_index": 0.9191919191919192
+  },
+  {
+   "id": 14,
+   "event_attribute": "Team-1 Offense",
+   "pattern": "P2",
+   "value": "99",
+   "value_event": "82",
+   "median_index": 0.0,
+   "average_index": 1.3434343434343434
+  },
+  {
+   "id": 15,
+   "event_attribute": "_Exit",
+   "pattern": "P2",
+   "value": "99",
+   "value_event": "99",
+   "median_index": 2.0,
+   "average_index": 3.6464646464646466
+  }
+ ],
+ "links": [
+  {
+   "source": 1,
+   "target": 2,
+   "count": 30,
+   "length": 0
+  },
+  {
+   "source": 2,
+   "target": 3,
+   "count": 30,
+   "length": 0
+  },
+  {
+   "source": 3,
+   "target": 4,
+   "count": 30,
+   "length": 0
+  },
+  {
+   "source": 4,
+   "target": 5,
+   "count": 30,
+   "length": 0
+  },
+  {
+   "source": 6,
+   "target": 7,
+   "count": 39,
+   "length": 0
+  },
+  {
+   "source": 7,
+   "target": 8,
+   "count": 39,
+   "length": 0
+  },
+  {
+   "source": 8,
+   "target": 9,
+   "count": 39,
+   "length": 0
+  },
+  {
+   "source": 9,
+   "target": 10,
+   "count": 39,
+   "length": 0
+  },
+  {
+   "source": 11,
+   "target": 12,
+   "count": 99,
+   "length": 0
+  },
+  {
+   "source": 12,
+   "target": 13,
+   "count": 99,
+   "length": 0
+  },
+  {
+   "source": 13,
+   "target": 14,
+   "count": 99,
+   "length": 0
+  },
+  {
+   "source": 14,
+   "target": 15,
+   "count": 99,
+   "length": 0
+  }
+ ]
+}

@@ -1,0 +1,75 @@
+{
+ "nodes": [
+  {
+   "id": 1,
+   "event_attribute": "_Start",
+   "pattern": "P0",
+   "value": "168",
+   "value_event": "168",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 2,
+   "event_attribute": "Opponent Offense",
+   "pattern": "P0",
+   "value": "168",
+   "value_event": "168",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 3,
+   "event_attribute": "Foul",
+   "pattern": "P0",
+   "value": "168",
+   "value_event": "74",
+   "median_index": 0.0,
+   "average_index": 1.2619047619047619
+  },
+  {
+   "id": 4,
+   "event_attribute": "CHICAGO Offense",
+   "pattern": "P0",
+   "value": "168",
+   "value_event": "133",
+   "median_index": 0.0,
+   "average_index": 1.8273809523809523
+  },
+  {
+   "id": 5,
+   "event_attribute": "_Exit",
+   "pattern": "P0",
+   "value": "168",
+   "value_event": "168",
+   "median_index": 2.0,
+   "average_index": 4.571428571428571
+  }
+ ],
+ "links": [
+  {
+   "source": 1,
+   "target": 2,
+   "count": 168,
+   "length": 0
+  },
+  {
+   "source": 2,
+   "target": 3,
+   "count": 168,
+   "length": 0
+  },
+  {
+   "source": 3,
+   "target": 4,
+   "count": 168,
+   "length": 0
+  },
+  {
+   "source": 4,
+   "target": 5,
+   "count": 168,
+   "length": 0
+  }
+ ]
+}
