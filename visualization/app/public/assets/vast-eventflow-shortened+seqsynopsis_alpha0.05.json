@@ -1,0 +1,1038 @@
+{
+ "nodes": [
+  {
+   "id": 1,
+   "event_attribute": "_Start",
+   "pattern": "P0",
+   "value": "89",
+   "value_event": "0",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 2,
+   "event_attribute": "entrance",
+   "pattern": "P0",
+   "value": "89",
+   "value_event": "0",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 3,
+   "event_attribute": "entrance",
+   "pattern": "P0",
+   "value": "89",
+   "value_event": "0",
+   "median_index": 1.0,
+   "average_index": 1.0
+  },
+  {
+   "id": 4,
+   "event_attribute": "_Exit",
+   "pattern": "P0",
+   "value": "89",
+   "value_event": "0",
+   "median_index": 1.0,
+   "average_index": 1.0
+  },
+  {
+   "id": 5,
+   "event_attribute": "_Start",
+   "pattern": "P1",
+   "value": "80",
+   "value_event": "0",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 6,
+   "event_attribute": "entrance",
+   "pattern": "P1",
+   "value": "80",
+   "value_event": "0",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 7,
+   "event_attribute": "general gate",
+   "pattern": "P1",
+   "value": "80",
+   "value_event": "0",
+   "median_index": 1.0,
+   "average_index": 1.0
+  },
+  {
+   "id": 8,
+   "event_attribute": "ranger-stop",
+   "pattern": "P1",
+   "value": "80",
+   "value_event": "0",
+   "median_index": 2.0,
+   "average_index": 2.375
+  },
+  {
+   "id": 9,
+   "event_attribute": "ranger-stop",
+   "pattern": "P1",
+   "value": "80",
+   "value_event": "0",
+   "median_index": 3.0,
+   "average_index": 3.375
+  },
+  {
+   "id": 10,
+   "event_attribute": "general gate",
+   "pattern": "P1",
+   "value": "80",
+   "value_event": "0",
+   "median_index": 4.0,
+   "average_index": 4.375
+  },
+  {
+   "id": 11,
+   "event_attribute": "general gate",
+   "pattern": "P1",
+   "value": "80",
+   "value_event": "0",
+   "median_index": 5.0,
+   "average_index": 5.375
+  },
+  {
+   "id": 12,
+   "event_attribute": "camping",
+   "pattern": "P1",
+   "value": "80",
+   "value_event": "0",
+   "median_index": 7.0,
+   "average_index": 7.2125
+  },
+  {
+   "id": 13,
+   "event_attribute": "camping",
+   "pattern": "P1",
+   "value": "80",
+   "value_event": "0",
+   "median_index": 8.0,
+   "average_index": 8.2125
+  },
+  {
+   "id": 14,
+   "event_attribute": "general gate",
+   "pattern": "P1",
+   "value": "80",
+   "value_event": "0",
+   "median_index": 9.0,
+   "average_index": 9.2125
+  },
+  {
+   "id": 15,
+   "event_attribute": "general gate",
+   "pattern": "P1",
+   "value": "80",
+   "value_event": "0",
+   "median_index": 10.0,
+   "average_index": 10.2125
+  },
+  {
+   "id": 16,
+   "event_attribute": "general gate",
+   "pattern": "P1",
+   "value": "80",
+   "value_event": "0",
+   "median_index": 11.0,
+   "average_index": 11.5375
+  },
+  {
+   "id": 17,
+   "event_attribute": "ranger-stop",
+   "pattern": "P1",
+   "value": "80",
+   "value_event": "0",
+   "median_index": 12.0,
+   "average_index": 12.375
+  },
+  {
+   "id": 18,
+   "event_attribute": "ranger-stop",
+   "pattern": "P1",
+   "value": "80",
+   "value_event": "0",
+   "median_index": 13.0,
+   "average_index": 13.2125
+  },
+  {
+   "id": 19,
+   "event_attribute": "general gate",
+   "pattern": "P1",
+   "value": "80",
+   "value_event": "0",
+   "median_index": 14.0,
+   "average_index": 14.05
+  },
+  {
+   "id": 20,
+   "event_attribute": "entrance",
+   "pattern": "P1",
+   "value": "80",
+   "value_event": "0",
+   "median_index": 15.0,
+   "average_index": 15.25
+  },
+  {
+   "id": 21,
+   "event_attribute": "_Exit",
+   "pattern": "P1",
+   "value": "80",
+   "value_event": "0",
+   "median_index": 15.0,
+   "average_index": 17.525
+  },
+  {
+   "id": 22,
+   "event_attribute": "_Start",
+   "pattern": "P2",
+   "value": "88",
+   "value_event": "0",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 23,
+   "event_attribute": "entrance",
+   "pattern": "P2",
+   "value": "88",
+   "value_event": "0",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 24,
+   "event_attribute": "general gate",
+   "pattern": "P2",
+   "value": "88",
+   "value_event": "0",
+   "median_index": 1.0,
+   "average_index": 1.0
+  },
+  {
+   "id": 25,
+   "event_attribute": "ranger-stop",
+   "pattern": "P2",
+   "value": "88",
+   "value_event": "0",
+   "median_index": 2.0,
+   "average_index": 2.4431818181818183
+  },
+  {
+   "id": 26,
+   "event_attribute": "ranger-stop",
+   "pattern": "P2",
+   "value": "88",
+   "value_event": "0",
+   "median_index": 3.0,
+   "average_index": 3.4431818181818183
+  },
+  {
+   "id": 27,
+   "event_attribute": "general gate",
+   "pattern": "P2",
+   "value": "88",
+   "value_event": "0",
+   "median_index": 4.0,
+   "average_index": 4.443181818181818
+  },
+  {
+   "id": 28,
+   "event_attribute": "general gate",
+   "pattern": "P2",
+   "value": "88",
+   "value_event": "0",
+   "median_index": 5.0,
+   "average_index": 5.647727272727273
+  },
+  {
+   "id": 29,
+   "event_attribute": "general gate",
+   "pattern": "P2",
+   "value": "88",
+   "value_event": "0",
+   "median_index": 6.0,
+   "average_index": 6.852272727272728
+  },
+  {
+   "id": 30,
+   "event_attribute": "camping",
+   "pattern": "P2",
+   "value": "88",
+   "value_event": "0",
+   "median_index": 7.0,
+   "average_index": 7.750000000000001
+  },
+  {
+   "id": 31,
+   "event_attribute": "camping",
+   "pattern": "P2",
+   "value": "88",
+   "value_event": "0",
+   "median_index": 8.0,
+   "average_index": 8.647727272727273
+  },
+  {
+   "id": 32,
+   "event_attribute": "general gate",
+   "pattern": "P2",
+   "value": "88",
+   "value_event": "0",
+   "median_index": 9.0,
+   "average_index": 9.545454545454547
+  },
+  {
+   "id": 33,
+   "event_attribute": "entrance",
+   "pattern": "P2",
+   "value": "88",
+   "value_event": "0",
+   "median_index": 10.0,
+   "average_index": 10.579545454545457
+  },
+  {
+   "id": 34,
+   "event_attribute": "_Exit",
+   "pattern": "P2",
+   "value": "88",
+   "value_event": "0",
+   "median_index": 10.0,
+   "average_index": 11.806818181818183
+  },
+  {
+   "id": 35,
+   "event_attribute": "_Start",
+   "pattern": "P3",
+   "value": "107",
+   "value_event": "0",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 36,
+   "event_attribute": "entrance",
+   "pattern": "P3",
+   "value": "107",
+   "value_event": "0",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 37,
+   "event_attribute": "general gate",
+   "pattern": "P3",
+   "value": "107",
+   "value_event": "0",
+   "median_index": 1.0,
+   "average_index": 1.0560747663551402
+  },
+  {
+   "id": 38,
+   "event_attribute": "camping",
+   "pattern": "P3",
+   "value": "107",
+   "value_event": "0",
+   "median_index": 2.0,
+   "average_index": 2.2429906542056077
+  },
+  {
+   "id": 39,
+   "event_attribute": "camping",
+   "pattern": "P3",
+   "value": "107",
+   "value_event": "0",
+   "median_index": 3.0,
+   "average_index": 3.1869158878504678
+  },
+  {
+   "id": 40,
+   "event_attribute": "general gate",
+   "pattern": "P3",
+   "value": "107",
+   "value_event": "0",
+   "median_index": 4.0,
+   "average_index": 4.130841121495328
+  },
+  {
+   "id": 41,
+   "event_attribute": "entrance",
+   "pattern": "P3",
+   "value": "107",
+   "value_event": "0",
+   "median_index": 5.0,
+   "average_index": 5.4859813084112155
+  },
+  {
+   "id": 42,
+   "event_attribute": "_Exit",
+   "pattern": "P3",
+   "value": "107",
+   "value_event": "0",
+   "median_index": 5.0,
+   "average_index": 6.878504672897197
+  },
+  {
+   "id": 43,
+   "event_attribute": "_Start",
+   "pattern": "P4",
+   "value": "172",
+   "value_event": "0",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 44,
+   "event_attribute": "entrance",
+   "pattern": "P4",
+   "value": "172",
+   "value_event": "0",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 45,
+   "event_attribute": "general gate",
+   "pattern": "P4",
+   "value": "172",
+   "value_event": "0",
+   "median_index": 1.0,
+   "average_index": 1.2965116279069768
+  },
+  {
+   "id": 46,
+   "event_attribute": "camping",
+   "pattern": "P4",
+   "value": "172",
+   "value_event": "0",
+   "median_index": 2.0,
+   "average_index": 3.3953488372093026
+  },
+  {
+   "id": 47,
+   "event_attribute": "general gate",
+   "pattern": "P4",
+   "value": "172",
+   "value_event": "0",
+   "median_index": 4.0,
+   "average_index": 4.4476744186046515
+  },
+  {
+   "id": 48,
+   "event_attribute": "general gate",
+   "pattern": "P4",
+   "value": "172",
+   "value_event": "0",
+   "median_index": 5.0,
+   "average_index": 6.151162790697675
+  },
+  {
+   "id": 49,
+   "event_attribute": "ranger-stop",
+   "pattern": "P4",
+   "value": "172",
+   "value_event": "0",
+   "median_index": 5.0,
+   "average_index": 6.982558139534884
+  },
+  {
+   "id": 50,
+   "event_attribute": "ranger-stop",
+   "pattern": "P4",
+   "value": "172",
+   "value_event": "0",
+   "median_index": 5.0,
+   "average_index": 7.406976744186047
+  },
+  {
+   "id": 51,
+   "event_attribute": "general gate",
+   "pattern": "P4",
+   "value": "172",
+   "value_event": "0",
+   "median_index": 5.0,
+   "average_index": 7.8430232558139545
+  },
+  {
+   "id": 52,
+   "event_attribute": "entrance",
+   "pattern": "P4",
+   "value": "172",
+   "value_event": "0",
+   "median_index": 5.0,
+   "average_index": 8.406976744186048
+  },
+  {
+   "id": 53,
+   "event_attribute": "_Exit",
+   "pattern": "P4",
+   "value": "172",
+   "value_event": "0",
+   "median_index": 14.0,
+   "average_index": 15.27325581395349
+  },
+  {
+   "id": 54,
+   "event_attribute": "_Start",
+   "pattern": "P5",
+   "value": "133",
+   "value_event": "0",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 55,
+   "event_attribute": "entrance",
+   "pattern": "P5",
+   "value": "133",
+   "value_event": "0",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 56,
+   "event_attribute": "general gate",
+   "pattern": "P5",
+   "value": "133",
+   "value_event": "0",
+   "median_index": 1.0,
+   "average_index": 1.105263157894737
+  },
+  {
+   "id": 57,
+   "event_attribute": "general gate",
+   "pattern": "P5",
+   "value": "133",
+   "value_event": "0",
+   "median_index": 2.0,
+   "average_index": 1.8195488721804511
+  },
+  {
+   "id": 58,
+   "event_attribute": "entrance",
+   "pattern": "P5",
+   "value": "133",
+   "value_event": "0",
+   "median_index": 3.0,
+   "average_index": 3.218045112781955
+  },
+  {
+   "id": 59,
+   "event_attribute": "_Exit",
+   "pattern": "P5",
+   "value": "133",
+   "value_event": "0",
+   "median_index": 3.0,
+   "average_index": 5.285714285714286
+  },
+  {
+   "id": 60,
+   "event_attribute": "_Start",
+   "pattern": "P6",
+   "value": "25",
+   "value_event": "0",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 61,
+   "event_attribute": "camping",
+   "pattern": "P6",
+   "value": "25",
+   "value_event": "0",
+   "median_index": 2.0,
+   "average_index": 4.08
+  },
+  {
+   "id": 62,
+   "event_attribute": "general gate",
+   "pattern": "P6",
+   "value": "25",
+   "value_event": "0",
+   "median_index": 4.0,
+   "average_index": 5.28
+  },
+  {
+   "id": 63,
+   "event_attribute": "_Exit",
+   "pattern": "P6",
+   "value": "25",
+   "value_event": "0",
+   "median_index": 8.0,
+   "average_index": 10.4
+  },
+  {
+   "id": 64,
+   "event_attribute": "_Start",
+   "pattern": "P7",
+   "value": "306",
+   "value_event": "0",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 65,
+   "event_attribute": "entrance",
+   "pattern": "P7",
+   "value": "306",
+   "value_event": "0",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 66,
+   "event_attribute": "general gate",
+   "pattern": "P7",
+   "value": "306",
+   "value_event": "0",
+   "median_index": 1.0,
+   "average_index": 0.8954248366013072
+  },
+  {
+   "id": 67,
+   "event_attribute": "ranger-stop",
+   "pattern": "P7",
+   "value": "306",
+   "value_event": "0",
+   "median_index": 2.0,
+   "average_index": 2.415032679738562
+  },
+  {
+   "id": 68,
+   "event_attribute": "ranger-stop",
+   "pattern": "P7",
+   "value": "306",
+   "value_event": "0",
+   "median_index": 3.0,
+   "average_index": 3.4215686274509802
+  },
+  {
+   "id": 69,
+   "event_attribute": "general gate",
+   "pattern": "P7",
+   "value": "306",
+   "value_event": "0",
+   "median_index": 4.0,
+   "average_index": 4.562091503267974
+  },
+  {
+   "id": 70,
+   "event_attribute": "general gate",
+   "pattern": "P7",
+   "value": "306",
+   "value_event": "0",
+   "median_index": 4.0,
+   "average_index": 5.23202614379085
+  },
+  {
+   "id": 71,
+   "event_attribute": "entrance",
+   "pattern": "P7",
+   "value": "306",
+   "value_event": "0",
+   "median_index": 4.0,
+   "average_index": 6.683006535947713
+  },
+  {
+   "id": 72,
+   "event_attribute": "_Exit",
+   "pattern": "P7",
+   "value": "306",
+   "value_event": "0",
+   "median_index": 10.0,
+   "average_index": 12.179738562091504
+  }
+ ],
+ "links": [
+  {
+   "source": 1,
+   "target": 2,
+   "count": 89,
+   "length": 0
+  },
+  {
+   "source": 2,
+   "target": 3,
+   "count": 89,
+   "length": 0
+  },
+  {
+   "source": 3,
+   "target": 4,
+   "count": 89,
+   "length": 0
+  },
+  {
+   "source": 5,
+   "target": 6,
+   "count": 80,
+   "length": 0
+  },
+  {
+   "source": 6,
+   "target": 7,
+   "count": 80,
+   "length": 0
+  },
+  {
+   "source": 7,
+   "target": 8,
+   "count": 80,
+   "length": 0
+  },
+  {
+   "source": 8,
+   "target": 9,
+   "count": 80,
+   "length": 0
+  },
+  {
+   "source": 9,
+   "target": 10,
+   "count": 80,
+   "length": 0
+  },
+  {
+   "source": 10,
+   "target": 11,
+   "count": 80,
+   "length": 0
+  },
+  {
+   "source": 11,
+   "target": 12,
+   "count": 80,
+   "length": 0
+  },
+  {
+   "source": 12,
+   "target": 13,
+   "count": 80,
+   "length": 0
+  },
+  {
+   "source": 13,
+   "target": 14,
+   "count": 80,
+   "length": 0
+  },
+  {
+   "source": 14,
+   "target": 15,
+   "count": 80,
+   "length": 0
+  },
+  {
+   "source": 15,
+   "target": 16,
+   "count": 80,
+   "length": 0
+  },
+  {
+   "source": 16,
+   "target": 17,
+   "count": 80,
+   "length": 0
+  },
+  {
+   "source": 17,
+   "target": 18,
+   "count": 80,
+   "length": 0
+  },
+  {
+   "source": 18,
+   "target": 19,
+   "count": 80,
+   "length": 0
+  },
+  {
+   "source": 19,
+   "target": 20,
+   "count": 80,
+   "length": 0
+  },
+  {
+   "source": 20,
+   "target": 21,
+   "count": 80,
+   "length": 0
+  },
+  {
+   "source": 22,
+   "target": 23,
+   "count": 88,
+   "length": 0
+  },
+  {
+   "source": 23,
+   "target": 24,
+   "count": 88,
+   "length": 0
+  },
+  {
+   "source": 24,
+   "target": 25,
+   "count": 88,
+   "length": 0
+  },
+  {
+   "source": 25,
+   "target": 26,
+   "count": 88,
+   "length": 0
+  },
+  {
+   "source": 26,
+   "target": 27,
+   "count": 88,
+   "length": 0
+  },
+  {
+   "source": 27,
+   "target": 28,
+   "count": 88,
+   "length": 0
+  },
+  {
+   "source": 28,
+   "target": 29,
+   "count": 88,
+   "length": 0
+  },
+  {
+   "source": 29,
+   "target": 30,
+   "count": 88,
+   "length": 0
+  },
+  {
+   "source": 30,
+   "target": 31,
+   "count": 88,
+   "length": 0
+  },
+  {
+   "source": 31,
+   "target": 32,
+   "count": 88,
+   "length": 0
+  },
+  {
+   "source": 32,
+   "target": 33,
+   "count": 88,
+   "length": 0
+  },
+  {
+   "source": 33,
+   "target": 34,
+   "count": 88,
+   "length": 0
+  },
+  {
+   "source": 35,
+   "target": 36,
+   "count": 107,
+   "length": 0
+  },
+  {
+   "source": 36,
+   "target": 37,
+   "count": 107,
+   "length": 0
+  },
+  {
+   "source": 37,
+   "target": 38,
+   "count": 107,
+   "length": 0
+  },
+  {
+   "source": 38,
+   "target": 39,
+   "count": 107,
+   "length": 0
+  },
+  {
+   "source": 39,
+   "target": 40,
+   "count": 107,
+   "length": 0
+  },
+  {
+   "source": 40,
+   "target": 41,
+   "count": 107,
+   "length": 0
+  },
+  {
+   "source": 41,
+   "target": 42,
+   "count": 107,
+   "length": 0
+  },
+  {
+   "source": 43,
+   "target": 44,
+   "count": 172,
+   "length": 0
+  },
+  {
+   "source": 44,
+   "target": 45,
+   "count": 172,
+   "length": 0
+  },
+  {
+   "source": 45,
+   "target": 46,
+   "count": 172,
+   "length": 0
+  },
+  {
+   "source": 46,
+   "target": 47,
+   "count": 172,
+   "length": 0
+  },
+  {
+   "source": 47,
+   "target": 48,
+   "count": 172,
+   "length": 0
+  },
+  {
+   "source": 48,
+   "target": 49,
+   "count": 172,
+   "length": 0
+  },
+  {
+   "source": 49,
+   "target": 50,
+   "count": 172,
+   "length": 0
+  },
+  {
+   "source": 50,
+   "target": 51,
+   "count": 172,
+   "length": 0
+  },
+  {
+   "source": 51,
+   "target": 52,
+   "count": 172,
+   "length": 0
+  },
+  {
+   "source": 52,
+   "target": 53,
+   "count": 172,
+   "length": 0
+  },
+  {
+   "source": 54,
+   "target": 55,
+   "count": 133,
+   "length": 0
+  },
+  {
+   "source": 55,
+   "target": 56,
+   "count": 133,
+   "length": 0
+  },
+  {
+   "source": 56,
+   "target": 57,
+   "count": 133,
+   "length": 0
+  },
+  {
+   "source": 57,
+   "target": 58,
+   "count": 133,
+   "length": 0
+  },
+  {
+   "source": 58,
+   "target": 59,
+   "count": 133,
+   "length": 0
+  },
+  {
+   "source": 60,
+   "target": 61,
+   "count": 25,
+   "length": 0
+  },
+  {
+   "source": 61,
+   "target": 62,
+   "count": 25,
+   "length": 0
+  },
+  {
+   "source": 62,
+   "target": 63,
+   "count": 25,
+   "length": 0
+  },
+  {
+   "source": 64,
+   "target": 65,
+   "count": 306,
+   "length": 0
+  },
+  {
+   "source": 65,
+   "target": 66,
+   "count": 306,
+   "length": 0
+  },
+  {
+   "source": 66,
+   "target": 67,
+   "count": 306,
+   "length": 0
+  },
+  {
+   "source": 67,
+   "target": 68,
+   "count": 306,
+   "length": 0
+  },
+  {
+   "source": 68,
+   "target": 69,
+   "count": 306,
+   "length": 0
+  },
+  {
+   "source": 69,
+   "target": 70,
+   "count": 306,
+   "length": 0
+  },
+  {
+   "source": 70,
+   "target": 71,
+   "count": 306,
+   "length": 0
+  },
+  {
+   "source": 71,
+   "target": 72,
+   "count": 306,
+   "length": 0
+  }
+ ]
+}
