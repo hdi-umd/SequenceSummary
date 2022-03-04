@@ -98,7 +98,7 @@ export async function renderSententree(dataPath, renderer) {
   scene.encode(node, {
     field: "average_index",
     channel: "y",
-    rangeExtent: 400,
+    rangeExtent: 600,
     flipScale: true,
   });
   scene.encode(link, { channel: "source", field: "source" });
@@ -245,7 +245,7 @@ export async function renderSeqSynopsis(dataPath, renderer) {
   let data = await atlas.graphjson(dataPath);
   let bg = scn.mark("rect", {
     fillColor: "#C8E6FA",
-    left: 100,
+    left: 200,
     top: 100,
     width: 1,
     strokeWidth: 0,
@@ -254,7 +254,7 @@ export async function renderSeqSynopsis(dataPath, renderer) {
   scn.repeat(bg, data.nodeTable, { field: "pattern" });
   scn.repeat(clusterSize, data.nodeTable, {field: "pattern"});
   let evtBg = scn.mark("rect", {
-      left: 100,
+      left: 200,
       top: 100,
       width: 1,
       height: 1,
@@ -283,12 +283,12 @@ export async function renderSeqSynopsis(dataPath, renderer) {
   let xEnc = scn.encode(evtBg, {
     channel: "x",
     field: "pattern",
-    rangeExtent: 400,
+    rangeExtent: 800,
   });
   let yEnc = scn.encode(glyph, {
     channel: "y",
     field: "average_index",
-    rangeExtent: 400,
+    rangeExtent: 600,
     flipScale: true,
   });
   scn

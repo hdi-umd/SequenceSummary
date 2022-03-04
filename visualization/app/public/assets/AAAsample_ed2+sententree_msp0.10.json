@@ -100,19 +100,10 @@
    "average_index": 5.317204301075269
   },
   {
-   "id": 28,
+   "id": 30,
    "event_attribute": "_Exit",
-   "pattern": "PArrival-Emergency-Floor-ICU-Die",
-   "value": "21",
-   "value_event": "0",
-   "median_index": 3.0,
-   "average_index": 3.9283154121863797
-  },
-  {
-   "id": 29,
-   "event_attribute": "_Exit",
-   "pattern": "PArrival-Emergency-ICU-Die",
-   "value": "15",
+   "pattern": "PArrival-Emergency-Floor-ICU-Die\tArrival-Emergency-ICU-Die",
+   "value": "36",
    "value_event": "0",
    "median_index": 3.0,
    "average_index": 3.9283154121863797
@@ -162,22 +153,10 @@
    "length": 1.0
   },
   {
-   "source": 9,
-   "target": 28,
-   "count": 21,
-   "length": 0.0
-  },
-  {
-   "source": 9,
-   "target": 29,
-   "count": 15,
-   "length": 0.0
-  },
-  {
    "source": 11,
    "target": 26,
    "count": 38,
-   "length": 0.0
+   "length": 2.0
   },
   {
    "source": 15,
@@ -195,7 +174,13 @@
    "source": 19,
    "target": 27,
    "count": 24,
-   "length": 0.0
+   "length": 2.0
+  },
+  {
+   "source": 9,
+   "target": 30,
+   "count": 36,
+   "length": 2.0
   }
  ]
 }

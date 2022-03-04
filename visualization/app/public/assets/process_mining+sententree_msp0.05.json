@@ -279,19 +279,19 @@
    "source": 47,
    "target": 3,
    "count": 3,
-   "length": 0
+   "length": 2.0
   },
   {
    "source": 47,
    "target": 41,
    "count": 7,
-   "length": 0
+   "length": 2.142857142857143
   },
   {
    "source": 1,
    "target": 47,
    "count": 13,
-   "length": 0
+   "length": 0.0
   }
  ]
 }
