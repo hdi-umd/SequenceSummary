@@ -444,43 +444,43 @@
    "source": 76,
    "target": 5,
    "count": 8,
-   "length": 0
+   "length": 3.1136363636363633
   },
   {
    "source": 3,
    "target": 76,
    "count": 23,
-   "length": 0
+   "length": 1.7227272727272727
   },
   {
    "source": 39,
    "target": 76,
    "count": 4,
-   "length": 0
+   "length": 3.0
   },
   {
    "source": 5,
    "target": 77,
    "count": 8,
-   "length": 0
+   "length": 3.5
   },
   {
    "source": 78,
    "target": 7,
    "count": 7,
-   "length": 0
+   "length": 2.2857142857142856
   },
   {
    "source": 78,
    "target": 66,
    "count": 9,
-   "length": 0
+   "length": 2.111111111111111
   },
   {
    "source": 5,
    "target": 78,
    "count": 16,
-   "length": 0
+   "length": 1.0555555555555556
   }
  ]
 }

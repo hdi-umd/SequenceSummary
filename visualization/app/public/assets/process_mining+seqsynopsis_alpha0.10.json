@@ -4,302 +4,302 @@
    "id": 1,
    "event_attribute": "_Start",
    "pattern": "P0",
-   "value": "1",
-   "value_event": "1",
+   "value": "6",
+   "value_event": "0",
    "median_index": 0,
    "average_index": 0
   },
   {
    "id": 2,
-   "event_attribute": "distribute situational awareness",
+   "event_attribute": "commit changes",
    "pattern": "P0",
-   "value": "1",
-   "value_event": "1",
+   "value": "6",
+   "value_event": "0",
    "median_index": 0.0,
-   "average_index": 0.0
+   "average_index": 0.6666666666666666
   },
   {
    "id": 3,
-   "event_attribute": "_Exit",
+   "event_attribute": "commit changes",
    "pattern": "P0",
-   "value": "1",
-   "value_event": "1",
-   "median_index": 0.0,
-   "average_index": 0.0
+   "value": "6",
+   "value_event": "0",
+   "median_index": 1.0,
+   "average_index": 2.3333333333333335
   },
   {
    "id": 4,
-   "event_attribute": "_Start",
-   "pattern": "P1",
-   "value": "1",
-   "value_event": "1",
-   "median_index": 0,
-   "average_index": 0
+   "event_attribute": "commit changes",
+   "pattern": "P0",
+   "value": "6",
+   "value_event": "0",
+   "median_index": 2.0,
+   "average_index": 3.5
   },
   {
    "id": 5,
-   "event_attribute": "ask a question",
-   "pattern": "P1",
-   "value": "1",
-   "value_event": "1",
-   "median_index": 0.0,
-   "average_index": 0.0
+   "event_attribute": "commit changes",
+   "pattern": "P0",
+   "value": "6",
+   "value_event": "0",
+   "median_index": 3.0,
+   "average_index": 4.666666666666667
   },
   {
    "id": 6,
-   "event_attribute": "update question",
-   "pattern": "P1",
-   "value": "1",
-   "value_event": "1",
-   "median_index": 1.0,
-   "average_index": 1.0
+   "event_attribute": "commit changes",
+   "pattern": "P0",
+   "value": "6",
+   "value_event": "0",
+   "median_index": 3.5,
+   "average_index": 5.166666666666667
   },
   {
    "id": 7,
-   "event_attribute": "provide support",
-   "pattern": "P1",
-   "value": "1",
-   "value_event": "1",
-   "median_index": 2.0,
-   "average_index": 2.0
+   "event_attribute": "_Exit",
+   "pattern": "P0",
+   "value": "6",
+   "value_event": "0",
+   "median_index": 10.0,
+   "average_index": 12.666666666666668
   },
   {
    "id": 8,
-   "event_attribute": "ask a question",
+   "event_attribute": "_Start",
    "pattern": "P1",
-   "value": "1",
-   "value_event": "1",
-   "median_index": 3.0,
-   "average_index": 3.0
+   "value": "5",
+   "value_event": "0",
+   "median_index": 0,
+   "average_index": 0
   },
   {
    "id": 9,
-   "event_attribute": "provide support",
+   "event_attribute": "create issue",
    "pattern": "P1",
-   "value": "1",
-   "value_event": "1",
-   "median_index": 4.0,
-   "average_index": 4.0
+   "value": "5",
+   "value_event": "0",
+   "median_index": 0.0,
+   "average_index": 0.0
   },
   {
    "id": 10,
-   "event_attribute": "_Exit",
+   "event_attribute": "commit changes",
    "pattern": "P1",
-   "value": "1",
-   "value_event": "1",
-   "median_index": 4.0,
-   "average_index": 4.0
+   "value": "5",
+   "value_event": "0",
+   "median_index": 1.0,
+   "average_index": 0.8
   },
   {
    "id": 11,
-   "event_attribute": "_Start",
-   "pattern": "P2",
-   "value": "2",
-   "value_event": "2",
-   "median_index": 0,
-   "average_index": 0
+   "event_attribute": "resolve issue",
+   "pattern": "P1",
+   "value": "5",
+   "value_event": "0",
+   "median_index": 2.0,
+   "average_index": 1.8
   },
   {
    "id": 12,
-   "event_attribute": "build system update",
-   "pattern": "P2",
-   "value": "2",
-   "value_event": "2",
-   "median_index": 0.0,
-   "average_index": 0.0
+   "event_attribute": "_Exit",
+   "pattern": "P1",
+   "value": "5",
+   "value_event": "0",
+   "median_index": 2.0,
+   "average_index": 2.6
   },
   {
    "id": 13,
-   "event_attribute": "build system update",
-   "pattern": "P2",
-   "value": "2",
-   "value_event": "1",
-   "median_index": 0.5,
-   "average_index": 0.5
-  },
-  {
-   "id": 14,
-   "event_attribute": "_Exit",
-   "pattern": "P2",
-   "value": "2",
-   "value_event": "2",
-   "median_index": 4.0,
-   "average_index": 4.0
-  },
-  {
-   "id": 15,
    "event_attribute": "_Start",
-   "pattern": "P3",
+   "pattern": "P2",
    "value": "11",
-   "value_event": "11",
+   "value_event": "0",
    "median_index": 0,
    "average_index": 0
   },
   {
-   "id": 16,
-   "event_attribute": "create issue",
-   "pattern": "P3",
+   "id": 14,
+   "event_attribute": "commit changes",
+   "pattern": "P2",
    "value": "11",
-   "value_event": "7",
+   "value_event": "0",
    "median_index": 0.0,
    "average_index": 0.0
   },
   {
-   "id": 17,
+   "id": 15,
    "event_attribute": "_Exit",
-   "pattern": "P3",
+   "pattern": "P2",
    "value": "11",
-   "value_event": "11",
+   "value_event": "0",
    "median_index": 0.0,
-   "average_index": 0.7272727272727273
+   "average_index": 0.6363636363636364
   },
   {
-   "id": 18,
+   "id": 16,
    "event_attribute": "_Start",
-   "pattern": "P4",
-   "value": "30",
-   "value_event": "30",
+   "pattern": "P3",
+   "value": "14",
+   "value_event": "0",
    "median_index": 0,
    "average_index": 0
   },
   {
-   "id": 19,
-   "event_attribute": "commit changes",
-   "pattern": "P4",
-   "value": "30",
-   "value_event": "30",
+   "id": 17,
+   "event_attribute": "create issue",
+   "pattern": "P3",
+   "value": "14",
+   "value_event": "0",
    "median_index": 0.0,
-   "average_index": 1.0666666666666667
+   "average_index": 0.0
+  },
+  {
+   "id": 18,
+   "event_attribute": "_Exit",
+   "pattern": "P3",
+   "value": "14",
+   "value_event": "0",
+   "median_index": 1.0,
+   "average_index": 2.142857142857143
+  },
+  {
+   "id": 19,
+   "event_attribute": "_Start",
+   "pattern": "P4",
+   "value": "9",
+   "value_event": "0",
+   "median_index": 0,
+   "average_index": 0
   },
   {
    "id": 20,
    "event_attribute": "commit changes",
    "pattern": "P4",
-   "value": "30",
-   "value_event": "13",
+   "value": "9",
+   "value_event": "0",
    "median_index": 0.0,
-   "average_index": 1.7
+   "average_index": 2.111111111111111
   },
   {
    "id": 21,
    "event_attribute": "commit changes",
    "pattern": "P4",
-   "value": "30",
-   "value_event": "6",
-   "median_index": 0.0,
-   "average_index": 1.9333333333333333
+   "value": "9",
+   "value_event": "0",
+   "median_index": 1.0,
+   "average_index": 2.666666666666667
   },
   {
    "id": 22,
    "event_attribute": "_Exit",
    "pattern": "P4",
-   "value": "30",
-   "value_event": "30",
-   "median_index": 3.0,
-   "average_index": 5.933333333333334
+   "value": "9",
+   "value_event": "0",
+   "median_index": 1.0,
+   "average_index": 6.111111111111112
   }
  ],
  "links": [
   {
    "source": 1,
    "target": 2,
-   "count": 1,
+   "count": 6,
    "length": 0
   },
   {
    "source": 2,
    "target": 3,
-   "count": 1,
+   "count": 6,
+   "length": 0
+  },
+  {
+   "source": 3,
+   "target": 4,
+   "count": 6,
    "length": 0
   },
   {
    "source": 4,
    "target": 5,
-   "count": 1,
+   "count": 6,
    "length": 0
   },
   {
    "source": 5,
    "target": 6,
-   "count": 1,
+   "count": 6,
    "length": 0
   },
   {
    "source": 6,
    "target": 7,
-   "count": 1,
-   "length": 0
-  },
-  {
-   "source": 7,
-   "target": 8,
-   "count": 1,
+   "count": 6,
    "length": 0
   },
   {
    "source": 8,
    "target": 9,
-   "count": 1,
+   "count": 5,
    "length": 0
   },
   {
    "source": 9,
    "target": 10,
-   "count": 1,
+   "count": 5,
+   "length": 0
+  },
+  {
+   "source": 10,
+   "target": 11,
+   "count": 5,
    "length": 0
   },
   {
    "source": 11,
    "target": 12,
-   "count": 2,
-   "length": 0
-  },
-  {
-   "source": 12,
-   "target": 13,
-   "count": 2,
+   "count": 5,
    "length": 0
   },
   {
    "source": 13,
    "target": 14,
-   "count": 2,
+   "count": 11,
    "length": 0
   },
   {
-   "source": 15,
-   "target": 16,
+   "source": 14,
+   "target": 15,
    "count": 11,
    "length": 0
   },
   {
    "source": 16,
    "target": 17,
-   "count": 11,
+   "count": 14,
    "length": 0
   },
   {
-   "source": 18,
-   "target": 19,
-   "count": 30,
+   "source": 17,
+   "target": 18,
+   "count": 14,
    "length": 0
   },
   {
    "source": 19,
    "target": 20,
-   "count": 30,
+   "count": 9,
    "length": 0
   },
   {
    "source": 20,
    "target": 21,
-   "count": 30,
+   "count": 9,
    "length": 0
   },
   {
    "source": 21,
    "target": 22,
-   "count": 30,
+   "count": 9,
    "length": 0
   }
  ]
