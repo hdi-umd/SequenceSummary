@@ -1,0 +1,162 @@
+{
+ "nodes": [
+  {
+   "id": 1,
+   "event_attribute": "_Start",
+   "pattern": "P",
+   "value": "100",
+   "value_event": "0",
+   "median_index": 0,
+   "average_index": 0
+  },
+  {
+   "id": 3,
+   "event_attribute": "entrance",
+   "pattern": "Pentrance",
+   "value": "94",
+   "value_event": "0",
+   "median_index": 0.0,
+   "average_index": 0.0
+  },
+  {
+   "id": 5,
+   "event_attribute": "entrance",
+   "pattern": "Pentrance-entrance",
+   "value": "94",
+   "value_event": "0",
+   "median_index": 6.0,
+   "average_index": 7.5212765957446805
+  },
+  {
+   "id": 7,
+   "event_attribute": "general gate",
+   "pattern": "Pentrance-general gate-entrance",
+   "value": "85",
+   "value_event": "0",
+   "median_index": 1.0,
+   "average_index": 1.0705882352941176
+  },
+  {
+   "id": 9,
+   "event_attribute": "general gate",
+   "pattern": "Pentrance-general gate-general gate-entrance",
+   "value": "81",
+   "value_event": "0",
+   "median_index": 4.0,
+   "average_index": 3.1570079883805375
+  },
+  {
+   "id": 11,
+   "event_attribute": "general gate",
+   "pattern": "Pentrance-general gate-general gate-general gate-entrance",
+   "value": "58",
+   "value_event": "0",
+   "median_index": 7.0,
+   "average_index": 5.191490747001227
+  },
+  {
+   "id": 13,
+   "event_attribute": "general gate",
+   "pattern": "Pentrance-general gate-general gate-general gate-general gate-entrance",
+   "value": "42",
+   "value_event": "0",
+   "median_index": 8.0,
+   "average_index": 6.667681223191703
+  },
+  {
+   "id": 15,
+   "event_attribute": "general gate",
+   "pattern": "Pentrance-general gate-general gate-general gate-general gate-general gate-entrance",
+   "value": "36",
+   "value_event": "0",
+   "median_index": 9.0,
+   "average_index": 8.445459000969482
+  },
+  {
+   "id": 17,
+   "event_attribute": "general gate",
+   "pattern": "Pentrance-general gate-general gate-general gate-general gate-general gate-general gate-entrance",
+   "value": "21",
+   "value_event": "0",
+   "median_index": 12.0,
+   "average_index": 10.778792334302816
+  },
+  {
+   "id": 27,
+   "event_attribute": "_Exit",
+   "pattern": "Pentrance-general gate-general gate-entrance\tentrance-general gate-general gate-general gate-general gate-general gate-general gate-entrance\tentrance-general gate-general gate-general gate-entrance",
+   "value": "60",
+   "value_event": "0",
+   "median_index": 6.0,
+   "average_index": 7.5212765957446805
+  }
+ ],
+ "links": [
+  {
+   "source": 1,
+   "target": 3,
+   "count": 94,
+   "length": 0.0
+  },
+  {
+   "source": 3,
+   "target": 7,
+   "count": 85,
+   "length": 1.0705882352941176
+  },
+  {
+   "source": 7,
+   "target": 9,
+   "count": 81,
+   "length": 2.0864197530864197
+  },
+  {
+   "source": 9,
+   "target": 5,
+   "count": 2,
+   "length": 8.518518518518519
+  },
+  {
+   "source": 9,
+   "target": 11,
+   "count": 58,
+   "length": 2.0344827586206895
+  },
+  {
+   "source": 11,
+   "target": 5,
+   "count": 37,
+   "length": 10.051724137931034
+  },
+  {
+   "source": 11,
+   "target": 13,
+   "count": 42,
+   "length": 1.4761904761904763
+  },
+  {
+   "source": 13,
+   "target": 15,
+   "count": 36,
+   "length": 1.7777777777777777
+  },
+  {
+   "source": 15,
+   "target": 17,
+   "count": 21,
+   "length": 2.3333333333333335
+  },
+  {
+   "source": 17,
+   "target": 5,
+   "count": 21,
+   "length": 13.857142857142858
+  },
+  {
+   "source": 5,
+   "target": 27,
+   "count": 60,
+   "length": 2.0
+  }
+ ]
+}
