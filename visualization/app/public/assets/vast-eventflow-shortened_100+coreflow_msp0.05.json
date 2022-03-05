@@ -1,0 +1,61 @@
+{
+ "event_attribute": "_Start",
+ "Pattern": "",
+ "value": 100,
+ "median_index": 0,
+ "average_index": 0,
+ "children": [
+  {
+   "event_attribute": "entrance",
+   "Pattern": "entrance",
+   "value": 94,
+   "median_index": 0.0,
+   "average_index": 0.0,
+   "children": [
+    {
+     "event_attribute": "entrance",
+     "Pattern": "entrance-entrance",
+     "value": 94,
+     "median_index": 6.0,
+     "average_index": 7.5212765957446805,
+     "children": [
+      {
+       "event_attribute": "_Exit",
+       "Pattern": "entrance-entrance",
+       "value": 94,
+       "median_index": 6.0,
+       "average_index": 7.5212765957446805,
+       "children": []
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "event_attribute": "ranger-base",
+   "Pattern": "ranger-base",
+   "value": 6,
+   "median_index": 0.0,
+   "average_index": 0.0,
+   "children": [
+    {
+     "event_attribute": "ranger-base",
+     "Pattern": "ranger-base-ranger-base",
+     "value": 6,
+     "median_index": 20.0,
+     "average_index": 26.0,
+     "children": [
+      {
+       "event_attribute": "_Exit",
+       "Pattern": "ranger-base-ranger-base",
+       "value": 6,
+       "median_index": 20.0,
+       "average_index": 26.0,
+       "children": []
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
