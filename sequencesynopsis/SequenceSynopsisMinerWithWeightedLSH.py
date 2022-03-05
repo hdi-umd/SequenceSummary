@@ -43,7 +43,7 @@ class SequenceSynopsisMiner:
         wmg = WeightedMinHashGenerator(len(denselist[0]))
 
         minHashArr = []
-        lsh = MinHashLSH(threshold=threshold, num_perm=128)
+        lsh = MinHashLSH(threshold=threshold)
         for ind, val in enumerate(denselist):
             minHashArr.append(wmg.minhash(val))
             lsh.insert(self.clustDict[ind], minHashArr[ind])
