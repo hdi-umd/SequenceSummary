@@ -6,7 +6,7 @@ library(tidyverse) # needed for data manipulation.
 library(RColorBrewer) # needed for some extra colours in one of the graphs
 library(lmerTest)# to get p-value estimations that are not part of the standard lme4 packages
 #Load Data
-data1 <- read.csv("Documents/Research/Analysis/Tableau version Survey_Results_Merged_Quantitative_short.xlsx - Sheet1.csv", header=TRUE,  stringsAsFactors=TRUE)
+data1 <- read.csv(file = "./Documents/Research/code/Analysis/survey_data.csv", header=TRUE,  stringsAsFactors=TRUE)
 data1
 
 # Convert to factor
@@ -56,14 +56,14 @@ anova(model2LinearInsight, modelLinear)
 #Level 1 Model-MSP
 model2LinearMSP <- lmer(LikertScore ~ 1+(1|MSP), REML = FALSE, data = data1)
 summary(model2LinearMSP)
-icc(model2LinearMSP)
+performance::icc(model2LinearMSP)
 anova(model2LinearMSP, modelLinear)
 
 
 #Level 1 Model-Method
 model2LinearMethod <- lmer(LikertScore ~ 1+(1|Method), REML = FALSE, data = data1)
 summary(model2LinearMethod)
-icc(model2LinearMethod)
+performance::icc(model2LinearMethod)
 anova(model2LinearMethod, modelLinear)
 
 #Level2 Model-Record
@@ -141,7 +141,7 @@ anova(modelMixed3, modelLinear)
 #Level 1 Model- Method
 model2Linear <- lmer(LikertScore ~ (1|Record), REML = FALSE, data = data1)
 summary(model2Linear)
-icc(model2LinearTask)
+performance::icc(model2LinearTask)
 anova(model2LinearRecord, modelLinear)
 
 model1 <- lm(LikertScore ~ Method + Task + Insight + MSP, data = data1)
