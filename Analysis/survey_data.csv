@@ -1,0 +1,1621 @@
+Record,Method,Dataset,Task,Insight,MSP,completionID,Timer,Duration (in seconds),LikertValue,LikertScale
+1,SeqSynopsis,Basketball,Common pattern,Insight1,0,988454,33.505,407,Agree,6
+1,SeqSynopsis,Basketball,Common pattern,Insight2,0,988454,26.809,407,Agree,6
+2,SeqSynopsis,Basketball,Common pattern,Insight1,0,775671,73.282,904,Agree,6
+3,SeqSynopsis,Basketball,Common pattern,Insight1,0,271966,59.761,1439,Agree,6
+4,SeqSynopsis,Basketball,Common pattern,Insight1,0,287754,90.689,786,Agree,6
+5,Coreflow,Basketball,Common pattern,Insight1,0,271356,35.644,1151,Agree,6
+5,Sententree,Basketball,Common pattern,Insight1,0,271356,67.111,1151,Agree,6
+6,Sententree,Basketball,Common pattern,Insight2,1,672165,30.752,1123,Agree,6
+7,Sententree,Basketball,Common pattern,Insight2,1,192867,59.257,1144,Agree,6
+8,SeqSynopsis,Basketball,Common pattern,Insight2,1,555932,22.863,386,Agree,6
+9,Sententree,Basketball,Common pattern,Insight1,1,199690,117.893,859,Agree,6
+10,Sententree,Basketball,Common pattern,Insight2,1,248103,49.826,1630,Agree,6
+10,SeqSynopsis,Basketball,Common pattern,Insight2,1,248103,47.177,1630,Agree,6
+12,SeqSynopsis,Basketball,Common pattern,Insight1,2,690096,74.845,491,Agree,6
+13,SeqSynopsis,Basketball,Common pattern,Insight1,2,640398,145.348,881,Agree,6
+14,SeqSynopsis,Basketball,Common pattern,Insight1,2,377131,57.418,511,Agree,6
+14,Coreflow,Basketball,Common pattern,Insight3,2,377131,19.547,511,Agree,6
+16,Coreflow,Basketball,Common pattern,Insight1,3,643146,45.154,479,Agree,6
+17,SeqSynopsis,Basketball,Common pattern,Insight3,3,988075,30.755,352,Agree,6
+18,SeqSynopsis,Basketball,Common pattern,Insight1,3,795497,65.112,721,Agree,6
+18,SeqSynopsis,Basketball,Common pattern,Insight3,3,795497,15.862,721,Agree,6
+22,SeqSynopsis,Basketball,Common pattern,Insight1,4,911792,26.305,738,Agree,6
+22,SeqSynopsis,Basketball,Common pattern,Insight2,4,911792,30.292,738,Agree,6
+22,SeqSynopsis,Basketball,Common pattern,Insight3,4,911792,179.927,738,Agree,6
+23,Coreflow,Basketball,Common pattern,Insight1,4,765509,12.51,389,Agree,6
+23,Sententree,Basketball,Common pattern,Insight3,4,765509,12.003,389,Agree,6
+24,Sententree,Basketball,Common pattern,Insight1,4,489301,95.635,2884,Agree,6
+24,Sententree,Basketball,Common pattern,Insight3,4,489301,45.917,2884,Agree,6
+24,SeqSynopsis,Basketball,Common pattern,Insight3,4,489301,25.152,2884,Agree,6
+26,Sententree,Basketball,Common pattern,Insight1,5,336299,127.34,1035,Agree,6
+26,Sententree,Basketball,Common pattern,Insight3,5,336299,38.554,1035,Agree,6
+31,Sententree,Career,Anomaly detection,Insight1,0,277660,21.103,335,Agree,6
+31,SeqSynopsis,Career,Anomaly detection,Insight2,0,277660,12.756,335,Agree,6
+31,Sententree,Career,Anomaly detection,Insight3,0,277660,17.789,335,Agree,6
+31,SeqSynopsis,Career,Anomaly detection,Insight3,0,277660,11.681,335,Agree,6
+34,Coreflow,Career,Anomaly detection,Insight1,0,325690,55.481,477,Agree,6
+34,SeqSynopsis,Career,Anomaly detection,Insight1,0,325690,25.048,477,Agree,6
+34,Sententree,Career,Anomaly detection,Insight3,0,325690,18.015,477,Agree,6
+34,SeqSynopsis,Career,Anomaly detection,Insight3,0,325690,10.911,477,Agree,6
+35,Sententree,Career,Anomaly detection,Insight1,0,774065,42.789,2487,Agree,6
+35,Sententree,Career,Anomaly detection,Insight2,0,774065,52.937,2487,Agree,6
+36,SeqSynopsis,Career,Anomaly detection,Insight1,1,395949,30.512,454,Agree,6
+36,Coreflow,Career,Anomaly detection,Insight2,1,395949,41.796,454,Agree,6
+36,SeqSynopsis,Career,Anomaly detection,Insight3,1,395949,19.923,454,Agree,6
+38,Sententree,Career,Anomaly detection,Insight1,1,738856,26.343,496,Agree,6
+38,Coreflow,Career,Anomaly detection,Insight2,1,738856,17.161,496,Agree,6
+39,Coreflow,Career,Anomaly detection,Insight1,1,496129,119.24,783,Agree,6
+39,Sententree,Career,Anomaly detection,Insight1,1,496129,19.295,783,Agree,6
+39,SeqSynopsis,Career,Anomaly detection,Insight1,1,496129,47.827,783,Agree,6
+39,Coreflow,Career,Anomaly detection,Insight2,1,496129,50.313,783,Agree,6
+39,SeqSynopsis,Career,Anomaly detection,Insight2,1,496129,23.503,783,Agree,6
+39,SeqSynopsis,Career,Anomaly detection,Insight3,1,496129,11.214,783,Agree,6
+40,Coreflow,Career,Anomaly detection,Insight1,1,698245,37.178,2429,Agree,6
+40,Sententree,Career,Anomaly detection,Insight1,1,698245,269.51,2429,Agree,6
+40,SeqSynopsis,Career,Anomaly detection,Insight1,1,698245,99.288,2429,Agree,6
+40,Coreflow,Career,Anomaly detection,Insight2,1,698245,48.508,2429,Agree,6
+40,SeqSynopsis,Career,Anomaly detection,Insight3,1,698245,24.301,2429,Agree,6
+42,Coreflow,Career,Anomaly detection,Insight1,2,143147,52.445,419,Agree,6
+42,Sententree,Career,Anomaly detection,Insight1,2,143147,13.104,419,Agree,6
+42,SeqSynopsis,Career,Anomaly detection,Insight1,2,143147,26.969,419,Agree,6
+42,SeqSynopsis,Career,Anomaly detection,Insight3,2,143147,16.083,419,Agree,6
+43,SeqSynopsis,Career,Anomaly detection,Insight1,2,167528,52.327,1391,Agree,6
+44,SeqSynopsis,Career,Anomaly detection,Insight3,2,138634,44.415,951,Agree,6
+46,Sententree,Career,Anomaly detection,Insight2,3,492560,29.794,428,Agree,6
+47,Coreflow,Career,Anomaly detection,Insight1,3,686153,24.579,708,Agree,6
+47,Sententree,Career,Anomaly detection,Insight1,3,686153,32.828,708,Agree,6
+47,SeqSynopsis,Career,Anomaly detection,Insight2,3,686153,25.099,708,Agree,6
+47,Coreflow,Career,Anomaly detection,Insight3,3,686153,11.918,708,Agree,6
+48,Sententree,Career,Anomaly detection,Insight1,3,405929,34.713,577,Agree,6
+48,SeqSynopsis,Career,Anomaly detection,Insight1,3,405929,11.277,577,Agree,6
+48,Coreflow,Career,Anomaly detection,Insight2,3,405929,16.089,577,Agree,6
+48,SeqSynopsis,Career,Anomaly detection,Insight2,3,405929,17.481,577,Agree,6
+48,Coreflow,Career,Anomaly detection,Insight3,3,405929,83.805,577,Agree,6
+48,SeqSynopsis,Career,Anomaly detection,Insight3,3,405929,56.19,577,Agree,6
+49,Sententree,Career,Anomaly detection,Insight1,3,593548,16.704,883,Agree,6
+49,SeqSynopsis,Career,Anomaly detection,Insight2,3,593548,12.574,883,Agree,6
+49,SeqSynopsis,Career,Anomaly detection,Insight3,3,593548,22.596,883,Agree,6
+51,Coreflow,Career,Anomaly detection,Insight2,4,137584,10.989,481,Agree,6
+52,Sententree,Career,Anomaly detection,Insight1,4,812407,42.053,644,Agree,6
+53,Sententree,Career,Anomaly detection,Insight1,4,702151,16.333,489,Agree,6
+53,SeqSynopsis,Career,Anomaly detection,Insight1,4,702151,18.871,489,Agree,6
+53,SeqSynopsis,Career,Anomaly detection,Insight3,4,702151,30.626,489,Agree,6
+54,Coreflow,Career,Anomaly detection,Insight1,4,504413,46.546,1927,Agree,6
+54,Sententree,Career,Anomaly detection,Insight1,4,504413,16.05,1927,Agree,6
+54,SeqSynopsis,Career,Anomaly detection,Insight1,4,504413,59.924,1927,Agree,6
+56,Coreflow,Career,Anomaly detection,Insight1,5,177991,33.901,915,Agree,6
+56,Sententree,Career,Anomaly detection,Insight1,5,177991,45.764,915,Agree,6
+57,Coreflow,Career,Anomaly detection,Insight1,5,966058,18.972,1026,Agree,6
+57,Sententree,Career,Anomaly detection,Insight1,5,966058,156.82,1026,Agree,6
+57,Coreflow,Career,Anomaly detection,Insight3,5,966058,17.545,1026,Agree,6
+60,Coreflow,Career,Anomaly detection,Insight1,5,932934,29.351,43209,Agree,6
+60,SeqSynopsis,Career,Anomaly detection,Insight1,5,932934,77.721,43209,Agree,6
+60,SeqSynopsis,Career,Anomaly detection,Insight3,5,932934,20.411,43209,Agree,6
+61,Sententree,Emergency,Common pattern,Insight2,0,748611,83.863,1777,Agree,6
+64,Coreflow,Emergency,Common pattern,Insight2,0,345699,18.602,664,Agree,6
+64,Sententree,Emergency,Common pattern,Insight2,0,345699,14.975,664,Agree,6
+65,Sententree,Emergency,Common pattern,Insight3,0,386402,148.478,1867,Agree,6
+66,Coreflow,Emergency,Common pattern,Insight2,1,747614,37.189,839,Agree,6
+66,Sententree,Emergency,Common pattern,Insight2,1,747614,14.129,839,Agree,6
+67,Sententree,Emergency,Common pattern,Insight2,1,356752,10.842,431,Agree,6
+70,SeqSynopsis,Emergency,Common pattern,Insight2,1,116126,53.325,1854,Agree,6
+71,Sententree,Emergency,Common pattern,Insight2,2,673442,19.438,930,Agree,6
+72,Coreflow,Emergency,Common pattern,Insight2,2,475999,10.84,897,Agree,6
+73,Coreflow,Emergency,Common pattern,Insight1,2,183483,54.821,528,Agree,6
+73,Sententree,Emergency,Common pattern,Insight1,2,183483,10.945,528,Agree,6
+74,Coreflow,Emergency,Common pattern,Insight1,2,788696,61.063,11806,Agree,6
+74,Sententree,Emergency,Common pattern,Insight2,2,788696,11.32,11806,Agree,6
+76,Coreflow,Emergency,Common pattern,Insight1,3,739562,14.897,230,Agree,6
+76,SeqSynopsis,Emergency,Common pattern,Insight1,3,739562,12.519,230,Agree,6
+76,SeqSynopsis,Emergency,Common pattern,Insight2,3,739562,13.51,230,Agree,6
+76,Coreflow,Emergency,Common pattern,Insight3,3,739562,11.136,230,Agree,6
+76,SeqSynopsis,Emergency,Common pattern,Insight3,3,739562,14.697,230,Agree,6
+78,Sententree,Emergency,Common pattern,Insight1,3,376665,32.471,552,Agree,6
+80,Sententree,Emergency,Common pattern,Insight1,3,315142,98.212,1289,Agree,6
+82,Sententree,Emergency,Common pattern,Insight1,4,107733,14.117,544,Agree,6
+82,SeqSynopsis,Emergency,Common pattern,Insight1,4,107733,56.116,544,Agree,6
+84,SeqSynopsis,Emergency,Common pattern,Insight1,4,931350,38.859,4696,Agree,6
+85,Coreflow,Emergency,Common pattern,Insight1,4,383569,54.802,1201,Agree,6
+85,Coreflow,Emergency,Common pattern,Insight2,4,383569,12.76,1201,Agree,6
+86,Coreflow,Emergency,Common pattern,Insight2,5,814102,11.846,617,Agree,6
+86,Sententree,Emergency,Common pattern,Insight2,5,814102,11.709,617,Agree,6
+86,SeqSynopsis,Emergency,Common pattern,Insight2,5,814102,52.381,617,Agree,6
+90,SeqSynopsis,Emergency,Common pattern,Insight1,5,485249,76.921,1267,Agree,6
+91,Coreflow,Trauma,Anomaly detection,Insight2,0,691245,21.256,386,Agree,6
+94,SeqSynopsis,Trauma,Anomaly detection,Insight2,0,601966,11.357,830,Agree,6
+95,Sententree,Trauma,Anomaly detection,Insight1,0,825534,302.357,2773,Agree,6
+95,Coreflow,Trauma,Anomaly detection,Insight2,0,825534,36.563,2773,Agree,6
+95,SeqSynopsis,Trauma,Anomaly detection,Insight2,0,825534,15.491,2773,Agree,6
+96,SeqSynopsis,Trauma,Anomaly detection,Insight1,1,771907,46.846,819,Agree,6
+97,SeqSynopsis,Trauma,Anomaly detection,Insight1,1,627989,58.565,645,Agree,6
+97,Coreflow,Trauma,Anomaly detection,Insight2,1,627989,16.189,645,Agree,6
+97,Sententree,Trauma,Anomaly detection,Insight2,1,627989,30.515,645,Agree,6
+97,Sententree,Trauma,Anomaly detection,Insight3,1,627989,53.162,645,Agree,6
+98,Sententree,Trauma,Anomaly detection,Insight1,1,842739,51.283,579,Agree,6
+98,SeqSynopsis,Trauma,Anomaly detection,Insight1,1,842739,15.732,579,Agree,6
+99,Coreflow,Trauma,Anomaly detection,Insight1,1,504608,117.51,1236,Agree,6
+99,Sententree,Trauma,Anomaly detection,Insight1,1,504608,117.115,1236,Agree,6
+99,Coreflow,Trauma,Anomaly detection,Insight2,1,504608,95.078,1236,Agree,6
+99,Sententree,Trauma,Anomaly detection,Insight2,1,504608,62.241,1236,Agree,6
+99,Coreflow,Trauma,Anomaly detection,Insight3,1,504608,66.184,1236,Agree,6
+100,Sententree,Trauma,Anomaly detection,Insight1,1,241193,126.754,2042,Agree,6
+100,Sententree,Trauma,Anomaly detection,Insight2,1,241193,13.232,2042,Agree,6
+100,Sententree,Trauma,Anomaly detection,Insight3,1,241193,18.116,2042,Agree,6
+101,Coreflow,Trauma,Anomaly detection,Insight2,2,592701,15.316,618,Agree,6
+101,SeqSynopsis,Trauma,Anomaly detection,Insight2,2,592701,10.964,618,Agree,6
+102,SeqSynopsis,Trauma,Anomaly detection,Insight2,2,311949,18.724,1088,Agree,6
+103,Sententree,Trauma,Anomaly detection,Insight1,2,209726,31.352,348,Agree,6
+104,Sententree,Trauma,Anomaly detection,Insight3,2,837994,10.79,517,Agree,6
+105,SeqSynopsis,Trauma,Anomaly detection,Insight1,2,686815,104.784,706,Agree,6
+105,Sententree,Trauma,Anomaly detection,Insight3,2,686815,14.43,706,Agree,6
+108,Sententree,Trauma,Anomaly detection,Insight1,3,379039,25.267,795,Agree,6
+109,Coreflow,Trauma,Anomaly detection,Insight2,3,821047,21.198,453,Agree,6
+109,SeqSynopsis,Trauma,Anomaly detection,Insight2,3,821047,10.961,453,Agree,6
+110,Sententree,Trauma,Anomaly detection,Insight1,3,522363,65.22,644,Agree,6
+110,SeqSynopsis,Trauma,Anomaly detection,Insight1,3,522363,17.049,644,Agree,6
+110,Coreflow,Trauma,Anomaly detection,Insight2,3,522363,14.912,644,Agree,6
+110,Sententree,Trauma,Anomaly detection,Insight2,3,522363,26.584,644,Agree,6
+111,SeqSynopsis,Trauma,Anomaly detection,Insight1,4,861668,15.58,415,Agree,6
+113,Coreflow,Trauma,Anomaly detection,Insight2,4,749215,42.838,1448,Agree,6
+113,SeqSynopsis,Trauma,Anomaly detection,Insight2,4,749215,22.601,1448,Agree,6
+115,Coreflow,Trauma,Anomaly detection,Insight2,4,324067,37.357,1437,Agree,6
+115,Sententree,Trauma,Anomaly detection,Insight2,4,324067,36.301,1437,Agree,6
+116,SeqSynopsis,Trauma,Anomaly detection,Insight2,5,448071,30.435,520,Agree,6
+116,Sententree,Trauma,Anomaly detection,Insight3,5,448071,18.081,520,Agree,6
+117,SeqSynopsis,Trauma,Anomaly detection,Insight2,5,507682,26.94,694,Agree,6
+118,Coreflow,Trauma,Anomaly detection,Insight2,5,671525,19.436,505,Agree,6
+118,SeqSynopsis,Trauma,Anomaly detection,Insight2,5,671525,11.122,505,Agree,6
+118,Sententree,Trauma,Anomaly detection,Insight3,5,671525,38.193,505,Agree,6
+121,Sententree,VAST,Clustering,Insight1,0,877557,214.065,1657,Agree,6
+121,Sententree,VAST,Clustering,Insight2,0,877557,146.999,1657,Agree,6
+121,Sententree,VAST,Clustering,Insight3,0,877557,26.16,1657,Agree,6
+124,SeqSynopsis,VAST,Clustering,Insight2,0,284038,509.823,2319,Agree,6
+128,SeqSynopsis,VAST,Clustering,Insight1,1,292165,97.351,760,Agree,6
+130,SeqSynopsis,VAST,Clustering,Insight3,1,794252,26.694,523,Agree,6
+133,SeqSynopsis,VAST,Clustering,Insight3,2,817913,33.784,439,Agree,6
+134,SeqSynopsis,VAST,Clustering,Insight3,2,352685,113.266,1554,Agree,6
+135,Coreflow,VAST,Clustering,Insight1,2,585283,20.594,1004,Agree,6
+135,Sententree,VAST,Clustering,Insight3,2,585283,10.698,1004,Agree,6
+137,SeqSynopsis,VAST,Clustering,Insight3,3,334343,43.556,805,Agree,6
+138,SeqSynopsis,VAST,Clustering,Insight1,3,272497,168.911,1308,Agree,6
+139,SeqSynopsis,VAST,Clustering,Insight1,3,605587,96.557,1540,Agree,6
+140,SeqSynopsis,VAST,Clustering,Insight3,3,597446,18.826,3215,Agree,6
+141,SeqSynopsis,VAST,Clustering,Insight2,4,989677,11.087,997,Agree,6
+141,SeqSynopsis,VAST,Clustering,Insight3,4,989677,23.148,997,Agree,6
+149,SeqSynopsis,VAST,Clustering,Insight1,5,395991,77.022,385,Agree,6
+149,Coreflow,VAST,Clustering,Insight2,5,395991,16.513,385,Agree,6
+149,SeqSynopsis,VAST,Clustering,Insight3,5,395991,11.412,385,Agree,6
+151,Sententree,Workflow,Clustering,Insight1,0,268302,67.239,1331,Agree,6
+151,Sententree,Workflow,Clustering,Insight3,0,268302,59.625,1331,Agree,6
+151,SeqSynopsis,Workflow,Clustering,Insight3,0,268302,75.959,1331,Agree,6
+154,SeqSynopsis,Workflow,Clustering,Insight1,0,697353,72.105,1296,Agree,6
+154,Sententree,Workflow,Clustering,Insight2,0,697353,12.357,1296,Agree,6
+154,Coreflow,Workflow,Clustering,Insight3,0,697353,32.929,1296,Agree,6
+155,Coreflow,Workflow,Clustering,Insight1,0,625388,312.286,3517,Agree,6
+155,SeqSynopsis,Workflow,Clustering,Insight1,0,625388,35.156,3517,Agree,6
+155,Sententree,Workflow,Clustering,Insight3,0,625388,24.485,3517,Agree,6
+155,SeqSynopsis,Workflow,Clustering,Insight3,0,625388,29.054,3517,Agree,6
+157,Coreflow,Workflow,Clustering,Insight3,1,783946,120.882,2238,Agree,6
+158,Sententree,Workflow,Clustering,Insight1,1,895917,58.42,2903,Agree,6
+158,Sententree,Workflow,Clustering,Insight3,1,895917,167.457,2903,Agree,6
+160,Sententree,Workflow,Clustering,Insight1,1,671073,21.613,873,Agree,6
+160,SeqSynopsis,Workflow,Clustering,Insight1,1,671073,20.493,873,Agree,6
+160,Coreflow,Workflow,Clustering,Insight2,1,671073,21.318,873,Agree,6
+160,Coreflow,Workflow,Clustering,Insight3,1,671073,11.326,873,Agree,6
+160,Sententree,Workflow,Clustering,Insight3,1,671073,15.735,873,Agree,6
+160,SeqSynopsis,Workflow,Clustering,Insight3,1,671073,17.177,873,Agree,6
+161,Coreflow,Workflow,Clustering,Insight1,2,564587,66.072,953,Agree,6
+161,Sententree,Workflow,Clustering,Insight1,2,564587,20.203,953,Agree,6
+161,Sententree,Workflow,Clustering,Insight2,2,564587,11.305,953,Agree,6
+161,Coreflow,Workflow,Clustering,Insight3,2,564587,39.877,953,Agree,6
+161,Sententree,Workflow,Clustering,Insight3,2,564587,39.808,953,Agree,6
+162,SeqSynopsis,Workflow,Clustering,Insight2,2,967871,14.067,246,Agree,6
+162,SeqSynopsis,Workflow,Clustering,Insight3,2,967871,11.828,246,Agree,6
+166,SeqSynopsis,Workflow,Clustering,Insight1,3,582184,75.535,624,Agree,6
+167,SeqSynopsis,Workflow,Clustering,Insight2,3,275849,113.485,1372,Agree,6
+167,Coreflow,Workflow,Clustering,Insight3,3,275849,53.104,1372,Agree,6
+170,Sententree,Workflow,Clustering,Insight2,3,162851,11.222,2492,Agree,6
+171,Coreflow,Workflow,Clustering,Insight1,4,912559,17.532,323,Agree,6
+171,Sententree,Workflow,Clustering,Insight2,4,912559,11.901,323,Agree,6
+171,SeqSynopsis,Workflow,Clustering,Insight2,4,912559,11.424,323,Agree,6
+171,Coreflow,Workflow,Clustering,Insight3,4,912559,32.101,323,Agree,6
+171,Sententree,Workflow,Clustering,Insight3,4,912559,11.411,323,Agree,6
+172,SeqSynopsis,Workflow,Clustering,Insight3,4,116613,28.237,592,Agree,6
+174,Coreflow,Workflow,Clustering,Insight1,4,541363,218.175,6007,Agree,6
+174,Sententree,Workflow,Clustering,Insight1,4,541363,48.45,6007,Agree,6
+174,SeqSynopsis,Workflow,Clustering,Insight1,4,541363,87.912,6007,Agree,6
+174,SeqSynopsis,Workflow,Clustering,Insight3,4,541363,132.012,6007,Agree,6
+175,SeqSynopsis,Workflow,Clustering,Insight3,4,870860,46.815,1769,Agree,6
+178,SeqSynopsis,Workflow,Clustering,Insight3,5,505004,162.716,1634,Agree,6
+179,Sententree,Workflow,Clustering,Insight1,5,679103,16.869,382,Agree,6
+179,SeqSynopsis,Workflow,Clustering,Insight1,5,679103,59.656,382,Agree,6
+179,Sententree,Workflow,Clustering,Insight3,5,679103,12.354,382,Agree,6
+180,Sententree,Workflow,Clustering,Insight1,5,627801,28.37,659,Agree,6
+180,SeqSynopsis,Workflow,Clustering,Insight1,5,627801,59.746,659,Agree,6
+180,SeqSynopsis,Workflow,Clustering,Insight3,5,627801,33.358,659,Agree,6
+2,Sententree,Basketball,Common pattern,Insight1,0,775671,145.24,904,Disagree,2
+2,Sententree,Basketball,Common pattern,Insight2,0,775671,33.074,904,Disagree,2
+2,SeqSynopsis,Basketball,Common pattern,Insight2,0,775671,104.911,904,Disagree,2
+2,Sententree,Basketball,Common pattern,Insight3,0,775671,29.926,904,Disagree,2
+2,SeqSynopsis,Basketball,Common pattern,Insight3,0,775671,54.209,904,Disagree,2
+3,Coreflow,Basketball,Common pattern,Insight1,0,271966,171.497,1439,Disagree,2
+3,Coreflow,Basketball,Common pattern,Insight2,0,271966,98.533,1439,Disagree,2
+3,Sententree,Basketball,Common pattern,Insight3,0,271966,118.153,1439,Disagree,2
+3,SeqSynopsis,Basketball,Common pattern,Insight3,0,271966,45.633,1439,Disagree,2
+4,Coreflow,Basketball,Common pattern,Insight1,0,287754,30.274,786,Disagree,2
+4,Sententree,Basketball,Common pattern,Insight1,0,287754,41.521,786,Disagree,2
+4,Coreflow,Basketball,Common pattern,Insight2,0,287754,38.992,786,Disagree,2
+4,Sententree,Basketball,Common pattern,Insight2,0,287754,34.611,786,Disagree,2
+4,SeqSynopsis,Basketball,Common pattern,Insight2,0,287754,39.977,786,Disagree,2
+4,Coreflow,Basketball,Common pattern,Insight3,0,287754,34.226,786,Disagree,2
+4,Sententree,Basketball,Common pattern,Insight3,0,287754,40.498,786,Disagree,2
+4,SeqSynopsis,Basketball,Common pattern,Insight3,0,287754,51.079,786,Disagree,2
+5,SeqSynopsis,Basketball,Common pattern,Insight3,0,271356,50.096,1151,Disagree,2
+6,Coreflow,Basketball,Common pattern,Insight1,1,672165,43.274,1123,Disagree,2
+6,Coreflow,Basketball,Common pattern,Insight2,1,672165,42.039,1123,Disagree,2
+6,SeqSynopsis,Basketball,Common pattern,Insight3,1,672165,65.504,1123,Disagree,2
+7,Sententree,Basketball,Common pattern,Insight1,1,192867,91.791,1144,Disagree,2
+7,Coreflow,Basketball,Common pattern,Insight2,1,192867,112.097,1144,Disagree,2
+7,Sententree,Basketball,Common pattern,Insight3,1,192867,55.061,1144,Disagree,2
+8,Sententree,Basketball,Common pattern,Insight1,1,555932,21.327,386,Disagree,2
+8,Coreflow,Basketball,Common pattern,Insight3,1,555932,24.367,386,Disagree,2
+10,Coreflow,Basketball,Common pattern,Insight1,1,248103,50.417,1630,Disagree,2
+10,Sententree,Basketball,Common pattern,Insight1,1,248103,171.072,1630,Disagree,2
+10,Coreflow,Basketball,Common pattern,Insight2,1,248103,57.132,1630,Disagree,2
+10,Coreflow,Basketball,Common pattern,Insight3,1,248103,53.045,1630,Disagree,2
+10,Sententree,Basketball,Common pattern,Insight3,1,248103,49.902,1630,Disagree,2
+10,SeqSynopsis,Basketball,Common pattern,Insight3,1,248103,118.154,1630,Disagree,2
+12,Sententree,Basketball,Common pattern,Insight1,2,690096,25.826,491,Disagree,2
+12,Sententree,Basketball,Common pattern,Insight2,2,690096,11.933,491,Disagree,2
+12,Sententree,Basketball,Common pattern,Insight3,2,690096,14.017,491,Disagree,2
+12,SeqSynopsis,Basketball,Common pattern,Insight3,2,690096,25.073,491,Disagree,2
+13,Sententree,Basketball,Common pattern,Insight1,2,640398,57.186,881,Disagree,2
+13,Coreflow,Basketball,Common pattern,Insight2,2,640398,22.495,881,Disagree,2
+13,SeqSynopsis,Basketball,Common pattern,Insight2,2,640398,45.341,881,Disagree,2
+13,SeqSynopsis,Basketball,Common pattern,Insight3,2,640398,53.396,881,Disagree,2
+14,Coreflow,Basketball,Common pattern,Insight1,2,377131,38.598,511,Disagree,2
+14,Sententree,Basketball,Common pattern,Insight1,2,377131,46.351,511,Disagree,2
+14,Coreflow,Basketball,Common pattern,Insight2,2,377131,32.751,511,Disagree,2
+14,Sententree,Basketball,Common pattern,Insight2,2,377131,15.155,511,Disagree,2
+14,Sententree,Basketball,Common pattern,Insight3,2,377131,13.566,511,Disagree,2
+14,SeqSynopsis,Basketball,Common pattern,Insight3,2,377131,38.613,511,Disagree,2
+15,Sententree,Basketball,Common pattern,Insight1,2,495783,75.746,2271,Disagree,2
+15,SeqSynopsis,Basketball,Common pattern,Insight2,2,495783,163.875,2271,Disagree,2
+16,Sententree,Basketball,Common pattern,Insight1,3,643146,31.331,479,Disagree,2
+16,SeqSynopsis,Basketball,Common pattern,Insight1,3,643146,35.865,479,Disagree,2
+16,Sententree,Basketball,Common pattern,Insight2,3,643146,14.114,479,Disagree,2
+16,Coreflow,Basketball,Common pattern,Insight3,3,643146,48.337,479,Disagree,2
+16,Sententree,Basketball,Common pattern,Insight3,3,643146,30.101,479,Disagree,2
+17,SeqSynopsis,Basketball,Common pattern,Insight1,3,988075,48.018,352,Disagree,2
+18,Sententree,Basketball,Common pattern,Insight1,3,795497,44.869,721,Disagree,2
+18,Coreflow,Basketball,Common pattern,Insight2,3,795497,31.681,721,Disagree,2
+18,SeqSynopsis,Basketball,Common pattern,Insight2,3,795497,40.036,721,Disagree,2
+19,Coreflow,Basketball,Common pattern,Insight1,3,305085,18.539,897,Disagree,2
+19,Coreflow,Basketball,Common pattern,Insight2,3,305085,29.46,897,Disagree,2
+19,Sententree,Basketball,Common pattern,Insight2,3,305085,29.115,897,Disagree,2
+19,Coreflow,Basketball,Common pattern,Insight3,3,305085,31.696,897,Disagree,2
+19,Sententree,Basketball,Common pattern,Insight3,3,305085,58.556,897,Disagree,2
+20,Sententree,Basketball,Common pattern,Insight3,3,286921,14.855,616,Disagree,2
+21,SeqSynopsis,Basketball,Common pattern,Insight2,4,202134,35.208,476,Disagree,2
+22,Coreflow,Basketball,Common pattern,Insight1,4,911792,28.627,738,Disagree,2
+22,Sententree,Basketball,Common pattern,Insight1,4,911792,57.003,738,Disagree,2
+22,Coreflow,Basketball,Common pattern,Insight3,4,911792,18.165,738,Disagree,2
+22,Sententree,Basketball,Common pattern,Insight3,4,911792,28.113,738,Disagree,2
+23,Sententree,Basketball,Common pattern,Insight2,4,765509,11.766,389,Disagree,2
+24,Coreflow,Basketball,Common pattern,Insight1,4,489301,47.241,2884,Disagree,2
+24,Coreflow,Basketball,Common pattern,Insight2,4,489301,28.109,2884,Disagree,2
+24,Sententree,Basketball,Common pattern,Insight2,4,489301,37.908,2884,Disagree,2
+24,SeqSynopsis,Basketball,Common pattern,Insight2,4,489301,103.482,2884,Disagree,2
+24,Coreflow,Basketball,Common pattern,Insight3,4,489301,11.769,2884,Disagree,2
+25,Sententree,Basketball,Common pattern,Insight3,4,834426,29.572,1582,Disagree,2
+25,SeqSynopsis,Basketball,Common pattern,Insight3,4,834426,90.271,1582,Disagree,2
+26,Coreflow,Basketball,Common pattern,Insight1,5,336299,21.208,1035,Disagree,2
+26,SeqSynopsis,Basketball,Common pattern,Insight1,5,336299,87.873,1035,Disagree,2
+26,Coreflow,Basketball,Common pattern,Insight2,5,336299,320.984,1035,Disagree,2
+26,Sententree,Basketball,Common pattern,Insight2,5,336299,48.085,1035,Disagree,2
+26,Coreflow,Basketball,Common pattern,Insight3,5,336299,15.291,1035,Disagree,2
+26,SeqSynopsis,Basketball,Common pattern,Insight3,5,336299,40.579,1035,Disagree,2
+27,Sententree,Basketball,Common pattern,Insight3,5,855937,19.796,299,Disagree,2
+27,SeqSynopsis,Basketball,Common pattern,Insight3,5,855937,15.248,299,Disagree,2
+28,Coreflow,Basketball,Common pattern,Insight2,5,604998,13.583,516,Disagree,2
+33,Coreflow,Career,Anomaly detection,Insight1,0,563177,15.554,404,Disagree,2
+33,SeqSynopsis,Career,Anomaly detection,Insight1,0,563177,29.19,404,Disagree,2
+33,Coreflow,Career,Anomaly detection,Insight2,0,563177,14.843,404,Disagree,2
+33,Sententree,Career,Anomaly detection,Insight2,0,563177,28.348,404,Disagree,2
+33,Sententree,Career,Anomaly detection,Insight3,0,563177,19.569,404,Disagree,2
+33,SeqSynopsis,Career,Anomaly detection,Insight3,0,563177,12.821,404,Disagree,2
+34,Coreflow,Career,Anomaly detection,Insight2,0,325690,39.894,477,Disagree,2
+35,Coreflow,Career,Anomaly detection,Insight2,0,774065,159.101,2487,Disagree,2
+35,SeqSynopsis,Career,Anomaly detection,Insight2,0,774065,133.617,2487,Disagree,2
+35,Coreflow,Career,Anomaly detection,Insight3,0,774065,28.837,2487,Disagree,2
+35,SeqSynopsis,Career,Anomaly detection,Insight3,0,774065,117.182,2487,Disagree,2
+36,Coreflow,Career,Anomaly detection,Insight1,1,395949,64.481,454,Disagree,2
+36,SeqSynopsis,Career,Anomaly detection,Insight2,1,395949,37.23,454,Disagree,2
+36,Coreflow,Career,Anomaly detection,Insight3,1,395949,11.727,454,Disagree,2
+36,Sententree,Career,Anomaly detection,Insight3,1,395949,11.547,454,Disagree,2
+38,Sententree,Career,Anomaly detection,Insight2,1,738856,24.833,496,Disagree,2
+38,SeqSynopsis,Career,Anomaly detection,Insight2,1,738856,22.825,496,Disagree,2
+38,SeqSynopsis,Career,Anomaly detection,Insight3,1,738856,25.221,496,Disagree,2
+39,Sententree,Career,Anomaly detection,Insight2,1,496129,30.788,783,Disagree,2
+39,Coreflow,Career,Anomaly detection,Insight3,1,496129,31.758,783,Disagree,2
+39,Sententree,Career,Anomaly detection,Insight3,1,496129,15.489,783,Disagree,2
+40,Sententree,Career,Anomaly detection,Insight2,1,698245,140.237,2429,Disagree,2
+40,Coreflow,Career,Anomaly detection,Insight3,1,698245,46.385,2429,Disagree,2
+41,Coreflow,Career,Anomaly detection,Insight1,2,813543,60.941,360,Disagree,2
+42,Coreflow,Career,Anomaly detection,Insight2,2,143147,24.808,419,Disagree,2
+42,Sententree,Career,Anomaly detection,Insight2,2,143147,13.583,419,Disagree,2
+42,SeqSynopsis,Career,Anomaly detection,Insight2,2,143147,28.616,419,Disagree,2
+42,Sententree,Career,Anomaly detection,Insight3,2,143147,11.914,419,Disagree,2
+43,Sententree,Career,Anomaly detection,Insight2,2,167528,11.376,1391,Disagree,2
+43,SeqSynopsis,Career,Anomaly detection,Insight2,2,167528,65.708,1391,Disagree,2
+43,Sententree,Career,Anomaly detection,Insight3,2,167528,12.928,1391,Disagree,2
+44,Coreflow,Career,Anomaly detection,Insight1,2,138634,23.061,951,Disagree,2
+44,Coreflow,Career,Anomaly detection,Insight2,2,138634,87.224,951,Disagree,2
+44,Sententree,Career,Anomaly detection,Insight2,2,138634,31.284,951,Disagree,2
+44,SeqSynopsis,Career,Anomaly detection,Insight2,2,138634,77.334,951,Disagree,2
+44,Coreflow,Career,Anomaly detection,Insight3,2,138634,99.285,951,Disagree,2
+46,Sententree,Career,Anomaly detection,Insight3,3,492560,10.794,428,Disagree,2
+49,SeqSynopsis,Career,Anomaly detection,Insight1,3,593548,15.402,883,Disagree,2
+49,Sententree,Career,Anomaly detection,Insight2,3,593548,46.351,883,Disagree,2
+50,Coreflow,Career,Anomaly detection,Insight1,3,998325,48.531,1295,Disagree,2
+50,Sententree,Career,Anomaly detection,Insight1,3,998325,19.933,1295,Disagree,2
+50,SeqSynopsis,Career,Anomaly detection,Insight1,3,998325,44.125,1295,Disagree,2
+50,Coreflow,Career,Anomaly detection,Insight2,3,998325,50.408,1295,Disagree,2
+50,Sententree,Career,Anomaly detection,Insight2,3,998325,29.262,1295,Disagree,2
+50,SeqSynopsis,Career,Anomaly detection,Insight2,3,998325,63.636,1295,Disagree,2
+50,Coreflow,Career,Anomaly detection,Insight3,3,998325,13.641,1295,Disagree,2
+50,Sententree,Career,Anomaly detection,Insight3,3,998325,22.453,1295,Disagree,2
+50,SeqSynopsis,Career,Anomaly detection,Insight3,3,998325,54.104,1295,Disagree,2
+51,Sententree,Career,Anomaly detection,Insight1,4,137584,53.788,481,Disagree,2
+53,Coreflow,Career,Anomaly detection,Insight1,4,702151,66.215,489,Disagree,2
+53,Coreflow,Career,Anomaly detection,Insight2,4,702151,29.301,489,Disagree,2
+53,Sententree,Career,Anomaly detection,Insight2,4,702151,10.958,489,Disagree,2
+53,Sententree,Career,Anomaly detection,Insight3,4,702151,12.211,489,Disagree,2
+55,SeqSynopsis,Career,Anomaly detection,Insight2,4,301828,75.284,1100,Disagree,2
+56,Sententree,Career,Anomaly detection,Insight2,5,177991,40.361,915,Disagree,2
+56,Coreflow,Career,Anomaly detection,Insight3,5,177991,12.755,915,Disagree,2
+57,Coreflow,Career,Anomaly detection,Insight2,5,966058,102.547,1026,Disagree,2
+57,Sententree,Career,Anomaly detection,Insight2,5,966058,55.223,1026,Disagree,2
+57,Sententree,Career,Anomaly detection,Insight3,5,966058,38.716,1026,Disagree,2
+59,Coreflow,Career,Anomaly detection,Insight2,5,101043,53.842,1896,Disagree,2
+59,Coreflow,Career,Anomaly detection,Insight3,5,101043,21.799,1896,Disagree,2
+60,Sententree,Career,Anomaly detection,Insight1,5,932934,15.789,43209,Disagree,2
+60,Coreflow,Career,Anomaly detection,Insight2,5,932934,15.806,43209,Disagree,2
+60,Sententree,Career,Anomaly detection,Insight2,5,932934,13.261,43209,Disagree,2
+60,SeqSynopsis,Career,Anomaly detection,Insight2,5,932934,52.993,43209,Disagree,2
+60,Coreflow,Career,Anomaly detection,Insight3,5,932934,12.173,43209,Disagree,2
+60,Sententree,Career,Anomaly detection,Insight3,5,932934,12.408,43209,Disagree,2
+61,Sententree,Emergency,Common pattern,Insight3,0,748611,343.664,1777,Disagree,2
+63,Sententree,Emergency,Common pattern,Insight2,0,124322,421.31,6092,Disagree,2
+63,Sententree,Emergency,Common pattern,Insight3,0,124322,34.67,6092,Disagree,2
+64,Coreflow,Emergency,Common pattern,Insight3,0,345699,15.501,664,Disagree,2
+65,SeqSynopsis,Emergency,Common pattern,Insight3,0,386402,173.19,1867,Disagree,2
+66,Coreflow,Emergency,Common pattern,Insight3,1,747614,62.519,839,Disagree,2
+67,Coreflow,Emergency,Common pattern,Insight3,1,356752,13.947,431,Disagree,2
+68,Coreflow,Emergency,Common pattern,Insight3,1,571834,16.488,418,Disagree,2
+70,Coreflow,Emergency,Common pattern,Insight2,1,116126,29.891,1854,Disagree,2
+70,Sententree,Emergency,Common pattern,Insight2,1,116126,29.901,1854,Disagree,2
+70,Coreflow,Emergency,Common pattern,Insight3,1,116126,26.613,1854,Disagree,2
+70,Sententree,Emergency,Common pattern,Insight3,1,116126,44.103,1854,Disagree,2
+70,SeqSynopsis,Emergency,Common pattern,Insight3,1,116126,88.852,1854,Disagree,2
+72,SeqSynopsis,Emergency,Common pattern,Insight2,2,475999,22.571,897,Disagree,2
+72,Coreflow,Emergency,Common pattern,Insight3,2,475999,12.184,897,Disagree,2
+72,Sententree,Emergency,Common pattern,Insight3,2,475999,49.449,897,Disagree,2
+73,Sententree,Emergency,Common pattern,Insight2,2,183483,22.418,528,Disagree,2
+73,Coreflow,Emergency,Common pattern,Insight3,2,183483,14.065,528,Disagree,2
+75,Coreflow,Emergency,Common pattern,Insight3,2,105647,77.892,2429,Disagree,2
+75,SeqSynopsis,Emergency,Common pattern,Insight3,2,105647,250.434,2429,Disagree,2
+80,Coreflow,Emergency,Common pattern,Insight2,3,315142,86.803,1289,Disagree,2
+80,Sententree,Emergency,Common pattern,Insight3,3,315142,52.089,1289,Disagree,2
+81,SeqSynopsis,Emergency,Common pattern,Insight1,4,611263,38.111,556,Disagree,2
+81,SeqSynopsis,Emergency,Common pattern,Insight2,4,611263,19.049,556,Disagree,2
+81,SeqSynopsis,Emergency,Common pattern,Insight3,4,611263,42.711,556,Disagree,2
+82,Coreflow,Emergency,Common pattern,Insight3,4,107733,22.341,544,Disagree,2
+84,SeqSynopsis,Emergency,Common pattern,Insight2,4,931350,43.696,4696,Disagree,2
+84,Coreflow,Emergency,Common pattern,Insight3,4,931350,39.107,4696,Disagree,2
+84,Sententree,Emergency,Common pattern,Insight3,4,931350,11.026,4696,Disagree,2
+84,SeqSynopsis,Emergency,Common pattern,Insight3,4,931350,67.057,4696,Disagree,2
+85,SeqSynopsis,Emergency,Common pattern,Insight2,4,383569,25.013,1201,Disagree,2
+85,SeqSynopsis,Emergency,Common pattern,Insight3,4,383569,45.173,1201,Disagree,2
+91,SeqSynopsis,Trauma,Anomaly detection,Insight3,0,691245,10.988,386,Disagree,2
+93,Coreflow,Trauma,Anomaly detection,Insight3,0,273883,47.129,1627,Disagree,2
+93,Sententree,Trauma,Anomaly detection,Insight3,0,273883,20.659,1627,Disagree,2
+93,SeqSynopsis,Trauma,Anomaly detection,Insight3,0,273883,63.209,1627,Disagree,2
+94,Sententree,Trauma,Anomaly detection,Insight1,0,601966,71.829,830,Disagree,2
+94,Sententree,Trauma,Anomaly detection,Insight3,0,601966,81.619,830,Disagree,2
+94,SeqSynopsis,Trauma,Anomaly detection,Insight1,0,601966,59.998,830,Disagree,2
+95,SeqSynopsis,Trauma,Anomaly detection,Insight1,0,825534,79.999,2773,Disagree,2
+95,Sententree,Trauma,Anomaly detection,Insight3,0,825534,42.525,2773,Disagree,2
+95,SeqSynopsis,Trauma,Anomaly detection,Insight3,0,825534,19.513,2773,Disagree,2
+96,Coreflow,Trauma,Anomaly detection,Insight1,1,771907,26.639,819,Disagree,2
+96,Sententree,Trauma,Anomaly detection,Insight2,1,771907,76.298,819,Disagree,2
+96,SeqSynopsis,Trauma,Anomaly detection,Insight2,1,771907,30.187,819,Disagree,2
+96,Sententree,Trauma,Anomaly detection,Insight3,1,771907,24.4,819,Disagree,2
+96,SeqSynopsis,Trauma,Anomaly detection,Insight3,1,771907,18.486,819,Disagree,2
+98,Coreflow,Trauma,Anomaly detection,Insight1,1,842739,59.5,579,Disagree,2
+98,Sententree,Trauma,Anomaly detection,Insight3,1,842739,30.065,579,Disagree,2
+100,Coreflow,Trauma,Anomaly detection,Insight1,1,241193,49.104,2042,Disagree,2
+100,SeqSynopsis,Trauma,Anomaly detection,Insight1,1,241193,146.549,2042,Disagree,2
+100,SeqSynopsis,Trauma,Anomaly detection,Insight2,1,241193,48.711,2042,Disagree,2
+100,Coreflow,Trauma,Anomaly detection,Insight3,1,241193,16.775,2042,Disagree,2
+100,SeqSynopsis,Trauma,Anomaly detection,Insight3,1,241193,49.656,2042,Disagree,2
+101,Coreflow,Trauma,Anomaly detection,Insight1,2,592701,33.27,618,Disagree,2
+101,Sententree,Trauma,Anomaly detection,Insight1,2,592701,27.214,618,Disagree,2
+101,SeqSynopsis,Trauma,Anomaly detection,Insight1,2,592701,139.527,618,Disagree,2
+101,Coreflow,Trauma,Anomaly detection,Insight3,2,592701,10.893,618,Disagree,2
+101,Sententree,Trauma,Anomaly detection,Insight3,2,592701,10.682,618,Disagree,2
+101,SeqSynopsis,Trauma,Anomaly detection,Insight3,2,592701,25.583,618,Disagree,2
+102,Sententree,Trauma,Anomaly detection,Insight2,2,311949,135.523,1088,Disagree,2
+103,Coreflow,Trauma,Anomaly detection,Insight1,2,209726,53.054,348,Disagree,2
+103,Coreflow,Trauma,Anomaly detection,Insight2,2,209726,11.176,348,Disagree,2
+103,Coreflow,Trauma,Anomaly detection,Insight3,2,209726,12.524,348,Disagree,2
+103,SeqSynopsis,Trauma,Anomaly detection,Insight3,2,209726,15.098,348,Disagree,2
+104,Sententree,Trauma,Anomaly detection,Insight2,2,837994,11.121,517,Disagree,2
+104,SeqSynopsis,Trauma,Anomaly detection,Insight3,2,837994,26.242,517,Disagree,2
+106,Coreflow,Trauma,Anomaly detection,Insight1,3,147010,25.909,509,Disagree,2
+106,SeqSynopsis,Trauma,Anomaly detection,Insight1,3,147010,124.155,509,Disagree,2
+106,Coreflow,Trauma,Anomaly detection,Insight2,3,147010,13.38,509,Disagree,2
+106,Coreflow,Trauma,Anomaly detection,Insight3,3,147010,12.413,509,Disagree,2
+107,Sententree,Trauma,Anomaly detection,Insight1,3,349052,109.505,783,Disagree,2
+107,SeqSynopsis,Trauma,Anomaly detection,Insight1,3,349052,111.458,783,Disagree,2
+107,Sententree,Trauma,Anomaly detection,Insight2,3,349052,35.306,783,Disagree,2
+108,Coreflow,Trauma,Anomaly detection,Insight1,3,379039,30.001,795,Disagree,2
+108,SeqSynopsis,Trauma,Anomaly detection,Insight1,3,379039,110.473,795,Disagree,2
+108,Coreflow,Trauma,Anomaly detection,Insight2,3,379039,34.554,795,Disagree,2
+109,Coreflow,Trauma,Anomaly detection,Insight1,3,821047,50.826,453,Disagree,2
+109,Sententree,Trauma,Anomaly detection,Insight1,3,821047,12.307,453,Disagree,2
+109,SeqSynopsis,Trauma,Anomaly detection,Insight1,3,821047,60.58,453,Disagree,2
+109,Sententree,Trauma,Anomaly detection,Insight2,3,821047,11.557,453,Disagree,2
+109,Sententree,Trauma,Anomaly detection,Insight3,3,821047,11.691,453,Disagree,2
+109,SeqSynopsis,Trauma,Anomaly detection,Insight3,3,821047,17.262,453,Disagree,2
+110,Coreflow,Trauma,Anomaly detection,Insight1,3,522363,20.355,644,Disagree,2
+110,SeqSynopsis,Trauma,Anomaly detection,Insight2,3,522363,12.714,644,Disagree,2
+110,Sententree,Trauma,Anomaly detection,Insight3,3,522363,19.006,644,Disagree,2
+110,SeqSynopsis,Trauma,Anomaly detection,Insight3,3,522363,11.977,644,Disagree,2
+112,SeqSynopsis,Trauma,Anomaly detection,Insight1,4,220035,62.257,575,Disagree,2
+112,SeqSynopsis,Trauma,Anomaly detection,Insight2,4,220035,21.298,575,Disagree,2
+113,Sententree,Trauma,Anomaly detection,Insight2,4,749215,14.633,1448,Disagree,2
+113,Coreflow,Trauma,Anomaly detection,Insight3,4,749215,159.993,1448,Disagree,2
+114,Coreflow,Trauma,Anomaly detection,Insight1,4,117113,15.483,527,Disagree,2
+114,SeqSynopsis,Trauma,Anomaly detection,Insight1,4,117113,37.419,527,Disagree,2
+114,Coreflow,Trauma,Anomaly detection,Insight3,4,117113,11.133,527,Disagree,2
+114,Sententree,Trauma,Anomaly detection,Insight3,4,117113,26.437,527,Disagree,2
+115,Coreflow,Trauma,Anomaly detection,Insight3,4,324067,10.576,1437,Disagree,2
+115,Sententree,Trauma,Anomaly detection,Insight3,4,324067,10.754,1437,Disagree,2
+115,SeqSynopsis,Trauma,Anomaly detection,Insight3,4,324067,77.855,1437,Disagree,2
+116,Sententree,Trauma,Anomaly detection,Insight2,5,448071,15.867,520,Disagree,2
+117,Coreflow,Trauma,Anomaly detection,Insight1,5,507682,40.268,694,Disagree,2
+117,Sententree,Trauma,Anomaly detection,Insight1,5,507682,87.296,694,Disagree,2
+117,SeqSynopsis,Trauma,Anomaly detection,Insight1,5,507682,58.861,694,Disagree,2
+117,Sententree,Trauma,Anomaly detection,Insight2,5,507682,42.386,694,Disagree,2
+118,Coreflow,Trauma,Anomaly detection,Insight1,5,671525,17.432,505,Disagree,2
+118,SeqSynopsis,Trauma,Anomaly detection,Insight1,5,671525,22.489,505,Disagree,2
+119,Coreflow,Trauma,Anomaly detection,Insight1,5,981230,287.045,975,Disagree,2
+119,Sententree,Trauma,Anomaly detection,Insight1,5,981230,20.653,975,Disagree,2
+119,Coreflow,Trauma,Anomaly detection,Insight3,5,981230,21.48,975,Disagree,2
+119,SeqSynopsis,Trauma,Anomaly detection,Insight3,5,981230,15.447,975,Disagree,2
+120,Coreflow,Trauma,Anomaly detection,Insight1,5,651175,84.333,407,Disagree,2
+120,Sententree,Trauma,Anomaly detection,Insight1,5,651175,13.687,407,Disagree,2
+120,SeqSynopsis,Trauma,Anomaly detection,Insight1,5,651175,27.924,407,Disagree,2
+120,Sententree,Trauma,Anomaly detection,Insight2,5,651175,11.433,407,Disagree,2
+120,SeqSynopsis,Trauma,Anomaly detection,Insight2,5,651175,11.424,407,Disagree,2
+120,Coreflow,Trauma,Anomaly detection,Insight3,5,651175,12.064,407,Disagree,2
+121,SeqSynopsis,VAST,Clustering,Insight1,0,877557,292.027,1657,Disagree,2
+121,SeqSynopsis,VAST,Clustering,Insight2,0,877557,177.425,1657,Disagree,2
+122,Sententree,VAST,Clustering,Insight1,0,655286,109.51,921,Disagree,2
+122,Sententree,VAST,Clustering,Insight2,0,655286,20.14,921,Disagree,2
+122,SeqSynopsis,VAST,Clustering,Insight2,0,655286,177.788,921,Disagree,2
+122,Sententree,VAST,Clustering,Insight3,0,655286,16.949,921,Disagree,2
+122,SeqSynopsis,VAST,Clustering,Insight3,0,655286,66.639,921,Disagree,2
+124,SeqSynopsis,VAST,Clustering,Insight1,0,284038,104.608,2319,Disagree,2
+124,Coreflow,VAST,Clustering,Insight2,0,284038,15.773,2319,Disagree,2
+124,Coreflow,VAST,Clustering,Insight3,0,284038,14.138,2319,Disagree,2
+125,SeqSynopsis,VAST,Clustering,Insight1,0,628556,16.001,715,Disagree,2
+125,Coreflow,VAST,Clustering,Insight2,0,628556,29.83,715,Disagree,2
+125,Sententree,VAST,Clustering,Insight2,0,628556,108.076,715,Disagree,2
+125,Coreflow,VAST,Clustering,Insight3,0,628556,26.877,715,Disagree,2
+125,Sententree,VAST,Clustering,Insight3,0,628556,24.337,715,Disagree,2
+126,SeqSynopsis,VAST,Clustering,Insight1,1,930973,18.433,305,Disagree,2
+128,SeqSynopsis,VAST,Clustering,Insight3,1,292165,62.243,760,Disagree,2
+129,Sententree,VAST,Clustering,Insight1,1,778227,130.593,1215,Disagree,2
+129,SeqSynopsis,VAST,Clustering,Insight3,1,778227,23.172,1215,Disagree,2
+130,SeqSynopsis,VAST,Clustering,Insight1,1,794252,33.533,523,Disagree,2
+130,Sententree,VAST,Clustering,Insight3,1,794252,30.549,523,Disagree,2
+131,Coreflow,VAST,Clustering,Insight1,2,291737,43.889,592,Disagree,2
+131,Coreflow,VAST,Clustering,Insight2,2,291737,69.298,592,Disagree,2
+131,Coreflow,VAST,Clustering,Insight3,2,291737,11.573,592,Disagree,2
+132,Sententree,VAST,Clustering,Insight1,2,139626,87.967,549,Disagree,2
+132,SeqSynopsis,VAST,Clustering,Insight1,2,139626,55.012,549,Disagree,2
+132,SeqSynopsis,VAST,Clustering,Insight2,2,139626,18.993,549,Disagree,2
+132,SeqSynopsis,VAST,Clustering,Insight3,2,139626,16.127,549,Disagree,2
+133,Sententree,VAST,Clustering,Insight1,2,817913,14.496,439,Disagree,2
+133,SeqSynopsis,VAST,Clustering,Insight1,2,817913,67.501,439,Disagree,2
+133,Sententree,VAST,Clustering,Insight3,2,817913,10.886,439,Disagree,2
+134,Coreflow,VAST,Clustering,Insight1,2,352685,105.317,1554,Disagree,2
+134,Coreflow,VAST,Clustering,Insight2,2,352685,50.567,1554,Disagree,2
+134,SeqSynopsis,VAST,Clustering,Insight2,2,352685,144.197,1554,Disagree,2
+134,Coreflow,VAST,Clustering,Insight3,2,352685,33.703,1554,Disagree,2
+136,Sententree,VAST,Clustering,Insight1,3,861520,33.05,523,Disagree,2
+136,Sententree,VAST,Clustering,Insight2,3,861520,32.4,523,Disagree,2
+136,SeqSynopsis,VAST,Clustering,Insight2,3,861520,18.235,523,Disagree,2
+137,SeqSynopsis,VAST,Clustering,Insight2,3,334343,74.245,805,Disagree,2
+138,Coreflow,VAST,Clustering,Insight1,3,272497,30.087,1308,Disagree,2
+138,Sententree,VAST,Clustering,Insight1,3,272497,104.264,1308,Disagree,2
+138,Coreflow,VAST,Clustering,Insight2,3,272497,29.291,1308,Disagree,2
+138,Sententree,VAST,Clustering,Insight2,3,272497,55.641,1308,Disagree,2
+138,SeqSynopsis,VAST,Clustering,Insight2,3,272497,262.29,1308,Disagree,2
+138,Coreflow,VAST,Clustering,Insight3,3,272497,36.276,1308,Disagree,2
+138,Sententree,VAST,Clustering,Insight3,3,272497,60.813,1308,Disagree,2
+138,SeqSynopsis,VAST,Clustering,Insight3,3,272497,86.445,1308,Disagree,2
+140,Coreflow,VAST,Clustering,Insight1,3,597446,57.277,3215,Disagree,2
+140,Sententree,VAST,Clustering,Insight1,3,597446,16.995,3215,Disagree,2
+140,SeqSynopsis,VAST,Clustering,Insight1,3,597446,23.157,3215,Disagree,2
+140,Coreflow,VAST,Clustering,Insight2,3,597446,12.105,3215,Disagree,2
+140,Sententree,VAST,Clustering,Insight2,3,597446,11.774,3215,Disagree,2
+140,SeqSynopsis,VAST,Clustering,Insight2,3,597446,13.38,3215,Disagree,2
+140,Coreflow,VAST,Clustering,Insight3,3,597446,14.827,3215,Disagree,2
+140,Sententree,VAST,Clustering,Insight3,3,597446,13.409,3215,Disagree,2
+141,Coreflow,VAST,Clustering,Insight1,4,989677,37.987,997,Disagree,2
+143,Coreflow,VAST,Clustering,Insight1,4,113898,32.928,905,Disagree,2
+143,Sententree,VAST,Clustering,Insight1,4,113898,48.607,905,Disagree,2
+143,SeqSynopsis,VAST,Clustering,Insight1,4,113898,88.216,905,Disagree,2
+143,Sententree,VAST,Clustering,Insight2,4,113898,11.714,905,Disagree,2
+143,Sententree,VAST,Clustering,Insight3,4,113898,18.807,905,Disagree,2
+143,SeqSynopsis,VAST,Clustering,Insight3,4,113898,42.103,905,Disagree,2
+144,Coreflow,VAST,Clustering,Insight1,4,204735,28.325,423,Disagree,2
+144,Sententree,VAST,Clustering,Insight1,4,204735,53.451,423,Disagree,2
+144,Coreflow,VAST,Clustering,Insight2,4,204735,30.936,423,Disagree,2
+144,Sententree,VAST,Clustering,Insight2,4,204735,10.762,423,Disagree,2
+144,Coreflow,VAST,Clustering,Insight3,4,204735,10.914,423,Disagree,2
+144,Sententree,VAST,Clustering,Insight3,4,204735,12.351,423,Disagree,2
+145,SeqSynopsis,VAST,Clustering,Insight1,4,599503,60.076,1099,Disagree,2
+145,Coreflow,VAST,Clustering,Insight2,4,599503,50.715,1099,Disagree,2
+145,SeqSynopsis,VAST,Clustering,Insight2,4,599503,197.558,1099,Disagree,2
+145,SeqSynopsis,VAST,Clustering,Insight3,4,599503,70.539,1099,Disagree,2
+147,SeqSynopsis,VAST,Clustering,Insight2,5,107112,78.661,1084,Disagree,2
+149,Coreflow,VAST,Clustering,Insight1,5,395991,11.488,385,Disagree,2
+149,Sententree,VAST,Clustering,Insight1,5,395991,14.174,385,Disagree,2
+149,Sententree,VAST,Clustering,Insight2,5,395991,21.571,385,Disagree,2
+149,SeqSynopsis,VAST,Clustering,Insight2,5,395991,35.22,385,Disagree,2
+149,Coreflow,VAST,Clustering,Insight3,5,395991,13.722,385,Disagree,2
+149,Sententree,VAST,Clustering,Insight3,5,395991,11.782,385,Disagree,2
+150,Sententree,VAST,Clustering,Insight2,5,502455,159.559,2859,Disagree,2
+151,Coreflow,Workflow,Clustering,Insight1,0,268302,103.235,1331,Disagree,2
+151,Coreflow,Workflow,Clustering,Insight2,0,268302,89.672,1331,Disagree,2
+151,Sententree,Workflow,Clustering,Insight2,0,268302,95.611,1331,Disagree,2
+151,Coreflow,Workflow,Clustering,Insight3,0,268302,65.394,1331,Disagree,2
+152,Sententree,Workflow,Clustering,Insight1,0,870357,59.897,1893,Disagree,2
+152,Coreflow,Workflow,Clustering,Insight2,0,870357,24.376,1893,Disagree,2
+152,Sententree,Workflow,Clustering,Insight2,0,870357,141.481,1893,Disagree,2
+152,SeqSynopsis,Workflow,Clustering,Insight2,0,870357,644.41,1893,Disagree,2
+152,Coreflow,Workflow,Clustering,Insight3,0,870357,43.159,1893,Disagree,2
+152,SeqSynopsis,Workflow,Clustering,Insight3,0,870357,33.869,1893,Disagree,2
+154,Sententree,Workflow,Clustering,Insight1,0,697353,28.191,1296,Disagree,2
+154,Coreflow,Workflow,Clustering,Insight2,0,697353,26.764,1296,Disagree,2
+154,SeqSynopsis,Workflow,Clustering,Insight2,0,697353,61.886,1296,Disagree,2
+155,Coreflow,Workflow,Clustering,Insight2,0,625388,572.314,3517,Disagree,2
+155,SeqSynopsis,Workflow,Clustering,Insight2,0,625388,118.012,3517,Disagree,2
+157,SeqSynopsis,Workflow,Clustering,Insight2,1,783946,93.437,2238,Disagree,2
+158,Coreflow,Workflow,Clustering,Insight1,1,895917,50.302,2903,Disagree,2
+158,Coreflow,Workflow,Clustering,Insight2,1,895917,68.932,2903,Disagree,2
+158,Sententree,Workflow,Clustering,Insight2,1,895917,160.545,2903,Disagree,2
+158,Coreflow,Workflow,Clustering,Insight3,1,895917,846.12,2903,Disagree,2
+159,Coreflow,Workflow,Clustering,Insight3,1,861482,298.648,3274,Disagree,2
+159,SeqSynopsis,Workflow,Clustering,Insight3,1,861482,385.311,3274,Disagree,2
+162,Coreflow,Workflow,Clustering,Insight1,2,967871,11.784,246,Disagree,2
+162,Sententree,Workflow,Clustering,Insight1,2,967871,16.87,246,Disagree,2
+162,SeqSynopsis,Workflow,Clustering,Insight1,2,967871,30.053,246,Disagree,2
+162,Coreflow,Workflow,Clustering,Insight2,2,967871,15.518,246,Disagree,2
+162,Sententree,Workflow,Clustering,Insight2,2,967871,11.046,246,Disagree,2
+162,Coreflow,Workflow,Clustering,Insight3,2,967871,12.909,246,Disagree,2
+162,Sententree,Workflow,Clustering,Insight3,2,967871,13.31,246,Disagree,2
+163,SeqSynopsis,Workflow,Clustering,Insight1,2,808965,91.655,1446,Disagree,2
+163,Sententree,Workflow,Clustering,Insight2,2,808965,47.981,1446,Disagree,2
+164,Coreflow,Workflow,Clustering,Insight1,2,985874,50.841,657,Disagree,2
+164,Coreflow,Workflow,Clustering,Insight2,2,985874,31.289,657,Disagree,2
+164,Sententree,Workflow,Clustering,Insight2,2,985874,12.224,657,Disagree,2
+164,Coreflow,Workflow,Clustering,Insight3,2,985874,29.282,657,Disagree,2
+164,Sententree,Workflow,Clustering,Insight3,2,985874,22.328,657,Disagree,2
+165,Coreflow,Workflow,Clustering,Insight1,2,498692,14.659,5888,Disagree,2
+165,Sententree,Workflow,Clustering,Insight2,2,498692,52.55,5888,Disagree,2
+167,Sententree,Workflow,Clustering,Insight1,3,275849,87.533,1372,Disagree,2
+167,Sententree,Workflow,Clustering,Insight2,3,275849,142.702,1372,Disagree,2
+168,Coreflow,Workflow,Clustering,Insight1,3,297467,30.336,503,Disagree,2
+170,Sententree,Workflow,Clustering,Insight1,3,162851,120.131,2492,Disagree,2
+170,SeqSynopsis,Workflow,Clustering,Insight3,3,162851,62.862,2492,Disagree,2
+171,Sententree,Workflow,Clustering,Insight1,4,912559,18.8,323,Disagree,2
+171,Coreflow,Workflow,Clustering,Insight2,4,912559,17.9,323,Disagree,2
+172,SeqSynopsis,Workflow,Clustering,Insight1,4,116613,37.579,592,Disagree,2
+173,SeqSynopsis,Workflow,Clustering,Insight1,4,772959,81.344,1245,Disagree,2
+173,Sententree,Workflow,Clustering,Insight2,4,772959,88.319,1245,Disagree,2
+173,Sententree,Workflow,Clustering,Insight3,4,772959,19.464,1245,Disagree,2
+174,Coreflow,Workflow,Clustering,Insight3,4,541363,1150.633,6007,Disagree,2
+174,Sententree,Workflow,Clustering,Insight3,4,541363,47.48,6007,Disagree,2
+176,Sententree,Workflow,Clustering,Insight2,5,735037,25.397,560,Disagree,2
+177,Coreflow,Workflow,Clustering,Insight1,5,655645,32.689,598,Disagree,2
+177,Coreflow,Workflow,Clustering,Insight2,5,655645,23.541,598,Disagree,2
+177,Sententree,Workflow,Clustering,Insight2,5,655645,41.901,598,Disagree,2
+177,Coreflow,Workflow,Clustering,Insight3,5,655645,16.367,598,Disagree,2
+177,Sententree,Workflow,Clustering,Insight3,5,655645,11.239,598,Disagree,2
+177,SeqSynopsis,Workflow,Clustering,Insight3,5,655645,57.901,598,Disagree,2
+178,Coreflow,Workflow,Clustering,Insight1,5,505004,134.454,1634,Disagree,2
+178,SeqSynopsis,Workflow,Clustering,Insight1,5,505004,177.488,1634,Disagree,2
+178,Coreflow,Workflow,Clustering,Insight2,5,505004,14.888,1634,Disagree,2
+178,SeqSynopsis,Workflow,Clustering,Insight2,5,505004,91.679,1634,Disagree,2
+178,Sententree,Workflow,Clustering,Insight3,5,505004,35.057,1634,Disagree,2
+180,Coreflow,Workflow,Clustering,Insight1,5,627801,50.235,659,Disagree,2
+180,Coreflow,Workflow,Clustering,Insight3,5,627801,18.433,659,Disagree,2
+1,Sententree,Basketball,Common pattern,Insight1,0,988454,22.404,407,Neither agree nor disagree,4
+3,Sententree,Basketball,Common pattern,Insight2,0,271966,103.504,1439,Neither agree nor disagree,4
+3,SeqSynopsis,Basketball,Common pattern,Insight2,0,271966,65.993,1439,Neither agree nor disagree,4
+5,Coreflow,Basketball,Common pattern,Insight3,0,271356,33.564,1151,Neither agree nor disagree,4
+9,Coreflow,Basketball,Common pattern,Insight1,1,199690,20.889,859,Neither agree nor disagree,4
+9,SeqSynopsis,Basketball,Common pattern,Insight1,1,199690,46.036,859,Neither agree nor disagree,4
+9,SeqSynopsis,Basketball,Common pattern,Insight2,1,199690,23.416,859,Neither agree nor disagree,4
+9,Coreflow,Basketball,Common pattern,Insight3,1,199690,22.827,859,Neither agree nor disagree,4
+9,Sententree,Basketball,Common pattern,Insight3,1,199690,35.113,859,Neither agree nor disagree,4
+9,SeqSynopsis,Basketball,Common pattern,Insight3,1,199690,22.699,859,Neither agree nor disagree,4
+12,Coreflow,Basketball,Common pattern,Insight2,2,690096,13.114,491,Neither agree nor disagree,4
+13,Coreflow,Basketball,Common pattern,Insight3,2,640398,38.599,881,Neither agree nor disagree,4
+18,Sententree,Basketball,Common pattern,Insight3,3,795497,28.332,721,Neither agree nor disagree,4
+21,Coreflow,Basketball,Common pattern,Insight1,4,202134,26.543,476,Neither agree nor disagree,4
+22,Sententree,Basketball,Common pattern,Insight2,4,911792,33.056,738,Neither agree nor disagree,4
+24,SeqSynopsis,Basketball,Common pattern,Insight1,4,489301,135.523,2884,Neither agree nor disagree,4
+28,Sententree,Basketball,Common pattern,Insight2,5,604998,12.088,516,Neither agree nor disagree,4
+28,Sententree,Basketball,Common pattern,Insight3,5,604998,11.753,516,Neither agree nor disagree,4
+31,Sententree,Career,Anomaly detection,Insight2,0,277660,11.49,335,Neither agree nor disagree,4
+31,Coreflow,Career,Anomaly detection,Insight3,0,277660,14.249,335,Neither agree nor disagree,4
+33,Sententree,Career,Anomaly detection,Insight1,0,563177,33.37,404,Neither agree nor disagree,4
+37,Sententree,Career,Anomaly detection,Insight1,1,950815,23.82,589,Neither agree nor disagree,4
+37,Sententree,Career,Anomaly detection,Insight2,1,950815,25.003,589,Neither agree nor disagree,4
+37,SeqSynopsis,Career,Anomaly detection,Insight3,1,950815,35.378,589,Neither agree nor disagree,4
+43,Coreflow,Career,Anomaly detection,Insight1,2,167528,252.68,1391,Neither agree nor disagree,4
+45,Sententree,Career,Anomaly detection,Insight2,2,530395,36.535,701,Neither agree nor disagree,4
+45,Sententree,Career,Anomaly detection,Insight3,2,530395,14.165,701,Neither agree nor disagree,4
+46,Sententree,Career,Anomaly detection,Insight1,3,492560,43.719,428,Neither agree nor disagree,4
+46,SeqSynopsis,Career,Anomaly detection,Insight2,3,492560,22.396,428,Neither agree nor disagree,4
+47,Coreflow,Career,Anomaly detection,Insight2,3,686153,11.779,708,Neither agree nor disagree,4
+47,Sententree,Career,Anomaly detection,Insight2,3,686153,11.862,708,Neither agree nor disagree,4
+53,SeqSynopsis,Career,Anomaly detection,Insight2,4,702151,30.843,489,Neither agree nor disagree,4
+53,Coreflow,Career,Anomaly detection,Insight3,4,702151,12.761,489,Neither agree nor disagree,4
+54,Sententree,Career,Anomaly detection,Insight3,4,504413,34.087,1927,Neither agree nor disagree,4
+59,SeqSynopsis,Career,Anomaly detection,Insight2,5,101043,48.573,1896,Neither agree nor disagree,4
+67,Sententree,Emergency,Common pattern,Insight3,1,356752,32.279,431,Neither agree nor disagree,4
+69,Coreflow,Emergency,Common pattern,Insight3,1,642069,12.894,2848,Neither agree nor disagree,4
+69,Sententree,Emergency,Common pattern,Insight3,1,642069,255.812,2848,Neither agree nor disagree,4
+69,SeqSynopsis,Emergency,Common pattern,Insight3,1,642069,146.824,2848,Neither agree nor disagree,4
+71,Coreflow,Emergency,Common pattern,Insight2,2,673442,34.496,930,Neither agree nor disagree,4
+71,SeqSynopsis,Emergency,Common pattern,Insight3,2,673442,93.598,930,Neither agree nor disagree,4
+74,Coreflow,Emergency,Common pattern,Insight3,2,788696,59.565,11806,Neither agree nor disagree,4
+74,Sententree,Emergency,Common pattern,Insight3,2,788696,39.078,11806,Neither agree nor disagree,4
+74,SeqSynopsis,Emergency,Common pattern,Insight3,2,788696,538.937,11806,Neither agree nor disagree,4
+75,Sententree,Emergency,Common pattern,Insight3,2,105647,242.565,2429,Neither agree nor disagree,4
+76,Sententree,Emergency,Common pattern,Insight3,3,739562,11.618,230,Neither agree nor disagree,4
+80,SeqSynopsis,Emergency,Common pattern,Insight1,3,315142,149.332,1289,Neither agree nor disagree,4
+85,Coreflow,Emergency,Common pattern,Insight3,4,383569,65.953,1201,Neither agree nor disagree,4
+91,Coreflow,Trauma,Anomaly detection,Insight3,0,691245,10.994,386,Neither agree nor disagree,4
+92,Sententree,Trauma,Anomaly detection,Insight3,0,605566,29.893,856,Neither agree nor disagree,4
+94,Coreflow,Trauma,Anomaly detection,Insight3,0,601966,19.641,830,Neither agree nor disagree,4
+95,Coreflow,Trauma,Anomaly detection,Insight3,0,825534,17.207,2773,Neither agree nor disagree,4
+98,SeqSynopsis,Trauma,Anomaly detection,Insight2,1,842739,18.709,579,Neither agree nor disagree,4
+100,Coreflow,Trauma,Anomaly detection,Insight2,1,241193,32.967,2042,Neither agree nor disagree,4
+105,SeqSynopsis,Trauma,Anomaly detection,Insight3,2,686815,102.934,706,Neither agree nor disagree,4
+109,Coreflow,Trauma,Anomaly detection,Insight3,3,821047,72.313,453,Neither agree nor disagree,4
+111,Sententree,Trauma,Anomaly detection,Insight3,4,861668,24.702,415,Neither agree nor disagree,4
+111,SeqSynopsis,Trauma,Anomaly detection,Insight3,4,861668,13.535,415,Neither agree nor disagree,4
+113,Sententree,Trauma,Anomaly detection,Insight3,4,749215,56.892,1448,Neither agree nor disagree,4
+114,Coreflow,Trauma,Anomaly detection,Insight2,4,117113,10.979,527,Neither agree nor disagree,4
+114,Sententree,Trauma,Anomaly detection,Insight2,4,117113,12.67,527,Neither agree nor disagree,4
+118,Sententree,Trauma,Anomaly detection,Insight1,5,671525,63.329,505,Neither agree nor disagree,4
+119,Sententree,Trauma,Anomaly detection,Insight3,5,981230,24.78,975,Neither agree nor disagree,4
+124,Sententree,VAST,Clustering,Insight1,0,284038,207.361,2319,Neither agree nor disagree,4
+124,SeqSynopsis,VAST,Clustering,Insight3,0,284038,114.615,2319,Neither agree nor disagree,4
+125,Sententree,VAST,Clustering,Insight1,0,628556,35.75,715,Neither agree nor disagree,4
+126,Sententree,VAST,Clustering,Insight1,1,930973,41.183,305,Neither agree nor disagree,4
+126,Coreflow,VAST,Clustering,Insight2,1,930973,14.076,305,Neither agree nor disagree,4
+126,Sententree,VAST,Clustering,Insight2,1,930973,19.929,305,Neither agree nor disagree,4
+126,SeqSynopsis,VAST,Clustering,Insight3,1,930973,16.267,305,Neither agree nor disagree,4
+132,Sententree,VAST,Clustering,Insight2,2,139626,55.339,549,Neither agree nor disagree,4
+132,Coreflow,VAST,Clustering,Insight3,2,139626,20.223,549,Neither agree nor disagree,4
+132,Sententree,VAST,Clustering,Insight3,2,139626,18.417,549,Neither agree nor disagree,4
+135,Coreflow,VAST,Clustering,Insight3,2,585283,12.964,1004,Neither agree nor disagree,4
+139,Coreflow,VAST,Clustering,Insight2,3,605587,233.186,1540,Neither agree nor disagree,4
+139,Coreflow,VAST,Clustering,Insight3,3,605587,18.995,1540,Neither agree nor disagree,4
+141,Sententree,VAST,Clustering,Insight1,4,989677,392.221,997,Neither agree nor disagree,4
+141,Sententree,VAST,Clustering,Insight2,4,989677,69.905,997,Neither agree nor disagree,4
+141,Sententree,VAST,Clustering,Insight3,4,989677,12.29,997,Neither agree nor disagree,4
+143,SeqSynopsis,VAST,Clustering,Insight2,4,113898,74.054,905,Neither agree nor disagree,4
+146,SeqSynopsis,VAST,Clustering,Insight2,5,100046,15.56,208,Neither agree nor disagree,4
+146,SeqSynopsis,VAST,Clustering,Insight3,5,100046,11.612,208,Neither agree nor disagree,4
+150,Sententree,VAST,Clustering,Insight3,5,502455,71.533,2859,Neither agree nor disagree,4
+152,SeqSynopsis,Workflow,Clustering,Insight1,0,870357,38.544,1893,Neither agree nor disagree,4
+152,Sententree,Workflow,Clustering,Insight3,0,870357,89.775,1893,Neither agree nor disagree,4
+154,Sententree,Workflow,Clustering,Insight3,0,697353,11.872,1296,Neither agree nor disagree,4
+154,SeqSynopsis,Workflow,Clustering,Insight3,0,697353,37.011,1296,Neither agree nor disagree,4
+157,Sententree,Workflow,Clustering,Insight1,1,783946,323.228,2238,Neither agree nor disagree,4
+159,Sententree,Workflow,Clustering,Insight3,1,861482,529.17,3274,Neither agree nor disagree,4
+160,SeqSynopsis,Workflow,Clustering,Insight2,1,671073,118.895,873,Neither agree nor disagree,4
+163,SeqSynopsis,Workflow,Clustering,Insight2,2,808965,105.188,1446,Neither agree nor disagree,4
+167,SeqSynopsis,Workflow,Clustering,Insight1,3,275849,146.074,1372,Neither agree nor disagree,4
+167,SeqSynopsis,Workflow,Clustering,Insight3,3,275849,18.682,1372,Neither agree nor disagree,4
+170,SeqSynopsis,Workflow,Clustering,Insight2,3,162851,223.695,2492,Neither agree nor disagree,4
+171,SeqSynopsis,Workflow,Clustering,Insight3,4,912559,11.945,323,Neither agree nor disagree,4
+172,Coreflow,Workflow,Clustering,Insight3,4,116613,40.487,592,Neither agree nor disagree,4
+175,Coreflow,Workflow,Clustering,Insight1,4,870860,16.613,1769,Neither agree nor disagree,4
+175,Sententree,Workflow,Clustering,Insight1,4,870860,73.868,1769,Neither agree nor disagree,4
+175,Coreflow,Workflow,Clustering,Insight2,4,870860,15.968,1769,Neither agree nor disagree,4
+175,Sententree,Workflow,Clustering,Insight2,4,870860,21.063,1769,Neither agree nor disagree,4
+175,Coreflow,Workflow,Clustering,Insight3,4,870860,24.688,1769,Neither agree nor disagree,4
+175,Sententree,Workflow,Clustering,Insight3,4,870860,46.155,1769,Neither agree nor disagree,4
+176,Sententree,Workflow,Clustering,Insight1,5,735037,15.136,560,Neither agree nor disagree,4
+1,Sententree,Basketball,Common pattern,Insight3,0,988454,25.425,407,Somewhat agree,5
+5,Sententree,Basketball,Common pattern,Insight2,0,271356,42.152,1151,Somewhat agree,5
+6,Sententree,Basketball,Common pattern,Insight1,1,672165,129.475,1123,Somewhat agree,5
+6,SeqSynopsis,Basketball,Common pattern,Insight2,1,672165,50.371,1123,Somewhat agree,5
+8,Sententree,Basketball,Common pattern,Insight2,1,555932,17.975,386,Somewhat agree,5
+11,SeqSynopsis,Basketball,Common pattern,Insight3,2,508868,23.191,420,Somewhat agree,5
+12,Coreflow,Basketball,Common pattern,Insight3,2,690096,13.005,491,Somewhat agree,5
+13,Coreflow,Basketball,Common pattern,Insight1,2,640398,52.835,881,Somewhat agree,5
+16,SeqSynopsis,Basketball,Common pattern,Insight3,3,643146,28.269,479,Somewhat agree,5
+19,Sententree,Basketball,Common pattern,Insight1,3,305085,25.472,897,Somewhat agree,5
+20,SeqSynopsis,Basketball,Common pattern,Insight1,3,286921,51.604,616,Somewhat agree,5
+21,SeqSynopsis,Basketball,Common pattern,Insight1,4,202134,52.229,476,Somewhat agree,5
+23,Sententree,Basketball,Common pattern,Insight1,4,765509,11.322,389,Somewhat agree,5
+23,Coreflow,Basketball,Common pattern,Insight2,4,765509,11.659,389,Somewhat agree,5
+23,SeqSynopsis,Basketball,Common pattern,Insight3,4,765509,11.852,389,Somewhat agree,5
+27,SeqSynopsis,Basketball,Common pattern,Insight1,5,855937,26.719,299,Somewhat agree,5
+28,Coreflow,Basketball,Common pattern,Insight1,5,604998,28.361,516,Somewhat agree,5
+28,Coreflow,Basketball,Common pattern,Insight3,5,604998,141.171,516,Somewhat agree,5
+28,SeqSynopsis,Basketball,Common pattern,Insight3,5,604998,29.434,516,Somewhat agree,5
+31,SeqSynopsis,Career,Anomaly detection,Insight1,0,277660,23.834,335,Somewhat agree,5
+31,Coreflow,Career,Anomaly detection,Insight2,0,277660,22.405,335,Somewhat agree,5
+33,Coreflow,Career,Anomaly detection,Insight3,0,563177,10.956,404,Somewhat agree,5
+34,Sententree,Career,Anomaly detection,Insight1,0,325690,26.79,477,Somewhat agree,5
+35,SeqSynopsis,Career,Anomaly detection,Insight1,0,774065,410.106,2487,Somewhat agree,5
+36,Sententree,Career,Anomaly detection,Insight1,1,395949,22.126,454,Somewhat agree,5
+37,SeqSynopsis,Career,Anomaly detection,Insight1,1,950815,92.036,589,Somewhat agree,5
+38,Coreflow,Career,Anomaly detection,Insight1,1,738856,11.124,496,Somewhat agree,5
+38,SeqSynopsis,Career,Anomaly detection,Insight1,1,738856,22.996,496,Somewhat agree,5
+41,Sententree,Career,Anomaly detection,Insight1,2,813543,13.796,360,Somewhat agree,5
+41,Coreflow,Career,Anomaly detection,Insight2,2,813543,35.121,360,Somewhat agree,5
+43,Sententree,Career,Anomaly detection,Insight1,2,167528,324.144,1391,Somewhat agree,5
+43,Coreflow,Career,Anomaly detection,Insight3,2,167528,26.677,1391,Somewhat agree,5
+44,SeqSynopsis,Career,Anomaly detection,Insight1,2,138634,87.099,951,Somewhat agree,5
+46,SeqSynopsis,Career,Anomaly detection,Insight3,3,492560,25.315,428,Somewhat agree,5
+47,SeqSynopsis,Career,Anomaly detection,Insight1,3,686153,110.28,708,Somewhat agree,5
+47,Sententree,Career,Anomaly detection,Insight3,3,686153,16.381,708,Somewhat agree,5
+47,SeqSynopsis,Career,Anomaly detection,Insight3,3,686153,59.483,708,Somewhat agree,5
+48,Coreflow,Career,Anomaly detection,Insight1,3,405929,131.418,577,Somewhat agree,5
+48,Sententree,Career,Anomaly detection,Insight2,3,405929,75.246,577,Somewhat agree,5
+48,Sententree,Career,Anomaly detection,Insight3,3,405929,15.523,577,Somewhat agree,5
+55,Coreflow,Career,Anomaly detection,Insight2,4,301828,41.022,1100,Somewhat agree,5
+56,SeqSynopsis,Career,Anomaly detection,Insight2,5,177991,38.248,915,Somewhat agree,5
+59,Coreflow,Career,Anomaly detection,Insight1,5,101043,62.474,1896,Somewhat agree,5
+59,SeqSynopsis,Career,Anomaly detection,Insight1,5,101043,64.875,1896,Somewhat agree,5
+59,Sententree,Career,Anomaly detection,Insight2,5,101043,106.841,1896,Somewhat agree,5
+64,Sententree,Emergency,Common pattern,Insight3,0,345699,29.706,664,Somewhat agree,5
+66,Sententree,Emergency,Common pattern,Insight3,1,747614,13.721,839,Somewhat agree,5
+67,Coreflow,Emergency,Common pattern,Insight2,1,356752,23.341,431,Somewhat agree,5
+67,SeqSynopsis,Emergency,Common pattern,Insight2,1,356752,16.914,431,Somewhat agree,5
+67,SeqSynopsis,Emergency,Common pattern,Insight3,1,356752,57.09,431,Somewhat agree,5
+72,Sententree,Emergency,Common pattern,Insight2,2,475999,13.799,897,Somewhat agree,5
+73,Coreflow,Emergency,Common pattern,Insight2,2,183483,10.878,528,Somewhat agree,5
+73,SeqSynopsis,Emergency,Common pattern,Insight2,2,183483,27.087,528,Somewhat agree,5
+74,Coreflow,Emergency,Common pattern,Insight2,2,788696,30.765,11806,Somewhat agree,5
+75,Coreflow,Emergency,Common pattern,Insight2,2,105647,57.351,2429,Somewhat agree,5
+75,Sententree,Emergency,Common pattern,Insight2,2,105647,23.308,2429,Somewhat agree,5
+76,Sententree,Emergency,Common pattern,Insight1,3,739562,26.995,230,Somewhat agree,5
+76,Coreflow,Emergency,Common pattern,Insight2,3,739562,17.702,230,Somewhat agree,5
+76,Sententree,Emergency,Common pattern,Insight2,3,739562,11.163,230,Somewhat agree,5
+78,Coreflow,Emergency,Common pattern,Insight2,3,376665,19.352,552,Somewhat agree,5
+78,SeqSynopsis,Emergency,Common pattern,Insight2,3,376665,23.183,552,Somewhat agree,5
+80,Sententree,Emergency,Common pattern,Insight2,3,315142,77.058,1289,Somewhat agree,5
+82,SeqSynopsis,Emergency,Common pattern,Insight2,4,107733,26.051,544,Somewhat agree,5
+85,Sententree,Emergency,Common pattern,Insight3,4,383569,42.526,1201,Somewhat agree,5
+89,Coreflow,Emergency,Common pattern,Insight2,5,301282,42.941,808,Somewhat agree,5
+90,Coreflow,Emergency,Common pattern,Insight2,5,485249,44.838,1267,Somewhat agree,5
+90,Sententree,Emergency,Common pattern,Insight2,5,485249,14.08,1267,Somewhat agree,5
+91,Sententree,Trauma,Anomaly detection,Insight1,0,691245,30.86,386,Somewhat agree,5
+91,SeqSynopsis,Trauma,Anomaly detection,Insight1,0,691245,13.18,386,Somewhat agree,5
+91,Sententree,Trauma,Anomaly detection,Insight2,0,691245,31.622,386,Somewhat agree,5
+91,SeqSynopsis,Trauma,Anomaly detection,Insight2,0,691245,11.399,386,Somewhat agree,5
+92,Sententree,Trauma,Anomaly detection,Insight1,0,605566,68.658,856,Somewhat agree,5
+92,Sententree,Trauma,Anomaly detection,Insight2,0,605566,17.247,856,Somewhat agree,5
+93,Coreflow,Trauma,Anomaly detection,Insight1,0,273883,47.481,1627,Somewhat agree,5
+93,Coreflow,Trauma,Anomaly detection,Insight2,0,273883,34.012,1627,Somewhat agree,5
+93,SeqSynopsis,Trauma,Anomaly detection,Insight2,0,273883,47.676,1627,Somewhat agree,5
+94,Coreflow,Trauma,Anomaly detection,Insight2,0,601966,11.289,830,Somewhat agree,5
+94,Sententree,Trauma,Anomaly detection,Insight2,0,601966,17.543,830,Somewhat agree,5
+97,SeqSynopsis,Trauma,Anomaly detection,Insight2,1,627989,16.218,645,Somewhat agree,5
+101,Sententree,Trauma,Anomaly detection,Insight2,2,592701,13.826,618,Somewhat agree,5
+102,Coreflow,Trauma,Anomaly detection,Insight2,2,311949,30.146,1088,Somewhat agree,5
+103,SeqSynopsis,Trauma,Anomaly detection,Insight1,2,209726,26.722,348,Somewhat agree,5
+103,SeqSynopsis,Trauma,Anomaly detection,Insight2,2,209726,10.875,348,Somewhat agree,5
+103,Sententree,Trauma,Anomaly detection,Insight3,2,209726,20.125,348,Somewhat agree,5
+104,Sententree,Trauma,Anomaly detection,Insight1,2,837994,18.39,517,Somewhat agree,5
+105,Sententree,Trauma,Anomaly detection,Insight1,2,686815,43.14,706,Somewhat agree,5
+105,Coreflow,Trauma,Anomaly detection,Insight2,2,686815,25.61,706,Somewhat agree,5
+105,SeqSynopsis,Trauma,Anomaly detection,Insight2,2,686815,27.738,706,Somewhat agree,5
+105,Coreflow,Trauma,Anomaly detection,Insight3,2,686815,22.712,706,Somewhat agree,5
+106,Sententree,Trauma,Anomaly detection,Insight1,3,147010,24.769,509,Somewhat agree,5
+106,Sententree,Trauma,Anomaly detection,Insight2,3,147010,10.913,509,Somewhat agree,5
+106,Sententree,Trauma,Anomaly detection,Insight3,3,147010,10.997,509,Somewhat agree,5
+110,Coreflow,Trauma,Anomaly detection,Insight3,3,522363,12.142,644,Somewhat agree,5
+111,Coreflow,Trauma,Anomaly detection,Insight1,4,861668,60.496,415,Somewhat agree,5
+111,Sententree,Trauma,Anomaly detection,Insight1,4,861668,23.037,415,Somewhat agree,5
+111,Coreflow,Trauma,Anomaly detection,Insight2,4,861668,19.977,415,Somewhat agree,5
+111,SeqSynopsis,Trauma,Anomaly detection,Insight2,4,861668,15.899,415,Somewhat agree,5
+116,Coreflow,Trauma,Anomaly detection,Insight1,5,448071,61.277,520,Somewhat agree,5
+116,SeqSynopsis,Trauma,Anomaly detection,Insight1,5,448071,55.873,520,Somewhat agree,5
+116,Coreflow,Trauma,Anomaly detection,Insight2,5,448071,11.701,520,Somewhat agree,5
+118,Sententree,Trauma,Anomaly detection,Insight2,5,671525,11.599,505,Somewhat agree,5
+118,Coreflow,Trauma,Anomaly detection,Insight3,5,671525,11.308,505,Somewhat agree,5
+119,Coreflow,Trauma,Anomaly detection,Insight2,5,981230,171.269,975,Somewhat agree,5
+119,SeqSynopsis,Trauma,Anomaly detection,Insight2,5,981230,17.328,975,Somewhat agree,5
+121,SeqSynopsis,VAST,Clustering,Insight3,0,877557,132.404,1657,Somewhat agree,5
+124,Sententree,VAST,Clustering,Insight2,0,284038,54.944,2319,Somewhat agree,5
+124,Sententree,VAST,Clustering,Insight3,0,284038,92.112,2319,Somewhat agree,5
+125,Coreflow,VAST,Clustering,Insight1,0,628556,42.937,715,Somewhat agree,5
+125,SeqSynopsis,VAST,Clustering,Insight3,0,628556,10.829,715,Somewhat agree,5
+126,Coreflow,VAST,Clustering,Insight1,1,930973,22.209,305,Somewhat agree,5
+127,Sententree,VAST,Clustering,Insight2,1,789883,84.485,527,Somewhat agree,5
+128,SeqSynopsis,VAST,Clustering,Insight2,1,292165,208.655,760,Somewhat agree,5
+129,SeqSynopsis,VAST,Clustering,Insight2,1,778227,67.381,1215,Somewhat agree,5
+131,Sententree,VAST,Clustering,Insight3,2,291737,12.385,592,Somewhat agree,5
+132,Coreflow,VAST,Clustering,Insight1,2,139626,11.974,549,Somewhat agree,5
+132,Coreflow,VAST,Clustering,Insight2,2,139626,12.029,549,Somewhat agree,5
+133,SeqSynopsis,VAST,Clustering,Insight2,2,817913,61.996,439,Somewhat agree,5
+134,Sententree,VAST,Clustering,Insight1,2,352685,80.239,1554,Somewhat agree,5
+134,SeqSynopsis,VAST,Clustering,Insight1,2,352685,318.042,1554,Somewhat agree,5
+135,Sententree,VAST,Clustering,Insight2,2,585283,11.033,1004,Somewhat agree,5
+135,SeqSynopsis,VAST,Clustering,Insight2,2,585283,12.015,1004,Somewhat agree,5
+136,SeqSynopsis,VAST,Clustering,Insight3,3,861520,17.466,523,Somewhat agree,5
+141,SeqSynopsis,VAST,Clustering,Insight1,4,989677,26.418,997,Somewhat agree,5
+144,SeqSynopsis,VAST,Clustering,Insight1,4,204735,24.064,423,Somewhat agree,5
+144,SeqSynopsis,VAST,Clustering,Insight2,4,204735,11.212,423,Somewhat agree,5
+144,SeqSynopsis,VAST,Clustering,Insight3,4,204735,10.726,423,Somewhat agree,5
+155,Coreflow,Workflow,Clustering,Insight3,0,625388,73.672,3517,Somewhat agree,5
+159,Coreflow,Workflow,Clustering,Insight1,1,861482,177.136,3274,Somewhat agree,5
+159,SeqSynopsis,Workflow,Clustering,Insight1,1,861482,49.301,3274,Somewhat agree,5
+160,Coreflow,Workflow,Clustering,Insight1,1,671073,55.64,873,Somewhat agree,5
+160,Sententree,Workflow,Clustering,Insight2,1,671073,21.382,873,Somewhat agree,5
+165,Sententree,Workflow,Clustering,Insight1,2,498692,537.84,5888,Somewhat agree,5
+165,Coreflow,Workflow,Clustering,Insight3,2,498692,13.409,5888,Somewhat agree,5
+165,SeqSynopsis,Workflow,Clustering,Insight3,2,498692,58.23,5888,Somewhat agree,5
+166,SeqSynopsis,Workflow,Clustering,Insight3,3,582184,70.904,624,Somewhat agree,5
+167,Sententree,Workflow,Clustering,Insight3,3,275849,12.088,1372,Somewhat agree,5
+170,Coreflow,Workflow,Clustering,Insight1,3,162851,227.623,2492,Somewhat agree,5
+170,SeqSynopsis,Workflow,Clustering,Insight1,3,162851,116.279,2492,Somewhat agree,5
+170,Coreflow,Workflow,Clustering,Insight2,3,162851,15.467,2492,Somewhat agree,5
+177,Sententree,Workflow,Clustering,Insight1,5,655645,15.977,598,Somewhat agree,5
+177,SeqSynopsis,Workflow,Clustering,Insight1,5,655645,109.209,598,Somewhat agree,5
+177,SeqSynopsis,Workflow,Clustering,Insight2,5,655645,27.482,598,Somewhat agree,5
+178,Coreflow,Workflow,Clustering,Insight3,5,505004,15.466,1634,Somewhat agree,5
+180,Coreflow,Workflow,Clustering,Insight2,5,627801,46.133,659,Somewhat agree,5
+180,Sententree,Workflow,Clustering,Insight2,5,627801,24.878,659,Somewhat agree,5
+180,SeqSynopsis,Workflow,Clustering,Insight2,5,627801,45.813,659,Somewhat agree,5
+1,Sententree,Basketball,Common pattern,Insight2,0,988454,31.59,407,Somewhat disagree,3
+3,Sententree,Basketball,Common pattern,Insight1,0,271966,111.106,1439,Somewhat disagree,3
+5,SeqSynopsis,Basketball,Common pattern,Insight1,0,271356,383.686,1151,Somewhat disagree,3
+5,Sententree,Basketball,Common pattern,Insight3,0,271356,23.601,1151,Somewhat disagree,3
+6,SeqSynopsis,Basketball,Common pattern,Insight1,1,672165,114.123,1123,Somewhat disagree,3
+6,Coreflow,Basketball,Common pattern,Insight3,1,672165,34.187,1123,Somewhat disagree,3
+6,Sententree,Basketball,Common pattern,Insight3,1,672165,59.827,1123,Somewhat disagree,3
+10,SeqSynopsis,Basketball,Common pattern,Insight1,1,248103,175.751,1630,Somewhat disagree,3
+11,SeqSynopsis,Basketball,Common pattern,Insight2,2,508868,52.916,420,Somewhat disagree,3
+12,Coreflow,Basketball,Common pattern,Insight1,2,690096,33.158,491,Somewhat disagree,3
+13,Sententree,Basketball,Common pattern,Insight3,2,640398,47.349,881,Somewhat disagree,3
+18,Coreflow,Basketball,Common pattern,Insight3,3,795497,38.868,721,Somewhat disagree,3
+20,Coreflow,Basketball,Common pattern,Insight1,3,286921,42.154,616,Somewhat disagree,3
+20,Sententree,Basketball,Common pattern,Insight1,3,286921,63.352,616,Somewhat disagree,3
+20,Coreflow,Basketball,Common pattern,Insight3,3,286921,18.094,616,Somewhat disagree,3
+20,SeqSynopsis,Basketball,Common pattern,Insight3,3,286921,12.976,616,Somewhat disagree,3
+21,SeqSynopsis,Basketball,Common pattern,Insight3,4,202134,30.44,476,Somewhat disagree,3
+22,Coreflow,Basketball,Common pattern,Insight2,4,911792,44.8,738,Somewhat disagree,3
+23,Coreflow,Basketball,Common pattern,Insight3,4,765509,11.389,389,Somewhat disagree,3
+31,Coreflow,Career,Anomaly detection,Insight1,0,277660,34.757,335,Somewhat disagree,3
+33,SeqSynopsis,Career,Anomaly detection,Insight2,0,563177,29.879,404,Somewhat disagree,3
+36,Sententree,Career,Anomaly detection,Insight2,1,395949,17.735,454,Somewhat disagree,3
+37,Coreflow,Career,Anomaly detection,Insight1,1,950815,16.232,589,Somewhat disagree,3
+37,Coreflow,Career,Anomaly detection,Insight2,1,950815,12.027,589,Somewhat disagree,3
+43,Coreflow,Career,Anomaly detection,Insight2,2,167528,28.839,1391,Somewhat disagree,3
+43,SeqSynopsis,Career,Anomaly detection,Insight3,2,167528,26.786,1391,Somewhat disagree,3
+44,Sententree,Career,Anomaly detection,Insight3,2,138634,79.046,951,Somewhat disagree,3
+51,SeqSynopsis,Career,Anomaly detection,Insight2,4,137584,53.062,481,Somewhat disagree,3
+52,SeqSynopsis,Career,Anomaly detection,Insight2,4,812407,118.926,644,Somewhat disagree,3
+55,Sententree,Career,Anomaly detection,Insight2,4,301828,22.603,1100,Somewhat disagree,3
+56,Coreflow,Career,Anomaly detection,Insight2,5,177991,33.39,915,Somewhat disagree,3
+61,Coreflow,Emergency,Common pattern,Insight2,0,748611,348.575,1777,Somewhat disagree,3
+61,SeqSynopsis,Emergency,Common pattern,Insight2,0,748611,127.141,1777,Somewhat disagree,3
+64,SeqSynopsis,Emergency,Common pattern,Insight3,0,345699,28.47,664,Somewhat disagree,3
+67,Coreflow,Emergency,Common pattern,Insight1,1,356752,60.7,431,Somewhat disagree,3
+72,SeqSynopsis,Emergency,Common pattern,Insight3,2,475999,47.22,897,Somewhat disagree,3
+73,SeqSynopsis,Emergency,Common pattern,Insight1,2,183483,40.225,528,Somewhat disagree,3
+73,Sententree,Emergency,Common pattern,Insight3,2,183483,167.933,528,Somewhat disagree,3
+73,SeqSynopsis,Emergency,Common pattern,Insight3,2,183483,32.469,528,Somewhat disagree,3
+78,Sententree,Emergency,Common pattern,Insight2,3,376665,14.902,552,Somewhat disagree,3
+82,Coreflow,Emergency,Common pattern,Insight2,4,107733,147.892,544,Somewhat disagree,3
+82,Sententree,Emergency,Common pattern,Insight2,4,107733,61.024,544,Somewhat disagree,3
+82,Sententree,Emergency,Common pattern,Insight3,4,107733,14.937,544,Somewhat disagree,3
+89,Sententree,Emergency,Common pattern,Insight2,5,301282,21.461,808,Somewhat disagree,3
+91,Sententree,Trauma,Anomaly detection,Insight3,0,691245,26.687,386,Somewhat disagree,3
+93,Sententree,Trauma,Anomaly detection,Insight1,0,273883,141.037,1627,Somewhat disagree,3
+93,SeqSynopsis,Trauma,Anomaly detection,Insight1,0,273883,83.54,1627,Somewhat disagree,3
+93,Sententree,Trauma,Anomaly detection,Insight2,0,273883,71.025,1627,Somewhat disagree,3
+94,Coreflow,Trauma,Anomaly detection,Insight1,0,601966,46.133,830,Somewhat disagree,3
+94,SeqSynopsis,Trauma,Anomaly detection,Insight3,0,601966,30.22,830,Somewhat disagree,3
+95,Sententree,Trauma,Anomaly detection,Insight2,0,825534,83.266,2773,Somewhat disagree,3
+96,Coreflow,Trauma,Anomaly detection,Insight2,1,771907,11.015,819,Somewhat disagree,3
+97,Sententree,Trauma,Anomaly detection,Insight1,1,627989,153.874,645,Somewhat disagree,3
+103,Sententree,Trauma,Anomaly detection,Insight2,2,209726,11.352,348,Somewhat disagree,3
+104,SeqSynopsis,Trauma,Anomaly detection,Insight1,2,837994,122.281,517,Somewhat disagree,3
+104,Coreflow,Trauma,Anomaly detection,Insight2,2,837994,13.412,517,Somewhat disagree,3
+104,SeqSynopsis,Trauma,Anomaly detection,Insight2,2,837994,31.589,517,Somewhat disagree,3
+105,Coreflow,Trauma,Anomaly detection,Insight1,2,686815,59.711,706,Somewhat disagree,3
+105,Sententree,Trauma,Anomaly detection,Insight2,2,686815,13.773,706,Somewhat disagree,3
+107,SeqSynopsis,Trauma,Anomaly detection,Insight2,3,349052,41.031,783,Somewhat disagree,3
+111,Sententree,Trauma,Anomaly detection,Insight2,4,861668,14.334,415,Somewhat disagree,3
+111,Coreflow,Trauma,Anomaly detection,Insight3,4,861668,58.736,415,Somewhat disagree,3
+113,Sententree,Trauma,Anomaly detection,Insight1,4,749215,81.473,1448,Somewhat disagree,3
+114,Sententree,Trauma,Anomaly detection,Insight1,4,117113,55.183,527,Somewhat disagree,3
+115,Coreflow,Trauma,Anomaly detection,Insight1,4,324067,19.648,1437,Somewhat disagree,3
+115,Sententree,Trauma,Anomaly detection,Insight1,4,324067,34.095,1437,Somewhat disagree,3
+115,SeqSynopsis,Trauma,Anomaly detection,Insight1,4,324067,193.45,1437,Somewhat disagree,3
+116,Sententree,Trauma,Anomaly detection,Insight1,5,448071,73.59,520,Somewhat disagree,3
+117,Coreflow,Trauma,Anomaly detection,Insight2,5,507682,14.092,694,Somewhat disagree,3
+118,SeqSynopsis,Trauma,Anomaly detection,Insight3,5,671525,11.252,505,Somewhat disagree,3
+119,Sententree,Trauma,Anomaly detection,Insight2,5,981230,13.05,975,Somewhat disagree,3
+120,Coreflow,Trauma,Anomaly detection,Insight2,5,651175,18.44,407,Somewhat disagree,3
+120,Sententree,Trauma,Anomaly detection,Insight3,5,651175,11.106,407,Somewhat disagree,3
+120,SeqSynopsis,Trauma,Anomaly detection,Insight3,5,651175,18.911,407,Somewhat disagree,3
+125,SeqSynopsis,VAST,Clustering,Insight2,0,628556,18.904,715,Somewhat disagree,3
+126,SeqSynopsis,VAST,Clustering,Insight2,1,930973,22.525,305,Somewhat disagree,3
+126,Coreflow,VAST,Clustering,Insight3,1,930973,12.326,305,Somewhat disagree,3
+126,Sententree,VAST,Clustering,Insight3,1,930973,15.236,305,Somewhat disagree,3
+131,Sententree,VAST,Clustering,Insight1,2,291737,43.453,592,Somewhat disagree,3
+134,Sententree,VAST,Clustering,Insight2,2,352685,132.087,1554,Somewhat disagree,3
+134,Sententree,VAST,Clustering,Insight3,2,352685,120.267,1554,Somewhat disagree,3
+135,Sententree,VAST,Clustering,Insight1,2,585283,243.698,1004,Somewhat disagree,3
+135,SeqSynopsis,VAST,Clustering,Insight1,2,585283,40.359,1004,Somewhat disagree,3
+135,SeqSynopsis,VAST,Clustering,Insight3,2,585283,11.205,1004,Somewhat disagree,3
+136,SeqSynopsis,VAST,Clustering,Insight1,3,861520,35.159,523,Somewhat disagree,3
+142,SeqSynopsis,VAST,Clustering,Insight2,4,523993,132.637,796,Somewhat disagree,3
+154,Coreflow,Workflow,Clustering,Insight1,0,697353,41.201,1296,Somewhat disagree,3
+155,Sententree,Workflow,Clustering,Insight1,0,625388,72.898,3517,Somewhat disagree,3
+155,Sententree,Workflow,Clustering,Insight2,0,625388,69.737,3517,Somewhat disagree,3
+157,Coreflow,Workflow,Clustering,Insight2,1,783946,102.846,2238,Somewhat disagree,3
+157,Sententree,Workflow,Clustering,Insight2,1,783946,111.819,2238,Somewhat disagree,3
+157,Sententree,Workflow,Clustering,Insight3,1,783946,66.597,2238,Somewhat disagree,3
+157,SeqSynopsis,Workflow,Clustering,Insight3,1,783946,157.452,2238,Somewhat disagree,3
+163,Sententree,Workflow,Clustering,Insight3,2,808965,26.901,1446,Somewhat disagree,3
+163,SeqSynopsis,Workflow,Clustering,Insight3,2,808965,100.507,1446,Somewhat disagree,3
+165,Coreflow,Workflow,Clustering,Insight2,2,498692,15.041,5888,Somewhat disagree,3
+165,SeqSynopsis,Workflow,Clustering,Insight2,2,498692,40.168,5888,Somewhat disagree,3
+165,Sententree,Workflow,Clustering,Insight3,2,498692,37.493,5888,Somewhat disagree,3
+167,Coreflow,Workflow,Clustering,Insight2,3,275849,113.775,1372,Somewhat disagree,3
+170,Coreflow,Workflow,Clustering,Insight3,3,162851,12.877,2492,Somewhat disagree,3
+170,Sententree,Workflow,Clustering,Insight3,3,162851,13.156,2492,Somewhat disagree,3
+171,SeqSynopsis,Workflow,Clustering,Insight1,4,912559,47.829,323,Somewhat disagree,3
+173,Coreflow,Workflow,Clustering,Insight2,4,772959,44.685,1245,Somewhat disagree,3
+173,SeqSynopsis,Workflow,Clustering,Insight2,4,772959,93.877,1245,Somewhat disagree,3
+173,Coreflow,Workflow,Clustering,Insight3,4,772959,64.124,1245,Somewhat disagree,3
+173,SeqSynopsis,Workflow,Clustering,Insight3,4,772959,133.742,1245,Somewhat disagree,3
+179,Coreflow,Workflow,Clustering,Insight2,5,679103,25.575,382,Somewhat disagree,3
+179,Coreflow,Workflow,Clustering,Insight3,5,679103,21.186,382,Somewhat disagree,3
+180,Sententree,Workflow,Clustering,Insight3,5,627801,14.692,659,Somewhat disagree,3
+5,SeqSynopsis,Basketball,Common pattern,Insight2,0,271356,121.8,1151,Strongly agree,7
+7,SeqSynopsis,Basketball,Common pattern,Insight1,1,192867,268.788,1144,Strongly agree,7
+9,Sententree,Basketball,Common pattern,Insight2,1,199690,104.724,859,Strongly agree,7
+11,SeqSynopsis,Basketball,Common pattern,Insight1,2,508868,33.55,420,Strongly agree,7
+19,SeqSynopsis,Basketball,Common pattern,Insight2,3,305085,81.76,897,Strongly agree,7
+20,SeqSynopsis,Basketball,Common pattern,Insight2,3,286921,10.996,616,Strongly agree,7
+23,SeqSynopsis,Basketball,Common pattern,Insight1,4,765509,10.844,389,Strongly agree,7
+25,SeqSynopsis,Basketball,Common pattern,Insight1,4,834426,111.435,1582,Strongly agree,7
+26,SeqSynopsis,Basketball,Common pattern,Insight2,5,336299,54.633,1035,Strongly agree,7
+27,Sententree,Basketball,Common pattern,Insight1,5,855937,13.202,299,Strongly agree,7
+28,Sententree,Basketball,Common pattern,Insight1,5,604998,21.589,516,Strongly agree,7
+28,SeqSynopsis,Basketball,Common pattern,Insight1,5,604998,46.696,516,Strongly agree,7
+28,SeqSynopsis,Basketball,Common pattern,Insight2,5,604998,14.746,516,Strongly agree,7
+29,Sententree,Basketball,Common pattern,Insight1,5,602464,76.089,1482,Strongly agree,7
+29,SeqSynopsis,Basketball,Common pattern,Insight1,5,602464,182.172,1482,Strongly agree,7
+29,SeqSynopsis,Basketball,Common pattern,Insight2,5,602464,114.505,1482,Strongly agree,7
+30,SeqSynopsis,Basketball,Common pattern,Insight1,5,283152,52.517,1253,Strongly agree,7
+32,Coreflow,Career,Anomaly detection,Insight2,0,394445,34.939,467,Strongly agree,7
+35,Coreflow,Career,Anomaly detection,Insight1,0,774065,25.194,2487,Strongly agree,7
+35,Sententree,Career,Anomaly detection,Insight3,0,774065,53.371,2487,Strongly agree,7
+38,Sententree,Career,Anomaly detection,Insight3,1,738856,13.195,496,Strongly agree,7
+44,Sententree,Career,Anomaly detection,Insight1,2,138634,81.673,951,Strongly agree,7
+45,Coreflow,Career,Anomaly detection,Insight1,2,530395,38.878,701,Strongly agree,7
+45,Sententree,Career,Anomaly detection,Insight1,2,530395,29.919,701,Strongly agree,7
+45,SeqSynopsis,Career,Anomaly detection,Insight1,2,530395,138.925,701,Strongly agree,7
+45,Coreflow,Career,Anomaly detection,Insight2,2,530395,28.468,701,Strongly agree,7
+45,Coreflow,Career,Anomaly detection,Insight3,2,530395,11.564,701,Strongly agree,7
+45,SeqSynopsis,Career,Anomaly detection,Insight3,2,530395,32.978,701,Strongly agree,7
+46,SeqSynopsis,Career,Anomaly detection,Insight1,3,492560,26.791,428,Strongly agree,7
+49,Coreflow,Career,Anomaly detection,Insight1,3,593548,11.499,883,Strongly agree,7
+51,SeqSynopsis,Career,Anomaly detection,Insight3,4,137584,11.487,481,Strongly agree,7
+52,SeqSynopsis,Career,Anomaly detection,Insight1,4,812407,41.555,644,Strongly agree,7
+52,SeqSynopsis,Career,Anomaly detection,Insight3,4,812407,13.762,644,Strongly agree,7
+54,SeqSynopsis,Career,Anomaly detection,Insight3,4,504413,29.254,1927,Strongly agree,7
+56,SeqSynopsis,Career,Anomaly detection,Insight1,5,177991,48.307,915,Strongly agree,7
+56,SeqSynopsis,Career,Anomaly detection,Insight3,5,177991,18.215,915,Strongly agree,7
+57,SeqSynopsis,Career,Anomaly detection,Insight1,5,966058,14.898,1026,Strongly agree,7
+57,SeqSynopsis,Career,Anomaly detection,Insight2,5,966058,28.991,1026,Strongly agree,7
+57,SeqSynopsis,Career,Anomaly detection,Insight3,5,966058,42.571,1026,Strongly agree,7
+59,Sententree,Career,Anomaly detection,Insight1,5,101043,51.539,1896,Strongly agree,7
+61,Coreflow,Emergency,Common pattern,Insight1,0,748611,61.468,1777,Strongly agree,7
+61,Sententree,Emergency,Common pattern,Insight1,0,748611,102.964,1777,Strongly agree,7
+61,SeqSynopsis,Emergency,Common pattern,Insight1,0,748611,60.653,1777,Strongly agree,7
+62,Coreflow,Emergency,Common pattern,Insight1,0,392479,55.097,1682,Strongly agree,7
+62,Sententree,Emergency,Common pattern,Insight1,0,392479,174.334,1682,Strongly agree,7
+62,SeqSynopsis,Emergency,Common pattern,Insight1,0,392479,88.816,1682,Strongly agree,7
+63,Coreflow,Emergency,Common pattern,Insight1,0,124322,27.746,6092,Strongly agree,7
+63,Sententree,Emergency,Common pattern,Insight1,0,124322,14.159,6092,Strongly agree,7
+63,SeqSynopsis,Emergency,Common pattern,Insight1,0,124322,49.098,6092,Strongly agree,7
+64,Coreflow,Emergency,Common pattern,Insight1,0,345699,22.176,664,Strongly agree,7
+64,Sententree,Emergency,Common pattern,Insight1,0,345699,11.212,664,Strongly agree,7
+64,SeqSynopsis,Emergency,Common pattern,Insight1,0,345699,23.166,664,Strongly agree,7
+64,SeqSynopsis,Emergency,Common pattern,Insight2,0,345699,17.733,664,Strongly agree,7
+65,Coreflow,Emergency,Common pattern,Insight1,0,386402,81.802,1867,Strongly agree,7
+65,Sententree,Emergency,Common pattern,Insight1,0,386402,12.263,1867,Strongly agree,7
+65,SeqSynopsis,Emergency,Common pattern,Insight1,0,386402,50.274,1867,Strongly agree,7
+65,SeqSynopsis,Emergency,Common pattern,Insight2,0,386402,22.214,1867,Strongly agree,7
+66,Coreflow,Emergency,Common pattern,Insight1,1,747614,72.601,839,Strongly agree,7
+66,Sententree,Emergency,Common pattern,Insight1,1,747614,27.034,839,Strongly agree,7
+66,SeqSynopsis,Emergency,Common pattern,Insight1,1,747614,80.943,839,Strongly agree,7
+66,SeqSynopsis,Emergency,Common pattern,Insight2,1,747614,115.66,839,Strongly agree,7
+66,SeqSynopsis,Emergency,Common pattern,Insight3,1,747614,29.767,839,Strongly agree,7
+67,Sententree,Emergency,Common pattern,Insight1,1,356752,10.883,431,Strongly agree,7
+67,SeqSynopsis,Emergency,Common pattern,Insight1,1,356752,24.685,431,Strongly agree,7
+68,Coreflow,Emergency,Common pattern,Insight1,1,571834,23.156,418,Strongly agree,7
+68,Sententree,Emergency,Common pattern,Insight1,1,571834,12.368,418,Strongly agree,7
+68,SeqSynopsis,Emergency,Common pattern,Insight1,1,571834,15.946,418,Strongly agree,7
+68,Coreflow,Emergency,Common pattern,Insight2,1,571834,163.691,418,Strongly agree,7
+68,Sententree,Emergency,Common pattern,Insight2,1,571834,11.029,418,Strongly agree,7
+68,SeqSynopsis,Emergency,Common pattern,Insight2,1,571834,15.634,418,Strongly agree,7
+69,Coreflow,Emergency,Common pattern,Insight1,1,642069,29.631,2848,Strongly agree,7
+69,Sententree,Emergency,Common pattern,Insight1,1,642069,64.945,2848,Strongly agree,7
+69,SeqSynopsis,Emergency,Common pattern,Insight1,1,642069,284.796,2848,Strongly agree,7
+69,Coreflow,Emergency,Common pattern,Insight2,1,642069,31.417,2848,Strongly agree,7
+69,Sententree,Emergency,Common pattern,Insight2,1,642069,117.104,2848,Strongly agree,7
+69,SeqSynopsis,Emergency,Common pattern,Insight2,1,642069,87.837,2848,Strongly agree,7
+70,Coreflow,Emergency,Common pattern,Insight1,1,116126,16.383,1854,Strongly agree,7
+70,Sententree,Emergency,Common pattern,Insight1,1,116126,21.135,1854,Strongly agree,7
+70,SeqSynopsis,Emergency,Common pattern,Insight1,1,116126,48.867,1854,Strongly agree,7
+71,Coreflow,Emergency,Common pattern,Insight1,2,673442,72.044,930,Strongly agree,7
+71,Sententree,Emergency,Common pattern,Insight1,2,673442,12.543,930,Strongly agree,7
+71,SeqSynopsis,Emergency,Common pattern,Insight1,2,673442,47.086,930,Strongly agree,7
+71,SeqSynopsis,Emergency,Common pattern,Insight2,2,673442,22.649,930,Strongly agree,7
+72,Coreflow,Emergency,Common pattern,Insight1,2,475999,13.407,897,Strongly agree,7
+72,Sententree,Emergency,Common pattern,Insight1,2,475999,15.212,897,Strongly agree,7
+72,SeqSynopsis,Emergency,Common pattern,Insight1,2,475999,35.859,897,Strongly agree,7
+74,Sententree,Emergency,Common pattern,Insight1,2,788696,257.804,11806,Strongly agree,7
+74,SeqSynopsis,Emergency,Common pattern,Insight1,2,788696,1638.714,11806,Strongly agree,7
+74,SeqSynopsis,Emergency,Common pattern,Insight2,2,788696,33.695,11806,Strongly agree,7
+75,Coreflow,Emergency,Common pattern,Insight1,2,105647,68.099,2429,Strongly agree,7
+75,Sententree,Emergency,Common pattern,Insight1,2,105647,50.724,2429,Strongly agree,7
+75,SeqSynopsis,Emergency,Common pattern,Insight1,2,105647,83.658,2429,Strongly agree,7
+77,Coreflow,Emergency,Common pattern,Insight1,3,409931,25.382,582,Strongly agree,7
+77,SeqSynopsis,Emergency,Common pattern,Insight1,3,409931,34.158,582,Strongly agree,7
+78,Coreflow,Emergency,Common pattern,Insight1,3,376665,21.913,552,Strongly agree,7
+78,SeqSynopsis,Emergency,Common pattern,Insight1,3,376665,80.11,552,Strongly agree,7
+79,Coreflow,Emergency,Common pattern,Insight1,3,405658,41.114,1073,Strongly agree,7
+79,Sententree,Emergency,Common pattern,Insight1,3,405658,387.868,1073,Strongly agree,7
+79,SeqSynopsis,Emergency,Common pattern,Insight1,3,405658,131.021,1073,Strongly agree,7
+79,SeqSynopsis,Emergency,Common pattern,Insight2,3,405658,11.237,1073,Strongly agree,7
+79,Coreflow,Emergency,Common pattern,Insight3,3,405658,28.543,1073,Strongly agree,7
+79,Sententree,Emergency,Common pattern,Insight3,3,405658,12.061,1073,Strongly agree,7
+79,SeqSynopsis,Emergency,Common pattern,Insight3,3,405658,12.75,1073,Strongly agree,7
+80,Coreflow,Emergency,Common pattern,Insight1,3,315142,84.656,1289,Strongly agree,7
+81,Coreflow,Emergency,Common pattern,Insight1,4,611263,20.576,556,Strongly agree,7
+81,Sententree,Emergency,Common pattern,Insight1,4,611263,50.764,556,Strongly agree,7
+81,Coreflow,Emergency,Common pattern,Insight2,4,611263,13.797,556,Strongly agree,7
+81,Sententree,Emergency,Common pattern,Insight2,4,611263,21.161,556,Strongly agree,7
+82,Coreflow,Emergency,Common pattern,Insight1,4,107733,11.901,544,Strongly agree,7
+83,Coreflow,Emergency,Common pattern,Insight1,4,393258,41.678,1573,Strongly agree,7
+83,Sententree,Emergency,Common pattern,Insight1,4,393258,163.65,1573,Strongly agree,7
+84,Coreflow,Emergency,Common pattern,Insight1,4,931350,28.51,4696,Strongly agree,7
+84,Sententree,Emergency,Common pattern,Insight1,4,931350,12.366,4696,Strongly agree,7
+84,Coreflow,Emergency,Common pattern,Insight2,4,931350,28.442,4696,Strongly agree,7
+84,Sententree,Emergency,Common pattern,Insight2,4,931350,11.334,4696,Strongly agree,7
+85,Sententree,Emergency,Common pattern,Insight1,4,383569,11.464,1201,Strongly agree,7
+85,SeqSynopsis,Emergency,Common pattern,Insight1,4,383569,17.813,1201,Strongly agree,7
+85,Sententree,Emergency,Common pattern,Insight2,4,383569,15.87,1201,Strongly agree,7
+86,Coreflow,Emergency,Common pattern,Insight1,5,814102,15.002,617,Strongly agree,7
+86,Sententree,Emergency,Common pattern,Insight1,5,814102,13.918,617,Strongly agree,7
+86,SeqSynopsis,Emergency,Common pattern,Insight1,5,814102,33.978,617,Strongly agree,7
+87,Coreflow,Emergency,Common pattern,Insight1,5,424794,10.663,349,Strongly agree,7
+87,Sententree,Emergency,Common pattern,Insight1,5,424794,21.745,349,Strongly agree,7
+87,SeqSynopsis,Emergency,Common pattern,Insight1,5,424794,11.578,349,Strongly agree,7
+87,SeqSynopsis,Emergency,Common pattern,Insight2,5,424794,11.15,349,Strongly agree,7
+88,Coreflow,Emergency,Common pattern,Insight1,5,110751,34.728,536,Strongly agree,7
+88,Sententree,Emergency,Common pattern,Insight1,5,110751,176.402,536,Strongly agree,7
+88,SeqSynopsis,Emergency,Common pattern,Insight1,5,110751,11.315,536,Strongly agree,7
+88,Coreflow,Emergency,Common pattern,Insight2,5,110751,11.331,536,Strongly agree,7
+88,Sententree,Emergency,Common pattern,Insight2,5,110751,11.393,536,Strongly agree,7
+88,SeqSynopsis,Emergency,Common pattern,Insight2,5,110751,11.682,536,Strongly agree,7
+89,Coreflow,Emergency,Common pattern,Insight1,5,301282,25.601,808,Strongly agree,7
+89,Sententree,Emergency,Common pattern,Insight1,5,301282,11.222,808,Strongly agree,7
+89,SeqSynopsis,Emergency,Common pattern,Insight1,5,301282,40.611,808,Strongly agree,7
+90,Coreflow,Emergency,Common pattern,Insight1,5,485249,55.697,1267,Strongly agree,7
+90,Sententree,Emergency,Common pattern,Insight1,5,485249,15.72,1267,Strongly agree,7
+90,SeqSynopsis,Emergency,Common pattern,Insight2,5,485249,21.336,1267,Strongly agree,7
+99,SeqSynopsis,Trauma,Anomaly detection,Insight1,1,504608,68.023,1236,Strongly agree,7
+99,SeqSynopsis,Trauma,Anomaly detection,Insight2,1,504608,58.564,1236,Strongly agree,7
+99,Sententree,Trauma,Anomaly detection,Insight3,1,504608,112.188,1236,Strongly agree,7
+99,SeqSynopsis,Trauma,Anomaly detection,Insight3,1,504608,79.546,1236,Strongly agree,7
+106,SeqSynopsis,Trauma,Anomaly detection,Insight2,3,147010,16.646,509,Strongly agree,7
+108,SeqSynopsis,Trauma,Anomaly detection,Insight2,3,379039,37.94,795,Strongly agree,7
+114,SeqSynopsis,Trauma,Anomaly detection,Insight2,4,117113,11.588,527,Strongly agree,7
+115,SeqSynopsis,Trauma,Anomaly detection,Insight2,4,324067,29.875,1437,Strongly agree,7
+122,SeqSynopsis,VAST,Clustering,Insight1,0,655286,78.86,921,Strongly agree,7
+127,SeqSynopsis,VAST,Clustering,Insight1,1,789883,33.35,527,Strongly agree,7
+127,SeqSynopsis,VAST,Clustering,Insight2,1,789883,34.67,527,Strongly agree,7
+127,SeqSynopsis,VAST,Clustering,Insight3,1,789883,30.194,527,Strongly agree,7
+129,SeqSynopsis,VAST,Clustering,Insight1,1,778227,125.432,1215,Strongly agree,7
+130,SeqSynopsis,VAST,Clustering,Insight2,1,794252,54.109,523,Strongly agree,7
+131,SeqSynopsis,VAST,Clustering,Insight1,2,291737,48.314,592,Strongly agree,7
+131,Sententree,VAST,Clustering,Insight2,2,291737,13.005,592,Strongly agree,7
+131,SeqSynopsis,VAST,Clustering,Insight2,2,291737,23.514,592,Strongly agree,7
+131,SeqSynopsis,VAST,Clustering,Insight3,2,291737,30.249,592,Strongly agree,7
+135,Coreflow,VAST,Clustering,Insight2,2,585283,11.888,1004,Strongly agree,7
+137,SeqSynopsis,VAST,Clustering,Insight1,3,334343,53.523,805,Strongly agree,7
+142,SeqSynopsis,VAST,Clustering,Insight1,4,523993,100.827,796,Strongly agree,7
+142,SeqSynopsis,VAST,Clustering,Insight3,4,523993,43.295,796,Strongly agree,7
+147,SeqSynopsis,VAST,Clustering,Insight1,5,107112,101.581,1084,Strongly agree,7
+147,SeqSynopsis,VAST,Clustering,Insight3,5,107112,47.049,1084,Strongly agree,7
+148,SeqSynopsis,VAST,Clustering,Insight1,5,449611,40.99,1003,Strongly agree,7
+148,SeqSynopsis,VAST,Clustering,Insight3,5,449611,52.568,1003,Strongly agree,7
+150,SeqSynopsis,VAST,Clustering,Insight1,5,502455,81.373,2859,Strongly agree,7
+150,SeqSynopsis,VAST,Clustering,Insight2,5,502455,179.849,2859,Strongly agree,7
+150,SeqSynopsis,VAST,Clustering,Insight3,5,502455,54.764,2859,Strongly agree,7
+153,Coreflow,Workflow,Clustering,Insight1,0,359580,157.729,2132,Strongly agree,7
+156,Sententree,Workflow,Clustering,Insight1,1,818302,16.697,522,Strongly agree,7
+159,Sententree,Workflow,Clustering,Insight2,1,861482,158.62,3274,Strongly agree,7
+161,SeqSynopsis,Workflow,Clustering,Insight1,2,564587,56.238,953,Strongly agree,7
+161,Coreflow,Workflow,Clustering,Insight2,2,564587,42.364,953,Strongly agree,7
+161,SeqSynopsis,Workflow,Clustering,Insight2,2,564587,98.338,953,Strongly agree,7
+161,SeqSynopsis,Workflow,Clustering,Insight3,2,564587,91.322,953,Strongly agree,7
+164,SeqSynopsis,Workflow,Clustering,Insight3,2,985874,31.518,657,Strongly agree,7
+166,Coreflow,Workflow,Clustering,Insight1,3,582184,24.005,624,Strongly agree,7
+166,Sententree,Workflow,Clustering,Insight1,3,582184,11.85,624,Strongly agree,7
+166,Coreflow,Workflow,Clustering,Insight2,3,582184,19.33,624,Strongly agree,7
+166,Sententree,Workflow,Clustering,Insight2,3,582184,12.076,624,Strongly agree,7
+166,SeqSynopsis,Workflow,Clustering,Insight2,3,582184,77.191,624,Strongly agree,7
+166,Coreflow,Workflow,Clustering,Insight3,3,582184,11.312,624,Strongly agree,7
+166,Sententree,Workflow,Clustering,Insight3,3,582184,11.3,624,Strongly agree,7
+167,Coreflow,Workflow,Clustering,Insight1,3,275849,20.879,1372,Strongly agree,7
+168,Coreflow,Workflow,Clustering,Insight3,3,297467,23.03,503,Strongly agree,7
+168,Sententree,Workflow,Clustering,Insight3,3,297467,12.489,503,Strongly agree,7
+169,Sententree,Workflow,Clustering,Insight1,3,174663,15.492,427,Strongly agree,7
+169,SeqSynopsis,Workflow,Clustering,Insight1,3,174663,37.861,427,Strongly agree,7
+169,Sententree,Workflow,Clustering,Insight2,3,174663,11.251,427,Strongly agree,7
+176,Coreflow,Workflow,Clustering,Insight1,5,735037,20.339,560,Strongly agree,7
+176,Coreflow,Workflow,Clustering,Insight3,5,735037,11.043,560,Strongly agree,7
+176,Sententree,Workflow,Clustering,Insight3,5,735037,13.036,560,Strongly agree,7
+176,SeqSynopsis,Workflow,Clustering,Insight3,5,735037,34.696,560,Strongly agree,7
+179,Coreflow,Workflow,Clustering,Insight1,5,679103,19.436,382,Strongly agree,7
+179,Sententree,Workflow,Clustering,Insight2,5,679103,16.758,382,Strongly agree,7
+179,SeqSynopsis,Workflow,Clustering,Insight2,5,679103,20.022,382,Strongly agree,7
+179,SeqSynopsis,Workflow,Clustering,Insight3,5,679103,22.49,382,Strongly agree,7
+1,Coreflow,Basketball,Common pattern,Insight1,0,988454,36.903,407,Strongly disagree,1
+1,Coreflow,Basketball,Common pattern,Insight2,0,988454,14.049,407,Strongly disagree,1
+1,Coreflow,Basketball,Common pattern,Insight3,0,988454,12.349,407,Strongly disagree,1
+1,SeqSynopsis,Basketball,Common pattern,Insight3,0,988454,29.01,407,Strongly disagree,1
+2,Coreflow,Basketball,Common pattern,Insight1,0,775671,82.957,904,Strongly disagree,1
+2,Coreflow,Basketball,Common pattern,Insight2,0,775671,50.567,904,Strongly disagree,1
+2,Coreflow,Basketball,Common pattern,Insight3,0,775671,74.226,904,Strongly disagree,1
+3,Coreflow,Basketball,Common pattern,Insight3,0,271966,76.77,1439,Strongly disagree,1
+5,Coreflow,Basketball,Common pattern,Insight2,0,271356,19.515,1151,Strongly disagree,1
+7,Coreflow,Basketball,Common pattern,Insight1,1,192867,117.034,1144,Strongly disagree,1
+7,SeqSynopsis,Basketball,Common pattern,Insight2,1,192867,67.207,1144,Strongly disagree,1
+7,Coreflow,Basketball,Common pattern,Insight3,1,192867,39.279,1144,Strongly disagree,1
+7,SeqSynopsis,Basketball,Common pattern,Insight3,1,192867,86.601,1144,Strongly disagree,1
+8,Coreflow,Basketball,Common pattern,Insight1,1,555932,38.23,386,Strongly disagree,1
+8,SeqSynopsis,Basketball,Common pattern,Insight1,1,555932,20.02,386,Strongly disagree,1
+8,Coreflow,Basketball,Common pattern,Insight2,1,555932,14.629,386,Strongly disagree,1
+8,Sententree,Basketball,Common pattern,Insight3,1,555932,22.453,386,Strongly disagree,1
+8,SeqSynopsis,Basketball,Common pattern,Insight3,1,555932,21.552,386,Strongly disagree,1
+9,Coreflow,Basketball,Common pattern,Insight2,1,199690,22.887,859,Strongly disagree,1
+11,Coreflow,Basketball,Common pattern,Insight1,2,508868,11.541,420,Strongly disagree,1
+11,Sententree,Basketball,Common pattern,Insight1,2,508868,19.72,420,Strongly disagree,1
+11,Coreflow,Basketball,Common pattern,Insight2,2,508868,12.579,420,Strongly disagree,1
+11,Sententree,Basketball,Common pattern,Insight2,2,508868,10.688,420,Strongly disagree,1
+11,Coreflow,Basketball,Common pattern,Insight3,2,508868,10.577,420,Strongly disagree,1
+11,Sententree,Basketball,Common pattern,Insight3,2,508868,10.802,420,Strongly disagree,1
+12,SeqSynopsis,Basketball,Common pattern,Insight2,2,690096,23.78,491,Strongly disagree,1
+13,Sententree,Basketball,Common pattern,Insight2,2,640398,45.531,881,Strongly disagree,1
+14,SeqSynopsis,Basketball,Common pattern,Insight2,2,377131,39.413,511,Strongly disagree,1
+15,Coreflow,Basketball,Common pattern,Insight1,2,495783,143.785,2271,Strongly disagree,1
+15,SeqSynopsis,Basketball,Common pattern,Insight1,2,495783,183.685,2271,Strongly disagree,1
+15,Coreflow,Basketball,Common pattern,Insight2,2,495783,57.373,2271,Strongly disagree,1
+15,Sententree,Basketball,Common pattern,Insight2,2,495783,37.619,2271,Strongly disagree,1
+15,Coreflow,Basketball,Common pattern,Insight3,2,495783,74.406,2271,Strongly disagree,1
+15,Sententree,Basketball,Common pattern,Insight3,2,495783,43.776,2271,Strongly disagree,1
+15,SeqSynopsis,Basketball,Common pattern,Insight3,2,495783,124.739,2271,Strongly disagree,1
+16,Coreflow,Basketball,Common pattern,Insight2,3,643146,41.581,479,Strongly disagree,1
+16,SeqSynopsis,Basketball,Common pattern,Insight2,3,643146,20.276,479,Strongly disagree,1
+17,Coreflow,Basketball,Common pattern,Insight1,3,988075,13.481,352,Strongly disagree,1
+17,Sententree,Basketball,Common pattern,Insight1,3,988075,20.005,352,Strongly disagree,1
+17,Coreflow,Basketball,Common pattern,Insight2,3,988075,10.613,352,Strongly disagree,1
+17,Sententree,Basketball,Common pattern,Insight2,3,988075,10.923,352,Strongly disagree,1
+17,SeqSynopsis,Basketball,Common pattern,Insight2,3,988075,11.65,352,Strongly disagree,1
+17,Coreflow,Basketball,Common pattern,Insight3,3,988075,10.379,352,Strongly disagree,1
+17,Sententree,Basketball,Common pattern,Insight3,3,988075,18.565,352,Strongly disagree,1
+18,Coreflow,Basketball,Common pattern,Insight1,3,795497,67.779,721,Strongly disagree,1
+18,Sententree,Basketball,Common pattern,Insight2,3,795497,18.521,721,Strongly disagree,1
+19,SeqSynopsis,Basketball,Common pattern,Insight1,3,305085,99.515,897,Strongly disagree,1
+19,SeqSynopsis,Basketball,Common pattern,Insight3,3,305085,40.184,897,Strongly disagree,1
+20,Coreflow,Basketball,Common pattern,Insight2,3,286921,11.003,616,Strongly disagree,1
+20,Sententree,Basketball,Common pattern,Insight2,3,286921,18.446,616,Strongly disagree,1
+21,Sententree,Basketball,Common pattern,Insight1,4,202134,26.948,476,Strongly disagree,1
+21,Coreflow,Basketball,Common pattern,Insight2,4,202134,15.135,476,Strongly disagree,1
+21,Sententree,Basketball,Common pattern,Insight2,4,202134,22.168,476,Strongly disagree,1
+21,Coreflow,Basketball,Common pattern,Insight3,4,202134,11.467,476,Strongly disagree,1
+21,Sententree,Basketball,Common pattern,Insight3,4,202134,31.572,476,Strongly disagree,1
+23,SeqSynopsis,Basketball,Common pattern,Insight2,4,765509,11.161,389,Strongly disagree,1
+25,Coreflow,Basketball,Common pattern,Insight1,4,834426,31.447,1582,Strongly disagree,1
+25,Sententree,Basketball,Common pattern,Insight1,4,834426,41.394,1582,Strongly disagree,1
+25,Coreflow,Basketball,Common pattern,Insight2,4,834426,19.364,1582,Strongly disagree,1
+25,Sententree,Basketball,Common pattern,Insight2,4,834426,19.446,1582,Strongly disagree,1
+25,SeqSynopsis,Basketball,Common pattern,Insight2,4,834426,67.558,1582,Strongly disagree,1
+25,Coreflow,Basketball,Common pattern,Insight3,4,834426,15.79,1582,Strongly disagree,1
+27,Coreflow,Basketball,Common pattern,Insight1,5,855937,17.762,299,Strongly disagree,1
+27,Coreflow,Basketball,Common pattern,Insight2,5,855937,10.58,299,Strongly disagree,1
+27,Sententree,Basketball,Common pattern,Insight2,5,855937,37.729,299,Strongly disagree,1
+27,SeqSynopsis,Basketball,Common pattern,Insight2,5,855937,21.809,299,Strongly disagree,1
+27,Coreflow,Basketball,Common pattern,Insight3,5,855937,10.783,299,Strongly disagree,1
+29,Coreflow,Basketball,Common pattern,Insight1,5,602464,77.299,1482,Strongly disagree,1
+29,Coreflow,Basketball,Common pattern,Insight2,5,602464,43.669,1482,Strongly disagree,1
+29,Sententree,Basketball,Common pattern,Insight2,5,602464,17.47,1482,Strongly disagree,1
+29,Coreflow,Basketball,Common pattern,Insight3,5,602464,12.663,1482,Strongly disagree,1
+29,Sententree,Basketball,Common pattern,Insight3,5,602464,26.042,1482,Strongly disagree,1
+29,SeqSynopsis,Basketball,Common pattern,Insight3,5,602464,261.012,1482,Strongly disagree,1
+30,Coreflow,Basketball,Common pattern,Insight1,5,283152,20.8,1253,Strongly disagree,1
+30,Sententree,Basketball,Common pattern,Insight1,5,283152,60.932,1253,Strongly disagree,1
+30,Coreflow,Basketball,Common pattern,Insight2,5,283152,19.95,1253,Strongly disagree,1
+30,Sententree,Basketball,Common pattern,Insight2,5,283152,33.625,1253,Strongly disagree,1
+30,SeqSynopsis,Basketball,Common pattern,Insight2,5,283152,67.982,1253,Strongly disagree,1
+30,Coreflow,Basketball,Common pattern,Insight3,5,283152,73.195,1253,Strongly disagree,1
+30,Sententree,Basketball,Common pattern,Insight3,5,283152,113.301,1253,Strongly disagree,1
+30,SeqSynopsis,Basketball,Common pattern,Insight3,5,283152,72.637,1253,Strongly disagree,1
+32,Coreflow,Career,Anomaly detection,Insight1,0,394445,16.924,467,Strongly disagree,1
+32,Sententree,Career,Anomaly detection,Insight1,0,394445,48.051,467,Strongly disagree,1
+32,SeqSynopsis,Career,Anomaly detection,Insight1,0,394445,18.475,467,Strongly disagree,1
+32,Sententree,Career,Anomaly detection,Insight2,0,394445,29.987,467,Strongly disagree,1
+32,SeqSynopsis,Career,Anomaly detection,Insight2,0,394445,48.467,467,Strongly disagree,1
+32,Coreflow,Career,Anomaly detection,Insight3,0,394445,11.473,467,Strongly disagree,1
+32,Sententree,Career,Anomaly detection,Insight3,0,394445,48.653,467,Strongly disagree,1
+32,SeqSynopsis,Career,Anomaly detection,Insight3,0,394445,13.176,467,Strongly disagree,1
+34,Sententree,Career,Anomaly detection,Insight2,0,325690,10.844,477,Strongly disagree,1
+34,SeqSynopsis,Career,Anomaly detection,Insight2,0,325690,16.461,477,Strongly disagree,1
+34,Coreflow,Career,Anomaly detection,Insight3,0,325690,20.232,477,Strongly disagree,1
+37,SeqSynopsis,Career,Anomaly detection,Insight2,1,950815,70.476,589,Strongly disagree,1
+37,Coreflow,Career,Anomaly detection,Insight3,1,950815,63.279,589,Strongly disagree,1
+37,Sententree,Career,Anomaly detection,Insight3,1,950815,14.827,589,Strongly disagree,1
+38,Coreflow,Career,Anomaly detection,Insight3,1,738856,22.201,496,Strongly disagree,1
+40,SeqSynopsis,Career,Anomaly detection,Insight2,1,698245,74.161,2429,Strongly disagree,1
+40,Sententree,Career,Anomaly detection,Insight3,1,698245,66.451,2429,Strongly disagree,1
+41,SeqSynopsis,Career,Anomaly detection,Insight1,2,813543,22.033,360,Strongly disagree,1
+41,Sententree,Career,Anomaly detection,Insight2,2,813543,11.261,360,Strongly disagree,1
+41,SeqSynopsis,Career,Anomaly detection,Insight2,2,813543,46.739,360,Strongly disagree,1
+41,Coreflow,Career,Anomaly detection,Insight3,2,813543,11.374,360,Strongly disagree,1
+41,Sententree,Career,Anomaly detection,Insight3,2,813543,14.014,360,Strongly disagree,1
+41,SeqSynopsis,Career,Anomaly detection,Insight3,2,813543,12.703,360,Strongly disagree,1
+42,Coreflow,Career,Anomaly detection,Insight3,2,143147,20.928,419,Strongly disagree,1
+45,SeqSynopsis,Career,Anomaly detection,Insight2,2,530395,78.239,701,Strongly disagree,1
+46,Coreflow,Career,Anomaly detection,Insight1,3,492560,14.487,428,Strongly disagree,1
+46,Coreflow,Career,Anomaly detection,Insight2,3,492560,35.395,428,Strongly disagree,1
+46,Coreflow,Career,Anomaly detection,Insight3,3,492560,12.009,428,Strongly disagree,1
+49,Coreflow,Career,Anomaly detection,Insight2,3,593548,28.47,883,Strongly disagree,1
+49,Coreflow,Career,Anomaly detection,Insight3,3,593548,11.424,883,Strongly disagree,1
+49,Sententree,Career,Anomaly detection,Insight3,3,593548,22.135,883,Strongly disagree,1
+51,Coreflow,Career,Anomaly detection,Insight1,4,137584,29.691,481,Strongly disagree,1
+51,SeqSynopsis,Career,Anomaly detection,Insight1,4,137584,53.577,481,Strongly disagree,1
+51,Sententree,Career,Anomaly detection,Insight2,4,137584,21.453,481,Strongly disagree,1
+51,Coreflow,Career,Anomaly detection,Insight3,4,137584,11.155,481,Strongly disagree,1
+51,Sententree,Career,Anomaly detection,Insight3,4,137584,27.572,481,Strongly disagree,1
+52,Coreflow,Career,Anomaly detection,Insight1,4,812407,15.131,644,Strongly disagree,1
+52,Coreflow,Career,Anomaly detection,Insight2,4,812407,20.561,644,Strongly disagree,1
+52,Sententree,Career,Anomaly detection,Insight2,4,812407,41.519,644,Strongly disagree,1
+52,Coreflow,Career,Anomaly detection,Insight3,4,812407,11.051,644,Strongly disagree,1
+52,Sententree,Career,Anomaly detection,Insight3,4,812407,15.44,644,Strongly disagree,1
+54,Coreflow,Career,Anomaly detection,Insight2,4,504413,30.835,1927,Strongly disagree,1
+54,Sententree,Career,Anomaly detection,Insight2,4,504413,76.18,1927,Strongly disagree,1
+54,SeqSynopsis,Career,Anomaly detection,Insight2,4,504413,86.178,1927,Strongly disagree,1
+54,Coreflow,Career,Anomaly detection,Insight3,4,504413,40.584,1927,Strongly disagree,1
+55,Coreflow,Career,Anomaly detection,Insight1,4,301828,11.652,1100,Strongly disagree,1
+55,Sententree,Career,Anomaly detection,Insight1,4,301828,165.687,1100,Strongly disagree,1
+55,SeqSynopsis,Career,Anomaly detection,Insight1,4,301828,37.439,1100,Strongly disagree,1
+55,Coreflow,Career,Anomaly detection,Insight3,4,301828,30.541,1100,Strongly disagree,1
+55,Sententree,Career,Anomaly detection,Insight3,4,301828,11.833,1100,Strongly disagree,1
+55,SeqSynopsis,Career,Anomaly detection,Insight3,4,301828,15.786,1100,Strongly disagree,1
+56,Sententree,Career,Anomaly detection,Insight3,5,177991,18.409,915,Strongly disagree,1
+58,Coreflow,Career,Anomaly detection,Insight1,5,980130,136.863,1667,Strongly disagree,1
+58,Sententree,Career,Anomaly detection,Insight1,5,980130,130.671,1667,Strongly disagree,1
+58,SeqSynopsis,Career,Anomaly detection,Insight1,5,980130,90.891,1667,Strongly disagree,1
+58,Coreflow,Career,Anomaly detection,Insight2,5,980130,12.165,1667,Strongly disagree,1
+58,Sententree,Career,Anomaly detection,Insight2,5,980130,57.732,1667,Strongly disagree,1
+58,SeqSynopsis,Career,Anomaly detection,Insight2,5,980130,123.474,1667,Strongly disagree,1
+58,Coreflow,Career,Anomaly detection,Insight3,5,980130,23.425,1667,Strongly disagree,1
+58,Sententree,Career,Anomaly detection,Insight3,5,980130,29.613,1667,Strongly disagree,1
+58,SeqSynopsis,Career,Anomaly detection,Insight3,5,980130,187.75,1667,Strongly disagree,1
+59,Sententree,Career,Anomaly detection,Insight3,5,101043,31.105,1896,Strongly disagree,1
+59,SeqSynopsis,Career,Anomaly detection,Insight3,5,101043,17.796,1896,Strongly disagree,1
+61,Coreflow,Emergency,Common pattern,Insight3,0,748611,56.807,1777,Strongly disagree,1
+61,SeqSynopsis,Emergency,Common pattern,Insight3,0,748611,89.544,1777,Strongly disagree,1
+62,Coreflow,Emergency,Common pattern,Insight2,0,392479,51.254,1682,Strongly disagree,1
+62,Sententree,Emergency,Common pattern,Insight2,0,392479,46.336,1682,Strongly disagree,1
+62,SeqSynopsis,Emergency,Common pattern,Insight2,0,392479,98.727,1682,Strongly disagree,1
+62,Coreflow,Emergency,Common pattern,Insight3,0,392479,56.391,1682,Strongly disagree,1
+62,Sententree,Emergency,Common pattern,Insight3,0,392479,54.515,1682,Strongly disagree,1
+62,SeqSynopsis,Emergency,Common pattern,Insight3,0,392479,136.7,1682,Strongly disagree,1
+63,Coreflow,Emergency,Common pattern,Insight2,0,124322,32.08,6092,Strongly disagree,1
+63,SeqSynopsis,Emergency,Common pattern,Insight2,0,124322,41.932,6092,Strongly disagree,1
+63,Coreflow,Emergency,Common pattern,Insight3,0,124322,1511.694,6092,Strongly disagree,1
+63,SeqSynopsis,Emergency,Common pattern,Insight3,0,124322,869.094,6092,Strongly disagree,1
+65,Coreflow,Emergency,Common pattern,Insight2,0,386402,26.237,1867,Strongly disagree,1
+65,Sententree,Emergency,Common pattern,Insight2,0,386402,61.585,1867,Strongly disagree,1
+65,Coreflow,Emergency,Common pattern,Insight3,0,386402,69.516,1867,Strongly disagree,1
+68,Sententree,Emergency,Common pattern,Insight3,1,571834,14.196,418,Strongly disagree,1
+68,SeqSynopsis,Emergency,Common pattern,Insight3,1,571834,26.49,418,Strongly disagree,1
+71,Coreflow,Emergency,Common pattern,Insight3,2,673442,56.048,930,Strongly disagree,1
+71,Sententree,Emergency,Common pattern,Insight3,2,673442,62.047,930,Strongly disagree,1
+75,SeqSynopsis,Emergency,Common pattern,Insight2,2,105647,88.16,2429,Strongly disagree,1
+77,Sententree,Emergency,Common pattern,Insight1,3,409931,83.222,582,Strongly disagree,1
+77,Coreflow,Emergency,Common pattern,Insight2,3,409931,27.556,582,Strongly disagree,1
+77,Sententree,Emergency,Common pattern,Insight2,3,409931,28.084,582,Strongly disagree,1
+77,SeqSynopsis,Emergency,Common pattern,Insight2,3,409931,14.216,582,Strongly disagree,1
+77,Coreflow,Emergency,Common pattern,Insight3,3,409931,22.991,582,Strongly disagree,1
+77,Sententree,Emergency,Common pattern,Insight3,3,409931,29.953,582,Strongly disagree,1
+77,SeqSynopsis,Emergency,Common pattern,Insight3,3,409931,29.027,582,Strongly disagree,1
+78,Coreflow,Emergency,Common pattern,Insight3,3,376665,30.173,552,Strongly disagree,1
+78,Sententree,Emergency,Common pattern,Insight3,3,376665,26.922,552,Strongly disagree,1
+78,SeqSynopsis,Emergency,Common pattern,Insight3,3,376665,30.101,552,Strongly disagree,1
+79,Coreflow,Emergency,Common pattern,Insight2,3,405658,19.731,1073,Strongly disagree,1
+79,Sententree,Emergency,Common pattern,Insight2,3,405658,23.595,1073,Strongly disagree,1
+80,SeqSynopsis,Emergency,Common pattern,Insight2,3,315142,67.722,1289,Strongly disagree,1
+80,Coreflow,Emergency,Common pattern,Insight3,3,315142,41.62,1289,Strongly disagree,1
+80,SeqSynopsis,Emergency,Common pattern,Insight3,3,315142,120.226,1289,Strongly disagree,1
+81,Coreflow,Emergency,Common pattern,Insight3,4,611263,16.281,556,Strongly disagree,1
+81,Sententree,Emergency,Common pattern,Insight3,4,611263,33.941,556,Strongly disagree,1
+82,SeqSynopsis,Emergency,Common pattern,Insight3,4,107733,40.325,544,Strongly disagree,1
+83,SeqSynopsis,Emergency,Common pattern,Insight1,4,393258,54.222,1573,Strongly disagree,1
+83,Coreflow,Emergency,Common pattern,Insight2,4,393258,22.984,1573,Strongly disagree,1
+83,Sententree,Emergency,Common pattern,Insight2,4,393258,183.246,1573,Strongly disagree,1
+83,SeqSynopsis,Emergency,Common pattern,Insight2,4,393258,28.419,1573,Strongly disagree,1
+83,Coreflow,Emergency,Common pattern,Insight3,4,393258,21.294,1573,Strongly disagree,1
+83,Sententree,Emergency,Common pattern,Insight3,4,393258,344.986,1573,Strongly disagree,1
+83,SeqSynopsis,Emergency,Common pattern,Insight3,4,393258,10.991,1573,Strongly disagree,1
+86,Coreflow,Emergency,Common pattern,Insight3,5,814102,56.847,617,Strongly disagree,1
+86,Sententree,Emergency,Common pattern,Insight3,5,814102,29.294,617,Strongly disagree,1
+86,SeqSynopsis,Emergency,Common pattern,Insight3,5,814102,82.196,617,Strongly disagree,1
+87,Coreflow,Emergency,Common pattern,Insight2,5,424794,10.804,349,Strongly disagree,1
+87,Sententree,Emergency,Common pattern,Insight2,5,424794,16.265,349,Strongly disagree,1
+87,Coreflow,Emergency,Common pattern,Insight3,5,424794,14.8,349,Strongly disagree,1
+87,Sententree,Emergency,Common pattern,Insight3,5,424794,37.612,349,Strongly disagree,1
+87,SeqSynopsis,Emergency,Common pattern,Insight3,5,424794,23.318,349,Strongly disagree,1
+88,Coreflow,Emergency,Common pattern,Insight3,5,110751,27.918,536,Strongly disagree,1
+88,Sententree,Emergency,Common pattern,Insight3,5,110751,20.753,536,Strongly disagree,1
+88,SeqSynopsis,Emergency,Common pattern,Insight3,5,110751,34.568,536,Strongly disagree,1
+89,SeqSynopsis,Emergency,Common pattern,Insight2,5,301282,50.565,808,Strongly disagree,1
+89,Coreflow,Emergency,Common pattern,Insight3,5,301282,48.791,808,Strongly disagree,1
+89,Sententree,Emergency,Common pattern,Insight3,5,301282,19.358,808,Strongly disagree,1
+89,SeqSynopsis,Emergency,Common pattern,Insight3,5,301282,104.996,808,Strongly disagree,1
+90,Coreflow,Emergency,Common pattern,Insight3,5,485249,75.224,1267,Strongly disagree,1
+90,Sententree,Emergency,Common pattern,Insight3,5,485249,93.873,1267,Strongly disagree,1
+90,SeqSynopsis,Emergency,Common pattern,Insight3,5,485249,156.224,1267,Strongly disagree,1
+91,Coreflow,Trauma,Anomaly detection,Insight1,0,691245,16.138,386,Strongly disagree,1
+92,Coreflow,Trauma,Anomaly detection,Insight1,0,605566,35.84,856,Strongly disagree,1
+92,SeqSynopsis,Trauma,Anomaly detection,Insight1,0,605566,60.654,856,Strongly disagree,1
+92,Coreflow,Trauma,Anomaly detection,Insight2,0,605566,19.701,856,Strongly disagree,1
+92,SeqSynopsis,Trauma,Anomaly detection,Insight2,0,605566,61.723,856,Strongly disagree,1
+92,Coreflow,Trauma,Anomaly detection,Insight3,0,605566,12.454,856,Strongly disagree,1
+92,SeqSynopsis,Trauma,Anomaly detection,Insight3,0,605566,91.083,856,Strongly disagree,1
+95,Coreflow,Trauma,Anomaly detection,Insight1,0,825534,49.497,2773,Strongly disagree,1
+96,Sententree,Trauma,Anomaly detection,Insight1,1,771907,267.732,819,Strongly disagree,1
+96,Coreflow,Trauma,Anomaly detection,Insight3,1,771907,18.552,819,Strongly disagree,1
+97,Coreflow,Trauma,Anomaly detection,Insight1,1,627989,33.498,645,Strongly disagree,1
+97,Coreflow,Trauma,Anomaly detection,Insight3,1,627989,11.96,645,Strongly disagree,1
+97,SeqSynopsis,Trauma,Anomaly detection,Insight3,1,627989,17.399,645,Strongly disagree,1
+98,Coreflow,Trauma,Anomaly detection,Insight2,1,842739,23.736,579,Strongly disagree,1
+98,Sententree,Trauma,Anomaly detection,Insight2,1,842739,17.698,579,Strongly disagree,1
+98,Coreflow,Trauma,Anomaly detection,Insight3,1,842739,69.801,579,Strongly disagree,1
+98,SeqSynopsis,Trauma,Anomaly detection,Insight3,1,842739,18.746,579,Strongly disagree,1
+102,Coreflow,Trauma,Anomaly detection,Insight1,2,311949,26.103,1088,Strongly disagree,1
+102,Sententree,Trauma,Anomaly detection,Insight1,2,311949,212.819,1088,Strongly disagree,1
+102,SeqSynopsis,Trauma,Anomaly detection,Insight1,2,311949,82.093,1088,Strongly disagree,1
+102,Coreflow,Trauma,Anomaly detection,Insight3,2,311949,13.83,1088,Strongly disagree,1
+102,Sententree,Trauma,Anomaly detection,Insight3,2,311949,40.147,1088,Strongly disagree,1
+102,SeqSynopsis,Trauma,Anomaly detection,Insight3,2,311949,27.26,1088,Strongly disagree,1
+104,Coreflow,Trauma,Anomaly detection,Insight1,2,837994,30.967,517,Strongly disagree,1
+104,Coreflow,Trauma,Anomaly detection,Insight3,2,837994,18.023,517,Strongly disagree,1
+106,SeqSynopsis,Trauma,Anomaly detection,Insight3,3,147010,22.268,509,Strongly disagree,1
+107,Coreflow,Trauma,Anomaly detection,Insight1,3,349052,60.401,783,Strongly disagree,1
+107,Coreflow,Trauma,Anomaly detection,Insight2,3,349052,16.092,783,Strongly disagree,1
+107,Coreflow,Trauma,Anomaly detection,Insight3,3,349052,10.395,783,Strongly disagree,1
+107,Sententree,Trauma,Anomaly detection,Insight3,3,349052,11.712,783,Strongly disagree,1
+107,SeqSynopsis,Trauma,Anomaly detection,Insight3,3,349052,27.629,783,Strongly disagree,1
+108,Sententree,Trauma,Anomaly detection,Insight2,3,379039,11.699,795,Strongly disagree,1
+108,Coreflow,Trauma,Anomaly detection,Insight3,3,379039,12.975,795,Strongly disagree,1
+108,Sententree,Trauma,Anomaly detection,Insight3,3,379039,11.208,795,Strongly disagree,1
+108,SeqSynopsis,Trauma,Anomaly detection,Insight3,3,379039,22.917,795,Strongly disagree,1
+112,Coreflow,Trauma,Anomaly detection,Insight1,4,220035,17.895,575,Strongly disagree,1
+112,Sententree,Trauma,Anomaly detection,Insight1,4,220035,13.589,575,Strongly disagree,1
+112,Coreflow,Trauma,Anomaly detection,Insight2,4,220035,34.822,575,Strongly disagree,1
+112,Sententree,Trauma,Anomaly detection,Insight2,4,220035,26.932,575,Strongly disagree,1
+112,Coreflow,Trauma,Anomaly detection,Insight3,4,220035,11.155,575,Strongly disagree,1
+112,Sententree,Trauma,Anomaly detection,Insight3,4,220035,32.454,575,Strongly disagree,1
+112,SeqSynopsis,Trauma,Anomaly detection,Insight3,4,220035,13.974,575,Strongly disagree,1
+113,Coreflow,Trauma,Anomaly detection,Insight1,4,749215,176.646,1448,Strongly disagree,1
+113,SeqSynopsis,Trauma,Anomaly detection,Insight1,4,749215,71.175,1448,Strongly disagree,1
+113,SeqSynopsis,Trauma,Anomaly detection,Insight3,4,749215,42.256,1448,Strongly disagree,1
+114,SeqSynopsis,Trauma,Anomaly detection,Insight3,4,117113,15.369,527,Strongly disagree,1
+116,Coreflow,Trauma,Anomaly detection,Insight3,5,448071,29.103,520,Strongly disagree,1
+116,SeqSynopsis,Trauma,Anomaly detection,Insight3,5,448071,18.666,520,Strongly disagree,1
+117,Coreflow,Trauma,Anomaly detection,Insight3,5,507682,20.807,694,Strongly disagree,1
+117,Sententree,Trauma,Anomaly detection,Insight3,5,507682,40.082,694,Strongly disagree,1
+117,SeqSynopsis,Trauma,Anomaly detection,Insight3,5,507682,23.57,694,Strongly disagree,1
+119,SeqSynopsis,Trauma,Anomaly detection,Insight1,5,981230,19.569,975,Strongly disagree,1
+121,Coreflow,VAST,Clustering,Insight1,0,877557,25.723,1657,Strongly disagree,1
+121,Coreflow,VAST,Clustering,Insight2,0,877557,17.464,1657,Strongly disagree,1
+121,Coreflow,VAST,Clustering,Insight3,0,877557,12.736,1657,Strongly disagree,1
+122,Coreflow,VAST,Clustering,Insight1,0,655286,18.96,921,Strongly disagree,1
+122,Coreflow,VAST,Clustering,Insight2,0,655286,11.025,921,Strongly disagree,1
+122,Coreflow,VAST,Clustering,Insight3,0,655286,12.242,921,Strongly disagree,1
+123,Coreflow,VAST,Clustering,Insight1,0,874982,52.685,809,Strongly disagree,1
+123,Sententree,VAST,Clustering,Insight1,0,874982,89.826,809,Strongly disagree,1
+123,SeqSynopsis,VAST,Clustering,Insight1,0,874982,49.812,809,Strongly disagree,1
+123,Coreflow,VAST,Clustering,Insight2,0,874982,29.699,809,Strongly disagree,1
+123,Sententree,VAST,Clustering,Insight2,0,874982,131.425,809,Strongly disagree,1
+123,SeqSynopsis,VAST,Clustering,Insight2,0,874982,10.965,809,Strongly disagree,1
+123,Coreflow,VAST,Clustering,Insight3,0,874982,12.241,809,Strongly disagree,1
+123,Sententree,VAST,Clustering,Insight3,0,874982,40.982,809,Strongly disagree,1
+123,SeqSynopsis,VAST,Clustering,Insight3,0,874982,19.638,809,Strongly disagree,1
+124,Coreflow,VAST,Clustering,Insight1,0,284038,55.9,2319,Strongly disagree,1
+127,Coreflow,VAST,Clustering,Insight1,1,789883,26.539,527,Strongly disagree,1
+127,Sententree,VAST,Clustering,Insight1,1,789883,22.723,527,Strongly disagree,1
+127,Coreflow,VAST,Clustering,Insight2,1,789883,22.226,527,Strongly disagree,1
+127,Coreflow,VAST,Clustering,Insight3,1,789883,11.567,527,Strongly disagree,1
+127,Sententree,VAST,Clustering,Insight3,1,789883,14.626,527,Strongly disagree,1
+128,Coreflow,VAST,Clustering,Insight1,1,292165,42.972,760,Strongly disagree,1
+128,Sententree,VAST,Clustering,Insight1,1,292165,83.982,760,Strongly disagree,1
+128,Coreflow,VAST,Clustering,Insight2,1,292165,30.951,760,Strongly disagree,1
+128,Sententree,VAST,Clustering,Insight2,1,292165,20.686,760,Strongly disagree,1
+128,Coreflow,VAST,Clustering,Insight3,1,292165,15.808,760,Strongly disagree,1
+128,Sententree,VAST,Clustering,Insight3,1,292165,16.37,760,Strongly disagree,1
+129,Coreflow,VAST,Clustering,Insight1,1,778227,26.97,1215,Strongly disagree,1
+129,Coreflow,VAST,Clustering,Insight2,1,778227,25.825,1215,Strongly disagree,1
+129,Sententree,VAST,Clustering,Insight2,1,778227,26.43,1215,Strongly disagree,1
+129,Coreflow,VAST,Clustering,Insight3,1,778227,11.798,1215,Strongly disagree,1
+129,Sententree,VAST,Clustering,Insight3,1,778227,46.274,1215,Strongly disagree,1
+130,Coreflow,VAST,Clustering,Insight1,1,794252,13.855,523,Strongly disagree,1
+130,Sententree,VAST,Clustering,Insight1,1,794252,42.665,523,Strongly disagree,1
+130,Coreflow,VAST,Clustering,Insight2,1,794252,13.959,523,Strongly disagree,1
+130,Sententree,VAST,Clustering,Insight2,1,794252,59.738,523,Strongly disagree,1
+130,Coreflow,VAST,Clustering,Insight3,1,794252,12.118,523,Strongly disagree,1
+133,Coreflow,VAST,Clustering,Insight1,2,817913,24.743,439,Strongly disagree,1
+133,Coreflow,VAST,Clustering,Insight2,2,817913,14.007,439,Strongly disagree,1
+133,Sententree,VAST,Clustering,Insight2,2,817913,20.791,439,Strongly disagree,1
+133,Coreflow,VAST,Clustering,Insight3,2,817913,11.023,439,Strongly disagree,1
+136,Coreflow,VAST,Clustering,Insight1,3,861520,25.936,523,Strongly disagree,1
+136,Coreflow,VAST,Clustering,Insight2,3,861520,32.685,523,Strongly disagree,1
+136,Coreflow,VAST,Clustering,Insight3,3,861520,11.331,523,Strongly disagree,1
+136,Sententree,VAST,Clustering,Insight3,3,861520,18.478,523,Strongly disagree,1
+137,Coreflow,VAST,Clustering,Insight1,3,334343,13.937,805,Strongly disagree,1
+137,Sententree,VAST,Clustering,Insight1,3,334343,47.788,805,Strongly disagree,1
+137,Coreflow,VAST,Clustering,Insight2,3,334343,11.598,805,Strongly disagree,1
+137,Sententree,VAST,Clustering,Insight2,3,334343,56.915,805,Strongly disagree,1
+137,Coreflow,VAST,Clustering,Insight3,3,334343,16.444,805,Strongly disagree,1
+137,Sententree,VAST,Clustering,Insight3,3,334343,38.925,805,Strongly disagree,1
+139,Coreflow,VAST,Clustering,Insight1,3,605587,141.687,1540,Strongly disagree,1
+139,Sententree,VAST,Clustering,Insight1,3,605587,51.137,1540,Strongly disagree,1
+139,Sententree,VAST,Clustering,Insight2,3,605587,11.372,1540,Strongly disagree,1
+139,SeqSynopsis,VAST,Clustering,Insight2,3,605587,203.906,1540,Strongly disagree,1
+139,Sententree,VAST,Clustering,Insight3,3,605587,10.877,1540,Strongly disagree,1
+139,SeqSynopsis,VAST,Clustering,Insight3,3,605587,72.315,1540,Strongly disagree,1
+141,Coreflow,VAST,Clustering,Insight2,4,989677,31.212,997,Strongly disagree,1
+141,Coreflow,VAST,Clustering,Insight3,4,989677,12.216,997,Strongly disagree,1
+142,Coreflow,VAST,Clustering,Insight1,4,523993,57.953,796,Strongly disagree,1
+142,Sententree,VAST,Clustering,Insight1,4,523993,38.802,796,Strongly disagree,1
+142,Coreflow,VAST,Clustering,Insight2,4,523993,24.793,796,Strongly disagree,1
+142,Sententree,VAST,Clustering,Insight2,4,523993,16.198,796,Strongly disagree,1
+142,Coreflow,VAST,Clustering,Insight3,4,523993,11.956,796,Strongly disagree,1
+142,Sententree,VAST,Clustering,Insight3,4,523993,10.814,796,Strongly disagree,1
+143,Coreflow,VAST,Clustering,Insight2,4,113898,33.092,905,Strongly disagree,1
+143,Coreflow,VAST,Clustering,Insight3,4,113898,15.177,905,Strongly disagree,1
+145,Coreflow,VAST,Clustering,Insight1,4,599503,60.258,1099,Strongly disagree,1
+145,Sententree,VAST,Clustering,Insight1,4,599503,63.647,1099,Strongly disagree,1
+145,Sententree,VAST,Clustering,Insight2,4,599503,26.787,1099,Strongly disagree,1
+145,Coreflow,VAST,Clustering,Insight3,4,599503,23.856,1099,Strongly disagree,1
+145,Sententree,VAST,Clustering,Insight3,4,599503,12.665,1099,Strongly disagree,1
+146,Coreflow,VAST,Clustering,Insight1,5,100046,16.259,208,Strongly disagree,1
+146,Sententree,VAST,Clustering,Insight1,5,100046,11.497,208,Strongly disagree,1
+146,SeqSynopsis,VAST,Clustering,Insight1,5,100046,16.03,208,Strongly disagree,1
+146,Coreflow,VAST,Clustering,Insight2,5,100046,10.861,208,Strongly disagree,1
+146,Sententree,VAST,Clustering,Insight2,5,100046,11.04,208,Strongly disagree,1
+146,Coreflow,VAST,Clustering,Insight3,5,100046,10.986,208,Strongly disagree,1
+146,Sententree,VAST,Clustering,Insight3,5,100046,10.88,208,Strongly disagree,1
+147,Coreflow,VAST,Clustering,Insight1,5,107112,45.322,1084,Strongly disagree,1
+147,Sententree,VAST,Clustering,Insight1,5,107112,82.638,1084,Strongly disagree,1
+147,Coreflow,VAST,Clustering,Insight2,5,107112,24.318,1084,Strongly disagree,1
+147,Sententree,VAST,Clustering,Insight2,5,107112,20.839,1084,Strongly disagree,1
+147,Coreflow,VAST,Clustering,Insight3,5,107112,15.305,1084,Strongly disagree,1
+147,Sententree,VAST,Clustering,Insight3,5,107112,19.771,1084,Strongly disagree,1
+148,Coreflow,VAST,Clustering,Insight1,5,449611,23.039,1003,Strongly disagree,1
+148,Sententree,VAST,Clustering,Insight1,5,449611,65.863,1003,Strongly disagree,1
+148,Coreflow,VAST,Clustering,Insight2,5,449611,22.301,1003,Strongly disagree,1
+148,Sententree,VAST,Clustering,Insight2,5,449611,38.526,1003,Strongly disagree,1
+148,SeqSynopsis,VAST,Clustering,Insight2,5,449611,242.311,1003,Strongly disagree,1
+148,Coreflow,VAST,Clustering,Insight3,5,449611,20.07,1003,Strongly disagree,1
+148,Sententree,VAST,Clustering,Insight3,5,449611,26.597,1003,Strongly disagree,1
+150,Coreflow,VAST,Clustering,Insight1,5,502455,17.021,2859,Strongly disagree,1
+150,Sententree,VAST,Clustering,Insight1,5,502455,417.677,2859,Strongly disagree,1
+150,Coreflow,VAST,Clustering,Insight2,5,502455,10.786,2859,Strongly disagree,1
+150,Coreflow,VAST,Clustering,Insight3,5,502455,11.318,2859,Strongly disagree,1
+151,SeqSynopsis,Workflow,Clustering,Insight1,0,268302,69.832,1331,Strongly disagree,1
+151,SeqSynopsis,Workflow,Clustering,Insight2,0,268302,41.51,1331,Strongly disagree,1
+152,Coreflow,Workflow,Clustering,Insight1,0,870357,43.812,1893,Strongly disagree,1
+153,Sententree,Workflow,Clustering,Insight1,0,359580,359.457,2132,Strongly disagree,1
+153,SeqSynopsis,Workflow,Clustering,Insight1,0,359580,116.684,2132,Strongly disagree,1
+153,Coreflow,Workflow,Clustering,Insight2,0,359580,88.76,2132,Strongly disagree,1
+153,Sententree,Workflow,Clustering,Insight2,0,359580,59.263,2132,Strongly disagree,1
+153,SeqSynopsis,Workflow,Clustering,Insight2,0,359580,69.76,2132,Strongly disagree,1
+153,Coreflow,Workflow,Clustering,Insight3,0,359580,205.408,2132,Strongly disagree,1
+153,Sententree,Workflow,Clustering,Insight3,0,359580,80.935,2132,Strongly disagree,1
+153,SeqSynopsis,Workflow,Clustering,Insight3,0,359580,35.097,2132,Strongly disagree,1
+156,Coreflow,Workflow,Clustering,Insight1,1,818302,42.893,522,Strongly disagree,1
+156,SeqSynopsis,Workflow,Clustering,Insight1,1,818302,44.727,522,Strongly disagree,1
+156,Coreflow,Workflow,Clustering,Insight2,1,818302,12.93,522,Strongly disagree,1
+156,Sententree,Workflow,Clustering,Insight2,1,818302,17.588,522,Strongly disagree,1
+156,SeqSynopsis,Workflow,Clustering,Insight2,1,818302,30.627,522,Strongly disagree,1
+156,Coreflow,Workflow,Clustering,Insight3,1,818302,36.562,522,Strongly disagree,1
+156,Sententree,Workflow,Clustering,Insight3,1,818302,31.752,522,Strongly disagree,1
+156,SeqSynopsis,Workflow,Clustering,Insight3,1,818302,39.8,522,Strongly disagree,1
+157,Coreflow,Workflow,Clustering,Insight1,1,783946,199.094,2238,Strongly disagree,1
+157,SeqSynopsis,Workflow,Clustering,Insight1,1,783946,58.098,2238,Strongly disagree,1
+158,SeqSynopsis,Workflow,Clustering,Insight1,1,895917,128.373,2903,Strongly disagree,1
+158,SeqSynopsis,Workflow,Clustering,Insight2,1,895917,247.075,2903,Strongly disagree,1
+158,SeqSynopsis,Workflow,Clustering,Insight3,1,895917,98.742,2903,Strongly disagree,1
+159,Sententree,Workflow,Clustering,Insight1,1,861482,320.358,3274,Strongly disagree,1
+159,Coreflow,Workflow,Clustering,Insight2,1,861482,87.295,3274,Strongly disagree,1
+159,SeqSynopsis,Workflow,Clustering,Insight2,1,861482,92.275,3274,Strongly disagree,1
+163,Coreflow,Workflow,Clustering,Insight1,2,808965,21.926,1446,Strongly disagree,1
+163,Sententree,Workflow,Clustering,Insight1,2,808965,69.302,1446,Strongly disagree,1
+163,Coreflow,Workflow,Clustering,Insight2,2,808965,24.403,1446,Strongly disagree,1
+163,Coreflow,Workflow,Clustering,Insight3,2,808965,28.366,1446,Strongly disagree,1
+164,Sententree,Workflow,Clustering,Insight1,2,985874,32.21,657,Strongly disagree,1
+164,SeqSynopsis,Workflow,Clustering,Insight1,2,985874,56.041,657,Strongly disagree,1
+164,SeqSynopsis,Workflow,Clustering,Insight2,2,985874,25.64,657,Strongly disagree,1
+165,SeqSynopsis,Workflow,Clustering,Insight1,2,498692,36.276,5888,Strongly disagree,1
+168,Sententree,Workflow,Clustering,Insight1,3,297467,11.078,503,Strongly disagree,1
+168,SeqSynopsis,Workflow,Clustering,Insight1,3,297467,64.82,503,Strongly disagree,1
+168,Coreflow,Workflow,Clustering,Insight2,3,297467,33.81,503,Strongly disagree,1
+168,Sententree,Workflow,Clustering,Insight2,3,297467,14.691,503,Strongly disagree,1
+168,SeqSynopsis,Workflow,Clustering,Insight2,3,297467,59.829,503,Strongly disagree,1
+168,SeqSynopsis,Workflow,Clustering,Insight3,3,297467,64.276,503,Strongly disagree,1
+169,Coreflow,Workflow,Clustering,Insight1,3,174663,34.546,427,Strongly disagree,1
+169,Coreflow,Workflow,Clustering,Insight2,3,174663,33.08,427,Strongly disagree,1
+169,SeqSynopsis,Workflow,Clustering,Insight2,3,174663,33.273,427,Strongly disagree,1
+169,Coreflow,Workflow,Clustering,Insight3,3,174663,35.377,427,Strongly disagree,1
+169,Sententree,Workflow,Clustering,Insight3,3,174663,15.115,427,Strongly disagree,1
+169,SeqSynopsis,Workflow,Clustering,Insight3,3,174663,19.775,427,Strongly disagree,1
+172,Coreflow,Workflow,Clustering,Insight1,4,116613,19.305,592,Strongly disagree,1
+172,Sententree,Workflow,Clustering,Insight1,4,116613,33.882,592,Strongly disagree,1
+172,Coreflow,Workflow,Clustering,Insight2,4,116613,11.541,592,Strongly disagree,1
+172,Sententree,Workflow,Clustering,Insight2,4,116613,42.429,592,Strongly disagree,1
+172,SeqSynopsis,Workflow,Clustering,Insight2,4,116613,44.705,592,Strongly disagree,1
+172,Sententree,Workflow,Clustering,Insight3,4,116613,37.197,592,Strongly disagree,1
+173,Coreflow,Workflow,Clustering,Insight1,4,772959,71.436,1245,Strongly disagree,1
+173,Sententree,Workflow,Clustering,Insight1,4,772959,39.89,1245,Strongly disagree,1
+174,Coreflow,Workflow,Clustering,Insight2,4,541363,130.421,6007,Strongly disagree,1
+174,Sententree,Workflow,Clustering,Insight2,4,541363,52.193,6007,Strongly disagree,1
+174,SeqSynopsis,Workflow,Clustering,Insight2,4,541363,94.853,6007,Strongly disagree,1
+175,SeqSynopsis,Workflow,Clustering,Insight1,4,870860,34.826,1769,Strongly disagree,1
+175,SeqSynopsis,Workflow,Clustering,Insight2,4,870860,56.64,1769,Strongly disagree,1
+176,SeqSynopsis,Workflow,Clustering,Insight1,5,735037,70.116,560,Strongly disagree,1
+176,Coreflow,Workflow,Clustering,Insight2,5,735037,31.371,560,Strongly disagree,1
+176,SeqSynopsis,Workflow,Clustering,Insight2,5,735037,78.002,560,Strongly disagree,1
+178,Sententree,Workflow,Clustering,Insight1,5,505004,69.22,1634,Strongly disagree,1
+178,Sententree,Workflow,Clustering,Insight2,5,505004,36.207,1634,Strongly disagree,1
