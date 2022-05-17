@@ -137,6 +137,13 @@ anova(model3LinearRecordInsightCrossed, model2LinearRecord)
 icc_specs(model2Linear) %>%
   mutate_if(is.numeric, round, 2)
 
+model3LinearRecordInsightCrossed <- lmer(LikertScale ~ 1+(1|Record) + (1|Insight), REML = FALSE, data = data1)
+summary(model3LinearRecordInsightCrossed)
+performance::icc(model3LinearRecordInsightCrossed)
+anova( model3LinearRecordInsightCrossed, modelLinear)
+anova(model3LinearRecordInsightCrossed, model2LinearRecord)
+icc_specs(model2Linear) %>%
+  mutate_if(is.numeric, round, 2)
 #Level2 Model-Record Insight Crossed Interaction
 model3LinearRecordInsightInteraction <- lmer(LikertScale ~ 1+(1|Record) * (1|Insight), REML = FALSE, data = data1)
 summary(model3LinearRecordInsightInteraction)
@@ -288,6 +295,83 @@ icc_specs(model5LinearTaskDatasetRecordInsightMSP) %>%
 
 #Level4 Model- Task Dataset Record Insight  and   MSP
 
+#Level 3 Model + Interaction MSP TASK
+
+model4LinearDatasetRecordInsightInteractionMSPTask <- lmer(LikertScale ~ 1+ Method:MSP + Method:Task + (1|Dataset/Record/Insight), REML = FALSE, data = data1)
+summary(model4LinearDatasetRecordInsightInteractionMSPTask)
+performance::icc(model4LinearDatasetRecordInsightInteractionMSPTask)
+anova( model4LinearDatasetRecordInsightInteractionMSPTask, modelLinear)
+anova(model4LinearDatasetRecordInsightInteractionMSPTask, model2LinearRecord)
+anova(model4LinearDatasetRecordInsightInteractionMSPTask, model3LinearRecordDataset)
+anova(model4LinearDatasetRecordInsightInteractionMSPTask, model4LinearDatasetRecordInsight)
+icc_specs(model4LinearDatasetRecordInsightInteractionMSPTask) %>%
+  mutate_if(is.numeric, round, 2)
+
+#Level 3 Model + Interaction MSP
+
+model4LinearDatasetRecordInsightInteractionMSP <- lmer(LikertScale ~ 1+ Method:Task  + (1|Dataset/Record/Insight), REML = FALSE, data = data1)
+summary(model4LinearDatasetRecordInsightInteractionMSP)
+performance::icc(model4LinearDatasetRecordInsightInteractionMSP)
+anova( model4LinearDatasetRecordInsightInteractionMSP, modelLinear)
+anova(model4LinearDatasetRecordInsightInteractionMSP, model2LinearRecord)
+anova(model4LinearDatasetRecordInsightInteractionMSP, model3LinearRecordDataset)
+anova(model4LinearDatasetRecordInsightInteractionMSP, model4LinearDatasetRecordInsight)
+icc_specs(model4LinearDatasetRecordInsightInteractionMSP) %>%
+  mutate_if(is.numeric, round, 2)
+
+#Level 3 Model + Random slope
+
+model4LinearDatasetRecordInsightInteractionMSPTaskSlope <- lmer(LikertScale ~ 1+ Method:MSP + Method:Task + (Method|Dataset/Record/Insight), REML = FALSE, data = data1)
+summary(model4LinearDatasetRecordInsightInteractionMSPTaskSlope)
+performance::icc(model4LinearDatasetRecordInsightInteractionMSPTaskSlope)
+anova( model4LinearDatasetRecordInsightInteractionMSPTaskSlope, modelLinear)
+anova(model4LinearDatasetRecordInsightInteractionMSPTaskSlope, model2LinearRecord)
+anova(model4LinearDatasetRecordInsightInteractionMSPTaskSlope, model3LinearRecordDataset)
+anova(model4LinearDatasetRecordInsightInteractionMSPTaskSlope, model4LinearDatasetRecordInsight)
+icc_specs(model4LinearDatasetRecordInsightInteractionMSPTaskSlope) %>%
+  mutate_if(is.numeric, round, 2)
+
+model4LinearDatasetRecordInsightInteractionMSPSlope <- lmer(LikertScale ~ 1+ Method:MSP  + (Method|Dataset/Record/Insight), REML = FALSE, data = data1)
+summary(model4LinearDatasetRecordInsightInteractionMSPSlope)
+performance::icc(model4LinearDatasetRecordInsightInteractionMSPSlope)
+anova( model4LinearDatasetRecordInsightInteractionMSPSlope, modelLinear)
+anova(model4LinearDatasetRecordInsightInteractionMSPSlope, model2LinearRecord)
+anova(model4LinearDatasetRecordInsightInteractionMSPSlope, model3LinearRecordDataset)
+anova(model4LinearDatasetRecordInsightInteractionMSPSlope, model4LinearDatasetRecordInsight)
+icc_specs(model4LinearDatasetRecordInsightInteractionMSPSlope) %>%
+  mutate_if(is.numeric, round, 2)
+
+
+model4LinearDatasetRecordInsightInteractionMethodSlope <- lmer(LikertScale ~ 1 + (Method|Dataset/Record/Insight), REML = FALSE, data = data1)
+summary(model4LinearDatasetRecordInsightInteractionMethodSlope)
+performance::icc(model4LinearDatasetRecordInsightInteractionMethodSlope)
+anova( model4LinearDatasetRecordInsightInteractionMethodSlope, modelLinear)
+anova(model4LinearDatasetRecordInsightInteractionMethodSlope, model2LinearRecord)
+anova(model4LinearDatasetRecordInsightInteractionMethodSlope, model3LinearRecordDataset)
+anova(model4LinearDatasetRecordInsightInteractionMethodSlope, model4LinearDatasetRecordInsight)
+icc_specs(model4LinearDatasetRecordInsightInteractionMethodSlope) %>%
+  mutate_if(is.numeric, round, 2)
+
+model4LinearDatasetRecordInsightInteraction <- lmer(LikertScale ~ 1+ Method:MSP + Method:Task + (Method|Dataset/Record/Insight), REML = FALSE, data = data1)
+summary(model4LinearDatasetRecordInsightInteraction)
+performance::icc(model4LinearDatasetRecordInsightInteraction)
+anova( model4LinearDatasetRecordInsightInteraction, modelLinear)
+anova(model4LinearDatasetRecordInsightInteraction, model2LinearRecord)
+anova(model4LinearDatasetRecordInsightInteraction, model3LinearRecordDataset)
+anova(model4LinearDatasetRecordInsightInteraction, model4LinearDatasetRecordInsight)
+icc_specs(model4LinearDatasetRecordInsightInteraction) %>%
+  mutate_if(is.numeric, round, 2)
+
+#Level 3 Model + Interaction
+model4LinearDatasetRecordInsightInteraction <- lmer(LikertScale ~ 1+ Method:MSP + Method:Task + (Method|Dataset/Record/Insight), REML = FALSE, data = data1)
+summary(model4LinearDatasetRecordInsightInteraction)
+performance::icc(model4LinearDatasetRecordInsightInteraction)
+anova( model4LinearDatasetRecordInsightInteraction, modelLinear)
+anova(model4LinearDatasetRecordInsightInteraction, model2LinearRecord)
+anova(model4LinearDatasetRecordInsightInteraction, model3LinearRecordDataset)
+anova(model4LinearDatasetRecordInsightInteraction, model4LinearDatasetRecordInsight)
+icc_specs(model4LinearDatasetRecordInsightInteraction) %>%
+  mutate_if(is.numeric, round, 2)
 
 # MixedEffectModel
 MixedEffectDatasetRecord <- lmer(LikertScale ~ 1 + Method +(1|Dataset/Record) ,  REML = FALSE, data = data1)
@@ -306,7 +390,7 @@ icc_specs(MixedEffect2) %>%
 confint(MixedEffect2)
 
 
-MixedEffect3 <- lmer(LikertScale ~ 1+ Method  + (1|Dataset/Record/Insight) , REML = FALSE, data = data1)
+MixedEffect3 <- lmer(LikertScale ~ 1+ Method  + (1|Record) , REML = FALSE, data = data1)
 summary(MixedEffect3)
 anova(MixedEffect3, model5LinearTaskDatasetRecordInsightMSP)
 icc_specs(MixedEffect3) %>%
