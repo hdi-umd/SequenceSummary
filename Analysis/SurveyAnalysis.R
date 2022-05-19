@@ -10,7 +10,7 @@ library(ordinal)
 #Load Data
 data1 <- read.csv(file = "./Documents/Research/code/Analysis/survey_data.csv", header=TRUE,  stringsAsFactors=TRUE)
 data1
-
+data_original<- data1
 # Convert to factor
 data1$Dataset<- factor(data1$Dataset)
 data1$Task<- factor(data1$Task)
