@@ -1,4 +1,9 @@
+# output files from the example
+sequencesynopsis/+seqsynopsis_msp.json
+sequencesynopsis/sequence_synopsis_outfile.json
+
 # IDEs and editors
+
 *checkpoints
 
 # input files

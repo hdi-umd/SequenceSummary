@@ -4,7 +4,7 @@ The sententree implementation contains implementation of the [SequenceSynopsis T
 
 ## Installation
 
-Nothing is needed
+`pip install -r requirements.txt`
 
 ## Input
 
