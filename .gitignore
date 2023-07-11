@@ -1,13 +1,15 @@
 # output files from the example
 sequencesynopsis/+seqsynopsis_msp.json
 sequencesynopsis/sequence_synopsis_outfile.json
-
+sequencesynopsis/sequence_synopsis_outfile.csv
 # IDEs and editors
 
 *checkpoints
 
 # input files
-*.csv
+.gitignore.swp
+Sample_Dataset.csv
+process_mining.csv
 Endomodo.lnk/
 
 # System Files
