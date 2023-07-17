@@ -1,4 +1,6 @@
+
 # output files from the example
+sequencesynopsis/differentRuns/
 sequencesynopsis/+seqsynopsis_msp.json
 sequencesynopsis/sequence_synopsis_outfile.json
 sequencesynopsis/sequence_synopsis_outfile.csv
