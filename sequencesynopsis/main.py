@@ -87,28 +87,30 @@ if __name__ == "__main__":
             seqList = [seq]
         else:
             seqList = seq
-
-    syn = SequenceSynopsisMiner(args.attr, eventStore)
+    alphaVal = 0.5
+    lambdaVal = 0
+    syn = SequenceSynopsisMiner(args.attr, eventStore, alpha=alphaVal, lambdaVal=lambdaVal)
     result = syn.minDL(seqList)
     ssm = result[0]
     grph = result[1]
     z = json.dumps(grph, ensure_ascii=False,
                            default=Graph.jsonSerializeDump, indent=1)
-    print(z)
+    #print(z)
     with open('+seqsynopsis_msp'+ '.json', 'w') \
                     as the_file3:
                 the_file3.write(z)
-    print(ssm)
-    with open('sequence_synopsis_outfile.csv', 'w') as the_file:
+    #print(ssm)
+    with open(f'sequence_synopsis_outfile_alpha{alphaVal}_lambda{lambdaVal}.csv', 'w') as the_file:
         writer = csv.writer(the_file)
         writer.writerow(["Pattern_ID", "Event", "Average_Index", "Number of Sequences"])
         for index, elem in enumerate(ssm):
-            print(f'elemvalue {elem.index}')
+            #print(f'elemvalue {elem.index}')
             writer.writerow(["P"+str(index), "_Start", 0, str(len(elem.seqList))])
+            #print(elem.seqList)
             keyEvents = eventStore.getEventValue(args.attr, elem.pattern.keyEvts)
-            print(f'key {keyEvents}')
+            #print(f'key {keyEvents}')
             for ind, pos in enumerate(keyEvents):
-                print(f'pos {pos} ind {ind}')
+                #print(f'pos {pos} ind {ind}')
                 writer.writerow(["P"+str(index), pos, elem.index[ind], str(len(elem.seqList))])
             trailingLen = sum(len(x.events) for x in elem.seqList)/len(elem.seqList)
             writer.writerow(["P"+str(index), "_Exit", trailingLen, str(len(elem.seqList))])
@@ -120,7 +122,7 @@ if __name__ == "__main__":
 
     x = json.dumps([elem.jsonDefaultDump(args.attr, eventStore) for elem in ssm],
                    ensure_ascii=False)
-    print(x)
+    #print(x)
 
-    with open('sequence_synopsis_outfile.json', 'w') as the_file:
+    with open(f'sequence_synopsis_outfile_alpha{alphaVal}_lambda{lambdaVal}.json', 'w') as the_file:
         the_file.write(x)
