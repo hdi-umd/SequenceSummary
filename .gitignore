@@ -1,5 +1,5 @@
-
 # output files from the example
+sequencesynopsis/sequence_synopsis_pattern2sequence*
 sequencesynopsis/sequence_synopsis_outfile_*
 sequencesynopsis/differentRuns/
 sequencesynopsis/+seqsynopsis_msp.json

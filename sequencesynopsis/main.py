@@ -15,6 +15,15 @@ from Graph import Graph
 #from SequenceSynopsisMiner import SequenceSynopsisMiner
 #from SequenceSynopsisMinerWithLSH import SequenceSynopsisMiner
 from SequenceSynopsisMinerWithWeightedLSH import SequenceSynopsisMiner
+
+def print_attributes(obj, indent = 0):
+    for attr in dir(obj):
+        if not attr.startswith("__"):  # Exclude built-in attributes
+            value = getattr(obj, attr)
+            print("  " * indent + f"{attr}: {value}")
+            if not isinstance(value, (int, float, str, bool, type(None))):
+                print_attributes(value, indent + 1)
+
 if __name__ == "__main__":
     # main()
 
@@ -87,8 +96,8 @@ if __name__ == "__main__":
             seqList = [seq]
         else:
             seqList = seq
-    alphaVal = 0.5
-    lambdaVal = 0
+    alphaVal = 0.9
+    lambdaVal = 0.1
     syn = SequenceSynopsisMiner(args.attr, eventStore, alpha=alphaVal, lambdaVal=lambdaVal)
     result = syn.minDL(seqList)
     ssm = result[0]
@@ -100,13 +109,20 @@ if __name__ == "__main__":
                     as the_file3:
                 the_file3.write(z)
     #print(ssm)
+    pattern2seq = {}
     with open(f'sequence_synopsis_outfile_alpha{alphaVal}_lambda{lambdaVal}.csv', 'w') as the_file:
         writer = csv.writer(the_file)
         writer.writerow(["Pattern_ID", "Event", "Average_Index", "Number of Sequences"])
         for index, elem in enumerate(ssm):
             #print(f'elemvalue {elem.index}')
             writer.writerow(["P"+str(index), "_Start", 0, str(len(elem.seqList))])
-            #print(elem.seqList)
+            ids = [item._id for item in elem.seqList]
+            if index in pattern2seq:
+                 pattern2seq[index].extend(ids)
+            else:
+                 pattern2seq[index] = ids
+            print(ids)
+            #print_attributes(elem.seqList[0])
             keyEvents = eventStore.getEventValue(args.attr, elem.pattern.keyEvts)
             #print(f'key {keyEvents}')
             for ind, pos in enumerate(keyEvents):
@@ -115,8 +131,8 @@ if __name__ == "__main__":
             trailingLen = sum(len(x.events) for x in elem.seqList)/len(elem.seqList)
             writer.writerow(["P"+str(index), "_Exit", trailingLen, str(len(elem.seqList))])
 
-
-
+    with open(f'sequence_synopsis_pattern2sequence_alpha{alphaVal}_lambda{lambdaVal}.json', 'w') as out_f:
+         json.dump(pattern2seq, out_f)
 
     #Cluster.printClustDict(G, "Event")
 
