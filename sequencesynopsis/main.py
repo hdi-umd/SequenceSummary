@@ -65,6 +65,10 @@ if __name__ == "__main__":
     argParser.add_argument("--output", help="Path of output file",
                            type=str, default="")
 
+    argParser.add_argument("--alpha", type=float, default=0.99)
+    argParser.add_argument("--lambdaVal", type=float, default=0.01)
+    argParser.add_argument("--fileIdentifier", type=str, default='')
+
     args = argParser.parse_args()
     print(args)
 
@@ -96,9 +100,8 @@ if __name__ == "__main__":
             seqList = [seq]
         else:
             seqList = seq
-    alphaVal = 0.9
-    lambdaVal = 0.1
-    syn = SequenceSynopsisMiner(args.attr, eventStore, alpha=alphaVal, lambdaVal=lambdaVal)
+    
+    syn = SequenceSynopsisMiner(args.attr, eventStore, alpha=args.alpha, lambdaVal=args.lambdaVal)
     result = syn.minDL(seqList)
     ssm = result[0]
     grph = result[1]
@@ -110,7 +113,7 @@ if __name__ == "__main__":
                 the_file3.write(z)
     #print(ssm)
     pattern2seq = {}
-    with open(f'sequence_synopsis_outfile_alpha{alphaVal}_lambda{lambdaVal}.csv', 'w') as the_file:
+    with open(f'sequence_synopsis_outfile_{args.fileIdentifier}_alpha{args.alpha}_lambda{args.lambdaVal}.csv', 'w') as the_file:
         writer = csv.writer(the_file)
         writer.writerow(["Pattern_ID", "Event", "Average_Index", "Number of Sequences"])
         for index, elem in enumerate(ssm):
@@ -121,7 +124,7 @@ if __name__ == "__main__":
                  pattern2seq[index].extend(ids)
             else:
                  pattern2seq[index] = ids
-            print(ids)
+            #print(ids)
             #print_attributes(elem.seqList[0])
             keyEvents = eventStore.getEventValue(args.attr, elem.pattern.keyEvts)
             #print(f'key {keyEvents}')
@@ -131,7 +134,7 @@ if __name__ == "__main__":
             trailingLen = sum(len(x.events) for x in elem.seqList)/len(elem.seqList)
             writer.writerow(["P"+str(index), "_Exit", trailingLen, str(len(elem.seqList))])
 
-    with open(f'sequence_synopsis_pattern2sequence_alpha{alphaVal}_lambda{lambdaVal}.json', 'w') as out_f:
+    with open(f'sequence_synopsis_pattern2sequence_{args.fileIdentifier}_alpha{args.alpha}_lambda{args.lambdaVal}.json', 'w') as out_f:
          json.dump(pattern2seq, out_f)
 
     #Cluster.printClustDict(G, "Event")
@@ -140,5 +143,5 @@ if __name__ == "__main__":
                    ensure_ascii=False)
     #print(x)
 
-    with open(f'sequence_synopsis_outfile_alpha{alphaVal}_lambda{lambdaVal}.json', 'w') as the_file:
+    with open(f'sequence_synopsis_outfile_{args.fileIdentifier}_alpha{args.alpha}_lambda{args.lambdaVal}.json', 'w') as the_file:
         the_file.write(x)
