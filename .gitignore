@@ -1,3 +1,8 @@
+coreflow/coreflow_graph.json
+coreflow/coreflow_result.json
+output_minsupport/
+sequencesynopsis/runEvent.sh
+sequencesynopsis/runText.sh
 # output files from the example
 sequencesynopsis/sequence_synopsis_pattern2sequence*
 sequencesynopsis/sequence_synopsis_outfile_*
