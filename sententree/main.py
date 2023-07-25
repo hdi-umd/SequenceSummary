@@ -52,7 +52,7 @@ if __name__ == "__main__":
 
 
     argParser.add_argument("--output", help="Path of output file",
-                           type=str, default="")
+                           type=str, default="./sentence-tree")
 
     args = argParser.parse_args()
     print(args)
@@ -61,7 +61,7 @@ if __name__ == "__main__":
         if args.local:
             args.output = os.path.dirname(os.path.abspath(args.file))+"/output_minsupport/"
             print(f' Output path {args.output}')
-            basename = os.path.splitext(os.path.basename(args.file))[0]
+            #basename = os.path.splitext(os.path.basename(args.file))[0]
     if not os.path.exists(args.output):
         os.makedirs(args.output)
 
@@ -128,7 +128,7 @@ if __name__ == "__main__":
         y = json.dumps(graph, ensure_ascii=False,
                     default=Graph.jsonSerializeDump, indent=1)
         print(y)
-        with open(args.output+basename+'+sententree_msp'+f'{minSupParam:.2f}'+ '.json', 'w') \
+        with open(args.output+'+sententree_msp'+f'{minSupParam:.2f}'+ '.json', 'w') \
                     as the_file2:
             the_file2.write(y)
         minSupParam += 0.05
