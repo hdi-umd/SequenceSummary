@@ -286,6 +286,7 @@ class GraphNode(Node):
             "event_attribute": self.value,
             "pattern": self.getPatternString(),
             "value": self.seqCount,
+            "sequences": [s._id for s in self.sequences],
             "After": GraphNode.jsonSerializeDump(self.after)
 
         }
