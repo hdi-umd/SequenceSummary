@@ -245,9 +245,8 @@ class TreeNode(Node):
             "value": self.seqCount,
             "median_index": self.medianStep,
             "average_index": self.meanStep,
-            "sequenceIDs": self.sequences,
+            "sequences": [s._id for s in self.sequences],
             "children": [TreeNode.jsonSerializeDump(x) for x in self.children]
-
         }
 
     def jsonSerialize(self) -> None:
@@ -286,9 +285,8 @@ class GraphNode(Node):
             "event_attribute": self.value,
             "pattern": self.getPatternString(),
             "value": self.seqCount,
-            "sequenceIDs": self.sequences,
+            "sequences": [s._id for s in self.sequences],
             "After": GraphNode.jsonSerializeDump(self.after)
-
         }
 
     def jsonSerialize(self) -> None:
