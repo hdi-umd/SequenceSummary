@@ -57,7 +57,8 @@ class RawNode:
             "value": str(self.seqCount),
             "value_event": str(self.evtCount),
             "median_index": self.medianStep,
-            "average_index": self.meanStep
+            "average_index": self.meanStep,
+            "sequenceIDs": self.sequences,
         }
 
     @staticmethod

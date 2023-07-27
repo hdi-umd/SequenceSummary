@@ -1,3 +1,5 @@
+sententree/sentence-tree*
+sententree/sentence-tree+sententree_msp
 coreflow/coreflow_graph.json
 coreflow/coreflow_result.json
 output_minsupport/
