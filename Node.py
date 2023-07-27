@@ -245,7 +245,7 @@ class TreeNode(Node):
             "value": self.seqCount,
             "median_index": self.medianStep,
             "average_index": self.meanStep,
-
+            "sequences": [s._id for s in self.sequences], 
             "children": [TreeNode.jsonSerializeDump(x) for x in self.children]
 
         }
