@@ -52,7 +52,7 @@ if __name__ == "__main__":
 
 
     argParser.add_argument("--output", help="Path of output file",
-                           type=str, default="./sentence-tree")
+                           type=str, default="")
 
     args = argParser.parse_args()
     print(args)
