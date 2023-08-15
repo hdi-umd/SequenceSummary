@@ -113,7 +113,10 @@ if __name__ == "__main__":
                 the_file3.write(z)
     #print(ssm)
     pattern2seq = {}
-    with open(f'sequence_synopsis_outfile_{args.fileIdentifier}_alpha{args.alpha}_lambda{args.lambdaVal}.csv', 'w') as the_file:
+    outdir = "output"
+    if not os.path.exists(outdir):
+        os.mkdir(outdir)
+    with open(os.path.join(outdir, f'sequence_synopsis_outfile_{args.fileIdentifier}_alpha{args.alpha}_lambda{args.lambdaVal}.csv'), 'w') as the_file:
         writer = csv.writer(the_file)
         writer.writerow(["Pattern_ID", "Event", "Average_Index", "Number of Sequences"])
         for index, elem in enumerate(ssm):
@@ -134,7 +137,7 @@ if __name__ == "__main__":
             trailingLen = sum(len(x.events) for x in elem.seqList)/len(elem.seqList)
             writer.writerow(["P"+str(index), "_Exit", trailingLen, str(len(elem.seqList))])
 
-    with open(f'sequence_synopsis_pattern2sequence_{args.fileIdentifier}_alpha{args.alpha}_lambda{args.lambdaVal}.json', 'w') as out_f:
+    with open(os.path.join(outdir, f'sequence_synopsis_pattern2sequence_{args.fileIdentifier}_alpha{args.alpha}_lambda{args.lambdaVal}.json'), 'w') as out_f:
          json.dump(pattern2seq, out_f)
 
     #Cluster.printClustDict(G, "Event")
@@ -143,5 +146,5 @@ if __name__ == "__main__":
                    ensure_ascii=False)
     #print(x)
 
-    with open(f'sequence_synopsis_outfile_{args.fileIdentifier}_alpha{args.alpha}_lambda{args.lambdaVal}.json', 'w') as the_file:
+    with open(os.path.join(outdir, f'sequence_synopsis_outfile_{args.fileIdentifier}_alpha{args.alpha}_lambda{args.lambdaVal}.json'), 'w') as the_file:
         the_file.write(x)

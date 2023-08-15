@@ -124,9 +124,8 @@ class Node():
 
     def getPatternString(self):
         """Returns the pattern string for this node"""
-        return "-".join(str(
-            self.sequences[0].eventstore.reverseAttrDict[self.attr][hashVal])
-                        for hashVal in self.keyevts if self.sequences)
+        return '*'.join([str(self.sequences[0].eventstore.reverseAttrDict[self.attr][hashVal])
+                        for hashVal in self.keyevts if self.sequences])
 
     def getHash(self):
         """Returns hash value for this node."""
