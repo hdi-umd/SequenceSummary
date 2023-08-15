@@ -1,12 +1,34 @@
 #!/bin/bash
-dayLang=('3-NNS' '4-NS' '5-NNS')
-metrics=('editDistance' 'Jaccard')
-action='action'
+alphaLs=(0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9)
+lambdaLs=(0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9)
+actionType="text"
 
-for lang in "${dayLang[@]}"
-do
-    for metric in "${metrics[@]}"
+if [ "$actionType" == "text" ]
+then
+    inputFile='/Users/yuexichen/Desktop/code/collaborative_writing/processData/processed/text_sequencesynopsis_input.csv'
+    for alpha in "${alphaLs[@]}"
     do
-        python main.py --file "/Users/yuexichen/Desktop/code/collaborative_writing/processData/processed/${action}Df_${lang}_${metric}.csv" --evttype 1 --startidx 1 --format "%m/%d/%y" --sep "," --local True --grpattr "Sequence" --attr "Event" --fileIdentifier "${lang}_${action}_${metric}"
+        for lambdaVal in "${lambdaLs[@]}"
+            do
+            identifier=$(basename "${inputFile}" .csv | sed 's/video_textInput_//g')
+            echo "${identifier}" "${alpha}" "${lambdaVal}"
+            python main.py --file "${inputFile}" --evttype 1 --startidx 1 --format "%m/%d/%y" --sep "," --local True --grpattr "Sequence" \
+            --attr "Event" --fileIdentifier "${identifier}" --lambdaVal "${alpha}" --alpha "${lambdaVal}"
+            done
     done
-done
+
+else
+    for inputFile in /Users/yuexichen/Desktop/code/collaborative_writing/processData/processed/ss_combinations/*.csv
+    do
+        for alpha in "${alphaLs[@]}"
+        do
+            for lambdaVal in "${lambdaLs[@]}"
+                do
+                identifier=$(basename "${inputFile}" .csv | sed 's/video_textInput_//g')
+                echo "${identifier}" "${alpha}" "${lambdaVal}"
+                python main.py --file "${inputFile}" --evttype 1 --startidx 1 --format "%m/%d/%y" --sep "," --local True --grpattr "Sequence" \
+                --attr "Event" --fileIdentifier "${identifier}" --lambdaVal "${alpha}" --alpha "${lambdaVal}"
+                done
+        done
+    done
+fi
