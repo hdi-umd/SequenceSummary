@@ -116,5 +116,5 @@ if __name__ == "__main__":
             seqList = seq
 
     print("\n\n*****SPMF output******\n\n")
-    runSPMF(seqList, args.attr, [0.5])
+    runSPMF(seqList, args.attr, [1])
     print("\n\n")
