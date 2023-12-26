@@ -95,10 +95,10 @@ if __name__ == "__main__":
     root, graph = cfm.runCoreFlowMiner(seqList)
 
     print("\n\n*****Coreflow output******\n\n")
-
+    
     if not os.path.isdir(args.output):
         os.mkdir(args.output)
-
+    
     x = json.dumps(root, ensure_ascii=False,
                    default=TreeNode.jsonSerializeDump, indent=1)
     print(x)
