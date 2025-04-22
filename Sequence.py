@@ -100,6 +100,7 @@ class Sequence():
         the specified attribute for all the events in the sequence
         """
         lst = list(event.getAttrVal(attr) for event in self.events)
+       
         string = " -1 ".join(str(self.eventstore.attrDict[attr][elem])
                              for elem in lst)
         # string=""
@@ -114,13 +115,15 @@ class Sequence():
         the specified attribute for all the events in the sequence
         """
         lst = list(event.getAttrVal(attr) for event in self.events)
+        #print('lst', lst)
         string = " ".join(self.eventstore.attrDict[attr][elem] for elem in lst)
+        print(self.eventstore.attrDict[attr])
         # string=""
         # for count,event in enumerate(self.events):
         #    string+=str(event.getAttrVal(attr))+" -1 "
         string += "."
 
-        return string
+        return string, self.eventstore.attrDict[attr]
 
     def getPathID(self):
         """Returns the sequence ID value for this object."""

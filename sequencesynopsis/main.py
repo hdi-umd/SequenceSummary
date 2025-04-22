@@ -15,6 +15,15 @@ from Graph import Graph
 #from SequenceSynopsisMiner import SequenceSynopsisMiner
 #from SequenceSynopsisMinerWithLSH import SequenceSynopsisMiner
 from SequenceSynopsisMinerWithWeightedLSH import SequenceSynopsisMiner
+
+def print_attributes(obj, indent = 0):
+    for attr in dir(obj):
+        if not attr.startswith("__"):  # Exclude built-in attributes
+            value = getattr(obj, attr)
+            print("  " * indent + f"{attr}: {value}")
+            if not isinstance(value, (int, float, str, bool, type(None))):
+                print_attributes(value, indent + 1)
+
 if __name__ == "__main__":
     # main()
 
@@ -56,6 +65,10 @@ if __name__ == "__main__":
     argParser.add_argument("--output", help="Path of output file",
                            type=str, default="")
 
+    argParser.add_argument("--alpha", type=float, default=0.99)
+    argParser.add_argument("--lambdaVal", type=float, default=0.01)
+    argParser.add_argument("--fileIdentifier", type=str, default='')
+
     args = argParser.parse_args()
     print(args)
 
@@ -87,40 +100,51 @@ if __name__ == "__main__":
             seqList = [seq]
         else:
             seqList = seq
-
-    syn = SequenceSynopsisMiner(args.attr, eventStore)
+    
+    syn = SequenceSynopsisMiner(args.attr, eventStore, alpha=args.alpha, lambdaVal=args.lambdaVal)
     result = syn.minDL(seqList)
     ssm = result[0]
     grph = result[1]
     z = json.dumps(grph, ensure_ascii=False,
                            default=Graph.jsonSerializeDump, indent=1)
-    print(z)
+    #print(z)
     with open('+seqsynopsis_msp'+ '.json', 'w') \
                     as the_file3:
                 the_file3.write(z)
-    print(ssm)
-    with open('sequence_synopsis_outfile.csv', 'w') as the_file:
+    #print(ssm)
+    pattern2seq = {}
+    outdir = "output"
+    if not os.path.exists(outdir):
+        os.mkdir(outdir)
+    with open(os.path.join(outdir, f'sequence_synopsis_outfile_{args.fileIdentifier}_alpha{args.alpha}_lambda{args.lambdaVal}.csv'), 'w') as the_file:
         writer = csv.writer(the_file)
         writer.writerow(["Pattern_ID", "Event", "Average_Index", "Number of Sequences"])
         for index, elem in enumerate(ssm):
-            print(f'elemvalue {elem.index}')
+            #print(f'elemvalue {elem.index}')
             writer.writerow(["P"+str(index), "_Start", 0, str(len(elem.seqList))])
+            ids = [item._id for item in elem.seqList]
+            if index in pattern2seq:
+                 pattern2seq[index].extend(ids)
+            else:
+                 pattern2seq[index] = ids
+            #print(ids)
+            #print_attributes(elem.seqList[0])
             keyEvents = eventStore.getEventValue(args.attr, elem.pattern.keyEvts)
-            print(f'key {keyEvents}')
+            #print(f'key {keyEvents}')
             for ind, pos in enumerate(keyEvents):
-                print(f'pos {pos} ind {ind}')
+                #print(f'pos {pos} ind {ind}')
                 writer.writerow(["P"+str(index), pos, elem.index[ind], str(len(elem.seqList))])
             trailingLen = sum(len(x.events) for x in elem.seqList)/len(elem.seqList)
             writer.writerow(["P"+str(index), "_Exit", trailingLen, str(len(elem.seqList))])
 
-
-
+    with open(os.path.join(outdir, f'sequence_synopsis_pattern2sequence_{args.fileIdentifier}_alpha{args.alpha}_lambda{args.lambdaVal}.json'), 'w') as out_f:
+         json.dump(pattern2seq, out_f)
 
     #Cluster.printClustDict(G, "Event")
 
     x = json.dumps([elem.jsonDefaultDump(args.attr, eventStore) for elem in ssm],
                    ensure_ascii=False)
-    print(x)
+    #print(x)
 
-    with open('sequence_synopsis_outfile.json', 'w') as the_file:
+    with open(os.path.join(outdir, f'sequence_synopsis_outfile_{args.fileIdentifier}_alpha{args.alpha}_lambda{args.lambdaVal}.json'), 'w') as the_file:
         the_file.write(x)

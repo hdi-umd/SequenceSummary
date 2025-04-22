@@ -18,18 +18,28 @@ def runSPMF(sequence, attr, argsSPMF):
     # convert input to list format
     if not isinstance(sequence, list):
         sequence = [sequence]
-
-    rawSeq = "\n".join(seqs.convertToVMSPReadable(attr) for seqs in sequence)
-
+    rawSeq = ''
+    for seqs in sequence:
+        #cdist is the same for all sequences
+        cstr, cdist = seqs.convertToVMSPReadable(attr)
+        rawSeq += cstr + "\n"
+       
     spmf = Spmf("VMSP", spmf_bin_location_dir="./", input_direct=rawSeq,
                 input_type="text", output_filename="output.txt", arguments=argsSPMF)
-
+    
     spmf.run()
+    # get num2character mapping:
+    num2char = {}
+    for key,val in cdist.items():
+        num2char[val] = key
     dataFrame = spmf.to_pandas_dataframe(pickle=True)
+    dataFrame["patternLetter"] = dataFrame["pattern"].apply(lambda x: [num2char[i] for i in x])
 
     # more options can be specified also
     with pd.option_context('display.max_rows', 10, 'display.max_columns', None):
         print(dataFrame)
+    if args.output:
+        dataFrame.to_csv(args.output, index=False)
 
 
 if __name__ == "__main__":
@@ -106,5 +116,5 @@ if __name__ == "__main__":
             seqList = seq
 
     print("\n\n*****SPMF output******\n\n")
-    runSPMF(seqList, args.attr, [0.5])
+    runSPMF(seqList, args.attr, [1])
     print("\n\n")

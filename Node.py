@@ -7,7 +7,7 @@ import numpy as np
 from Pattern import Pattern
 
 
-class Node():
+class Node:
     """Base Node class holds information of the branching patterns in sequences"""
 
     nodeCounter = count(1)
@@ -68,22 +68,22 @@ class Node():
 
     def toString(self):
         """Returns name and seqCount for the node"""
-        return self.value+": "+self.seqCount
+        return self.value + ": " + self.seqCount
 
     def setPositions(self, lst):
         """set meanStep and medianStep"""
         self.pos = lst
-        #print(f'positions {self.pos}')
+        # print(f'positions {self.pos}')
         self.pos.sort()
-        sumVal = sum(self.pos)+len(self.pos)
-        #mid = len(self.pos)/2
+        sumVal = sum(self.pos) + len(self.pos)
+        # mid = len(self.pos)/2
 
         if len(self.pos) == 0:
             self.meanStep = 0
             self.medianStep = 0
         else:
             # WHY WE ARE ADDING 1 to mean and medianStep?
-            self.meanStep = sumVal/(len(self.pos))-1
+            self.meanStep = sumVal / (len(self.pos)) - 1
             # ((self.pos[mid-1]+self.pos[mid])/2.0)+1 if len(self.pos)%2==0 else self.pos[mid]+1
             self.medianStep = np.median(self.pos)
 
@@ -124,9 +124,13 @@ class Node():
 
     def getPatternString(self):
         """Returns the pattern string for this node"""
-        return "-".join(str(
-            self.sequences[0].eventstore.reverseAttrDict[self.attr][hashVal])
-                        for hashVal in self.keyevts if self.sequences)
+        return "*".join(
+            [
+                str(self.sequences[0].eventstore.reverseAttrDict[self.attr][hashVal])
+                for hashVal in self.keyevts
+                if self.sequences
+            ]
+        )
 
     def getHash(self):
         """Returns hash value for this node."""
@@ -137,9 +141,11 @@ class Node():
         self.hash = value
 
     def printNode(self):
-        """ Prints details for a node."""
-        print(f'node {self.nid}, value {self.value}, Pattern {self.getPatternString()}, \
-              meanStep {self.meanStep} seqcount {self.seqCount}')
+        """Prints details for a node."""
+        print(
+            f"node {self.nid}, value {self.value}, Pattern {self.getPatternString()}, \
+              meanStep {self.meanStep} seqcount {self.seqCount}"
+        )
 
     # def jsonSerialize(self):
     #    json.dump(self, indent=4, default= TreeNode.jsonDefaultDump)
@@ -181,7 +187,7 @@ class TreeNode(Node):
         key events for the given attribute.
         """
 
-        #print(f'path of string {pathsOfStrings}')
+        # print(f'path of string {pathsOfStrings}')
         medians, means = Pattern.getStats(self.keyevts, self.sequences, self.attr)
 
         # list(accumulate(means))
@@ -191,15 +197,15 @@ class TreeNode(Node):
 
         # means = list(accumulate(means))
         # medians = list(accumulate(medians))
-        #print(f'means {means}')
-        #print(f'medians {medians}')
+        # print(f'means {means}')
+        # print(f'medians {medians}')
 
         self.medianPos = medians
         self.meanPos = means
-        #print(f'mean {means} median {median}')
+        # print(f'mean {means} median {median}')
 
-        self.meanStep = means[-1]+self.parent[-1].meanStep
-        self.medianStep = medians[-1]+self.parent[-1].medianStep
+        self.meanStep = means[-1] + self.parent[-1].meanStep
+        self.medianStep = medians[-1] + self.parent[-1].medianStep
         return means[-1]
 
     def calcPositionsExitNode(self):
@@ -217,26 +223,25 @@ class TreeNode(Node):
         key events for the given attribute.
         """
 
-        #print(f'path of string {pathsOfStrings}')
+        # print(f'path of string {pathsOfStrings}')
         medians, means = Pattern.getStats(self.keyevts, self.sequences, self.attr)
 
         means = list(accumulate(means))
         medians = list(accumulate(medians))
-        #print(f'means {means}')
-        #print(f'medians {medians}')
+        # print(f'means {means}')
+        # print(f'medians {medians}')
 
         self.medianPos = medians
         self.meanPos = means
-        #print(f'mean {means} median {median}')
+        # print(f'mean {means} median {median}')
         if isExit:
             median, mean = Pattern.getStatsEnd(self.keyevts, self.sequences, self.attr)
             means.append(mean + means[-1])
             medians.append(median + medians[-1])
-            #print(f'trailing means{means}')
-            #print(f'trailing medians{medians}')
+            # print(f'trailing means{means}')
+            # print(f'trailing medians{medians}')
         self.meanStep = means[-1]
         self.medianStep = medians[-1]
-
 
     def jsonDefaultDump(self) -> dict:
         return {
@@ -245,9 +250,8 @@ class TreeNode(Node):
             "value": self.seqCount,
             "median_index": self.medianStep,
             "average_index": self.meanStep,
-            "sequences": [s._id for s in self.sequences], 
-            "children": [TreeNode.jsonSerializeDump(x) for x in self.children]
-
+            "sequences": [s._id for s in self.sequences],
+            "children": [TreeNode.jsonSerializeDump(x) for x in self.children],
         }
 
     def jsonSerialize(self) -> None:
@@ -261,18 +265,13 @@ class TreeNode(Node):
             return obj.jsonDefaultDump()
         return None
 
-
     @staticmethod
     def resetCounter():
         """resets node counter."""
         Node.resetCounter()
 
 
-
-
-
 class GraphNode(Node):
-
     """Class to support graphs where multiple branching of nodes are possible"""
 
     def __init__(self, attr="", count_val=0, value=""):
@@ -287,8 +286,7 @@ class GraphNode(Node):
             "pattern": self.getPatternString(),
             "value": self.seqCount,
             "sequences": [s._id for s in self.sequences],
-            "After": GraphNode.jsonSerializeDump(self.after)
-
+            "After": GraphNode.jsonSerializeDump(self.after),
         }
 
     def jsonSerialize(self) -> None:

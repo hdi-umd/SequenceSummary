@@ -1,4 +1,20 @@
+spmf/input/
+spmf/output.txt
+sequencesynopsis/output/
+spmf/output.pkl
+spmf/output/
+coreflow/*.json
+sententree/sentence-tree*
+sententree/sentence-tree+sententree_msp
+coreflow/coreflow_graph.json
+coreflow/coreflow_result.json
+output_minsupport/
+sequencesynopsis/runEvent.sh
+sequencesynopsis/runText.sh
 # output files from the example
+sequencesynopsis/sequence_synopsis_pattern2sequence*
+sequencesynopsis/sequence_synopsis_outfile_*
+sequencesynopsis/differentRuns/
 sequencesynopsis/+seqsynopsis_msp.json
 sequencesynopsis/sequence_synopsis_outfile.json
 sequencesynopsis/sequence_synopsis_outfile.csv

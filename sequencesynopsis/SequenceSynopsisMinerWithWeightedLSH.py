@@ -9,6 +9,7 @@ from Pattern import Pattern
 from datasketch import MinHash, MinHashLSH, WeightedMinHashGenerator
 from sklearn.feature_extraction.text import TfidfVectorizer
 from Graph import Graph, RawNode, Links
+import math
 
 
 class SequenceSynopsisMiner:
@@ -30,9 +31,14 @@ class SequenceSynopsisMiner:
         """
         vectorizer = TfidfVectorizer(
             token_pattern=r'\w+', norm="l1", sublinear_tf=True, use_idf=False)
-        patStrings = [" ".join(self.eventStore.getEventValue(
-            self.attr, val.pattern.keyEvts)) for val in self.clustDict]
-        # print(x[0])
+        
+        for val in self.clustDict:
+            #print(1, self.attr)
+            #print(2, val.pattern.keyEvts)
+            #print(3, self.eventStore.getEventValue(self.attr, val.pattern.keyEvts))
+            patStrings = [" ".join(str(self.eventStore.getEventValue(
+                self.attr, val.pattern.keyEvts))) for val in self.clustDict]
+        
         vectors = vectorizer.fit_transform(patStrings)
         dense = vectors.todense()
         denselist = dense.tolist()

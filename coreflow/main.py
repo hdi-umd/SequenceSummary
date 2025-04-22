@@ -53,7 +53,7 @@ if __name__ == "__main__":
                            type=str, default="")
 
     argParser.add_argument("--output", help="Path of output file",
-                           type=str, default="")
+                           type=str, default="./")
 
     args = argParser.parse_args()
     print(args)

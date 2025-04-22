@@ -58,7 +58,11 @@ class RawNode:
             "value_event": str(self.evtCount),
             "median_index": self.medianStep,
             "average_index": self.meanStep,
+<<<<<<< HEAD
             "sequences": [s._id for s in self.sequences]
+=======
+            "sequences": [s._id for s in self.sequences],
+>>>>>>> origin/add-alpha-lambda-to-main
         }
 
     @staticmethod

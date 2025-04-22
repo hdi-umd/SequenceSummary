@@ -17,6 +17,7 @@ an example input file: `../coreflow_paper_test.csv`
 
 
 ## how to run Sequence Synopsis
+(note: it's also in `run.sh` and you can run `bash run.sh`)
 
 `python main.py --file "../coreflow_paper_test.csv" --evttype 1 --startidx 1 --format "%m/%d/%y" --sep "," --local True --grpattr "Sequence" --attr "Event"`
 
