@@ -22,8 +22,8 @@ export async function renderCoreFlow(dataPath, renderer) {
   let [nodes, links] = scene.repeat([node, link], data);
   scene.encode(node, { attribute: "event_attribute", channel: "text" });
   nodes.layout = atlas.layout("tidyTree", {
-    width: 1250,
-    height: 450,
+    width: 800,
+    height: 550,
     orientation: "vertical",
   });
   // scene.encode(node, {
@@ -327,12 +327,12 @@ export async function renderSeqSynopsis(dataPath, renderer) {
   let xEnc = scn.encode(evtBg, {
     channel: "x",
     attribute: "pattern",
-    rangeExtent: 1000,
+    rangeExtent: 800,
   });
   let yEnc = scn.encode(glyph, {
     channel: "y",
     attribute: "average_index",
-    rangeExtent: 1050,
+    rangeExtent: 550,
     flipScale: true,
   });
   // console.log(yEnc._scales[0].map(30));

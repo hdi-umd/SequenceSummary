@@ -53,12 +53,12 @@ renderVisualizations();
 },[props.sententreeJson, props.seqsynopsisJson, props.coreflowJson]);
   return (
     <div>
-      {/* <svg id="svgElementSeqSynopsis" className="svgmined">
+      <svg id="svgElementSeqSynopsis" className="svgmined">
           {" "}
-        </svg>  */}
-          {/* <svg id="svgElementCoreflow" className="svgmined">
+        </svg>
+          <svg id="svgElementCoreflow" className="svgmined">
           {" "}
-        </svg> */}
+        </svg>
          <svg id="svgElementSentenTree" className="svgmined">
           {" "}
         </svg> 
