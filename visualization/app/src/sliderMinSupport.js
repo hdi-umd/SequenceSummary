@@ -3,27 +3,49 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
 import React from "react";
 // Using an ES6 transpiler like Babel
-import Slider from "react-rangeslider";
+import ReactSlider from 'react-slider';
 // To include the default styles
-import "react-rangeslider/lib/index.css";
+// import "react-slider/lib/index.css";
 import "./App.css";
 
 function SupportSlider(props) {
+  // Create marks object from support labels
+  // Convert marks to a list
+  const marks = Object.values(props.labels).map(value => parseFloat(value));
+
+
   const handleOnChange = (value) => {
-    props.onSuppportChange(value.toFixed(2));
+    props.onSuppportChange(value.toString());
   };
 
+  
   return (
-    <Slider 
+    <div style={{ padding: "20px" }}>
+    <ReactSlider 
+      className="rangeslider"
+      thumbClassName="thumb"
+      trackClassName="track"
       min={props.min}
       max={props.max}
       step={props.step}
       value={parseFloat(props.selectedSup)}
       orientation="horizontal"
-      tooltip={true}
-      labels={props.labels}
+      marks={marks}
+      markClassName="mark"
+      renderMark={(props) => {
+        return (
+          <div {...props} className="mark">
+            <span>{props.key}</span>
+          </div>
+        );
+      }}
       onChange={handleOnChange}
+      renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
     />
+    <div style={{ textAlign: "center", marginTop: "10px" }}>
+        Support Value: {props.selectedSup}
+      </div>
+    </div>
   );
 }
 
