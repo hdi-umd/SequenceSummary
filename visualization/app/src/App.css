@@ -6,8 +6,8 @@
 
 .svgmined {
   margin: 20px 20px 50px 20px;
-  width: 1200px;
-  height: 800px;
+  width: 1600px;
+  height: 4500px;
   border: solid gray;
   border-width: 1px;
 
@@ -33,12 +33,40 @@
   min-width: 300px;
 }
 
-
 .rangeslider {
+  width: 100%;
+  max-width: 500px;
+  height: 20px;
   margin: 20px 20px 50px 20px;
   position: relative;
   background: #e6e6e6;
 }
+
+.rangeslider .thumb {
+  width: 20px;
+  height: 20px;
+  background-color: #53b7fa;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.rangeslider .track {
+  height: 6px;
+  background: #ddd;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  display: inline-block;
+  position: absolute;
+  /* border-radius: 0; */
+  width: 10px;
+}
+
+/* .rangeslider {
+  margin: 20px 20px 50px 20px;
+  position: relative;
+  background: #e6e6e6;
+} */
 
 .rangeslider-horizontal {
   height: 12px;
@@ -51,6 +79,23 @@
 .rangeslider-horizontal .rangeslider__fill {
   background-color: #53b7fa;
   border-radius: 0;
+}
+
+rangeslider .mark {
+  width: 2px;
+  height: 8px;
+  background-color: #aaa;
+  margin-top: 12px;
+  position: relative;
+}
+
+.rangeslider .mark span {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  color: #666;
 }
 
 .rangeslider .rangeslider__handle {
