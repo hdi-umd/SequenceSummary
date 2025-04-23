@@ -27,17 +27,11 @@ year = {2023}
 
 Event sequence data appears in many domains, from healthcare records to user clickstreams to system logs. Visualizing this data effectively is challenging due to the volume, variety, and complexity of temporal patterns. 
 
-This repository implements three visualization techniques from academic literature that help users explore and understand event sequence data through different visual representations:
-
-- [**CoreFlow**]((https://www.zcliu.org/coreflow/coreflow-eurovis17.pdf)): Tree-based visualization of branching patterns
-- [**SentenTree**](https://faculty.cc.gatech.edu/~stasko/papers/infovis16-sententree.pdf): Graph-based visualization showing relationships between events
-- [**Sequence Synopsis**](https://lliquid.github.io/homepage/files/ss_vast17.pdf): Optimized visual summaries using clustering and minimum description length
-
+This repository implements three visualization techniques from academic literature that help users explore and understand event sequence data through different visual representations.
 Each technique offers different strengths for pattern discovery, anomaly detection, and sequence clustering tasks.
 
 
 ![Visualization Example](https://github.com/hdi-umd/SequenceSummary/blob/main/teaser.png?raw=true)
-
 
 
 ## Features
@@ -107,6 +101,48 @@ npm start
 
 ## Quick Start Guide
 
+### Running the Visualization Techniques via **Command Line**
+
+#### CoreFlow Example
+```bash
+# Run CoreFlow mining on the sample dataset
+python coreflow/main.py --file "Sample_Dataset.csv" --evttype 1 --startidx 0 \
+  --format "%m/%d/%y" --sep "," --local True \
+  --grpattr "group_attribute" --attr "event_attribute" \
+  --output "./output/"
+```
+
+#### SentenTree Example
+```bash
+# Run SentenTree mining on the sample dataset
+python sententree/main.py --file "Sample_Dataset.csv" --evttype 1 --startidx 0 \
+  --format "%m/%d/%y" --sep "," --local True \
+  --grpattr "group_attribute" --attr "event_attribute" \
+  --output "./output/"
+```
+
+#### Sequence Synopsis Example
+**Command Line:**
+```bash
+# Run Sequence Synopsis mining on the sample dataset
+python sequencesynopsis/main.py --file "Sample_Dataset.csv" --evttype 1 --startidx 0 \
+  --format "%m/%d/%y" --sep "," --local True \
+  --grpattr "group_attribute" --attr "event_attribute" \
+  --alpha 0.1 --lambdaVal 0.9 --output "./output/"
+```
+
+#### Running All Techniques for Comparison
+
+```bash
+# Run all three techniques with varying granularity levels
+python RunAll.py --file "Sample_Dataset.csv" --evttype 1 --startidx 0 \
+  --format "%m/%d/%y" --sep "," --local True \
+  --grpattr "group_attribute" --attr "event_attribute" \
+  --output "./output/"
+```
+
+### Running the Visualization Techniques using **Python API:**
+
 ### Loading Data
 
 All three techniques use the same data loading approach:
@@ -130,11 +166,8 @@ eventStore.importPointEvents(
 sequences = eventStore.generateSequence("group_attribute")
 ```
 
-### Running the Visualization Techniques
-
 #### CoreFlow Example
 
-**Python API:**
 ```python
 from coreflow.CoreFlowMiner import CoreFlowMiner
 
@@ -154,18 +187,8 @@ with open('coreflow_result.json', 'w') as f:
     json.dump(root, f, default=lambda o: o.__dict__ if hasattr(o, "__dict__") else str(o))
 ```
 
-**Command Line:**
-```bash
-# Run CoreFlow mining on a dataset
-python coreflow/main.py --file "your_dataset.csv" --evttype 1 --startidx 0 \
-  --format "%m/%d/%y" --sep "," --local True \
-  --grpattr "group_attribute" --attr "event_attribute" \
-  --output "./output/"
-```
-
 #### SentenTree Example
 
-**Python API:**
 ```python
 from sententree.SentenTreeMiner import SentenTreeMiner
 
@@ -185,18 +208,9 @@ with open('sententree_result.json', 'w') as f:
     json.dump(graph, f, default=lambda o: o.__dict__ if hasattr(o, "__dict__") else str(o))
 ```
 
-**Command Line:**
-```bash
-# Run SentenTree mining on a dataset
-python sententree/main.py --file "your_dataset.csv" --evttype 1 --startidx 0 \
-  --format "%m/%d/%y" --sep "," --local True \
-  --grpattr "group_attribute" --attr "event_attribute" \
-  --output "./output/"
-```
 
 #### Sequence Synopsis Example
 
-**Python API:**
 ```python
 from sequencesynopsis.SequenceSynopsisMinerWithWeightedLSH import SequenceSynopsisMiner
 
@@ -217,24 +231,6 @@ with open('seqsynopsis_result.json', 'w') as f:
     json.dump(graph, f, default=lambda o: o.__dict__ if hasattr(o, "__dict__") else str(o))
 ```
 
-**Command Line:**
-```bash
-# Run Sequence Synopsis mining on a dataset
-python sequencesynopsis/main.py --file "your_dataset.csv" --evttype 1 --startidx 0 \
-  --format "%m/%d/%y" --sep "," --local True \
-  --grpattr "group_attribute" --attr "event_attribute" \
-  --alpha 0.1 --lambdaVal 0.9 --output "./output/"
-```
-
-#### Running All Techniques for Comparison
-
-```bash
-# Run all three techniques with varying granularity levels
-python RunAll.py --file "your_dataset.csv" --evttype 1 --startidx 0 \
-  --format "%m/%d/%y" --sep "," --local True \
-  --grpattr "group_attribute" --attr "event_attribute" \
-  --output "./output/"
-```
 
 ## Visualization App
 
@@ -251,29 +247,19 @@ This will start a local server at http://localhost:3000 where you can:
 - Compare visualization techniques side-by-side
 
 
-![Visualization App Screenshot](https://via.placeholder.com/800x400?text=Visualization+App+Screenshot)
-
 ## Performance Considerations
 
 Each technique has different strengths and computational characteristics:
 
-- **CoreFlow**: Fastest technique, but may miss some patterns due to greedy algorithm approach
-- **SentenTree**: Moderate performance, balancing speed and comprehensiveness
-- **Sequence Synopsis**: Most computationally intensive but produces highest quality summaries according to our comparative evaluation
+- **CoreFlow**: Fastest technique, provides the simplest visualization structure, but may miss some patterns due to greedy algorithm approach
+- **SentenTree**: Offers a good balance between quality and interpretability
+- **Sequence Synopsis**: Most computationally intensive and requires more time to understand, but produces highest quality summaries according to our comparative evaluation
 
 
-## Comparative Evaluation
 
-Our research shows that:
-- Sequence Synopsis produces the highest-quality visual summaries but requires more time to understand
-- CoreFlow provides the simplest visualization structure but may miss important patterns
-- SentenTree offers a good balance between quality and interpretability
-
-
-## Research Papers
+## Related Research Papers
 
 This implementation is based on the following papers:
-- **Comparative Evaluation**: Zinat, K.T., Yang, J., Gandhi, A., Mitra, N., & Liu, Z. (2023). A Comparative Evaluation of Visual Summarization Techniques for Event Sequences. Computer Graphics Forum (EuroVis '23).
 
 
 - **CoreFlow**: Liu, Z., Kerr, B., Dontcheva, M., Grover, J., Hoffman, M., & Wilson, A. (2017). CoreFlow: Extracting and Visualizing Branching Patterns from Event Sequences. Computer Graphics Forum (EuroVis '17).
@@ -282,10 +268,6 @@ This implementation is based on the following papers:
 
 - **Sequence Synopsis**: Chen, Y., Xu, P., & Ren, L. (2018). Sequence Synopsis: Optimize Visual Summary of Temporal Event Data. IEEE Transactions on Visualization and Computer Graphics (VAST '17).
 
-
-## Acknowledgments
-
-- Thanks to the original authors of the research papers for their algorithms and insights
 
 ## Contact
 
