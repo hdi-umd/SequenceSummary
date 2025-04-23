@@ -122,7 +122,6 @@ python sententree/main.py --file "Sample_Dataset.csv" --evttype 1 --startidx 0 \
 ```
 
 #### Sequence Synopsis Example
-**Command Line:**
 ```bash
 # Run Sequence Synopsis mining on the sample dataset
 python sequencesynopsis/main.py --file "Sample_Dataset.csv" --evttype 1 --startidx 0 \
