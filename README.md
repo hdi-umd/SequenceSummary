@@ -1,11 +1,21 @@
-# Event Sequence Summary Visualizations
+# Event Sequence Visual Summarization Techniques
 
-The repository contains the codebase for the paper titled ["A Comparative Evaluation of Visual Summarization Techniques
-for Event Sequences"](https://zcliu.org/papers/SeqSummarizationEval_EuroVis23.pdf), published in Eurovis, 2023.  
+Event sequence data arises across diverse domains, from healthcare records to user clickstreams and system logs. Effectively visualizing such data remains challenging due to the volume, variety, and complexity of temporal patterns.
+
+This repository provides implementations of three visual summarization techniques for event sequence data, which can be used for pattern discovery, anomaly detection, and sequence clustering.
+
+- [**CoreFlow**](https://www.zcliu.org/coreflow/coreflow-eurovis17.pdf): Creates tree-structured visualizations that highlight branching patterns in event sequences, making it easy to identify the most common paths and where they diverge.
+
+- [**SentenTree**](https://faculty.cc.gatech.edu/~stasko/papers/infovis16-sententree.pdf): Presents event sequences as directed graphs, revealing relationships between events and allowing exploration of complex event flow patterns.
+
+- [**Sequence Synopsis**](https://lliquid.github.io/homepage/files/ss_vast17.pdf): Generates optimized visual summaries using clustering and the minimum description length principle, balancing information preservation with visual simplicity.
+
+![Visualization Example](https://github.com/hdi-umd/SequenceSummary/blob/main/teaser.png?raw=true)
 
 #### Citation
 
-If you use this repository in your research, please cite our paper:
+If you use this repository in your research, please cite our paper ["A Comparative Evaluation of Visual Summarization Techniques
+for Event Sequences"](https://zcliu.org/papers/SeqSummarizationEval_EuroVis23.pdf), published at Eurovis 2023:
 
 ```bibtex
 @article{https://doi.org/10.1111/cgf.14821,
@@ -22,29 +32,7 @@ year = {2023}
 }
 ```
 
-
-## Introduction
-
-Event sequence data appears in many domains, from healthcare records to user clickstreams to system logs. Visualizing this data effectively is challenging due to the volume, variety, and complexity of temporal patterns. 
-
-This repository implements three visualization techniques from academic literature that help users explore and understand event sequence data through different visual representations.
-Each technique offers different strengths for pattern discovery, anomaly detection, and sequence clustering tasks.
-
-
-![Visualization Example](https://github.com/hdi-umd/SequenceSummary/blob/main/teaser.png?raw=true)
-
-
-## Features
-
-### Visualization Techniques
-
-- [**CoreFlow**](https://www.zcliu.org/coreflow/coreflow-eurovis17.pdf): Creates tree-structured visualizations that highlight branching patterns in event sequences, making it easy to identify the most common paths and where they diverge.
-
-- [**SentenTree**](https://faculty.cc.gatech.edu/~stasko/papers/infovis16-sententree.pdf): Presents event sequences as directed graphs, revealing relationships between events and allowing exploration of complex event flow patterns.
-
-- [**Sequence Synopsis**](https://lliquid.github.io/homepage/files/ss_vast17.pdf): Generates optimized visual summaries using clustering and the minimum description length principle, balancing information preservation with visual simplicity.
-
-### Key Capabilities
+## Key Capabilities
 
 - Support for different event types (point, interval, mixed)
 - Flexible input formats and time representations
@@ -270,4 +258,4 @@ This implementation is based on the following papers:
 
 ## Contact
 
-For questions or suggestions, please open an issue
+For questions or suggestions, please open an issue.
