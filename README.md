@@ -237,7 +237,8 @@ The repository includes a web-based visualization application that renders the o
 
 ```bash
 cd visualization/app
-npm start
+npm install
+npm run start
 ```
 
 This will start a local server at http://localhost:3000 where you can:
