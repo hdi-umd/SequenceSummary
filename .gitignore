@@ -10,6 +10,7 @@ sententree/sentence-tree+sententree_msp
 coreflow/coreflow_graph.json
 coreflow/coreflow_result.json
 output_minsupport/
+output/
 sequencesynopsis/runEvent.sh
 sequencesynopsis/runText.sh
 # output files from the example
