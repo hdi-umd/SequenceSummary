@@ -170,7 +170,9 @@ class Sequence:
 
     def getEventsString(self, attr):
         """Convert the sequence events to a string."""
-        return " ".join(elem for elem in self.getEvtAttrValues(attr))
+        return " ".join(
+            str(elem) for elem in self.getEvtAttrValues(attr) if elem is not None
+        )
 
     @staticmethod
     def seqListtotsv(sequenceLists, attr):
