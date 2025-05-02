@@ -80,7 +80,7 @@ git clone https://github.com/hdi-umd/SequenceSummary.git
 cd SequenceSummary
 
 # Install Python dependencies
-pip install numpy pandas matplotlib memory_profiler datasketch certifi
+pip install numpy pandas matplotlib memory_profiler datasketch certifi scikit-learn requests
 
 # Set up the visualization app
 cd visualization/app
