@@ -80,7 +80,7 @@ git clone https://github.com/hdi-umd/SequenceSummary.git
 cd SequenceSummary
 
 # Install Python dependencies
-pip install numpy pandas matplotlib memory_profiler datasketch certifi scikit-learn requests
+pip install numpy pandas matplotlib memory_profiler datasketch certifi scikit-learn requests spmf
 
 # Set up the visualization app
 cd visualization/app
@@ -117,6 +117,17 @@ python sequencesynopsis/main.py --file "Sample_Dataset.csv" --evttype 1 --starti
   --format "%m/%d/%y" --sep "," --local True \
   --grpattr "group_attribute" --attr "event_attribute" \
   --alpha 0.1 --lambdaVal 0.9 --output "./output/"
+```
+
+#### Running SPMF 
+
+Download the SPMF JAR file (spmf.jar) from the [official website](https://www.philippe-fournier-viger.com/spmf/index.php?link=download.php)
+
+
+Place the JAR file in a directory of your choice (for example, in the spmf directory of the project)
+
+```bash
+python main.py --file "../Sample_Dataset.csv" --evttype 1 --startidx 0 --format "%m/%d/%Y" --sep "," --local True --attr "Events"
 ```
 
 #### Running All Techniques for Comparison
