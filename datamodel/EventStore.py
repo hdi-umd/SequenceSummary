@@ -52,12 +52,28 @@ class EventStore:
             try:
                 timeStamp = datetime.strptime(data[timeStampColumnIdx], timeFormat)
             except ValueError:
-                timeStamp = datetime.fromisoformat(data[timeStampColumnIdx])
+                # Try ISO format first
+                try:
+                    timeStamp = datetime.fromisoformat(data[timeStampColumnIdx])
+                except ValueError:
+                    # If that fails too, try some common formats
+                    for fmt in ["%m/%d/%Y", "%d/%m/%Y", "%Y-%m-%d", "%Y/%m/%d"]:
+                        try:
+                            timeStamp = datetime.strptime(data[timeStampColumnIdx], fmt)
+                            break
+                        except ValueError:
+                            continue
+                    else:
+                        # If all attempts fail, raise an error with helpful message
+                        raise ValueError(
+                            f"Unable to parse date: {data[timeStampColumnIdx]}. "
+                            f"Please provide a valid format string using --format parameter."
+                        )
             # for all attributes other tahn time, add them to attributes dict
             evt = PointEvent(timeStamp)
             for i, _ in enumerate(data):
                 if i != timeStampColumnIdx:
-                    evt.addAttribute(cols[i], data[i])
+                    evt.addAttribute(cols[i], data.iloc[i])
             # use time stamp and attributes map to construct event object
             events.append(evt)
         self.events = events
@@ -99,17 +115,49 @@ class EventStore:
             try:
                 timeStamp1 = datetime.strptime(data[startTimeColumnIdx], timeFormat)
             except ValueError:
-                timeStamp1 = datetime.fromisoformat(data[startTimeColumnIdx])
+                # Try ISO format first
+                try:
+                    timeStamp = datetime.fromisoformat(data[startTimeColumnIdx])
+                except ValueError:
+                    # If that fails too, try some common formats
+                    for fmt in ["%m/%d/%Y", "%d/%m/%Y", "%Y-%m-%d", "%Y/%m/%d"]:
+                        try:
+                            timeStamp = datetime.strptime(data[startTimeColumnIdx], fmt)
+                            break
+                        except ValueError:
+                            continue
+                    else:
+                        # If all attempts fail, raise an error with helpful message
+                        raise ValueError(
+                            f"Unable to parse date: {data[startTimeColumnIdx]}. "
+                            f"Please provide a valid format string using --format parameter."
+                        )
 
             try:
                 timeStamp2 = datetime.strptime(data[endTimeColumnIdx], timeFormat)
             except ValueError:
-                timeStamp2 = datetime.fromisoformat(data[endTimeColumnIdx])
+                # Try ISO format first
+                try:
+                    timeStamp2 = datetime.fromisoformat(data[endTimeColumnIdx])
+                except ValueError:
+                    # If that fails too, try some common formats
+                    for fmt in ["%m/%d/%Y", "%d/%m/%Y", "%Y-%m-%d", "%Y/%m/%d"]:
+                        try:
+                            timeStamp2 = datetime.strptime(data[endTimeColumnIdx], fmt)
+                            break
+                        except ValueError:
+                            continue
+                    else:
+                        # If all attempts fail, raise an error with helpful message
+                        raise ValueError(
+                            f"Unable to parse date: {data[endTimeColumnIdx]}. "
+                            f"Please provide a valid format string using --format parameter."
+                        )
             # for all attributes other than times, add them to attributes dict
             evt = IntervalEvent(timeStamp1, timeStamp2)
             for i, _ in enumerate(data):
                 if i not in (startTimeColumnIdx, endTimeColumnIdx):
-                    evt.addAttribute(cols[i], data[i])
+                    evt.addAttribute(cols[i], data.iloc[i])
                     # attribs[cols[i]] = data[i]
             # use time stamp and attributes map to construct event object
             events.append(evt)
@@ -160,18 +208,66 @@ class EventStore:
                 try:
                     timeStamp = datetime.strptime(data[startTimeColumnIdx], timeFormat)
                 except ValueError:
-                    timeStamp = datetime.fromisoformat(data[startTimeColumnIdx])
+                    # Try ISO format first
+                    try:
+                        timeStamp = datetime.fromisoformat(data[startTimeColumnIdx])
+                    except ValueError:
+                        # If that fails too, try some common formats
+                        for fmt in ["%m/%d/%Y", "%d/%m/%Y", "%Y-%m-%d", "%Y/%m/%d"]:
+                            try:
+                                timeStamp = datetime.strptime(
+                                    data[startTimeColumnIdx], fmt
+                                )
+                                break
+                            except ValueError:
+                                continue
+                        else:
+                            # If all attempts fail, raise an error with helpful message
+                            raise ValueError(
+                                f"Unable to parse date: {data[startTimeColumnIdx]}. "
+                                f"Please provide a valid format string using --format parameter."
+                            )
                 eventType = "point"
             # Otherwise its an interval event
             else:
                 try:
-                    timeStamp1 = datetime.strptime(data[startTimeColumnIdx], timeFormat)
+                    timeStamp = datetime.fromisoformat(data[startTimeColumnIdx])
                 except ValueError:
-                    timeStamp1 = datetime.fromisoformat(data[startTimeColumnIdx])
+                    # If that fails too, try some common formats
+                    for fmt in ["%m/%d/%Y", "%d/%m/%Y", "%Y-%m-%d", "%Y/%m/%d"]:
+                        try:
+                            timeStamp = datetime.strptime(data[startTimeColumnIdx], fmt)
+                            break
+                        except ValueError:
+                            continue
+                    else:
+                        # If all attempts fail, raise an error with helpful message
+                        raise ValueError(
+                            f"Unable to parse date: {data[startTimeColumnIdx]}. "
+                            f"Please provide a valid format string using --format parameter."
+                        )
+
+            try:
+                timeStamp2 = datetime.strptime(data[endTimeColumnIdx], timeFormat)
+            except ValueError:
+                # Try ISO format first
                 try:
-                    timeStamp2 = datetime.strptime(data[endTimeColumnIdx], timeFormat)
-                except ValueError:
                     timeStamp2 = datetime.fromisoformat(data[endTimeColumnIdx])
+                except ValueError:
+                    # If that fails too, try some common formats
+                    for fmt in ["%m/%d/%Y", "%d/%m/%Y", "%Y-%m-%d", "%Y/%m/%d"]:
+                        try:
+                            timeStamp2 = datetime.strptime(data[endTimeColumnIdx], fmt)
+                            break
+                        except ValueError:
+                            continue
+                    else:
+                        # If all attempts fail, raise an error with helpful message
+                        raise ValueError(
+                            f"Unable to parse date: {data[endTimeColumnIdx]}. "
+                            f"Please provide a valid format string using --format parameter."
+                        )
+
                 eventType = "interval"
             # for all attributes other than times, add them to attributes dict
             # list of indices to be ignored
@@ -180,9 +276,9 @@ class EventStore:
             if eventType == "point":
                 evt = PointEvent(timeStamp)
             else:
-                evt = IntervalEvent(timeStamp1, timeStamp2)
+                evt = IntervalEvent(timeStamp, timeStamp2)
             for i in attributeColumns:
-                evt.addAttribute(cols[i], data[i])
+                evt.addAttribute(cols[i], data.iloc[i])
                 # attribs[cols[i]] = data[i]
             # use time stamp (or t1 and t2) and attributes map to construct event object
             events.append(evt)
@@ -245,6 +341,7 @@ class EventStore:
         for attr in attrList:
             unicode = 48
             uniqueList = []
+            print(attr)
             uniqueList.extend(self.getUniqueValues(attr))
             uniqueList = list(set(uniqueList))
             # uniqueList.clear()
