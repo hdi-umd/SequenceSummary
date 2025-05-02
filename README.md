@@ -44,14 +44,15 @@ year = {2023}
 
 ```
 event-sequence-analytics/
-├── coreflow/           # CoreFlow implementation
-├── sententree/         # SentenTree implementation  
-├── sequencesynopsis/   # Sequence Synopsis implementation
-├── spmf/               # SPMF pattern mining utilities
-├── data_model/         # Core data model classes
-├── visualization/      # Web-based visualization application
-├── docs/               # Additional documentation
-└── Event.py, EventStore.py, etc.  # Core classes for event handling
+├── core/                # Core classes for algorithm implementation (Cluster, Graph, Node, Pattern, QueueElements)
+├── coreflow/            # CoreFlow implementation
+├── datamodel/           # Data model classes for event handling (Event, Sequence)
+├── sententree/          # SentenTree implementation
+├── sequencesynopsis/    # Sequence Synopsis implementation (with and without LSH)
+├── spmf/                # SPMF pattern mining utilities
+├── utils/               # Data loading and processing helpers
+├── visualization/       # Web-based visualization app
+└── RunAll.py            # Script to run all techniques with benchmarking
 ```
 
 ## Requirements
