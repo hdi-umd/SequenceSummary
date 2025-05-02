@@ -1,11 +1,11 @@
 """Implements all RankingFunction."""
 
 from collections import Counter
-from Pattern import Pattern
+from core.Pattern import Pattern
 
 
 class RankingFunction:
-    """ Class to perform ranking and tiebreaker among events. """
+    """Class to perform ranking and tiebreaker among events."""
 
     def __init__(self, attr, maxSup):
         self.topRankedEvtValues = []
@@ -40,7 +40,7 @@ class RankingFunction:
 
         self.topRankedEvtValues = self.tieBreaker()
 
-        #print(f'top ranked{self.topRankedEvtValues[0].keyEvts}')
+        # print(f'top ranked{self.topRankedEvtValues[0].keyEvts}')
 
         return self.topRankedEvtValues[0]
 
@@ -59,7 +59,7 @@ class RankingFunction:
                     patternDict[hashVal] = Pattern(hashVal)
                 patternDict[hashVal].addToSupportSet(seq.sid)
 
-        #print(f'result {result}')
+        # print(f'result {result}')
 
         # Get most common tuples
         self.topRankedEvtValues = []
@@ -67,16 +67,19 @@ class RankingFunction:
         maxVal = 0
         if result:
             for val in result.most_common():
-                #print(f' common {val}')
+                # print(f' common {val}')
                 if val[1] > self.maxSupport:
                     continue
                 maxVal = val[1]  # find highest elem value
                 break
-            candidate = [
-                val[0] for val in result.most_common() if val[1] == maxVal]
-            self.topRankedEvtValues = [elem for elem in patternDict.values()
-                                       for cand in candidate if elem.keyEvts == cand]
-            #print(f'top values {self.topRankedEvtValues}')
+            candidate = [val[0] for val in result.most_common() if val[1] == maxVal]
+            self.topRankedEvtValues = [
+                elem
+                for elem in patternDict.values()
+                for cand in candidate
+                if elem.keyEvts == cand
+            ]
+            # print(f'top values {self.topRankedEvtValues}')
 
     def numberOfSequence(self, sequence):
         """Select the event which is present in highest number of sequences."""
@@ -90,12 +93,10 @@ class RankingFunction:
         """Select the event which is present is highest number of sequences
         with smallest medianPos.
         """
-        return sorted(
-            self.topRankedEvtValues, key=lambda x: x.getEventMedianPos()[0])
+        return sorted(self.topRankedEvtValues, key=lambda x: x.getEventMedianPos()[0])
 
     def performRankingMeanIndex(self):
-        """ Select the event which is present in highest number of sequences
+        """Select the event which is present in highest number of sequences
         with smallest meanPos.
         """
-        return sorted(
-            self.topRankedEvtValues, key=lambda x: x.getEventMeanPos()[0])
+        return sorted(self.topRankedEvtValues, key=lambda x: x.getEventMeanPos()[0])

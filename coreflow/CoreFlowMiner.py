@@ -1,8 +1,9 @@
-""""Implements the CoreFlow mining Algorithm based on provided Ranking Function"""
+""" "Implements the CoreFlow mining Algorithm based on provided Ranking Function"""
+
 from coreflow.RankingFunction import RankingFunction
-from Node import TreeNode
-from Sequence import Sequence
-from Graph import Graph, RawNode, Links
+from core.Node import TreeNode
+from datamodel.Sequence import Sequence
+from core.Graph import Graph, RawNode, Links
 
 
 class CoreFlowMiner:
@@ -21,10 +22,9 @@ class CoreFlowMiner:
 
     def runCoreFlowMiner(self, sequences):
         """Creates a Root Node to start mining."""
-        #print("Start of all " + str(len(sequences))+" visits")
+        # print("Start of all " + str(len(sequences))+" visits")
         TreeNode.resetCounter()
-        root = TreeNode(self.attr, Sequence.getSeqVolume(
-            sequences), "_Start")
+        root = TreeNode(self.attr, Sequence.getSeqVolume(sequences), "_Start")
 
         graph = Graph()
         root.graph = graph
@@ -46,10 +46,10 @@ class CoreFlowMiner:
         # self.ranker.performRanking2(seqs)
         self.ranker.performRanking(seqs)
         topPattern = self.ranker.getTopEventSet()
-        #print(f'topPattern {topPattern.keyEvts}')
+        # print(f'topPattern {topPattern.keyEvts}')
 
         if topPattern is None:
-            #print("no patterns found")
+            # print("no patterns found")
             self.bundleToExit(seqs, parent, graph, exitNodeHash)
             return
         containSegs = []
@@ -62,7 +62,7 @@ class CoreFlowMiner:
         eVal = seqs[0].getEvtAttrValue(self.attr, hashVal)
         node.setValue(eVal)
         node.setHash(hashVal)
-        #node.attr = self.attr
+        # node.attr = self.attr
         node.keyevts = parent.keyevts[:]
         node.keyevts.append(hashVal)
         node.sequences = topPattern.sids
@@ -81,24 +81,22 @@ class CoreFlowMiner:
         # for pox in (Pattern.getPositions(node.keyevts, seq.getHashList(evtAttr))
         # for seq in node.sequences) if len(pox) > 1])
 
-        #print(f'node seqs{node.sequences}')
-        #print(f'value {eVal}')
+        # print(f'node seqs{node.sequences}')
+        # print(f'value {eVal}')
 
-        self.truncateSequences(
-            seqs, hashVal, node, containSegs, notContain)
+        self.truncateSequences(seqs, hashVal, node, containSegs, notContain)
         # node.setSeqCount(Sequence.getSeqVolume(containSegs))
-        #print(f'mean Step {node.meanStep}')
-        #print(f'seq count {node.getSeqCount()}')
-        #print([seq.getSeqLen()for seq in containSegs])
-        #print([seq.sid.getSeqLen()for seq in containSegs])
-        #print([seq.sid.getEventsString(self.attr)for seq in node.sequences])
-        #print(f'seq count {node.getSeqCount()}')
+        # print(f'mean Step {node.meanStep}')
+        # print(f'seq count {node.getSeqCount()}')
+        # print([seq.getSeqLen()for seq in containSegs])
+        # print([seq.sid.getSeqLen()for seq in containSegs])
+        # print([seq.sid.getEventsString(self.attr)for seq in node.sequences])
+        # print(f'seq count {node.getSeqCount()}')
 
         if node.getSeqCount() >= self.minSupport:
             graph.nodes.append(RawNode(node=node, isCoreflow=True))
             parent.children.append(node)
-            graph.links.append(
-                Links(parent, node, node.seqCount, linkLength))
+            graph.links.append(Links(parent, node, node.seqCount, linkLength))
             self.run(containSegs, node, graph, exitNodeHash)
             self.run(notContain, parent, graph, exitNodeHash)
 
@@ -110,8 +108,8 @@ class CoreFlowMiner:
         if self.minSupport < 50:
             return self.minSupport
 
-        while(Sequence.getSeqVolume(seqs) < self.minSupport and self.minSupport > 50):
-            minval = self.minSupport/2
+        while Sequence.getSeqVolume(seqs) < self.minSupport and self.minSupport > 50:
+            minval = self.minSupport / 2
 
         return minval
 
@@ -128,54 +126,53 @@ class CoreFlowMiner:
             ind = seq.getEventPosition(self.attr, hashVal)
             if ind < 0:
                 notContain.append(seq)
-                #print(f'not contain {seq.getHashList(self.attr)}')
+                # print(f'not contain {seq.getHashList(self.attr)}')
             else:
                 if ind >= 0:
-                    incomingSeq = Sequence(
-                        seq.events[0:ind], seq.eventstore, seq.sid)
+                    incomingSeq = Sequence(seq.events[0:ind], seq.eventstore, seq.sid)
                     self.branchSequences[incomingSeq.getPathID()] = incomingSeq
                     incomingSeq.setVolume(seq.getVolume())
                     incomingBranchSeqs.append(incomingSeq)
-                    #print(f'previous {incomingSeq.getHashList(self.attr)}')
-                    uniqueEvts.extend(
-                        incomingSeq.getUniqueValueHashes(self.attr))
+                    # print(f'previous {incomingSeq.getHashList(self.attr)}')
+                    uniqueEvts.extend(incomingSeq.getUniqueValueHashes(self.attr))
 
-                if len(seq.events)+1 > ind:
+                if len(seq.events) + 1 > ind:
                     outgoingSeq = Sequence(
-                        seq.events[ind+1:len(seq.events)], seq.eventstore, seq.sid)
+                        seq.events[ind + 1 : len(seq.events)], seq.eventstore, seq.sid
+                    )
                     self.branchSequences[outgoingSeq.getPathID()] = outgoingSeq
 
                     outgoingSeq.setVolume(seq.getVolume())
                     trailingSeqSegs.append(outgoingSeq)
-                    #print(f'next {outgoingSeq.getHashList(self.attr)}')
+                    # print(f'next {outgoingSeq.getHashList(self.attr)}')
 
-                indices.extend([ind]*(seq.getVolume()))
+                indices.extend([ind] * (seq.getVolume()))
 
-                #print(f'type {seq.events[ind].type}')
+                # print(f'type {seq.events[ind].type}')
 
         node.setIncomingBranchUniqueEvts(len(set(uniqueEvts)))
         node.setSeqCount(Sequence.getSeqVolume(incomingBranchSeqs))
         # node.setPositions(indices)
         node.setIncomingSequences(incomingBranchSeqs)
-        #print(f'seq count {node.getSeqCount()}')
-        #print(f'Seq len trailing {len(trailingSeqSegs)}')
-        #print(f'Seq len not contain {len(notContain)}')
-        #print(f'Seq incoming {node.incomingSequences}')
+        # print(f'seq count {node.getSeqCount()}')
+        # print(f'Seq len trailing {len(trailingSeqSegs)}')
+        # print(f'Seq len not contain {len(notContain)}')
+        # print(f'Seq incoming {node.incomingSequences}')
 
     def bundleToExit(self, seqs, parent, graph, exitNodeHash):
         """Creates Exit Node as Pattern can not be exended."""
-        #print(seqs)
-        #print(parent)
+        # print(seqs)
+        # print(parent)
         if len(seqs) == 0:
             return
 
         node = TreeNode(attr=self.attr)
         node.parent = parent.parent[:]
         node.parent.append(parent)
-        #node.attr = self.attr
+        # node.attr = self.attr
         node.sequences.extend([seq.sid for seq in seqs])
-        #print(f'node sequences {node.sequences}')
-        #print(f'exit node hash {exitNodeHash}')
+        # print(f'node sequences {node.sequences}')
+        # print(f'exit node hash {exitNodeHash}')
         if exitNodeHash == -1:
             node.setValue("_Exit")
             node.setHash(-2)
@@ -188,9 +185,9 @@ class CoreFlowMiner:
         node.setIncomingSequences(seqs)
         node.setSeqCount(Sequence.getSeqVolume(seqs))
         node.keyevts = parent.keyevts[:]
-        #print([seq.getSeqLen()for seq in seqs])
-        #print([seq.sid.getEventsString(self.attr)for seq in seqs])
-        #print(f'exit node seq count {node.seqCount}')
+        # print([seq.getSeqLen()for seq in seqs])
+        # print([seq.sid.getEventsString(self.attr)for seq in seqs])
+        # print(f'exit node seq count {node.seqCount}')
 
         # lengths = []
         # for elem in seqs:
@@ -202,7 +199,6 @@ class CoreFlowMiner:
         linkLength = node.calcPositionsExitNode()
         # node.calcPositions(isExit=1)
         graph.nodes.append(RawNode(node=node, isCoreflow=True))
-        #print(f'mean Step {node.meanStep}')
+        # print(f'mean Step {node.meanStep}')
         parent.children.append(node)
-        graph.links.append(
-            Links(parent, node, node.seqCount, linkLength))
+        graph.links.append(Links(parent, node, node.seqCount, linkLength))

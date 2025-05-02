@@ -1,10 +1,9 @@
 """Implements the EventStore class to store events and attributes."""
 
-
 from datetime import datetime
-from Event import PointEvent, IntervalEvent
-from Sequence import Sequence
-from Helper import getDataframe, getTimeToSortBy
+from datamodel.Event import PointEvent, IntervalEvent
+from datamodel.Sequence import Sequence
+from utils.Helper import getDataframe, getTimeToSortBy
 
 
 class EventStore:
@@ -28,9 +27,17 @@ class EventStore:
     # then use that instead of calling my helper
     # for those cases
 
-    def importPointEvents(self, src, timeStampColumnIdx, timeFormat,
-                          sep='\t', local=False, header=None, dataFrame=None):
-        """ Returns a list of event objects
+    def importPointEvents(
+        self,
+        src,
+        timeStampColumnIdx,
+        timeFormat,
+        sep="\t",
+        local=False,
+        header=None,
+        dataFrame=None,
+    ):
+        """Returns a list of event objects
         src is a url or directory path, if local is false its url else its path
         header is list of column names if they are not provided in the dataset.
         """
@@ -66,8 +73,17 @@ class EventStore:
     # the dataFrame and then use that instead of calling my helper
     # for those cases
 
-    def importIntervalEvents(self, src, startTimeColumnIdx, endTimeColumnIdx,
-                             timeFormat, sep="\t", local=False, header=None, dataFrame=None):
+    def importIntervalEvents(
+        self,
+        src,
+        startTimeColumnIdx,
+        endTimeColumnIdx,
+        timeFormat,
+        sep="\t",
+        local=False,
+        header=None,
+        dataFrame=None,
+    ):
         """Returns a list of event objects
         src is a url or directory path, if local is false its url else its path.
         """
@@ -81,8 +97,7 @@ class EventStore:
             data = row[1]
             # create datetime object for the start and end times of the event
             try:
-                timeStamp1 = datetime.strptime(
-                    data[startTimeColumnIdx], timeFormat)
+                timeStamp1 = datetime.strptime(data[startTimeColumnIdx], timeFormat)
             except ValueError:
                 timeStamp1 = datetime.fromisoformat(data[startTimeColumnIdx])
 
@@ -95,7 +110,7 @@ class EventStore:
             for i, _ in enumerate(data):
                 if i not in (startTimeColumnIdx, endTimeColumnIdx):
                     evt.addAttribute(cols[i], data[i])
-                    #attribs[cols[i]] = data[i]
+                    # attribs[cols[i]] = data[i]
             # use time stamp and attributes map to construct event object
             events.append(evt)
         self.events = events
@@ -111,8 +126,17 @@ class EventStore:
     # I thought the simplest thing was just to give this function the dataFrame and then
     # use that instead of calling my helper
 
-    def importMixedEvents(self, src, startTimeColumnIdx, endTimeColumnIdx,
-                          timeFormat, sep="\t", local=False, header=None, dataFrame=None):
+    def importMixedEvents(
+        self,
+        src,
+        startTimeColumnIdx,
+        endTimeColumnIdx,
+        timeFormat,
+        sep="\t",
+        local=False,
+        header=None,
+        dataFrame=None,
+    ):
         """Import a dataset that has both interval and point events
         Returns a list of event objects
         src is a url or directory path, if local is false its url else its path.
@@ -130,38 +154,36 @@ class EventStore:
             # If the endTimeColumnIdx value is NaN ie a float instead of a time
             # string then its a point event
             # if isinstance(data[endTimeColumnIdx], float):
-            if data[endTimeColumnIdx] is None or isinstance(data[endTimeColumnIdx], float):
+            if data[endTimeColumnIdx] is None or isinstance(
+                data[endTimeColumnIdx], float
+            ):
                 try:
-                    timeStamp = datetime.strptime(
-                        data[startTimeColumnIdx], timeFormat)
+                    timeStamp = datetime.strptime(data[startTimeColumnIdx], timeFormat)
                 except ValueError:
                     timeStamp = datetime.fromisoformat(data[startTimeColumnIdx])
                 eventType = "point"
             # Otherwise its an interval event
             else:
                 try:
-                    timeStamp1 = datetime.strptime(
-                        data[startTimeColumnIdx], timeFormat)
+                    timeStamp1 = datetime.strptime(data[startTimeColumnIdx], timeFormat)
                 except ValueError:
                     timeStamp1 = datetime.fromisoformat(data[startTimeColumnIdx])
                 try:
-                    timeStamp2 = datetime.strptime(
-                        data[endTimeColumnIdx], timeFormat)
+                    timeStamp2 = datetime.strptime(data[endTimeColumnIdx], timeFormat)
                 except ValueError:
                     timeStamp2 = datetime.fromisoformat(data[endTimeColumnIdx])
                 eventType = "interval"
             # for all attributes other than times, add them to attributes dict
             # list of indices to be ignored
             ignore = [startTimeColumnIdx, endTimeColumnIdx]
-            attributeColumns = [ind for ind in range(
-                len(data)) if ind not in ignore]
+            attributeColumns = [ind for ind in range(len(data)) if ind not in ignore]
             if eventType == "point":
                 evt = PointEvent(timeStamp)
             else:
                 evt = IntervalEvent(timeStamp1, timeStamp2)
             for i in attributeColumns:
                 evt.addAttribute(cols[i], data[i])
-                #attribs[cols[i]] = data[i]
+                # attribs[cols[i]] = data[i]
             # use time stamp (or t1 and t2) and attributes map to construct event object
             events.append(evt)
         self.events = events
@@ -193,8 +215,8 @@ class EventStore:
 
     def getUniqueValues(self, attr):
         """returns the unique values of a certain attribute
-         present in the dataset.
-         """
+        present in the dataset.
+        """
         uniqVals = list(set(event.getAttrVal(attr) for event in self.events))
         return uniqVals
 
@@ -203,6 +225,7 @@ class EventStore:
         return [self.reverseAttrDict[attr][val] for val in hashlist]
 
         # Method equivalent to int getEvtAttrValueCount(String attr) in DataManager.java
+
     def getEvtAttrValueCount(self, attr):
         """return the number of distinct types present given an attribute"""
         return len(self.reverseAttrDict[attr])
@@ -213,11 +236,11 @@ class EventStore:
         return self.reverseAttrDict[attr][hashVal]
 
     def createAttrDict(self):
-        """ Assuming we are given a list of events and from those events we create
+        """Assuming we are given a list of events and from those events we create
         the mapping and reverse mapping dictionary.
         """
         attrList = self.events[0].attributes.keys()
-        #print(attrList)
+        # print(attrList)
 
         for attr in attrList:
             unicode = 48
@@ -231,7 +254,7 @@ class EventStore:
             for uniques in uniqueList:
                 unicodeDict[uniques] = chr(unicode)
                 reverseDict[chr(unicode)] = uniques
-                unicode = unicode+1
+                unicode = unicode + 1
             self.attrDict[attr] = unicodeDict
             self.reverseAttrDict[attr] = reverseDict
             # unicodeDict.clear()

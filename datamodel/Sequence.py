@@ -1,12 +1,14 @@
 """Module implements the Sequence class with associated functions."""
 
 from itertools import count
-#from Event import Event
+
+# from Event import Event
 from datetime import datetime
-from Helper import getTimeToSortBy, insertEventIntoDict
+from utils.Helper import getTimeToSortBy, insertEventIntoDict
 import csv
 
-class Sequence():
+
+class Sequence:
     """Collection of events sharing similar property."""
 
     _ids = count(0)
@@ -26,8 +28,8 @@ class Sequence():
         self.seqIndices = []
 
     def getSeqLen(self):
-        """"Length of the eventList for this sequence."""
-        #print(f'event Length {len(self.events)}')
+        """ "Length of the eventList for this sequence."""
+        # print(f'event Length {len(self.events)}')
         return len(self.events)
 
     def getEventPosition(self, attr, hashVal):
@@ -54,21 +56,21 @@ class Sequence():
 
     def getUniqueValueHashes(self, attr):
         """Returns Hash values for unique attribute types for the specified attribute
-         in the dictionary
-         """
+        in the dictionary
+        """
         lst = list(set(event.getAttrVal(attr) for event in self.events))
         uniquelist = [self.eventstore.attrDict[attr][elem] for elem in lst]
         return uniquelist
 
     # Not sure this will always result in same index, will change if
-    #dictionary is updated
+    # dictionary is updated
     # since python is unordered
 
     def getHashList(self, attr):
-        """"Returns a list of index positions of the specified attribute for all
+        """ "Returns a list of index positions of the specified attribute for all
         the events  in the sequence
         """
-        #lst=list(list(event.attributes.keys()).index(attr) for event in self.events)
+        # lst=list(list(event.attributes.keys()).index(attr) for event in self.events)
         lst = [event.getAttrVal(attr) for event in self.events]
         hashlist = [self.eventstore.attrDict[attr][elem] for elem in lst]
 
@@ -91,8 +93,7 @@ class Sequence():
         lst = list(event.getAttrVal(attr) for event in self.events)
         # for count,event in enumerate(self.events):
         #    string+=str(event.getAttrVal(attr))+" "
-        string += "".join(str(self.eventstore.attrDict[attr][elem])
-                          for elem in lst)
+        string += "".join(str(self.eventstore.attrDict[attr][elem]) for elem in lst)
         return string
 
     def convertToVMSPReadablenum(self, attr):
@@ -100,9 +101,8 @@ class Sequence():
         the specified attribute for all the events in the sequence
         """
         lst = list(event.getAttrVal(attr) for event in self.events)
-       
-        string = " -1 ".join(str(self.eventstore.attrDict[attr][elem])
-                             for elem in lst)
+
+        string = " -1 ".join(str(self.eventstore.attrDict[attr][elem]) for elem in lst)
         # string=""
         # for count,event in enumerate(self.events):
         #    string+=str(event.getAttrVal(attr))+" -1 "
@@ -115,7 +115,7 @@ class Sequence():
         the specified attribute for all the events in the sequence
         """
         lst = list(event.getAttrVal(attr) for event in self.events)
-        #print('lst', lst)
+        # print('lst', lst)
         string = " ".join(self.eventstore.attrDict[attr][elem] for elem in lst)
         print(self.eventstore.attrDict[attr])
         # string=""
@@ -175,15 +175,16 @@ class Sequence():
     @staticmethod
     def seqListtotsv(sequenceLists, attr):
         """Convert sequence list to tsv
-            where each line is a sequence"""
-        with open('demo4.tsv', 'w') as demoFile:
-            demowriter = csv.writer(demoFile, delimiter='\t')
+        where each line is a sequence"""
+        with open("demo4.tsv", "w") as demoFile:
+            demowriter = csv.writer(demoFile, delimiter="\t")
             demowriter.writerow(["id", "text"])
             id = 1
             for seq in sequenceLists:
                 demowriter.writerow([id, seq.getEventsString(attr)])
                 id += 1
-    #ZINAT- changes
+
+    # ZINAT- changes
     # SequenceList represents a list of objects of type Sequence.
     # The sequences are further splitted into
     # sequence objects, this way we can use generate sequences and then splitSequences
@@ -205,7 +206,8 @@ class Sequence():
         validTimeUnits = ["hour", "day", "week", "month", "quarter", "year"]
         if timeUnit not in validTimeUnits:
             raise ValueError(
-                "timeUnit must be hour, day, week, month, quarter, or year")
+                "timeUnit must be hour, day, week, month, quarter, or year"
+            )
 
         for sequence in sequenceLists:
             # Sort the events by the timestamp or event start time
@@ -223,11 +225,13 @@ class Sequence():
                     key = (time.hour, time.day, time.month, time.year)
                     insertEventIntoDict(key, hours, event)
                     if record is None:
-                        event.attributes["record"] = ' '.join(
-                            [str(k) for k in key])
+                        event.attributes["record"] = " ".join([str(k) for k in key])
                     else:
-                        event.attributes[record] = str(
-                            event.attributes[record])+"_"+' '.join([str(k) for k in key])
+                        event.attributes[record] = (
+                            str(event.attributes[record])
+                            + "_"
+                            + " ".join([str(k) for k in key])
+                        )
                 results = list(hours.values())
 
             elif timeUnit == "day":
@@ -238,11 +242,15 @@ class Sequence():
                     insertEventIntoDict(key, days, event)
                     # print(days)
                     if record is None:
-                        event.attributes["record"] = datetime(
-                            *(key[::-1])).strftime("%Y%m%d")
+                        event.attributes["record"] = datetime(*(key[::-1])).strftime(
+                            "%Y%m%d"
+                        )
                     else:
-                        event.attributes[record] = str(
-                            event.attributes[record])+"_"+datetime(*(key[::-1])).strftime("%Y%m%d")
+                        event.attributes[record] = (
+                            str(event.attributes[record])
+                            + "_"
+                            + datetime(*(key[::-1])).strftime("%Y%m%d")
+                        )
                 results = list(days.values())
 
             elif timeUnit == "month":
@@ -252,10 +260,14 @@ class Sequence():
                     key = (time.month, time.year)
                     insertEventIntoDict(key, months, event)
                     if record is None:
-                        event.attributes["record"] = str(key[0])+str(key[1])
+                        event.attributes["record"] = str(key[0]) + str(key[1])
                     else:
-                        event.attributes[record] = str(
-                            event.attributes[record])+"_"+str(key[0])+str(key[1])
+                        event.attributes[record] = (
+                            str(event.attributes[record])
+                            + "_"
+                            + str(key[0])
+                            + str(key[1])
+                        )
                 results = list(months.values())
 
             elif timeUnit == "week":
@@ -267,11 +279,15 @@ class Sequence():
                     key = (year, weekNum)
                     insertEventIntoDict(key, weeks, event)
                     if record is None:
-                        event.attributes["record"] = str(
-                            key[0])+"W"+str(key[1])
+                        event.attributes["record"] = str(key[0]) + "W" + str(key[1])
                     else:
-                        event.attributes[record] = str(
-                            event.attributes[record])+"_"+str(key[0])+"W"+str(key[1])
+                        event.attributes[record] = (
+                            str(event.attributes[record])
+                            + "_"
+                            + str(key[0])
+                            + "W"
+                            + str(key[1])
+                        )
                 results = list(weeks.values())
 
             elif timeUnit == "year":
@@ -283,8 +299,9 @@ class Sequence():
                     if record is None:
                         event.attributes["record"] = str(key)
                     else:
-                        event.attributes[record] = str(
-                            event.attributes[record])+"_"+str(key)
+                        event.attributes[record] = (
+                            str(event.attributes[record]) + "_" + str(key)
+                        )
                 results = list(years.values())
 
             elif timeUnit == "quarter":
@@ -309,10 +326,14 @@ class Sequence():
                     # Put the event in the dictionary
                     insertEventIntoDict(key, quarters, event)
                     if record is None:
-                        event.attributes["record"] = str(key[0])+str(key[1])
+                        event.attributes["record"] = str(key[0]) + str(key[1])
                     else:
-                        event.attributes[record] = str(
-                            event.attributes[record])+"_"+str(key[0])+str(key[1])
+                        event.attributes[record] = (
+                            str(event.attributes[record])
+                            + "_"
+                            + str(key[0])
+                            + str(key[1])
+                        )
                 results = list(quarters.values())
             resultlist.extend(results)
         resultlists = [Sequence(x, eventstore) for x in resultlist]

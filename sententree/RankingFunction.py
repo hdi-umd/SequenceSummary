@@ -1,7 +1,10 @@
 """Implements ranking methods for coreflow."""
+
 import numpy as np
+
+
 class RankingFunction:
-    """ Class to perform ranking and tiebreaker among events."""
+    """Class to perform ranking and tiebreaker among events."""
 
     def __init__(self, maxSup):
         self.fdist = {}
@@ -11,7 +14,7 @@ class RankingFunction:
         self.count = 0
         self.maxSupport = maxSup
         self.rankingFunc = self.numberOfSequence
-        self.tieBreaker = self.performRankingMedianIndex#self.
+        self.tieBreaker = self.performRankingMedianIndex  # self.
 
     def setRankingFunc(self, method1):
         """Set ranking function."""
@@ -74,7 +77,6 @@ class RankingFunction:
             self.pos = index
             self.word = maxWord
             self.count = maxCount
-
 
     def performRankingMedianIndex(self, index, minPos):
         """If two events have the same number of Occurrences tie breake

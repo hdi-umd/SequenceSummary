@@ -1,9 +1,9 @@
 """Implements the SentenTreeMiner according to SentenTree Algo."""
 
 import numpy as np
-from Graph import RawNode, Graph
-from Node import GraphNode
-from Sequence import Sequence
+from core.Graph import RawNode, Graph
+from core.Node import GraphNode
+from datamodel.Sequence import Sequence
 from sententree.RankingFunction import RankingFunction
 
 

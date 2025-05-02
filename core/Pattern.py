@@ -25,13 +25,20 @@ class Pattern:
 
     def filterPaths(self, paths, evtType):
         """Check how many Sequences in paths, contain the keyEvents of this pattern object."""
-        print("filtering " + str(len(paths))+" paths by " +
-              str(len(self.keyEvts))+" checkpoints")
+        print(
+            "filtering "
+            + str(len(paths))
+            + " paths by "
+            + str(len(self.keyEvts))
+            + " checkpoints"
+        )
         for sequences in paths:
-            if not Pattern.matchMilestones(sequences.getValueHashes(evtType), self.keyEvts):
+            if not Pattern.matchMilestones(
+                sequences.getValueHashes(evtType), self.keyEvts
+            ):
                 continue
             self.sids.append(sequences)
-        print(str(len(self.sids))+" matching paths")
+        print(str(len(self.sids)) + " matching paths")
 
     def getMedianSpacing(self):
         """Get median spacing between key events."""
@@ -49,7 +56,7 @@ class Pattern:
         """Add the sequence seq to the support set of this pattern. In other
         words, the sequence contains this pattern.
         """
-        #print(f'sids {self.sids}')
+        # print(f'sids {self.sids}')
         self.sids.append(seq)
         self.support += seq.getVolume()
 
@@ -93,7 +100,7 @@ class Pattern:
         # return "-".join(str(x) for x in list(dict.fromkeys(self.keyEvts)))
 
     def getEventsHashString(self):
-        """Get all the events in pattern """
+        """Get all the events in pattern"""
         return " ".join(str(x) for x in list(dict.fromkeys(self.keyEvts)))
 
     # def getEventsString(self):
@@ -107,7 +114,7 @@ class Pattern:
         key events for the given attribute
         """
 
-        #print(f'path of string {pathsOfStrings}')
+        # print(f'path of string {pathsOfStrings}')
         medians, means = Pattern.getStats(self.keyEvts, self.sids, evtAttr)
 
         means = np.cumsum(np.asarray(means))
@@ -116,11 +123,11 @@ class Pattern:
         self.setMedianPositions(medians)
         self.setMeanPositions(means)
 
-        #print(f'mean {means} median {medians}')
+        # print(f'mean {means} median {medians}')
         median, mean = Pattern.getStatsEnd(self.keyEvts, self.sids, evtAttr)
 
-        self.setMedianPathLength(median+medians[-1])
-        self.setMeanPathLength(mean+means[-1])
+        self.setMedianPathLength(median + medians[-1])
+        self.setMeanPathLength(mean + means[-1])
 
     def setMedianPositions(self, median):
         """Assigne medianPos value."""
@@ -150,7 +157,7 @@ class Pattern:
         idx = -1
         for elems in milestones:
             try:
-                idx = arr[idx+1:].index(elems)
+                idx = arr[idx + 1 :].index(elems)
                 # print(idx)
             except ValueError:
                 return False
@@ -161,21 +168,21 @@ class Pattern:
         """Get event positions."""
 
         # sequence = path
-        #print(f'Events {path}')
+        # print(f'Events {path}')
         pos = []
         idx = -1
         offset = 0
 
         for elems in events:
 
-            offset += idx+1
+            offset += idx + 1
             try:
                 idx = path[offset:].index(elems)
-                pos.append(offset+idx)
+                pos.append(offset + idx)
             except ValueError:
                 pos.append(-1)
-            
-        #print(f'Positions {pos}')
+
+        # print(f'Positions {pos}')
         return pos
 
     @staticmethod
@@ -195,7 +202,7 @@ class Pattern:
 
         mean = []
         for k, _ in enumerate(allPos):
-            mean.append(sum(allPos[k])*1.0/(len(allPos[k])))
+            mean.append(sum(allPos[k]) * 1.0 / (len(allPos[k])))
         return mean
 
     @staticmethod
@@ -214,12 +221,12 @@ class Pattern:
         medians = []
         means = []
         pathsOfStrings = []
-        #print(f' sids {self.sids}')
+        # print(f' sids {self.sids}')
         for path in seqs:
             pageSequence = path.getHashList(evtAttr)
             pathsOfStrings.append(pageSequence)
         # swap the loops for better readability
-        numSteps = [[0]*len(keyEvts) for i in range(len(pathsOfStrings))]
+        numSteps = [[0] * len(keyEvts) for i in range(len(pathsOfStrings))]
         for k, paths in enumerate(pathsOfStrings):
             pos = Pattern.getPositions(keyEvts, paths)
             if -1 in pos:
@@ -228,12 +235,12 @@ class Pattern:
             numSteps[k][0] += pos[0] if pos[0] != -1 else 0
             for index, (i, j) in enumerate(zip(pos[:-1], pos[1:])):
                 if j != -1 and i != -1:
-                    numSteps[k][index+1] += j - i 
+                    numSteps[k][index + 1] += j - i
                 elif j == -1:
-                    numSteps[k][index+1] += 0
+                    numSteps[k][index + 1] += 0
                 elif i == -1:
                     subVal = [val for val in reversed(pos) if val != -1][0]
-                    numSteps[k][index+1] += j - subVal
+                    numSteps[k][index + 1] += j - subVal
         means = np.mean(numSteps, axis=0)
         medians = np.median(numSteps, axis=0)
         return medians, means
@@ -241,21 +248,21 @@ class Pattern:
     @staticmethod
     def getStatsEnd(keyevts, sequences, attr):
         """Get stats from last pattern to End"""
-        trailingSteps = [0]*len(sequences)
+        trailingSteps = [0] * len(sequences)
         for i, path in enumerate(sequences):
-            pos = Pattern.getPositions(
-                keyevts, path.getHashList(attr))
+            pos = Pattern.getPositions(keyevts, path.getHashList(attr))
             # the difference between the last event in thesequence and the last key event
-            #print(f'pos {pos} keyevts {keyevts} events {path.getEvtAttrValues(attr)}')
-            trailingSteps[i] = len(path.events) - pos[-1] - \
-                1 if pos else len(path.events)-1
+            # print(f'pos {pos} keyevts {keyevts} events {path.getEvtAttrValues(attr)}')
+            trailingSteps[i] = (
+                len(path.events) - pos[-1] - 1 if pos else len(path.events) - 1
+            )
 
-        #print(f'trailing {trailingSteps}')
+        # print(f'trailing {trailingSteps}')
 
         trailStepSum = sum(trailingSteps)
 
         if trailingSteps:
-            mean = trailStepSum/len(trailingSteps)
+            mean = trailStepSum / len(trailingSteps)
             median = Pattern.getMedian(trailingSteps)
         else:
             mean = 0

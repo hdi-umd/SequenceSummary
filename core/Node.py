@@ -4,7 +4,7 @@ import json
 from itertools import count
 from itertools import accumulate
 import numpy as np
-from Pattern import Pattern
+from core.Pattern import Pattern
 
 
 class Node:
