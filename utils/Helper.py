@@ -3,8 +3,7 @@
 import os
 import pandas as pd
 import requests
-from Event import IntervalEvent
-
+from datamodel.Event import IntervalEvent
 
 
 def getDataframe(src, local=False, sep="\t", header=None):
@@ -16,11 +15,11 @@ def getDataframe(src, local=False, sep="\t", header=None):
     if not local:
         # To force a dropbox link to download change the dl=0 to 1
         if "dropbox" in src:
-            src = src.replace('dl=0', 'dl=1')
+            src = src.replace("dl=0", "dl=1")
         # Download the CSV at url
         req = requests.get(src)
         urlContent = req.content
-        csvFile = open('data.txt', 'wb')
+        csvFile = open("data.txt", "wb")
         csvFile.write(urlContent)
         csvFile.close()
         # Read the CSV into pandas
@@ -37,11 +36,11 @@ def getDataframe(src, local=False, sep="\t", header=None):
     else:
         # If header list is empty, the dataset provides header so ignore param
         if not header:
-            #print(src)
-            dataFrame = pd.read_csv(src, sep)
+            # print(src)
+            dataFrame = pd.read_csv(src, sep=sep)
         # else use header param for column names
         else:
-            dataFrame = pd.read_csv(src, sep, names=header)
+            dataFrame = pd.read_csv(src, sep=sep, names=header)
     return dataFrame
 
 
@@ -56,8 +55,6 @@ def getTimeToSortBy(evt):
         return evt.time[0]
     # Otherwise use the timestamp
     return evt.timestamp
-
-
 
 
 def insertEventIntoDict(key, dictionary, event):
