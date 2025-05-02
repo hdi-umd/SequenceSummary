@@ -114,9 +114,9 @@ if __name__ == "__main__":
                 os.path.dirname(os.path.abspath(args.file)) + "/output_minsupport/"
             )
             print(f" Output path {args.output}")
-            basename = os.path.splitext(os.path.basename(args.file))[0]
     if not os.path.exists(args.output):
         os.makedirs(args.output)
+    basename = os.path.splitext(os.path.basename(args.file))[0]
 
     # Eventstore creates a list of events
     eventStore = EventStore()
