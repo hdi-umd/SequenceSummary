@@ -1,4 +1,5 @@
 """Aggregating events that have similar properties if there is a large number of event types."""
+
 import re
 
 
@@ -13,14 +14,12 @@ def giveDictionaryOfMappingsFile(fileName):
     mappings = list(filter(None, mappings))
     # Raise an error if there is an odd number of items in mapping
     if (len(mappings) % 2) != 0:
-        raise ValueError(
-            "There must be an even number of lines in the mappings file.")
+        raise ValueError("There must be an even number of lines in the mappings file.")
     # Create a dictionary based on read in mappings
     aggregations = {}
     for i, _ in enumerate(mappings):
         if i % 2 == 0:
-            aggregations[mappings[i]] = mappings[i+1]
-    # print(aggregations)
+            aggregations[mappings[i]] = mappings[i + 1]
     return aggregations
 
 

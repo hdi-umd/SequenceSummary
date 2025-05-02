@@ -336,7 +336,6 @@ class EventStore:
         the mapping and reverse mapping dictionary.
         """
         attrList = self.events[0].attributes.keys()
-        # print(attrList)
 
         for attr in attrList:
             unicode = 48

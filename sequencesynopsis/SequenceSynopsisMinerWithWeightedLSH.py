@@ -34,9 +34,6 @@ class SequenceSynopsisMiner:
         )
 
         for val in self.clustDict:
-            # print(1, self.attr)
-            # print(2, val.pattern.keyEvts)
-            # print(3, self.eventStore.getEventValue(self.attr, val.pattern.keyEvts))
             patStrings = [
                 " ".join(
                     str(self.eventStore.getEventValue(self.attr, val.pattern.keyEvts))
@@ -47,9 +44,6 @@ class SequenceSynopsisMiner:
         vectors = vectorizer.fit_transform(patStrings)
         dense = vectors.todense()
         denselist = dense.tolist()
-        # print(denselist)
-
-        # print("Initial clusts")
         # Cluster.printClustDict(clustDict, self.attr)
         wmg = WeightedMinHashGenerator(len(denselist[0]))
 
@@ -220,14 +214,11 @@ class SequenceSynopsisMiner:
                     * calcDist(v2.getHashList(self.attr), pair2.pattern.keyEvts)
                     for v2 in pair2.seqList
                 )
-                # print(f'del L Prime  {deltaLPrime}')
+
                 deltaLPrime -= sum(
                     self.alpha * calcDist(v.getHashList(self.attr), tempPattern.keyEvts)
                     for v in pair1.seqList + pair2.seqList
                 )
-
-                # print(f'del L  {deltaL}')
-                # print(f'del L Prime  {deltaLPrime}')
 
                 if deltaLPrime < 0 or deltaLPrime < deltaL:
                     del tempPattern.keyEvts[index]
@@ -237,8 +228,6 @@ class SequenceSynopsisMiner:
                 pStarArr.append(Pattern(tempPattern.keyEvts[:]))
                 indexArr.append(index)
 
-                # print(f'del L  {deltaL}')
-                # print(f'pStar {pStar.keyEvts}')
                 # index calculation
                 del tempPattern.keyEvts[index]
             if deltaLArr:
@@ -263,15 +252,6 @@ class SequenceSynopsisMiner:
                             )
                     clust = Cluster(pStar, pair1.seqList + pair2.seqList, averagePos)
 
-            # startInd = 0 if selectedIndex == 0 else averagePos[selectedIndex-1]
-            # endInd = -1 if len(averagePos) <= selectedIndex else averagePos[selectedIndex+1]
-
-            # average = 0
-
-            # for sequences in clust.seqList:
-            #     sequences.index()
-
-        # print(f'return del_L {deltaL} cluster {clust.pattern.keyEvts} {clust.seqList}')
         return deltaL, clust
 
     def transformToGraph(self, clust):

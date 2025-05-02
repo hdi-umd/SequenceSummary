@@ -66,7 +66,6 @@ class RawNode:
     def jsonSerializeDump(obj):
         """static method to call jsonDefaultDump on all custom objects"""
         if hasattr(obj, "jsonDefaultDump"):
-            # print("default dump")
             return obj.jsonDefaultDump()
 
         return None  # obj.__dict__
@@ -88,7 +87,6 @@ class RawNode:
     @staticmethod
     def merge(nodeList, allNodes):
         """Merge all the nodes in nodeList into a single node."""
-        # print(f'Nodes {nodeList}')
         node = RawNode()
         node.nid = max(x.nid for x in allNodes) + 1
         node.value = nodeList[0].value
@@ -96,7 +94,6 @@ class RawNode:
         node.pattern = "\t".join(nodes.pattern for nodes in nodeList)
         node.meanStep = sum(nodes.meanStep for nodes in nodeList) / len(nodeList)
         node.medianStep = sum(nodes.medianStep for nodes in nodeList) / len(nodeList)
-        # RawNode.printNode(node)
         return node
 
     def calcPositions(self, matchAll):
@@ -104,7 +101,6 @@ class RawNode:
         key events for the given attribute.
         """
 
-        # print(f'path of string {pathsOfStrings}')
         if not self.keyevts or self.nid == 1:
             # rootNode
             return 0, 0
@@ -123,37 +119,28 @@ class RawNode:
         key events for the given attribute.
         """
 
-        # print(f'path of string {pathsOfStrings}')
         mean, median = self.calcPositions(matchAll)
 
         if len(self.parent) > 1:
-            # print(f'parent {self.parent[self.pos].meanStep}')
             parentNid = self.parent[self.pos].nid
             rawParent = [x for x in nodeList if x.nid == parentNid][0]
             # As root is also in parent
-            # print(f'Raw parent mean {rawParent.meanStep}')
             self.meanStep = mean + rawParent.meanStep
             self.medianStep = median + rawParent.medianStep
         else:
             self.meanStep = mean
             self.medianStep = median
-        # print(f' mean step {self.meanStep}')
 
     def calcPositionsExitNode(self, nodeList):
         """Computes cumulative mean and median positions and path lengths of
         key events for the given attribute.
         """
         median, mean = Pattern.getStatsEnd(self.keyevts, self.sequences, self.attr)
-        # print(f'mean {mean}')
         parentNid = self.parent[-1].nid
         rawParent = [x for x in nodeList if x.nid == parentNid][0]
-        # print(f'Raw parent mean {rawParent.meanStep}')
-        # print(f'trailing means{mean}')
-        # print(f'trailing medians{median}')
-        # print(f'Parent meanstep {rawParent.meanStep}')
         self.meanStep = rawParent.meanStep + mean
         self.medianStep = rawParent.medianStep + median
-        # print(f'overall meanstep {self.meanStep}')
+
         return mean
 
     def getEventValue(self):
@@ -166,7 +153,6 @@ class RawNode:
                 )
                 if pos[-1] == -1:
                     self.evtCount -= 1
-        # print(f' evt value {self.value} evt {self.evtCount}')
 
     @staticmethod
     def resetCounter():
@@ -201,9 +187,7 @@ class Links:
         for seq in targetNode.sequences:
             if seq in srcNode.sequences:
                 seqs.append(seq)
-                # print(seq.getEventsString(targetNode.attr))
-        # print(f'src {srcNode.nid}, target {targetNode.nid}')
-        # print(len(seqs))
+
         if targetNode.value == "_Exit":
             trailingSteps = [0] * len(seqs)
             for i, path in enumerate(seqs):
@@ -211,13 +195,9 @@ class Links:
                     targetNode.keyevts, path.getHashList(targetNode.attr)
                 )
                 # the difference between the last event in thesequence and the last key event
-                # print(path.getEventsString(targetNode.attr))
-                # print(srcNode.value)
-                # print(pos)
+
                 # if no sequence, Start-> Exit
                 trailingSteps[i] = len(path.events) - (pos[-1] - 1 if pos else 0)
-
-            # print(f'trailing {trailingSteps}')
 
             trailStepSum = sum(trailingSteps)
 
@@ -234,8 +214,6 @@ class Links:
             )
 
             self.length = means[-1]
-        # print(
-        #    f'src {srcNode.nid}, target {targetNode.nid}, length {self.length}')
 
 
 class Graph:
@@ -290,7 +268,6 @@ class Graph:
             self.links, key=lambda x: (x.source.nid, x.target.nid, x.count)
         )
         for link in self.links:
-            # print(f'path of string {pathsOfStrings}')
             link.calcLinkLength()
 
     @staticmethod
@@ -318,7 +295,6 @@ class Graph:
                 leftNodes = [lnk.source for lnk in node.leftLinks]
                 parentList = []
                 for candidate in leftNodes:
-                    # print(candidate.nid)
                     parentList.append(
                         [
                             elem.nid
@@ -326,11 +302,9 @@ class Graph:
                             # if elem.nid != node.nid
                         ]  # remove self from parent
                     )
-                # print(parentList)
                 for i, first in enumerate(parentList):
                     for j, second in enumerate(parentList[i + 1 :]):
                         common = list(set(first) & set(second))
-                        # print(f"common {common}")
                         if len(common) > 1 or common[0] != 1:
                             seq_ids_src1 = [
                                 s._id for s in node.leftLinks[i].source.sequences
@@ -341,8 +315,7 @@ class Graph:
                             ]
                             # Find common sequences
                             common_seq_ids = set(seq_ids_src1) & set(seq_ids_src2)
-                            # print(f"src1 {seq_ids_src1} src2 {seq_ids_src2}")
-                            # print(f"common seq {common_seq_ids}")
+
                             if common_seq_ids:
                                 # Reduce the count of leftNodes[i] by the number of common sequences
                                 node.leftLinks[i].count -= len(common_seq_ids)
@@ -379,19 +352,15 @@ class Graph:
         RawNode.printNodes(self.nodes)
         delNodeIndices = []
         uniqueValue = list({x.value for x in self.nodes})
-        # print(uniqueValue)
 
         bundleList = []
         merged = []  # list of nodes in merge
         for node in self.nodes:
             if len(node.rightLinks) > 1 or len(node.leftLinks) > 1:
-                # print("HERE")
                 bundleList.append(node)
-        # print(f'bundle {[b.nid for b in bundleList]}')
-        # print(f'Heer {len(bundleList)}')
+
         while bundleList:
             currentBundle = max(bundleList, key=lambda x: x.nid)
-            # print(f'nid {currentBundle.nid}')
             if currentBundle.nid in merged:
                 ind = bundleList.index(currentBundle)
                 print(f"Deleting {currentBundle.nid} from index {ind}")
@@ -402,19 +371,14 @@ class Graph:
                 lNodes = [left.source for left in currentBundle.leftLinks]
                 if lNodes:
                     groups.extend(self.groupMergeableNodes(lNodes, uniqueValue))
-                    # print(f'left links exist {groups}')
             if len(currentBundle.rightLinks) > 1:
                 rNodes = [right.target for right in currentBundle.rightLinks]
                 if rNodes:
                     groups.extend(self.groupMergeableNodes(rNodes, uniqueValue))
-                    # print(f'right links exist {groups}')
 
             if groups:
-                # print(f'groups {[x.value for group in groups for x in group ]}')
                 for grp in groups:
                     delNodeIndices.extend([x.nid for x in grp])
-                    # delNodeIndices.append(self.nodes.index(n) for n in grp)
-                    # print(f'del {list(delNodeIndices)}')
                     newNode = self.mergeNodes(grp, merged)
                     if len(newNode.rightLinks) > 1 or len(newNode.leftLinks) > 1:
                         bundleList.append(newNode)
@@ -422,7 +386,7 @@ class Graph:
             ind = bundleList.index(currentBundle)
             del bundleList[ind]
             print(f"Deleting {currentBundle.nid} from index {ind}")
-        # print(delNodeIndices)
+
         delNodeIndices = sorted(delNodeIndices, reverse=True)
         self.nodes = [x for x in self.nodes if x.nid not in delNodeIndices]
         self.links = [
@@ -435,24 +399,17 @@ class Graph:
 
     def mergeNodes(self, nodes, isMerged):
         """Merge the links into a single node"""
-        # print(f'Nodesss {nodes}')
-        # print(len(self.nodes))
         newNode = RawNode.merge(nodes, self.nodes)
-        # print(newNode.nid)
         # newNode.nid = self.nodes[-1].nid+1
         self.nodes.append(newNode)
         isMerged.extend(node.nid for node in nodes)
-        # print(f'merged {isMerged}')
         # deleteLinks = []
 
         rightLinkCollection = list(chain.from_iterable(n.rightLinks for n in nodes))
-        # print([r.target.nid for r in rightLinkCollection])
         rightLinkCollection = sorted(rightLinkCollection, key=lambda x: x.target.nid)
-        # print([r.target.nid for r in rightLinkCollection])
         for _, igroupgen in groupby(rightLinkCollection, lambda x: x.target.nid):
             igroup = list(igroupgen)
             target = igroup[0].target
-            # print(f'target {target.nid}')
             target.leftLinks = [
                 x.target.leftLinks[:] for x in igroup if x.source.nid not in isMerged
             ]  # keep non merging links intact
@@ -463,29 +420,21 @@ class Graph:
                 mean(lnk.length for lnk in igroup),
             )
             target.leftLinks.append(link)
-            # print([x.source.nid for x in target.leftLinks])
             self.links.append(link)
 
             newNode.rightLinks.extend(target.leftLinks)
-            # print([x.target.nid for x in newNode.rightLinks])
 
         leftLinkCollection = list(chain.from_iterable(n.leftLinks for n in nodes))
         leftLinkCollection = sorted(leftLinkCollection, key=lambda x: x.source.nid)
 
-        # print([l.source.nid for l in leftLinkCollection])
         for _, igroupgen in groupby(leftLinkCollection, lambda x: x.source.nid):
             igroup = list(igroupgen)
             source = igroup[0].source
-            # print(f'source {source.nid}')
-            # print(isMerged)
-            # print([x.target.nid for x in igroup])
-            # print([x.source.rightLinks for x in igroup if x.target.nid  in isMerged])
             # item for sublist in deleteLinks for item in sublist
             source.rightLinks = [
                 x.source.rightLinks[:] for x in igroup if x.target.nid not in isMerged
             ]
-            # print(source.rightLinks)
-            # print([x.source.rightLinks for x in igroup])
+
             link = Links(
                 source,
                 newNode,
@@ -493,37 +442,27 @@ class Graph:
                 mean(lnk.length for lnk in igroup),
             )
             source.rightLinks.append(link)
-            # print([x.target.nid for x in source.rightLinks])
             self.links.append(link)
             # link.calcLinkLength()
             newNode.leftLinks.extend(source.rightLinks)
-            # print([x.source.nid for x in newNode.leftLinks])
 
         deleteLinkIndices = []
         # deleteLinks = [item for sublist in deleteLinks for item in sublist]
-        # print([x.target.nid for x in deleteLinks])
-        # print([x.source.nid for x in deleteLinks])
         # for delink in deleteLinks:
-        #     print(delink.source.nid)
-        #     print(delink.target.nid)
         #     deleteLinkIndices.append(self.links.index(delink))
         # deleteLinkIndices = list(set(deleteLinkIndices))
         # for idx in sorted(deleteLinkIndices, reverse=True):
         #     del self.links[idx]
         # self.links = [x for x in self.links if x not in deleteLinks]
-        # print([x.target.nid for x in self.links])
         return newNode
 
     def groupMergeableNodes(self, nodes, uniqueValue):
         """Group nodes and merge."""
-        # print(uniqueValue)
-        # print([x.value for x in nodes])
         subGroups = []
         for val in uniqueValue:
             subGroup = []
             checkMultiple = [node for node in nodes if node.value == val]
             if len(checkMultiple) > 1:
-                # print([x.nid for x in checkMultiple])
                 for index, node in enumerate(checkMultiple):
                     linkExists = []  # Check if link exists within same items of a group
                     parentNid = [x.nid for x in node.parent]
@@ -543,7 +482,6 @@ class Graph:
                                 ]
                             )
                             if linkExists:
-                                # print(linkExists)
                                 flag = False
                                 break
                             if rightNode.nid in parentNid:
@@ -551,15 +489,11 @@ class Graph:
                                 break
 
                     if flag:  # This node has no connection to own sub group
-                        # print(index)
                         subGroup.append(node)
-                        # print("X")
-                        # print([x.nid for x in subGroup])
+
             if subGroup:
                 subGroups.append(subGroup)
         # for subGroup in subGroups:
-        # print("sbgrp")
-        # print([x.value for x in subGroup])
         return subGroups
 
     def getEventValueForNodes(self):

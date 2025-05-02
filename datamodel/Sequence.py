@@ -29,7 +29,6 @@ class Sequence:
 
     def getSeqLen(self):
         """ "Length of the eventList for this sequence."""
-        # print(f'event Length {len(self.events)}')
         return len(self.events)
 
     def getEventPosition(self, attr, hashVal):
@@ -115,7 +114,6 @@ class Sequence:
         the specified attribute for all the events in the sequence
         """
         lst = list(event.getAttrVal(attr) for event in self.events)
-        # print('lst', lst)
         string = " ".join(self.eventstore.attrDict[attr][elem] for elem in lst)
         print(self.eventstore.attrDict[attr])
         # string=""
@@ -242,7 +240,6 @@ class Sequence:
                     time = getTimeToSortBy(event)
                     key = (time.day, time.month, time.year)
                     insertEventIntoDict(key, days, event)
-                    # print(days)
                     if record is None:
                         event.attributes["record"] = datetime(*(key[::-1])).strftime(
                             "%Y%m%d"

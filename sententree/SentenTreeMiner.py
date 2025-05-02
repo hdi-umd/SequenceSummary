@@ -54,7 +54,6 @@ class SentenTreeMiner:
             if not seq1 and not seq0:
                 word, pos, count, seq0, seq1 = self.growSeq(currentSeq)
                 # print(f'key event {word} inserted at {pos} with count {count}')
-                # print(f'nid {seq1.nid}')
                 if count <= self.minSupport:
                     # currentSeq.parent.insert(0, rootNode)
                     leafSeqs.append(currentSeq)

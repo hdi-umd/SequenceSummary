@@ -195,19 +195,7 @@ if __name__ == "__main__":
             end = time.time()
             root = output[0]
             graph = output[1]
-            # print(x)
-            #                                 include_children=True, max_usage=True, retval=True)
-            # mem, root, graph = memory_usage(proc=[cfm.runCoreFlowMiner, [seqList], {}],\
-            #                                 include_children=True, max_usage=True, retval=True)
-            # print(mem)
-            # print(timedelta(seconds=execution_time))
 
-            # cfm.run(seqList, args.attr, root, 5 * Sequence.getSeqVolume(
-            #       seqList)/100.0, Sequence.getSeqVolume(seqList), [], {}, -1)
-
-            # root, graph = cfm.runCoreFlowMiner(seqList)
-            # memWriter.writerow([basename, f'{minSupParam:.2f}', "Coreflow",\
-            #                 mem])
             writer.writerow(
                 [
                     basename,
@@ -256,11 +244,6 @@ if __name__ == "__main__":
                     mem,
                 ]
             )
-            # print("\n\n*****SentenTree output******\n\n")
-
-            # x = json.dumps(root, ensure_ascii=False,
-            #                default=GraphNode.jsonSerializeDump, indent=1)
-            # print(x)
 
             print("\n\n*****SentenTree Graph output******\n\n")
 
@@ -345,34 +328,8 @@ if __name__ == "__main__":
             minSupParam += 0.05
             clust = output[0]
             grph = output[1]
-            # print(clust)
+
             z = json.dumps(
                 grph, ensure_ascii=False, default=Graph.jsonSerializeDump, indent=1
             )
             print(z)
-            # with open(args.output+basename+'sequence_synopsis_alpha'\
-            #     +f'{minSupParam:.2f}'+'.csv', 'w') as ssm_file:
-            #     ssmWriter = csv.writer(ssm_file)
-            #     ssmWriter.writerow(["Pattern_ID", "Event", "Average_Index",\
-            #                        "Number of Sequences"])
-            #     for index, elem in enumerate(clust):
-            #         print(f'elemvalue {elem.index}')
-            #         ssmWriter.writerow(["P"+str(index), "_Start", 0, str(len(elem.seqList))])
-            #         keyEvents = eventStore.getEventValue(args.attr, elem.pattern.keyEvts)
-            #         print(f'key {keyEvents}')
-            #         for ind, event in enumerate(keyEvents):
-            #             print(f'event {event} ind {ind}')
-            #             ssmWriter.writerow(["P"+str(index), event, elem.index[ind],\
-            #                                 str(len(elem.seqList))])
-            #         trailingLen = sum(len(x.events) for x in elem.seqList)/len(elem.seqList)
-            #         ssmWriter.writerow(["P"+str(index), "_Exit", trailingLen,\
-            #                             str(len(elem.seqList))])
-
-            # #Cluster.printClustDict(G, "Event")
-
-            # x = json.dumps([elem.jsonDefaultDump(args.attr, eventStore) for elem in ssm],
-            #                ensure_ascii=False)
-            # print(x)
-
-            # with open(args.output+basename+'sequence_synopsis_outfile.json', 'w') as the_file3:
-            #     the_file3.write(x)

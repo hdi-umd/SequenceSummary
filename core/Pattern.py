@@ -56,7 +56,6 @@ class Pattern:
         """Add the sequence seq to the support set of this pattern. In other
         words, the sequence contains this pattern.
         """
-        # print(f'sids {self.sids}')
         self.sids.append(seq)
         self.support += seq.getVolume()
 
@@ -114,7 +113,6 @@ class Pattern:
         key events for the given attribute
         """
 
-        # print(f'path of string {pathsOfStrings}')
         medians, means = Pattern.getStats(self.keyEvts, self.sids, evtAttr)
 
         means = np.cumsum(np.asarray(means))
@@ -123,7 +121,6 @@ class Pattern:
         self.setMedianPositions(medians)
         self.setMeanPositions(means)
 
-        # print(f'mean {means} median {medians}')
         median, mean = Pattern.getStatsEnd(self.keyEvts, self.sids, evtAttr)
 
         self.setMedianPathLength(median + medians[-1])
@@ -158,7 +155,6 @@ class Pattern:
         for elems in milestones:
             try:
                 idx = arr[idx + 1 :].index(elems)
-                # print(idx)
             except ValueError:
                 return False
         return True
@@ -167,8 +163,6 @@ class Pattern:
     def getPositions(events, path):
         """Get event positions."""
 
-        # sequence = path
-        # print(f'Events {path}')
         pos = []
         idx = -1
         offset = 0
@@ -182,7 +176,6 @@ class Pattern:
             except ValueError:
                 pos.append(-1)
 
-        # print(f'Positions {pos}')
         return pos
 
     @staticmethod
@@ -221,7 +214,6 @@ class Pattern:
         medians = []
         means = []
         pathsOfStrings = []
-        # print(f' sids {self.sids}')
         for path in seqs:
             pageSequence = path.getHashList(evtAttr)
             pathsOfStrings.append(pageSequence)
@@ -252,12 +244,9 @@ class Pattern:
         for i, path in enumerate(sequences):
             pos = Pattern.getPositions(keyevts, path.getHashList(attr))
             # the difference between the last event in thesequence and the last key event
-            # print(f'pos {pos} keyevts {keyevts} events {path.getEvtAttrValues(attr)}')
             trailingSteps[i] = (
                 len(path.events) - pos[-1] - 1 if pos else len(path.events) - 1
             )
-
-        # print(f'trailing {trailingSteps}')
 
         trailStepSum = sum(trailingSteps)
 

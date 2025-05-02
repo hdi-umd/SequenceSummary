@@ -113,7 +113,6 @@ class RankingFunction:
         duplicate = []
         for j in range(startPos, endPos):
             word = evtHashes[j]
-            # print(word)
             if word in duplicate:
                 continue
             duplicate.append(word)
@@ -131,7 +130,6 @@ class RankingFunction:
 
         for j in range(startPos, endPos):
             word = evtHashes[j]
-            # print(word)
             if word not in self.fdist:
                 self.fdist[word] = seq.getVolume()
                 self.fdistInd[word] = [j]

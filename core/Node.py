@@ -73,7 +73,6 @@ class Node:
     def setPositions(self, lst):
         """set meanStep and medianStep"""
         self.pos = lst
-        # print(f'positions {self.pos}')
         self.pos.sort()
         sumVal = sum(self.pos) + len(self.pos)
         # mid = len(self.pos)/2
@@ -187,22 +186,17 @@ class TreeNode(Node):
         key events for the given attribute.
         """
 
-        # print(f'path of string {pathsOfStrings}')
         medians, means = Pattern.getStats(self.keyevts, self.sequences, self.attr)
 
         # list(accumulate(means))
         # for _, elem in enumerate(self.sequences):
         #     paths = elem.getHashList(evtAttr)
-        #     print(Pattern.getPositions(self.keyevts, paths))
 
         # means = list(accumulate(means))
         # medians = list(accumulate(medians))
-        # print(f'means {means}')
-        # print(f'medians {medians}')
 
         self.medianPos = medians
         self.meanPos = means
-        # print(f'mean {means} median {median}')
 
         self.meanStep = means[-1] + self.parent[-1].meanStep
         self.medianStep = medians[-1] + self.parent[-1].medianStep
@@ -223,23 +217,19 @@ class TreeNode(Node):
         key events for the given attribute.
         """
 
-        # print(f'path of string {pathsOfStrings}')
         medians, means = Pattern.getStats(self.keyevts, self.sequences, self.attr)
 
         means = list(accumulate(means))
         medians = list(accumulate(medians))
-        # print(f'means {means}')
-        # print(f'medians {medians}')
 
         self.medianPos = medians
         self.meanPos = means
-        # print(f'mean {means} median {median}')
+
         if isExit:
             median, mean = Pattern.getStatsEnd(self.keyevts, self.sequences, self.attr)
             means.append(mean + means[-1])
             medians.append(median + medians[-1])
-            # print(f'trailing means{means}')
-            # print(f'trailing medians{medians}')
+
         self.meanStep = means[-1]
         self.medianStep = medians[-1]
 

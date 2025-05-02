@@ -40,8 +40,6 @@ class RankingFunction:
 
         self.topRankedEvtValues = self.tieBreaker()
 
-        # print(f'top ranked{self.topRankedEvtValues[0].keyEvts}')
-
         return self.topRankedEvtValues[0]
 
     def performRanking(self, seqs):
@@ -59,15 +57,12 @@ class RankingFunction:
                     patternDict[hashVal] = Pattern(hashVal)
                 patternDict[hashVal].addToSupportSet(seq.sid)
 
-        # print(f'result {result}')
-
         # Get most common tuples
         self.topRankedEvtValues = []
         candidate = []
         maxVal = 0
         if result:
             for val in result.most_common():
-                # print(f' common {val}')
                 if val[1] > self.maxSupport:
                     continue
                 maxVal = val[1]  # find highest elem value
@@ -79,7 +74,6 @@ class RankingFunction:
                 for cand in candidate
                 if elem.keyEvts == cand
             ]
-            # print(f'top values {self.topRankedEvtValues}')
 
     def numberOfSequence(self, sequence):
         """Select the event which is present in highest number of sequences."""

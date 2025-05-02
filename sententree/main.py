@@ -154,7 +154,6 @@ if __name__ == "__main__":
             seqList = seq
 
     # rawSeq = "\n".join(seqs.getEventsString(args.attr) for seqs in seqList)
-    # print(rawSeq)
 
     print(eventStore.reverseAttrDict[args.attr])
 
@@ -167,18 +166,13 @@ if __name__ == "__main__":
         graph = stm.runSentenTreeMiner(seqList)
         # cfm.truncateSequences(self, seqs, hashVal, evtAttr, node,trailingSeqSegs, notContain)
 
-        # print("\n\n*****SentenTree output******\n\n")
-
         # x = json.dumps(root, ensure_ascii=False,
         #                default=RawNode.jsonSerializeDump, indent=1)
-        # # print(x)
-
         # print("\n\n*****SentenTree output GraphNode******\n\n")
 
         # x = json.dumps(root, ensure_ascii=False,
         #                default=GraphNode.jsonSerializeDump, indent=1)
         # print(x)
-        # print(f'LEN {len(graphList)}')
 
         print("\n\n*****SentenTree Graph output******\n\n")
 
