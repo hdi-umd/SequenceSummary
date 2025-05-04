@@ -133,9 +133,9 @@ Arguments:
 
 Sequence Synopsis uses two balancing parameters to control the trade-off between information preservation and visual simplicity:
 
---alpha (float): Controls the weight given to minimizing information loss.  Higher values prioritize preserving more information from the original sequences.
+--alpha (float): Controls the weight given to minimizing information loss.  Higher values prioritize preserving more information from the original sequences - value between 0.0 and 1.0
 
---lambdaVal (float):  Controls the balance between pattern count and edit operations.  Higher values favor fewer patterns in the summary.
+--lambdaVal (float):  Controls the balance between pattern count and edit operations.  Higher values favor fewer patterns in the summary - value between 0.0 and 1.0
 
 
 #### CoreFlow Example
