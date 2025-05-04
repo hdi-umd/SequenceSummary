@@ -50,23 +50,25 @@ class EventStore:
         for row in dataFrame.iterrows():
             data = row[1]
             try:
-                timeStamp = datetime.strptime(data[timeStampColumnIdx], timeFormat)
+                timeStamp = datetime.strptime(data.iloc[timeStampColumnIdx], timeFormat)
             except ValueError:
                 # Try ISO format first
                 try:
-                    timeStamp = datetime.fromisoformat(data[timeStampColumnIdx])
+                    timeStamp = datetime.fromisoformat(data.iloc[timeStampColumnIdx])
                 except ValueError:
                     # If that fails too, try some common formats
                     for fmt in ["%m/%d/%Y", "%d/%m/%Y", "%Y-%m-%d", "%Y/%m/%d"]:
                         try:
-                            timeStamp = datetime.strptime(data[timeStampColumnIdx], fmt)
+                            timeStamp = datetime.strptime(
+                                data.iloc[timeStampColumnIdx], fmt
+                            )
                             break
                         except ValueError:
                             continue
                     else:
                         # If all attempts fail, raise an error with helpful message
                         raise ValueError(
-                            f"Unable to parse date: {data[timeStampColumnIdx]}. "
+                            f"Unable to parse date: {data.iloc[timeStampColumnIdx]}. "
                             f"Please provide a valid format string using --format parameter."
                         )
             # for all attributes other tahn time, add them to attributes dict
