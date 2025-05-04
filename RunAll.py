@@ -39,7 +39,7 @@ def main():
     parser = get_common_parser()
     # Add all technique-specific arguments
     parser = add_coreflow_args(parser)
-    parser = add_sententree_args(parser)
+    # parser = add_sententree_args(parser)
     parser = add_sequencesynopsis_args(parser)
     args = parser.parse_args()
     print(args)
