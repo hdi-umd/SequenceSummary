@@ -20,10 +20,12 @@ sequencesynopsis/differentRuns/
 sequencesynopsis/+seqsynopsis_msp.json
 sequencesynopsis/sequence_synopsis_outfile.json
 sequencesynopsis/sequence_synopsis_outfile.csv
+visualization/app/public/assets/
 # IDEs and editors
 
 *checkpoints
-
+*.jar
+*package-lock*
 # input files
 .gitignore.swp
 Sample_Dataset.csv
