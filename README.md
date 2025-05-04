@@ -2,7 +2,7 @@
 
 Event sequence data arises across diverse domains, from healthcare records to user clickstreams and system logs. Effectively visualizing such data remains challenging due to the volume, variety, and complexity of temporal patterns.
 
-This repository provides implementations of three visual summarization techniques for event sequence data, which can be used for pattern discovery, anomaly detection, and sequence clustering.
+This repository implements three visual summarization techniques for event sequence data, which can be used for pattern discovery, anomaly detection, and sequence clustering.
 
 - [**CoreFlow**](https://www.zcliu.org/coreflow/coreflow-eurovis17.pdf): Creates tree-structured visualizations that highlight branching patterns in event sequences, making it easy to identify the most common paths and where they diverge.
 
@@ -90,14 +90,44 @@ npm start
 
 ## Quick Start Guide
 
+All the techniques assume that the input dataset is in the csv format, where each row represents an event. 
+
 ### Running the Visualization Techniques via **Command Line**
+
+Arguments:
+
+--file (str): Path to the input CSV file. The file may be local, or it could be downloaded from a cloud storage, like Dropbox.
+
+--evttype (int): Event type. Use 1 for point event, 2 for interval event, 3 for mixed (both types of events are present in the dataset).
+
+--startidx (int): Index of the start time column in case of interval event. For point events, this is the index of the time column.
+
+--endidx (int, optional): Index of the end time column in case of interval event. Refer to [python website](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes) for more time format codes.
+
+--format (str): Date format (e.g., "%m/%d/%y").
+
+--sep (str): Delimiter used in the CSV file (e.g., "," for comma).
+
+--local (bool): Whether the file is locally available.
+
+--spmf (bool, optional): If spmf mining would be performed.
+
+--grpattr (str): Name of the column to group the events (rows) into sequences.
+
+--attr (str): Name of the column that contains the event type or label.
+
+--output (str): Directory where the output files will be saved.
+
+--alpha 0.1 (float, for Sequence Synopsis only):
+
+--lambdaVal 0.9 (float, for Sequence Synopsis only): 
 
 #### CoreFlow Example
 ```bash
 # Run CoreFlow mining on the sample dataset
 python coreflow/main.py --file "Sample_Dataset.csv" --evttype 1 --startidx 0 \
   --format "%m/%d/%y" --sep "," --local True \
-  --grpattr "group_attribute" --attr "event_attribute" \
+  --grpattr "Sequence" --attr "Event" \
   --output "./output/"
 ```
 
@@ -106,7 +136,7 @@ python coreflow/main.py --file "Sample_Dataset.csv" --evttype 1 --startidx 0 \
 # Run SentenTree mining on the sample dataset
 python sententree/main.py --file "Sample_Dataset.csv" --evttype 1 --startidx 0 \
   --format "%m/%d/%y" --sep "," --local True \
-  --grpattr "group_attribute" --attr "event_attribute" \
+  --grpattr "Sequence" --attr "Event" \
   --output "./output/"
 ```
 
@@ -115,7 +145,7 @@ python sententree/main.py --file "Sample_Dataset.csv" --evttype 1 --startidx 0 \
 # Run Sequence Synopsis mining on the sample dataset
 python sequencesynopsis/main.py --file "Sample_Dataset.csv" --evttype 1 --startidx 0 \
   --format "%m/%d/%y" --sep "," --local True \
-  --grpattr "group_attribute" --attr "event_attribute" \
+  --grpattr "Sequence" --attr "Event" \
   --alpha 0.1 --lambdaVal 0.9 --output "./output/"
 ```
 
@@ -136,7 +166,7 @@ python main.py --file "../Sample_Dataset.csv" --evttype 1 --startidx 0 --format 
 # Run all three techniques with varying granularity levels
 python RunAll.py --file "Sample_Dataset.csv" --evttype 1 --startidx 0 \
   --format "%m/%d/%y" --sep "," --local True \
-  --grpattr "group_attribute" --attr "event_attribute" \
+  --grpattr "Sequence" --attr "Event" \
   --output "./output/"
 ```
 
@@ -271,4 +301,4 @@ This implementation is based on the following papers:
 
 ## Contact
 
-For questions or suggestions, please open an issue.
+If you have any questions or suggestions, please open an issue.
