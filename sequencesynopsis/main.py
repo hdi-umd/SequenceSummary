@@ -14,6 +14,11 @@ from datamodel.EventStore import EventStore
 from datamodel.Sequence import Sequence
 from core.Graph import Graph
 from utils.args_parser import get_common_parser, add_sequencesynopsis_args
+from utils.data_loader import (
+    load_event_store,
+    generate_sequences,
+    ensure_output_directory,
+)
 
 
 # from SequenceSynopsisMiner import SequenceSynopsisMiner
@@ -37,52 +42,17 @@ def main():
     args = parser.parse_args()
     print(args)
 
-    # Eventstore creates a list of events
-    eventStore = EventStore()
-    if args.evttype == 1:
-        eventStore.importPointEvents(
-            args.file,
-            args.startidx,
-            args.format,
-            sep=args.sep,
-            local=args.local,
-            header=args.header,
-        )
-    elif args.evttype == 2:
-        eventStore.importIntervalEvents(
-            args.file,
-            args.startidx,
-            args.endidx,
-            args.format,
-            sep=args.sep,
-            local=args.local,
-            header=args.header,
-        )
-    else:
-        eventStore.importMixedEvents(
-            args.file,
-            args.startidx,
-            args.endidx,
-            args.format,
-            sep=args.sep,
-            local=args.local,
-            header=args.header,
-        )
+    # Ensure output directory exists
+    output_path = ensure_output_directory(args)
 
-    # create Sequences from Eventstore
-    if args.grpattr:
-        seq = eventStore.generateSequence(args.grpattr)
-    else:
-        seq = Sequence(eventStore.events, eventStore)
+    # Load data
+    eventStore = load_event_store(args)
 
-    if args.split:
-        seqList = Sequence.splitSequences(seq, args.split)
-    else:
-        if not isinstance(seq, list):
-            seqList = [seq]
-        else:
-            seqList = seq
+    # Generate sequences
+    seqList = generate_sequences(eventStore, args)
 
+    print(f"\nEvent dictionary: {eventStore.reverseAttrDict[args.attr]}\n")
+    print("\nRunning Sequence Synopsis mining...")
     syn = SequenceSynopsisMiner(
         args.attr, eventStore, alpha=args.alpha, lambdaVal=args.lambdaVal
     )
@@ -92,16 +62,13 @@ def main():
     z = json.dumps(grph, ensure_ascii=False, default=Graph.jsonSerializeDump, indent=1)
     print("\n\n*****SeqSynopsis output******\n\n")
     print(z)
-    with open("+seqsynopsis_msp" + ".json", "w") as the_file3:
+    with open(output_path + "+seqsynopsis_msp" + ".json", "w") as the_file3:
         the_file3.write(z)
     # print(ssm)
     pattern2seq = {}
-    outdir = "output"
-    if not os.path.exists(outdir):
-        os.mkdir(outdir)
     with open(
         os.path.join(
-            outdir,
+            output_path,
             f"sequence_synopsis_outfile_{args.fileIdentifier}_alpha{args.alpha}_lambda{args.lambdaVal}.csv",
         ),
         "w",
@@ -132,7 +99,7 @@ def main():
 
     with open(
         os.path.join(
-            outdir,
+            output_path,
             f"sequence_synopsis_pattern2sequence_{args.fileIdentifier}_alpha{args.alpha}_lambda{args.lambdaVal}.json",
         ),
         "w",
@@ -149,12 +116,14 @@ def main():
 
     with open(
         os.path.join(
-            outdir,
+            output_path,
             f"sequence_synopsis_outfile_{args.fileIdentifier}_alpha{args.alpha}_lambda{args.lambdaVal}.json",
         ),
         "w",
     ) as the_file:
         the_file.write(x)
+
+    print("\n*****Sequence Synopsis mining completed*****\n")
 
 
 if __name__ == "__main__":

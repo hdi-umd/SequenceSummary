@@ -11,9 +11,14 @@ from spmf import Spmf
 from datamodel.EventStore import EventStore
 from datamodel.Sequence import Sequence
 from utils.args_parser import get_common_parser, add_spmf_args
+from utils.data_loader import (
+    load_event_store,
+    generate_sequences,
+    ensure_output_directory,
+)
 
 
-def runSPMF(sequence, attr, argsSPMF):
+def runSPMF(sequence, attr, argsSPMF, output=None):
     """This module runs spmf using the py-spmf package."""
 
     # convert input to list format
@@ -47,8 +52,8 @@ def runSPMF(sequence, attr, argsSPMF):
     # more options can be specified also
     with pd.option_context("display.max_rows", 10, "display.max_columns", None):
         print(dataFrame)
-    if args.output:
-        dataFrame.to_csv(args.output, index=False)
+    if output:
+        dataFrame.to_csv(output, index=False)
 
 
 def main():
@@ -58,55 +63,20 @@ def main():
     args = parser.parse_args()
     print(args)
 
-    # Eventstore creates a list of events
-    eventStore = EventStore()
-    if args.evttype == 1:
-        eventStore.importPointEvents(
-            args.file,
-            args.startidx,
-            args.format,
-            sep=args.sep,
-            local=args.local,
-            header=args.header,
-        )
-    elif args.evttype == 2:
-        eventStore.importIntervalEvents(
-            args.file,
-            args.startidx,
-            args.endidx,
-            args.format,
-            sep=args.sep,
-            local=args.local,
-            header=args.header,
-        )
-    else:
-        eventStore.importMixedEvents(
-            args.file,
-            args.startidx,
-            args.endidx,
-            args.format,
-            sep=args.sep,
-            local=args.local,
-            header=args.header,
-        )
+    # Ensure output directory exists
+    output_path = ensure_output_directory(args)
 
-    # create Sequences from Eventstore
-    if args.grpattr:
-        seq = eventStore.generateSequence(args.grpattr)
-    else:
-        seq = Sequence(eventStore.events, eventStore)
+    # Load data
+    eventStore = load_event_store(args)
 
-    if args.split:
-        seqList = Sequence.splitSequences(seq, args.split)
-    else:
-        if not isinstance(seq, list):
-            seqList = [seq]
-        else:
-            seqList = seq
+    # Generate sequences
+    seqList = generate_sequences(eventStore, args)
 
-    print("\n\n*****SPMF output******\n\n")
-    runSPMF(seqList, args.attr, [1])
-    print("\n\n")
+    # Run SPMF
+    print("\n*****Running SPMF*****\n")
+    output_file = f"{output_path}_spmf_results.csv" if args.output else None
+    runSPMF(seqList, args.attr, [1], output_file)
+    print("\n*****SPMF processing completed*****\n")
 
 
 if __name__ == "__main__":

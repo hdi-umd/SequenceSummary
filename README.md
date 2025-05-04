@@ -143,8 +143,8 @@ Sequence Synopsis uses two balancing parameters to control the trade-off between
 # Run CoreFlow mining on the sample dataset
 python coreflow/main.py --file "Sample_Dataset.csv" --evttype 1 --startidx 0 \
   --format "%m/%d/%y" --sep "," --local True \
-  --grpattr "Sequence" --attr "Event" 
- --minsup 0.5  --output "./output/" 
+  --grpattr "Sequence" --attr "Event" \
+  --minsup 0.5  --output "./output/" 
 ```
 
 #### SentenTree Example
