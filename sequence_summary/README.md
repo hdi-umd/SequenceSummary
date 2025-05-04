@@ -94,7 +94,35 @@ npm start
 
 All the techniques assume that the input dataset is in the csv format, where each row represents an event. 
 
-### Running the Visualization Techniques via **Command Line**
+```
+from sequence_summary import EventStore, Sequence, CoreFlowMiner
+
+# Create event store
+event_store = EventStore()
+
+# Import point events
+event_store.import_point_events(
+    "data.csv",
+    time_stamp_column_idx=0,
+    time_format="%m/%d/%y",
+    sep=",",
+    local=True
+)
+
+# Generate sequences
+sequences = event_store.generate_sequence("group_attribute")
+
+# Initialize CoreFlow
+cfm = CoreFlowMiner(
+    "event_attribute",
+    min_sup=0.2 * len(sequences),
+    max_sup=len(sequences)
+)
+
+# Run CoreFlow mining
+root, graph = cfm.run_coreflow_miner(sequences)
+```
+
 
 Arguments:
 
@@ -135,193 +163,6 @@ Sequence Synopsis uses two balancing parameters to control the trade-off between
 --lambdaVal (float):  Controls the balance between pattern count and edit operations.  Higher values favor fewer patterns in the summary - value between 0.0 and 1.0
 
 
-#### CoreFlow Example
-```bash
-# Run CoreFlow mining on the sample dataset
-python coreflow/main.py --file "Sample_Dataset.csv" --evttype 1 --startidx 0 \
-  --format "%m/%d/%y" --sep "," --local True \
-  --grpattr "Sequence" --attr "Event" \
-  --minsup 0.5  --output "./output/" 
-```
-
-#### SentenTree Example
-```bash
-# Run SentenTree mining on the sample dataset
-python sententree/main.py --file "Sample_Dataset.csv" --evttype 1 --startidx 0 \
-  --format "%m/%d/%y" --sep "," --local True \
-  --grpattr "Sequence" --attr "Event" \
-  --minsup 0.5  --output "./output/"  
-```
-
-#### Sequence Synopsis Example
-```bash
-# Run Sequence Synopsis mining on the sample dataset
-python sequencesynopsis/main.py --file "Sample_Dataset.csv" --evttype 1 --startidx 0 \
-  --format "%m/%d/%y" --sep "," --local True \
-  --grpattr "Sequence" --attr "Event" \
-  --alpha 0.1 --lambdaVal 0.9 --output "./output/"
-```
-
-#### Running SPMF 
-
-Download the SPMF JAR file (spmf.jar) from the [official website](https://www.philippe-fournier-viger.com/spmf/index.php?link=download.php)
-
-
-Place the JAR file in a directory of your choice (for example, in the spmf directory of the project)
-
-```bash
-cd spmf
-python main.py --file "../Sample_Dataset.csv" --evttype 1 --startidx 0 --format "%m/%d/%Y" --sep "," --local True --attr "Event"
-```
-
-#### Running All Techniques for Comparison
-
-```bash
-# Run all three techniques with varying granularity levels
-python RunAll.py --file "Sample_Dataset.csv" --evttype 1 --startidx 0 \
-  --format "%m/%d/%y" --sep "," --local True \
-  --grpattr "Sequence" --attr "Event" \
-  --output "./output/"
-```
-
-### Running the Visualization Techniques using **Python API:**
-
-### Loading Data
-
-All three techniques use the same data loading approach:
-
-```python
-from EventStore import EventStore
-
-# Create event store
-eventStore = EventStore()
-
-# Import point events from CSV
-eventStore.importPointEvents(
-    "your_dataset.csv",     # File path
-    timeStampColumnIdx=0,   # Index of timestamp column
-    timeFormat="%m/%d/%y",  # Format of timestamp
-    sep=",",                # Separator in CSV
-    local=True              # True if file is local, False if URL
-)
-
-# Generate sequences grouped by a specific attribute
-sequences = eventStore.generateSequence("group_attribute")
-```
-
-#### CoreFlow Example
-
-```python
-from coreflow.CoreFlowMiner import CoreFlowMiner
-
-# Initialize CoreFlow with minimum/maximum support parameters
-cfm = CoreFlowMiner(
-    "event_attribute",                  # Attribute to analyze
-    minSup=0.2 * len(sequences),        # Minimum support threshold
-    maxSup=len(sequences)               # Maximum support threshold
-)
-
-# Run CoreFlow mining
-root, graph = cfm.runCoreFlowMiner(sequences)
-
-# Export visualization data
-import json
-with open('coreflow_result.json', 'w') as f:
-    json.dump(root, f, default=lambda o: o.__dict__ if hasattr(o, "__dict__") else str(o))
-```
-
-#### SentenTree Example
-
-```python
-from sententree.SentenTreeMiner import SentenTreeMiner
-
-# Initialize SentenTree with minimum/maximum support parameters
-stm = SentenTreeMiner(
-    "event_attribute",                  # Attribute to analyze
-    minSup=0.2 * len(sequences),        # Minimum support threshold
-    maxSup=len(sequences)               # Maximum support threshold
-)
-
-# Run SentenTree mining
-graph = stm.runSentenTreeMiner(sequences)
-
-# Export visualization data
-import json
-with open('sententree_result.json', 'w') as f:
-    json.dump(graph, f, default=lambda o: o.__dict__ if hasattr(o, "__dict__") else str(o))
-```
-
-
-#### Sequence Synopsis Example
-
-```python
-from sequencesynopsis.SequenceSynopsisMinerWithWeightedLSH import SequenceSynopsisMiner
-
-# Initialize Sequence Synopsis with balancing parameters
-ssm = SequenceSynopsisMiner(
-    "event_attribute",          # Attribute to analyze
-    eventStore,                 # Event store containing the data
-    alpha=0.1,                  # Balance between info loss and visual complexity
-    lambdaVal=0.9               # Balance between pattern count and edit operations
-)
-
-# Run Sequence Synopsis mining
-clusters, graph = ssm.minDL(sequences)
-
-# Export visualization data
-import json
-with open('seqsynopsis_result.json', 'w') as f:
-    json.dump(graph, f, default=lambda o: o.__dict__ if hasattr(o, "__dict__") else str(o))
-```
-## Additional Features
-
-The repository includes several data processing capabilities that enhance the analysis of event sequence data:
-
-### Sequence Splitting (--split)
-
-The sequence splitting feature allows breaking down long sequences into shorter ones based on temporal units:
-
-- **Usage**: `--split [time_unit]`
-- **Valid time units**: "hour", "day", "week", "month", "quarter", "year"
-- **Function**: Divides sequences based on the specified time unit
-- **Benefits**:
-  - Facilitates pattern discovery within specific temporal segments
-  - Useful for seasonal or periodic pattern analysis
-
-Example:
-```bash
-python coreflow/main.py --file "Sample_Dataset.csv" --grpattr "Sequence" --attr "Event"   --split "month"
-```
-
-### Event Merging (--merge)
-The event merging feature allows aggregating similar events to reduce the variety of event types and simplify analysis:
-
-- **Usage**: `--merge [method] with --mergefile [mapping_file]`
-
-- **Methods**:
-   1. Dictionary-based merging - directly maps original event names to merged names
-   2. Regex-based merging - uses regular expressions to identify patterns for merging
-
-
-- **Function**: Consolidates events based on defined rules, reducing the number of unique event types
-- **Benefits**:
-  - Reduces visual clutter by combining semantically similar events
-  - Aids in finding higher-level patterns that might be obscured by too many event types
-  - Allows domain experts to encode knowledge about event similarity
-
-
-The merging rules are defined in a mapping file (commonly named "dict.txt"):
-
-**For dictionary mapping**: Odd lines contain original event names, even lines contain target merged names
-
-**For regex mapping**: First line contains the regular expression pattern, second line contains the target merged name
-
-Example:
-```bash
-python coreflow/main.py --file "Sample_Dataset.csv" --grpattr "Sequence" --attr "Event" --merge 1 --mergefile "dict.txt"
-```
-
-These features can be combined with the main visualization techniques and parameters to create customized and insightful visual summaries of event sequence data.
 
 ### Benchmarking
 
@@ -340,23 +181,6 @@ Running the RunAll.py script will:
   3. Record execution time and memory usage for each configuration
   4. Save visual summary outputs for all configurations
   5. Generate a CSV file (TimeMemoryAnalysis.csv) with detailed performance metrics
-
-
-
-## Visualization App
-
-The repository includes a web-based visualization application that renders the outputs from all three techniques:
-
-```bash
-cd visualization/app
-npm install
-npm run start
-```
-
-This will start a local server at http://localhost:3000 where you can:
-- Select different datasets
-- Adjust granularity parameters
-- Compare visualization techniques side-by-side
 
 
 ## Performance Considerations
