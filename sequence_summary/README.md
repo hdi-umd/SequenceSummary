@@ -44,20 +44,6 @@ year = {2023}
 - Parameter tuning for different levels of granularity
 - Performance metrics 
 
-## Repository Structure
-
-```
-event-sequence-analytics/
-├── core/                # Core classes for algorithm implementation (Cluster, Graph, Node, Pattern, QueueElements)
-├── coreflow/            # CoreFlow implementation
-├── datamodel/           # Data model classes for event handling (Event, Sequence)
-├── sententree/          # SentenTree implementation
-├── sequencesynopsis/    # Sequence Synopsis implementation (with and without LSH)
-├── spmf/                # SPMF pattern mining utilities
-├── utils/               # Data loading, argument parsing and processing helpers
-├── visualization/       # Web-based visualization app
-└── RunAll.py            # Script to run all techniques with benchmarking
-```
 
 ## Requirements
 
@@ -80,6 +66,16 @@ SPMF java library (for running pattern mining algorithms)
 
 ## Installation
 
+### Sequence Summary Python Package
+
+A Python package for visual summarization of event sequences, including CoreFlow, SentenTree, and SequenceSynopsis techniques.
+
+
+```bash
+pip install sequence-summary
+```
+
+### From Source
 ```bash
 # Clone the repository
 git clone https://github.com/hdi-umd/SequenceSummary.git
