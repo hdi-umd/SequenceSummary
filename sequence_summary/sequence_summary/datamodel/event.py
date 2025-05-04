@@ -2,7 +2,17 @@
 
 
 class Event:
-    """Base Event class, holds the types."""
+    """Base Event class that holds event types and attributes.
+
+    This is the abstract base class for all event types in the system.
+    Events can be extended to support different temporal characteristics
+    (e.g., point events that occur at a specific moment, interval events
+    that span a period).
+
+    Attributes:
+        type (str): The type of event ('point' or 'interval')
+        attributes (dict): Dictionary of event attributes and their values
+    """
 
     def __init__(self, eventtype):
         self.type = eventtype
@@ -22,7 +32,7 @@ class PointEvent(Event):
 
     def __init__(self, timestamp):
         Event.__init__(self, "point")
-        #self.type = "point"
+        # self.type = "point"
         self.timestamp = timestamp
 
 
@@ -31,5 +41,5 @@ class IntervalEvent(Event):
 
     def __init__(self, t1, t2):
         Event.__init__(self, "interval")
-        #self.type = "interval"
+        # self.type = "interval"
         self.time = [t1, t2]

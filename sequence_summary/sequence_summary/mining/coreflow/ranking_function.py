@@ -1,7 +1,7 @@
 """Implements all RankingFunction."""
 
 from collections import Counter
-from core.Pattern import Pattern
+from sequence_summary.core.pattern import Pattern
 
 
 class RankingFunction:

@@ -24,25 +24,35 @@ setup(
         "pandas",
         "matplotlib",
         "datasketch",
-        "sklearn",
+        "scikit-learn",
         "certifi",
         "spmf",
     ],
+    # Different implementation variants as extras
     extras_require={
-        "dev": [
-            "pytest",
-            "memory_profiler",
-        ],
-        "viz": [
-            "react",
-            "bootstrap",
-        ],
+        # Base sequence synopsis without LSH
+        "basic": [],
+        # Sequence synopsis with LSH
+        "lsh": ["datasketch"],
+        # Sequence synopsis with weighted LSH
+        "weighted-lsh": ["datasketch", "scikit-learn"],
+        # Include all sequence synopsis implementations
+        "all-synopsis": ["datasketch", "scikit-learn"],
+        # Development dependencies
+        "dev": ["pytest", "memory_profiler"],
     },
+    # Command-line entry points for different implementations
     entry_points={
         "console_scripts": [
             "run-coreflow=sequence_summary.mining.coreflow.main:main",
             "run-sententree=sequence_summary.mining.sententree.main:main",
-            "run-sequencesynopsis=sequence_summary.mining.sequencesynopsis.main:main",
+            # Basic sequence synopsis
+            "run-sequencesynopsis=sequence_summary.mining.sequencesynopsis.main:run_basic",
+            # LSH implementation
+            "run-sequencesynopsis-lsh=sequence_summary.mining.sequencesynopsis.main:run_with_lsh",
+            # Weighted LSH implementation
+            "run-sequencesynopsis-weighted=sequence_summary.mining.sequencesynopsis.main:run_with_weighted_lsh",
+            # Run all techniques
             "run-all=sequence_summary.run_all:main",
         ],
     },

@@ -1,9 +1,9 @@
 """Implements the EventStore class to store events and attributes."""
 
 from datetime import datetime
-from datamodel.Event import PointEvent, IntervalEvent
-from datamodel.Sequence import Sequence
-from utils.Helper import getDataframe, getTimeToSortBy
+from sequence_summary.datamodel.event import PointEvent, IntervalEvent
+from sequence_summary.datamodel.sequence import Sequence
+from sequence_summary.utils.helper import getDataframe, getTimeToSortBy
 
 
 class EventStore:

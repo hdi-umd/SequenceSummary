@@ -1,9 +1,9 @@
 """ "Implements the CoreFlow mining Algorithm based on provided Ranking Function"""
 
-from coreflow.RankingFunction import RankingFunction
-from core.Node import TreeNode
-from datamodel.Sequence import Sequence
-from core.Graph import Graph, RawNode, Links
+from sequence_summary.mining.coreflow.ranking_function import RankingFunction
+from sequence_summary.core.node import TreeNode
+from sequence_summary.datamodel.sequence import Sequence
+from sequence_summary.core.graph import Graph, RawNode, Links
 
 
 class CoreFlowMiner:

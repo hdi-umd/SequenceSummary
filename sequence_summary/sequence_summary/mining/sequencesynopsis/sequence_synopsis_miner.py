@@ -2,11 +2,15 @@
 
 from collections import Counter
 from bisect import bisect
-from core.Cluster import Cluster
-from sequencesynopsis.RankingFunction import lcs, calcDist, calcAverage
-from core.QueueElements import QueueElements
-from core.Pattern import Pattern
-from core.Graph import Graph, RawNode, Links
+from sequence_summary.core.cluster import Cluster
+from sequence_summary.mining.sequencesynopsis.ranking_function import (
+    lcs,
+    calcDist,
+    calcAverage,
+)
+from sequence_summary.core.queue_elements import QueueElements
+from sequence_summary.core.pattern import Pattern
+from sequence_summary.core.graph import Graph, RawNode, Links
 
 
 class SequenceSynopsisMiner:

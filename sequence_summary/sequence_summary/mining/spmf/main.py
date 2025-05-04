@@ -8,10 +8,10 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import argparse
 import pandas as pd
 from spmf import Spmf
-from datamodel.EventStore import EventStore
-from datamodel.Sequence import Sequence
-from utils.args_parser import get_common_parser, add_spmf_args
-from utils.data_loader import (
+from sequence_summary.datamodel.event_store import EventStore
+from sequence_summary.datamodel.sequence import Sequence
+from sequence_summary.utils.args_parser import get_common_parser, add_spmf_args
+from sequence_summary.utils.data_loader import (
     load_event_store,
     generate_sequences,
     ensure_output_directory,

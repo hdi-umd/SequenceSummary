@@ -1,10 +1,10 @@
 """Implements the SentenTreeMiner according to SentenTree Algo."""
 
 import numpy as np
-from core.Graph import RawNode, Graph
-from core.Node import GraphNode
-from datamodel.Sequence import Sequence
-from sententree.RankingFunction import RankingFunction
+from sequence_summary.core.graph import RawNode, Graph
+from sequence_summary.core.node import GraphNode
+from sequence_summary.datamodel.sequence import Sequence
+from sequence_summary.mining.sententree.ranking_function import RankingFunction
 
 
 class SentenTreeMiner:

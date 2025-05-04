@@ -1,9 +1,12 @@
 # utils/data_loader.py
 import os
 import json
-from datamodel.EventStore import EventStore
-from datamodel.Sequence import Sequence
-from datamodel.EventAggregate import aggregateEventsDict, aggregateEventsRegex
+from sequence_summary.datamodel.event_store import EventStore
+from sequence_summary.datamodel.sequence import Sequence
+from sequence_summary.datamodel.event_aggregate import (
+    aggregateEventsDict,
+    aggregateEventsRegex,
+)
 
 
 def load_event_store(args):

@@ -3,7 +3,7 @@
 import os
 import pandas as pd
 import requests
-from datamodel.Event import IntervalEvent
+from sequence_summary.datamodel.event import IntervalEvent
 
 
 def getDataframe(src, local=False, sep="\t", header=None):

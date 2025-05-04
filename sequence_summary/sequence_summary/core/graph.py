@@ -4,7 +4,7 @@ import json
 
 from itertools import count, chain, groupby
 from statistics import mean
-from core.Pattern import Pattern
+from sequence_summary.core.pattern import Pattern
 
 
 class RawNode:

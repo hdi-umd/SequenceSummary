@@ -2,25 +2,28 @@
 Coreflow module.
 """
 
+import argparse
+import json
+from sequence_summary.datamodel.event_store import EventStore
+from sequence_summary.datamodel.sequence import Sequence
+from sequence_summary.datamodel.event_aggregate import (
+    aggregateEventsRegex,
+    aggregateEventsDict,
+)
+from sequence_summary.core.node import TreeNode
+from sequence_summary.core.graph import Graph
+from sequence_summary.mining.coreflow.coreflow_miner import CoreFlowMiner
 import sys
 import os
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from utils.args_parser import get_common_parser, add_coreflow_args
-from utils.data_loader import (
+from sequence_summary.utils.args_parser import get_common_parser, add_coreflow_args
+from sequence_summary.utils.data_loader import (
     load_event_store,
     generate_sequences,
     ensure_output_directory,
 )
-from utils.logger import setup_logger
-from datamodel.EventStore import EventStore
-from datamodel.Sequence import Sequence
-from datamodel.EventAggregate import aggregateEventsRegex, aggregateEventsDict
-from core.Node import TreeNode
-from core.Graph import Graph
-from coreflow.CoreFlowMiner import CoreFlowMiner
-import argparse
-import json
+from sequence_summary.utils.logger import setup_logger
 
 # Set up logger for this module
 logger = setup_logger(__name__, "CoreFlow")

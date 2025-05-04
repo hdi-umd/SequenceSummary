@@ -2,14 +2,18 @@
 
 from collections import Counter
 from bisect import bisect
-from core.Cluster import Cluster
-from sequencesynopsis.RankingFunction import lcs, calcDist, calcAverage
-from core.QueueElements import QueueElements
-from core.Pattern import Pattern
+import math
+from sequence_summary.core.cluster import Cluster
+from sequence_summary.mining.sequencesynopsis.ranking_function import (
+    lcs,
+    calcDist,
+    calcAverage,
+)
+from sequence_summary.core.queue_elements import QueueElements
+from sequence_summary.core.pattern import Pattern
 from datasketch import MinHash, MinHashLSH, WeightedMinHashGenerator
 from sklearn.feature_extraction.text import TfidfVectorizer
-from core.Graph import Graph, RawNode, Links
-import math
+from sequence_summary.core.graph import Graph, RawNode, Links
 
 
 class SequenceSynopsisMiner:

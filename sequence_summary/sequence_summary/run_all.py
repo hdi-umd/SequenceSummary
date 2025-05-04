@@ -12,27 +12,34 @@ import csv
 import time
 from datetime import timedelta
 from memory_profiler import memory_usage
-from utils.args_parser import (
+from sequence_summary.utils.args_parser import (
     get_common_parser,
     add_coreflow_args,
     add_sententree_args,
     add_sequencesynopsis_args,
 )
-from utils.data_loader import (
+from sequence_summary.utils.data_loader import (
     load_event_store,
     generate_sequences,
     ensure_output_directory,
 )
 
-from core.Node import TreeNode, GraphNode
-from datamodel.Sequence import Sequence
-from core.Graph import Graph
-from datamodel.EventStore import EventStore
-from datamodel.EventAggregate import aggregateEventsRegex, aggregateEventsDict
-from coreflow.CoreFlowMiner import CoreFlowMiner
-from sententree.SentenTreeMiner import SentenTreeMiner
-from sequencesynopsis.SequenceSynopsisMinerWithWeightedLSH import SequenceSynopsisMiner
-from sequencesynopsis.SequenceSynopsisMiner import SequenceSynopsisMiner as ssmv
+from sequence_summary.core.node import TreeNode, GraphNode
+from sequence_summary.datamodel.sequence import Sequence
+from sequence_summary.core.graph import Graph
+from sequence_summary.datamodel.event_store import EventStore
+from sequence_summary.datamodel.event_aggregate import (
+    aggregateEventsRegex,
+    aggregateEventsDict,
+)
+from sequence_summary.mining.coreflow.coreflow_miner import CoreFlowMiner
+from sequence_summary.mining.sententree.sententree_miner import SentenTreeMiner
+from sequence_summary.mining.sequencesynopsis.sequence_synopsis_miner_with_weighted_lsh import (
+    SequenceSynopsisMiner,
+)
+from sequence_summary.mining.sequencesynopsis.sequence_synopsis_miner import (
+    SequenceSynopsisMiner as ssmv,
+)
 
 
 def main():
