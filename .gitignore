@@ -41,3 +41,10 @@ __pycache__
 
 # configuration Files
 .pylintrc
+
+# package files
+*.egg-info
+*.egg
+*.whl
+build/
+dist/
