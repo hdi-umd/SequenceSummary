@@ -40,6 +40,7 @@ year = {2023}
 - Support for different event types (point, interval, mixed)
 - Flexible input formats and time representations
 - Interactive web-based visualization application
+- Additional features for sequence handling, such as sequence splitting and event merging
 - Parameter tuning for different levels of granularity
 - Performance metrics 
 
@@ -276,7 +277,55 @@ import json
 with open('seqsynopsis_result.json', 'w') as f:
     json.dump(graph, f, default=lambda o: o.__dict__ if hasattr(o, "__dict__") else str(o))
 ```
+## Additional Features
 
+The repository includes several data processing capabilities that enhance the analysis of event sequence data:
+
+### Sequence Splitting (--split)
+
+The sequence splitting feature allows breaking down long sequences into shorter ones based on temporal units:
+
+- **Usage**: `--split [time_unit]`
+- **Valid time units**: "hour", "day", "week", "month", "quarter", "year"
+- **Function**: Divides sequences based on the specified time unit
+- **Benefits**:
+  - Facilitates pattern discovery within specific temporal segments
+  - Useful for seasonal or periodic pattern analysis
+
+Example:
+```bash
+python coreflow/main.py --file "Sample_Dataset.csv" --grpattr "Sequence" --attr "Event"   --split "month"
+```
+
+### Event Merging (--merge)
+The event merging feature allows aggregating similar events to reduce the variety of event types and simplify analysis:
+
+- **Usage**: `--merge [method] with --mergefile [mapping_file]`
+
+- **Methods**:
+   1. Dictionary-based merging - directly maps original event names to merged names
+   2. Regex-based merging - uses regular expressions to identify patterns for merging
+
+
+- **Function**: Consolidates events based on defined rules, reducing the number of unique event types
+- **Benefits**:
+  - Reduces visual clutter by combining semantically similar events
+  - Aids in finding higher-level patterns that might be obscured by too many event types
+  - Allows domain experts to encode knowledge about event similarity
+
+
+The merging rules are defined in a mapping file (commonly named "dict.txt"):
+
+**For dictionary mapping**: Odd lines contain original event names, even lines contain target merged names
+
+**For regex mapping**: First line contains the regular expression pattern, second line contains the target merged name
+
+Example:
+```bash
+python coreflow/main.py --file "Sample_Dataset.csv" --grpattr "Sequence" --attr "Event" --merge 1 --mergefile "dict.txt"
+```
+
+These features can be combined with the main visualization techniques and parameters to create customized and insightful visual summaries of event sequence data.
 
 ## Visualization App
 

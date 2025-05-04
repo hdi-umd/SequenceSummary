@@ -61,7 +61,7 @@ def get_common_parser():
         "--grpattr",
         help="group the sequences based on this attribute",
         type=str,
-        default="",
+        required=True,
     )
     parser.add_argument("--split", help="split the sequences", type=str, default="")
 
