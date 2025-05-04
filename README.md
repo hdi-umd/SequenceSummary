@@ -12,6 +12,9 @@ This repository implements three visual summarization techniques for event seque
 
 ![Visualization Example](https://github.com/hdi-umd/SequenceSummary/blob/main/teaser.png?raw=true)
 
+In addition to the three visual summarization techniques, this repository provides an example usage of our data model with the [SPMF](https://www.philippe-fournier-viger.com/spmf/) library - a popular, open-source data mining library specializing in pattern mining.
+
+
 #### Citation
 
 If you use this repository in your research, please cite our paper ["A Comparative Evaluation of Visual Summarization Techniques
@@ -65,8 +68,10 @@ event-sequence-analytics/
   - certifi
   - datasketch (for LSH implementation in Sequence Synopsis)
   - memory_profiler (for performance analysis)
+  - spmf (for SPMF integration)
 - Node.js and npm (for visualization app)
 - React (for visualization components)
+- Java Runtime Environment (for SPMF)
 
 #### Optional Requirements
 
@@ -118,11 +123,20 @@ Arguments:
 
 --output (str): Directory where the output files will be saved.
 
---minsup (float): Minimum support parameter for CoreFlow and SentenTree algorithm.
+#### Algorithm Specific Parameter
 
---alpha (float): for Sequence Synopsis only
+**CoreFlow and SentenTree**
 
---lambdaVal (float):  for Sequence Synopsis only 
+--minsup (float): Minimum support parameter for CoreFlow and SentenTree algorithm. Controls the granularity of the visual summary by defining the threshold for including events and patterns - value between 0.0 and 1.0 (representing 0% to 100% of sequences)
+
+**Sequence Synopsis**
+
+Sequence Synopsis uses two balancing parameters to control the trade-off between information preservation and visual simplicity:
+
+--alpha (float): Controls the weight given to minimizing information loss.  Higher values prioritize preserving more information from the original sequences.
+
+--lambdaVal (float):  Controls the balance between pattern count and edit operations.  Higher values favor fewer patterns in the summary.
+
 
 #### CoreFlow Example
 ```bash
