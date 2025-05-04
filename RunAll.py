@@ -18,6 +18,12 @@ from utils.args_parser import (
     add_sententree_args,
     add_sequencesynopsis_args,
 )
+from utils.data_loader import (
+    load_event_store,
+    generate_sequences,
+    ensure_output_directory,
+)
+
 from core.Node import TreeNode, GraphNode
 from datamodel.Sequence import Sequence
 from core.Graph import Graph
@@ -38,67 +44,16 @@ def main():
     args = parser.parse_args()
     print(args)
 
-    if not args.output:
-        if args.local:
-            args.output = (
-                os.path.dirname(os.path.abspath(args.file)) + "/output_minsupport/"
-            )
-            print(f" Output path {args.output}")
-    if not os.path.exists(args.output):
-        os.makedirs(args.output)
+    # Ensure output directory exists
+    output_path = ensure_output_directory(args)
+
+    # Get basename for output files
     basename = os.path.splitext(os.path.basename(args.file))[0]
 
-    # Eventstore creates a list of events
-    eventStore = EventStore()
-    if args.evttype == 1:
-        eventStore.importPointEvents(
-            args.file,
-            args.startidx,
-            args.format,
-            sep=args.sep,
-            local=args.local,
-            header=args.header,
-        )
-    elif args.evttype == 2:
-        eventStore.importIntervalEvents(
-            args.file,
-            args.startidx,
-            args.endidx,
-            args.format,
-            sep=args.sep,
-            local=args.local,
-            header=args.header,
-        )
-    else:
-        eventStore.importMixedEvents(
-            args.file,
-            args.startidx,
-            args.endidx,
-            args.format,
-            sep=args.sep,
-            local=args.local,
-            header=args.header,
-        )
+    # Load data - this only needs to be done once for all techniques
+    eventStore = load_event_store(args)
+    seqList = generate_sequences(eventStore, args)
 
-    if args.merge:
-        if args.merge == 1:
-            aggregateEventsDict(eventStore, "dict.txt", args.attr)
-        elif args.merge == 2:
-            aggregateEventsRegex(eventStore, "dict.txt", args.attr)
-
-    # create Sequences from Eventstore
-    if args.grpattr:
-        seq = eventStore.generateSequence(args.grpattr)
-    else:
-        seq = Sequence(eventStore.events, eventStore)
-
-    if args.split:
-        seqList = Sequence.splitSequences(seq, args.split)
-    else:
-        if not isinstance(seq, list):
-            seqList = [seq]
-        else:
-            seqList = seq
     Sequence.seqListtotsv(seqList, args.attr)
 
     with open(
@@ -144,7 +99,7 @@ def main():
             print(x)
 
             with open(
-                args.output
+                output_path
                 + basename
                 + "+coreflow_msp"
                 + f"{minSupParam:.2f}"
@@ -185,7 +140,7 @@ def main():
             #     the_file1.write(x)
 
             with open(
-                args.output
+                output_path
                 + basename
                 + "+sententree_msp"
                 + f"{minSupParam:.2f}"
@@ -226,7 +181,7 @@ def main():
             #     the_file1.write(x)
 
             with open(
-                args.output
+                output_path
                 + basename
                 + "+seqsynopsis_alpha"
                 + f"{minSupParam:.2f}"
