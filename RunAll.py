@@ -12,6 +12,12 @@ import csv
 import time
 from datetime import timedelta
 from memory_profiler import memory_usage
+from utils.args_parser import (
+    get_common_parser,
+    add_coreflow_args,
+    add_sententree_args,
+    add_sequencesynopsis_args,
+)
 from core.Node import TreeNode, GraphNode
 from datamodel.Sequence import Sequence
 from core.Graph import Graph
@@ -22,90 +28,14 @@ from sententree.SentenTreeMiner import SentenTreeMiner
 from sequencesynopsis.SequenceSynopsisMinerWithWeightedLSH import SequenceSynopsisMiner
 from sequencesynopsis.SequenceSynopsisMiner import SequenceSynopsisMiner as ssmv
 
-if __name__ == "__main__":
-    # main()
 
-    argParser = argparse.ArgumentParser()
-
-    argParser.add_argument(
-        "--file",
-        help="File to read from",
-        type=str,
-        default="sequence_braiding_refined.csv",
-        required=False,
-    )
-
-    argParser.add_argument(
-        "--evttype",
-        help="1. Point 2.Interval 3.Mixed event",
-        type=int,
-        default=1,
-        required=False,
-    )
-
-    argParser.add_argument(
-        "--startidx",
-        help="Column Index of starting time",
-        type=int,
-        default=0,
-        required=False,
-    )
-
-    argParser.add_argument(
-        "--endidx",
-        help="Column Index of ending time",
-        type=int,
-        default=1,
-        required=False,
-    )
-
-    argParser.add_argument(
-        "--format", help="Time format", type=str, default="%m/%d/%y", required=False
-    )
-
-    argParser.add_argument(
-        "--sep", help="separator of fields", type=str, default=",", required=False
-    )
-
-    argParser.add_argument(
-        "--local",
-        help="Local availability of file",
-        type=bool,
-        default=True,
-        required=False,
-    )
-
-    argParser.add_argument(
-        "--header", help="name of fields", nargs="+", default="", required=False
-    )
-
-    argParser.add_argument(
-        "--attr", help="Attribute to run mining on", type=str, required=True
-    )
-
-    argParser.add_argument(
-        "--grpattr",
-        help="group the sequences based on this attribute",
-        type=str,
-        default="",
-    )
-
-    argParser.add_argument("--split", help="split the sequences", type=str, default="")
-
-    argParser.add_argument(
-        "--merge",
-        help="merge the events in the file 1. Dictionary 2. Regex",
-        type=int,
-        default=0,
-    )
-
-    argParser.add_argument(
-        "--mergefile", help="merge the events in the file", type=str, default=""
-    )
-
-    argParser.add_argument("--output", help="Path of output file", type=str, default="")
-
-    args = argParser.parse_args()
+def main():
+    parser = get_common_parser()
+    # Add all technique-specific arguments
+    parser = add_coreflow_args(parser)
+    parser = add_sententree_args(parser)
+    parser = add_sequencesynopsis_args(parser)
+    args = parser.parse_args()
     print(args)
 
     if not args.output:
@@ -333,3 +263,7 @@ if __name__ == "__main__":
                 grph, ensure_ascii=False, default=Graph.jsonSerializeDump, indent=1
             )
             print(z)
+
+
+if __name__ == "__main__":
+    main()

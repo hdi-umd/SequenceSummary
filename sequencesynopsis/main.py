@@ -13,6 +13,8 @@ import csv
 from datamodel.EventStore import EventStore
 from datamodel.Sequence import Sequence
 from core.Graph import Graph
+from utils.args_parser import get_common_parser, add_sequencesynopsis_args
+
 
 # from SequenceSynopsisMiner import SequenceSynopsisMiner
 # from SequenceSynopsisMinerWithLSH import SequenceSynopsisMiner
@@ -28,83 +30,11 @@ def print_attributes(obj, indent=0):
                 print_attributes(value, indent + 1)
 
 
-if __name__ == "__main__":
-    # main()
-
-    argParser = argparse.ArgumentParser()
-
-    argParser.add_argument(
-        "--file",
-        help="File to read from",
-        type=str,
-        default="sequence_braiding_refined.csv",
-        required=False,
-    )
-
-    argParser.add_argument(
-        "--evttype",
-        help="1. Point 2.Interval 3.Mixed event",
-        type=int,
-        default=1,
-        required=False,
-    )
-
-    argParser.add_argument(
-        "--startidx",
-        help="Column Index of starting time",
-        type=int,
-        default=0,
-        required=False,
-    )
-
-    argParser.add_argument(
-        "--endidx",
-        help="Column Index of ending time",
-        type=int,
-        default=1,
-        required=False,
-    )
-
-    argParser.add_argument(
-        "--format", help="Time format", type=str, default="%m/%d/%y", required=False
-    )
-
-    argParser.add_argument(
-        "--sep", help="separator of fields", type=str, default=",", required=False
-    )
-
-    argParser.add_argument(
-        "--local",
-        help="Local availability of file",
-        type=bool,
-        default=True,
-        required=False,
-    )
-
-    argParser.add_argument(
-        "--header", help="name of fields", nargs="+", default="", required=False
-    )
-
-    argParser.add_argument(
-        "--attr", help="Attribute to run mining on", type=str, required=True
-    )
-
-    argParser.add_argument(
-        "--grpattr",
-        help="group the sequences based on this attribute",
-        type=str,
-        default="",
-    )
-
-    argParser.add_argument("--split", help="split the sequences", type=str, default="")
-
-    argParser.add_argument("--output", help="Path of output file", type=str, default="")
-
-    argParser.add_argument("--alpha", type=float, default=0.99)
-    argParser.add_argument("--lambdaVal", type=float, default=0.01)
-    argParser.add_argument("--fileIdentifier", type=str, default="")
-
-    args = argParser.parse_args()
+def main():
+    # Get the parser with common arguments and add Sequence Synopsis-specific arguments
+    parser = get_common_parser()
+    parser = add_sequencesynopsis_args(parser)
+    args = parser.parse_args()
     print(args)
 
     # Eventstore creates a list of events
@@ -160,7 +90,8 @@ if __name__ == "__main__":
     ssm = result[0]
     grph = result[1]
     z = json.dumps(grph, ensure_ascii=False, default=Graph.jsonSerializeDump, indent=1)
-    # print(z)
+    print("\n\n*****SeqSynopsis output******\n\n")
+    print(z)
     with open("+seqsynopsis_msp" + ".json", "w") as the_file3:
         the_file3.write(z)
     # print(ssm)
@@ -224,3 +155,7 @@ if __name__ == "__main__":
         "w",
     ) as the_file:
         the_file.write(x)
+
+
+if __name__ == "__main__":
+    main()
