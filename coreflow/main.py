@@ -6,11 +6,12 @@ import sys
 import os
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from core.Graph import Graph
-from coreflow.CoreFlowMiner import CoreFlowMiner
 from datamodel.EventStore import EventStore
 from datamodel.Sequence import Sequence
+from datamodel.EventAggregate import aggregateEventsRegex, aggregateEventsDict
 from core.Node import TreeNode
+from core.Graph import Graph
+from coreflow.CoreFlowMiner import CoreFlowMiner
 import argparse
 import json
 
@@ -24,7 +25,7 @@ if __name__ == "__main__":
         "--file",
         help="File to read from",
         type=str,
-        default="sequence_braiding_refined.csv",
+        default="../Sample_Dataset.csv",
         required=False,
     )
 
@@ -88,9 +89,37 @@ if __name__ == "__main__":
     argParser.add_argument(
         "--output", help="Path of output file", type=str, default="./"
     )
+    argParser.add_argument(
+        "--minsup",
+        help="Minimum support threshold (0.0-1.0)",
+        type=float,
+        default=0.2,
+        required=False,
+    )
+
+    argParser.add_argument(
+        "--merge",
+        help="merge the events in the file 1. Dictionary 2. Regex",
+        type=int,
+        default=0,
+    )
+
+    argParser.add_argument(
+        "--mergefile", help="merge the events in the file", type=str, default=""
+    )
 
     args = argParser.parse_args()
     print(args)
+
+    if not args.output:
+        if args.local:
+            args.output = (
+                os.path.dirname(os.path.abspath(args.file)) + "/output_minsupport/"
+            )
+            print(f" Output path {args.output}")
+            # basename = os.path.splitext(os.path.basename(args.file))[0]
+    if not os.path.exists(args.output):
+        os.makedirs(args.output)
 
     # Eventstore creates a list of events
     eventStore = EventStore()
@@ -124,6 +153,13 @@ if __name__ == "__main__":
             header=args.header,
         )
 
+        # create Sequences from Eventstore
+    if args.merge:
+        if args.merge == 1:
+            aggregateEventsDict(eventStore, "dict.txt", args.attr)
+        elif args.merge == 2:
+            aggregateEventsRegex(eventStore, "dict.txt", args.attr)
+
     # create Sequences from Eventstore
     if args.grpattr:
         seq = eventStore.generateSequence(args.grpattr)
@@ -138,7 +174,9 @@ if __name__ == "__main__":
         else:
             seqList = seq
 
-    cfm = CoreFlowMiner(args.attr, minSup=0.2 * len(seqList), maxSup=len(seqList))
+    cfm = CoreFlowMiner(
+        args.attr, minSup=args.minsup * len(seqList), maxSup=len(seqList)
+    )
 
     # cfm.run(seqList, args.attr, root, 5 * Sequence.getSeqVolume(
     #       seqList)/100.0, Sequence.getSeqVolume(seqList), [], {}, -1)

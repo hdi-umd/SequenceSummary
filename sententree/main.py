@@ -5,10 +5,10 @@ import sys
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from datamodel.EventStore import EventStore
-from sententree.SentenTreeMiner import SentenTreeMiner
-from core.Graph import Graph
 from datamodel.EventAggregate import aggregateEventsRegex, aggregateEventsDict
 from datamodel.Sequence import Sequence
+from core.Graph import Graph
+from sententree.SentenTreeMiner import SentenTreeMiner
 import json
 import argparse
 
@@ -21,7 +21,7 @@ if __name__ == "__main__":
         "--file",
         help="File to read from",
         type=str,
-        default="../coreflow/sequence_braiding_refined.csv",
+        default="../Sample_Dataset.csv",
         required=False,
     )
     argParser.add_argument(
@@ -64,17 +64,28 @@ if __name__ == "__main__":
     )
 
     argParser.add_argument(
+        "--attr", help="Attribute to run mining on", type=str, required=True
+    )
+
+    argParser.add_argument(
         "--grpattr",
         help="group the sequences based on this attribute",
         type=str,
         default="",
     )
 
+    argParser.add_argument("--split", help="split the sequences", type=str, default="")
     argParser.add_argument(
-        "--attr", help="Attribute to run mining on", type=str, required=True
+        "--output", help="Path of output file", type=str, default="./"
+    )
+    argParser.add_argument(
+        "--minsup",
+        help="Minimum support threshold (0.0-1.0)",
+        type=float,
+        default=0.2,
+        required=False,
     )
 
-    argParser.add_argument("--split", help="split the sequences", type=str, default="")
     argParser.add_argument(
         "--merge",
         help="merge the events in the file 1. Dictionary 2. Regex",
@@ -85,8 +96,6 @@ if __name__ == "__main__":
     argParser.add_argument(
         "--mergefile", help="merge the events in the file", type=str, default=""
     )
-
-    argParser.add_argument("--output", help="Path of output file", type=str, default="")
 
     args = argParser.parse_args()
     print(args)
@@ -157,34 +166,18 @@ if __name__ == "__main__":
 
     print(eventStore.reverseAttrDict[args.attr])
 
-    minSupParam = 0.05
-    while minSupParam <= 0.30:
-        # stm = SentenTreeMiner(minSup=0.2*len(seqList), maxSup=len(seqList))
-        stm = SentenTreeMiner(
-            args.attr, minSup=minSupParam * len(seqList), maxSup=len(seqList)
-        )
-        graph = stm.runSentenTreeMiner(seqList)
-        # cfm.truncateSequences(self, seqs, hashVal, evtAttr, node,trailingSeqSegs, notContain)
+    stm = SentenTreeMiner(
+        args.attr, minSup=args.minsup * len(seqList), maxSup=len(seqList)
+    )
+    graph = stm.runSentenTreeMiner(seqList)
+    print("\n\n*****SentenTree Graph output******\n\n")
 
-        # x = json.dumps(root, ensure_ascii=False,
-        #                default=RawNode.jsonSerializeDump, indent=1)
-        # print("\n\n*****SentenTree output GraphNode******\n\n")
+    y = json.dumps(graph, ensure_ascii=False, default=Graph.jsonSerializeDump, indent=1)
+    print(y)
+    with open(
+        args.output + "+sententree_msp" + f"{args.minsup:.2f}" + ".json", "w"
+    ) as the_file2:
+        the_file2.write(y)
 
-        # x = json.dumps(root, ensure_ascii=False,
-        #                default=GraphNode.jsonSerializeDump, indent=1)
-        # print(x)
-
-        print("\n\n*****SentenTree Graph output******\n\n")
-
-        y = json.dumps(
-            graph, ensure_ascii=False, default=Graph.jsonSerializeDump, indent=1
-        )
-        print(y)
-        with open(
-            args.output + "+sententree_msp" + f"{minSupParam:.2f}" + ".json", "w"
-        ) as the_file2:
-            the_file2.write(y)
-        minSupParam += 0.05
-
-        # with open(args.output+'outfile.json', 'w') as the_file:
-        #     the_file.write(x)
+    # with open(args.output+'outfile.json', 'w') as the_file:
+    #     the_file.write(x)
