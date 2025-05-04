@@ -12,6 +12,7 @@ from utils.data_loader import (
     generate_sequences,
     ensure_output_directory,
 )
+from utils.logger import setup_logger
 from datamodel.EventStore import EventStore
 from datamodel.Sequence import Sequence
 from datamodel.EventAggregate import aggregateEventsRegex, aggregateEventsDict
@@ -21,22 +22,29 @@ from coreflow.CoreFlowMiner import CoreFlowMiner
 import argparse
 import json
 
+# Set up logger for this module
+logger = setup_logger(__name__, "CoreFlow")
+
 
 def main():
     # Get the parser with common arguments and add CoreFlow-specific arguments
     parser = get_common_parser()
     parser = add_coreflow_args(parser)
     args = parser.parse_args()
-    print(args)
+    logger.info(f"Arguments: {args}")
 
     # Ensure output directory exists
     output_path = ensure_output_directory(args)
+    logger.info(f"Output directory: {output_path}")
 
     # Load data
+    logger.info(f"Loading data from {args.file}")
     eventStore = load_event_store(args)
 
     # Generate sequences
+    logger.info("Generating sequences")
     seqList = generate_sequences(eventStore, args)
+    logger.info(f"Generated {len(seqList)} sequences")
 
     print(f"\nEvent dictionary: {eventStore.reverseAttrDict[args.attr]}\n")
 
