@@ -327,6 +327,26 @@ python coreflow/main.py --file "Sample_Dataset.csv" --grpattr "Sequence" --attr 
 
 These features can be combined with the main visualization techniques and parameters to create customized and insightful visual summaries of event sequence data.
 
+### Benchmarking
+
+The repository includes built-in benchmarking functionality to evaluate and compare the performance of different pattern mining techniques:
+
+#### Performance Metrics
+
+The **RunAll.py** script automatically collects and logs the following performance metrics:
+
+- **Execution Time**: Measured in seconds, showing how long each algorithm takes to process the dataset
+- **Memory Usage**: Peak memory consumption during execution, measured in MB
+
+Running the RunAll.py script will:
+  1. Process the input dataset with CoreFlow, SentenTree, and Sequence Synopsis
+  2. Test multiple granularity levels (minimum support values from 0.05 to 0.30)
+  3. Record execution time and memory usage for each configuration
+  4. Save visual summary outputs for all configurations
+  5. Generate a CSV file (TimeMemoryAnalysis.csv) with detailed performance metrics
+
+
+
 ## Visualization App
 
 The repository includes a web-based visualization application that renders the outputs from all three techniques:
