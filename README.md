@@ -118,17 +118,19 @@ Arguments:
 
 --output (str): Directory where the output files will be saved.
 
---alpha 0.1 (float, for Sequence Synopsis only):
+--minsup (float): Minimum support parameter for CoreFlow and SentenTree algorithm.
 
---lambdaVal 0.9 (float, for Sequence Synopsis only): 
+--alpha (float): for Sequence Synopsis only
+
+--lambdaVal (float):  for Sequence Synopsis only 
 
 #### CoreFlow Example
 ```bash
 # Run CoreFlow mining on the sample dataset
 python coreflow/main.py --file "Sample_Dataset.csv" --evttype 1 --startidx 0 \
   --format "%m/%d/%y" --sep "," --local True \
-  --grpattr "Sequence" --attr "Event" \
-  --output "./output/"
+  --grpattr "Sequence" --attr "Event" \ 
+ --minsup 0.5  --output "./output/" 
 ```
 
 #### SentenTree Example
@@ -137,7 +139,7 @@ python coreflow/main.py --file "Sample_Dataset.csv" --evttype 1 --startidx 0 \
 python sententree/main.py --file "Sample_Dataset.csv" --evttype 1 --startidx 0 \
   --format "%m/%d/%y" --sep "," --local True \
   --grpattr "Sequence" --attr "Event" \
-  --output "./output/"
+  --minsup 0.5  --output "./output/"  
 ```
 
 #### Sequence Synopsis Example
@@ -157,7 +159,8 @@ Download the SPMF JAR file (spmf.jar) from the [official website](https://www.ph
 Place the JAR file in a directory of your choice (for example, in the spmf directory of the project)
 
 ```bash
-python main.py --file "../Sample_Dataset.csv" --evttype 1 --startidx 0 --format "%m/%d/%Y" --sep "," --local True --attr "Events"
+cd spmf
+python main.py --file "../Sample_Dataset.csv" --evttype 1 --startidx 0 --format "%m/%d/%Y" --sep "," --local True --attr "Event"
 ```
 
 #### Running All Techniques for Comparison
