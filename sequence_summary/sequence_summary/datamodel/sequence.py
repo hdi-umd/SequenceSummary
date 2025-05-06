@@ -4,7 +4,7 @@ from itertools import count
 
 # from Event import Event
 from datetime import datetime
-from utils.Helper import getTimeToSortBy, insertEventIntoDict
+from sequence_summary.utils.helper import getTimeToSortBy, insertEventIntoDict
 import csv
 
 
